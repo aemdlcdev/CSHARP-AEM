@@ -254,21 +254,24 @@ public class ListaEnlazada<T>{
     Nodo<T> anterior=null;
     int contador=0;
     if(pos<0 || pos>=cuantosElementos()){
-    System.out.println("La posicion insertada no es correcta");
-    }else{
-    while(aux!=null){
-    if (pos == contador){
-    if (anterior==null){
-    primero = primero.getSiguiente();
-    }else {
-    //Actualizamos el anterior
-    anterior.setSiguiente(aux.getSiguiente());
+        System.out.println("La posicion insertada no es correcta");
     }
+    else{
+        while(aux!=null){
+        if (pos == contador){
+            if (anterior==null){
+            primero = primero.getSiguiente();
+        }
+            else {
+            //Actualizamos el anterior
+            anterior.setSiguiente(aux.getSiguiente());
+        }
     aux=null;
-    }else{
-    anterior=aux;
-    aux=aux.getSiguiente();
-    contador++;
+    }
+        else{
+        anterior=aux;
+        aux=aux.getSiguiente();
+        contador++;
     }
     }
     }
