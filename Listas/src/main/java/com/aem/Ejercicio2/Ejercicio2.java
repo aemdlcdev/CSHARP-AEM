@@ -5,6 +5,8 @@
 
 package com.aem.Ejercicio2;
 
+import com.aem.listas.ListaEnlazada;
+
 /**
  *
  * @author AEM by Alejandro Esteban Martinez de la Casa
@@ -27,6 +29,40 @@ public class Ejercicio2 {
             no el estilo
          */
         
+        ListaEnlazada<Producto> lista = new ListaEnlazada<Producto>();
         
+        int numProductos=generaRandom(1,8);
+        
+        int cantidad;
+        double precio=generaNumeroRealAleatorio(1,20);
+        
+        for(int i=0;i<numProductos;i++){
+            cantidad=generaRandom(1,50);
+            precio=generaRandom(1,20);
+            Producto p = new Producto(cantidad,precio);
+            lista.introducirDato(i, p);
+        }
+        
+        double precioTotal=0;
+        
+        for(int i=0;i<lista.cuantosElementos();i++){
+            precioTotal=lista.devolverDato(i).getCantidad()*lista.devolverDato(i).getPrecio();
+        }
+        System.out.println("Lista productos:");
+        for(int i=0;i<lista.cuantosElementos();i++){
+            System.out.println("Producto"+i+" Cantidad: "+lista.devolverDato(i).getCantidad() + " Precio: "+lista.devolverDato(i).getPrecio());
+        }
+        System.out.println("Total recaudado: " + precioTotal + " euros");
+    }
+    
+    public static int generaRandom(int min, int max){
+        int num = (int)(Math.floor(Math.random()*(min-max+1))+(max+1));
+        return num;
+    }
+    
+    public static double generaNumeroRealAleatorio(double minimo, double maximo){
+        double num=Math.rint(Math.floor(Math.random()*(minimo-
+        ((maximo*100)+1))+((maximo*100)+1)))/100;
+        return num;
     }
 }
