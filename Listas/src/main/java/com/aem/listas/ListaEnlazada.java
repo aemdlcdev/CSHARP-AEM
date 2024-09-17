@@ -250,31 +250,31 @@ public class ListaEnlazada<T>{
     * @param pos Posición de la lista que queremos borrar
     */
     public void borraPosicion(int pos){
-    Nodo<T> aux=primero;
-    Nodo<T> anterior=null;
-    int contador=0;
-    if(pos<0 || pos>=cuantosElementos()){
-        System.out.println("La posicion insertada no es correcta");
-    }
-    else{
-        while(aux!=null){
-        if (pos == contador){
-            if (anterior==null){
-            primero = primero.getSiguiente();
+        Nodo<T> aux=primero;
+        Nodo<T> anterior=null;
+        int contador=0;
+        if(pos<0 || pos>=cuantosElementos()){
+            System.out.println("La posicion insertada no es correcta");
         }
-            else {
-            //Actualizamos el anterior
-            anterior.setSiguiente(aux.getSiguiente());
-        }
-    aux=null;
-    }
         else{
-        anterior=aux;
-        aux=aux.getSiguiente();
-        contador++;
-    }
-    }
-    }
+            while(aux!=null){
+            if (pos == contador){
+                if (anterior==null){
+                primero = primero.getSiguiente();
+            }
+                else {
+                //Actualizamos el anterior
+                anterior.setSiguiente(aux.getSiguiente());
+            }
+        aux=null;
+        }
+            else{
+            anterior=aux;
+            aux=aux.getSiguiente();
+            contador++;
+            }
+            }
+        }
     }
     /**
     * Devuelve el primer el elemento y lo borra de la lista

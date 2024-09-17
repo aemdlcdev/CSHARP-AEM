@@ -3,9 +3,10 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
 
-package com.aem.listas;
+package com.aem.Ejercicio1;
 
 import com.aem.Ejercicio1.Persona;
+import com.aem.listas.ListaEnlazada;
 
 /**
  *
@@ -30,7 +31,7 @@ public class Main {
         
         ListaEnlazada<Persona> listaPersonas = new ListaEnlazada<Persona>();
         
-        int numPersonas = generaRandom(0,10);
+        int numPersonas = generaRandom(0,5);
         
         for(int i=0;i<=numPersonas;i++){
             Persona p = new Persona(generaRandom(5,60));
@@ -41,7 +42,9 @@ public class Main {
         double dosEuro=0;
         double tresEuro=0;
         
-        listaPersonas.mostrar();
+        for(int i=0;i<listaPersonas.cuantosElementos();i++){
+            System.out.println(listaPersonas.devolverDato(i).getEdad());
+        }
         
         for(int i=0;i<listaPersonas.cuantosElementos();i++){
             int edad=listaPersonas.devolverDato(i).getEdad();
@@ -57,17 +60,24 @@ public class Main {
             
         }
         
-        
+        double total=unEuro+dosEuro+tresEuro;
         System.out.println("Recaudacion entre 5 y 10 anios "+unEuro+" euros");
         System.out.println("Recaudacion entre 11 y 17 anios "+dosEuro+" euros");
         System.out.println("Recaudacion mayores de 18 anios "+tresEuro+" euros");
+        System.out.println("Total recaudado: " + total + " euros" );
         
+       
+       //Vacío la lista ya que todos han pagado y se han calculado las ganancias
+       for (int i=0;i<listaPersonas.cuantosElementos();i++){
+           listaPersonas.borraPosicion(i);
+       }
+       listaPersonas.quitarPrimero();
+       listaPersonas.quitarUltimo();
+       //Compruebo que la lista esté vacía
+       for (int i=0;i<listaPersonas.cuantosElementos();i++){
+           System.out.println(listaPersonas.devolverDato(i).getEdad());
+       }
         
-        for(int i=0;i<listaPersonas.cuantosElementos();i++){
-            listaPersonas.borraPosicion(i);
-        }
-        
-        listaPersonas.mostrar();
     }
     
     
