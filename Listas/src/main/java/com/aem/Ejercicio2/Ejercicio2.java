@@ -50,7 +50,7 @@ public class Ejercicio2 {
         }
         System.out.println("Lista productos:");
         for(int i=0;i<lista.cuantosElementos();i++){
-            System.out.println("Producto"+i+" Cantidad: "+lista.devolverDato(i).getCantidad() + " Precio: "+lista.devolverDato(i).getPrecio());
+            System.out.println("Producto"+(i+1)+" Cantidad: "+lista.devolverDato(i).getCantidad() + " Precio: "+lista.devolverDato(i).getPrecio());
         }
         System.out.println("Total recaudado: " + precioTotal + " euros");
     }
