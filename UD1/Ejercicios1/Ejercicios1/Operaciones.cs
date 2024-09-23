@@ -6,15 +6,16 @@ using System.Threading.Tasks;
 
 namespace Ejercicios1
 {
-    internal class Ejercicios
+    internal class Operaciones
     {
-        public static void ejercicio1()
+        /*
+         * Usuario introduce numeros y el programa cuenta los positivos
+         * 
+         */
+        public static void cuentaPositivos()
         {
 
-            /*
-             * Usuario introduce numeros y el programa cuenta los positivos
-             * 
-             */
+            
             int positivos = 0;
 
             int numTecleado = 0;
@@ -34,7 +35,19 @@ namespace Ejercicios1
 
             }
             Console.WriteLine("Total de numeros positivos tecleados: " + positivos);
-            Console.ReadKey(); //Esto lo uso para que no se cierre la consola cuando termine la ejecucion
+            
         }
+
+        /*
+         * Metodo que dado un minimo y un max genera un random entre estos 
+         * 
+         */
+        public static int generaRandom(int min, int max)
+        {
+            Random random = new Random();
+            int num = random.Next(min, max+1); //+1 para incluir el valor maximo
+            return num;
+        }
+
     }
 }
