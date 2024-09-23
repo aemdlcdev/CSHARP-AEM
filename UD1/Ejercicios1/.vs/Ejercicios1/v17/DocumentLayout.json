@@ -5,6 +5,10 @@
     {
       "AbsoluteMoniker": "D:0:0:{7925E941-6ACB-4CD8-8849-753C08A02AD9}|Ejercicios1\\Ejercicios1.csproj|c:\\users\\b15-03m\\documents\\netbeansprojects\\di-aem\\ud1\\ejercicios1\\ejercicios1\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{7925E941-6ACB-4CD8-8849-753C08A02AD9}|Ejercicios1\\Ejercicios1.csproj|solutionrelative:ejercicios1\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7925E941-6ACB-4CD8-8849-753C08A02AD9}|Ejercicios1\\Ejercicios1.csproj|c:\\users\\b15-03m\\documents\\netbeansprojects\\di-aem\\ud1\\ejercicios1\\ejercicios1\\ejercicios.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7925E941-6ACB-4CD8-8849-753C08A02AD9}|Ejercicios1\\Ejercicios1.csproj|solutionrelative:ejercicios1\\ejercicios.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -14,8 +18,21 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 0,
+          "SelectedChildIndex": 1,
           "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Ejercicios.cs",
+              "DocumentMoniker": "C:\\Users\\b15-03m\\Documents\\NetBeansProjects\\DI-AEM\\UD1\\Ejercicios1\\Ejercicios1\\Ejercicios.cs",
+              "RelativeDocumentMoniker": "Ejercicios1\\Ejercicios.cs",
+              "ToolTip": "C:\\Users\\b15-03m\\Documents\\NetBeansProjects\\DI-AEM\\UD1\\Ejercicios1\\Ejercicios1\\Ejercicios.cs",
+              "RelativeToolTip": "Ejercicios1\\Ejercicios.cs",
+              "ViewState": "AgIAAAYAAAAAAAAAAAAAAAoAAAAVAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-23T10:31:02.511Z",
+              "EditorCaption": ""
+            },
             {
               "$type": "Document",
               "DocumentIndex": 0,
@@ -24,7 +41,7 @@
               "RelativeDocumentMoniker": "Ejercicios1\\Program.cs",
               "ToolTip": "C:\\Users\\b15-03m\\Documents\\NetBeansProjects\\DI-AEM\\UD1\\Ejercicios1\\Ejercicios1\\Program.cs",
               "RelativeToolTip": "Ejercicios1\\Program.cs",
-              "ViewState": "AgIAAAgAAAAAAAAAAAAxwCIAAAAeAAAAAAAAAA==",
+              "ViewState": "AgIAAAYAAAAAAAAAAAAAAA0AAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-09-23T10:12:07.316Z",
               "EditorCaption": ""
