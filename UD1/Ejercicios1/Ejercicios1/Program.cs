@@ -15,7 +15,7 @@ namespace Ejercicios1
 
             Console.WriteLine("");
 
-            Console.WriteLine("Numero random entre 0 y 100: "+ Operaciones.generaRandom(0, 10));
+            Console.WriteLine("Numero random entre 0 y 100: "+ Operaciones.generaRandom(0, 100));
             
             Console.ReadKey(); //Esto lo uso para que no se cierre la consola cuando termine la ejecucion
         }
