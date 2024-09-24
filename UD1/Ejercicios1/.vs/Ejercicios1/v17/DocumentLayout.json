@@ -3,12 +3,12 @@
   "WorkspaceRootPath": "C:\\Users\\b15-03m\\Documents\\NetBeansProjects\\DI-AEM\\UD1\\Ejercicios1\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{7925E941-6ACB-4CD8-8849-753C08A02AD9}|Ejercicios1\\Ejercicios1.csproj|C:\\Users\\b15-03m\\Documents\\NetBeansProjects\\DI-AEM\\UD1\\Ejercicios1\\ejercicios1\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{7925E941-6ACB-4CD8-8849-753C08A02AD9}|Ejercicios1\\Ejercicios1.csproj|solutionrelative:ejercicios1\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{7925E941-6ACB-4CD8-8849-753C08A02AD9}|Ejercicios1\\Ejercicios1.csproj|c:\\users\\b15-03m\\documents\\netbeansprojects\\di-aem\\ud1\\ejercicios1\\ejercicios1\\operaciones.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{7925E941-6ACB-4CD8-8849-753C08A02AD9}|Ejercicios1\\Ejercicios1.csproj|solutionrelative:ejercicios1\\operaciones.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7925E941-6ACB-4CD8-8849-753C08A02AD9}|Ejercicios1\\Ejercicios1.csproj|C:\\Users\\b15-03m\\Documents\\NetBeansProjects\\DI-AEM\\UD1\\Ejercicios1\\ejercicios1\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7925E941-6ACB-4CD8-8849-753C08A02AD9}|Ejercicios1\\Ejercicios1.csproj|solutionrelative:ejercicios1\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -18,7 +18,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 1,
+          "SelectedChildIndex": 2,
           "Children": [
             {
               "$type": "Bookmark",
@@ -26,26 +26,26 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 1,
               "Title": "Program.cs",
               "DocumentMoniker": "C:\\Users\\b15-03m\\Documents\\NetBeansProjects\\DI-AEM\\UD1\\Ejercicios1\\Ejercicios1\\Program.cs",
               "RelativeDocumentMoniker": "Ejercicios1\\Program.cs",
               "ToolTip": "C:\\Users\\b15-03m\\Documents\\NetBeansProjects\\DI-AEM\\UD1\\Ejercicios1\\Ejercicios1\\Program.cs",
               "RelativeToolTip": "Ejercicios1\\Program.cs",
-              "ViewState": "AgIAAB8AAAAAAAAAAAAgwEAAAAANAAAAAAAAAA==",
+              "ViewState": "AgIAAAMAAAAAAAAAAAAiwBEAAAAeAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-09-23T10:12:07.316Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 0,
               "Title": "Operaciones.cs",
               "DocumentMoniker": "C:\\Users\\b15-03m\\Documents\\NetBeansProjects\\DI-AEM\\UD1\\Ejercicios1\\Ejercicios1\\Operaciones.cs",
               "RelativeDocumentMoniker": "Ejercicios1\\Operaciones.cs",
               "ToolTip": "C:\\Users\\b15-03m\\Documents\\NetBeansProjects\\DI-AEM\\UD1\\Ejercicios1\\Ejercicios1\\Operaciones.cs",
               "RelativeToolTip": "Ejercicios1\\Operaciones.cs",
-              "ViewState": "AgIAABwAAAAAAAAAAAAwwCwAAAAaAAAAAAAAAA==",
+              "ViewState": "AgIAABYAAAAAAAAAAAAgwDgAAAAYAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-09-23T10:31:02.511Z",
               "EditorCaption": ""

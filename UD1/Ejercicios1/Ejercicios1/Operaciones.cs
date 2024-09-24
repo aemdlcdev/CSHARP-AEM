@@ -8,6 +8,9 @@ namespace Ejercicios1
 {
     internal class Operaciones
     {
+
+        private static Random _rng = new Random();
+        private static readonly object _syncLock = new object();
         /*
          * Usuario introduce numeros y el programa cuenta los positivos
          * 
@@ -37,7 +40,7 @@ namespace Ejercicios1
             Console.WriteLine("Total de numeros positivos tecleados: " + positivos);
             
         }
-
+        
         /// <summary>
         /// Genera un número aleatorio dentro de un rango especificado.
         /// </summary>
@@ -47,11 +50,12 @@ namespace Ejercicios1
         /// <exception cref="ArgumentOutOfRangeException">
         /// Se lanza si el valor de <paramref name="min"/> es mayor que el valor de <paramref name="max"/>.
         /// </exception>
-        public static int GeneraRandom(int Min, int Max)
+        public static int GeneraRandom(int min, int max)
         {
-            Random random = new Random();
-            int Num = random.Next(Min, Max+1); //+1 para incluir el valor maximo
-            return Num;
+           lock (_syncLock)
+            {
+                return _rng.Next(min, max);
+            }
         }
         
         public static void IntroduccionListas()
@@ -101,5 +105,21 @@ namespace Ejercicios1
             Console.ReadKey();
         }
         
+        public static List<int> CreaListaCienElementos()
+        {
+            List<int> Lista = new List<int>();
+            
+            for (int i = 0; i < 100; i++) { 
+                int Random = GeneraRandom(1, 50);
+                Lista.Add(Random);
+            }
+            return Lista;
+        }
+
+        public static void MuestraLista(List<int> Lista) {
+            foreach (int i in Lista) { 
+                Console.WriteLine(i);
+            }
+        }
     }
 }

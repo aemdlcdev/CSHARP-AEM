@@ -11,7 +11,11 @@ namespace Ejercicios1
 
         static void Main(string[] args)
         {
-           
+            //Hacer una lista de numeros aleatorios de 1 a 50
+
+            List<int> Lista = Operaciones.CreaListaCienElementos();
+            Operaciones.MuestraLista(Lista);
+            Console.ReadKey();
         }
     }
 }
