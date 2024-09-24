@@ -38,16 +38,22 @@ namespace Ejercicios1
             
         }
 
-        /*
-         * Metodo que dado un minimo y un max genera un random entre estos 
-         * 
-         */
+        /// <summary>
+        /// Genera un número aleatorio dentro de un rango especificado.
+        /// </summary>
+        /// <param name="min">El valor mínimo del rango (incluido).</param>
+        /// <param name="max">El valor máximo del rango (incluido).</param>
+        /// <returns>Un número aleatorio entero entre el valor mínimo y el valor máximo, ambos inclusive.</returns>
+        /// <exception cref="ArgumentOutOfRangeException">
+        /// Se lanza si el valor de <paramref name="min"/> es mayor que el valor de <paramref name="max"/>.
+        /// </exception>
         public static int generaRandom(int min, int max)
         {
             Random random = new Random();
             int num = random.Next(min, max+1); //+1 para incluir el valor maximo
             return num;
-        }        
+        }
+        
         
     }
 }
