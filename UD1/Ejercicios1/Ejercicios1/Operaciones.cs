@@ -41,17 +41,17 @@ namespace Ejercicios1
         /// <summary>
         /// Genera un número aleatorio dentro de un rango especificado.
         /// </summary>
-        /// <param name="min">El valor mínimo del rango (incluido).</param>
-        /// <param name="max">El valor máximo del rango (incluido).</param>
+        /// <param name="Min">El valor mínimo del rango (incluido).</param>
+        /// <param name="Max">El valor máximo del rango (incluido).</param>
         /// <returns>Un número aleatorio entero entre el valor mínimo y el valor máximo, ambos inclusive.</returns>
         /// <exception cref="ArgumentOutOfRangeException">
         /// Se lanza si el valor de <paramref name="min"/> es mayor que el valor de <paramref name="max"/>.
         /// </exception>
-        public static int generaRandom(int min, int max)
+        public static int GeneraRandom(int Min, int Max)
         {
             Random random = new Random();
-            int num = random.Next(min, max+1); //+1 para incluir el valor maximo
-            return num;
+            int Num = random.Next(Min, Max+1); //+1 para incluir el valor maximo
+            return Num;
         }
         
         
