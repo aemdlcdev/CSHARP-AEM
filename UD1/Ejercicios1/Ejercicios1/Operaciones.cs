@@ -54,6 +54,52 @@ namespace Ejercicios1
             return Num;
         }
         
+        public static void IntroduccionListas()
+        {
+            List<string> ListaColores = new List<string>();
+
+            ListaColores.Add("Rojo");
+            ListaColores.Add("Amarillo");
+            ListaColores.Add("Verde");
+            ListaColores.Add("Azul");
+            ListaColores.Add("Morado");
+
+            Console.WriteLine(ListaColores[0]);
+            ListaColores[2] = "hola";
+            Console.WriteLine(ListaColores[2]);
+            Console.WriteLine();
+            foreach (String Str in ListaColores)
+            {
+                Console.WriteLine(Str);
+            }
+
+            Console.WriteLine();
+            ListaColores.Insert(2, "Alejandro");
+            foreach (String Str in ListaColores)
+            {
+                Console.WriteLine(Str);
+            }
+
+            Console.WriteLine();
+            ListaColores.Sort(); //Ordena por orden alfabetico
+            foreach (String Str in ListaColores)
+            {
+                Console.WriteLine(Str);
+            }
+
+            Console.WriteLine(ListaColores.IndexOf("Rojo")); //Devuelve el indice del contenido
+            Console.WriteLine(ListaColores.Contains("Rojo")); //Para ver si la lista contiene la cadena
+            ListaColores[ListaColores.IndexOf("Alejandro")] = "Verde"; //Le decimos que donde este Alejandro lo cambie por Verde
+            Console.WriteLine(ListaColores[3]);
+            Console.WriteLine(ListaColores.Count);
+            Console.WriteLine(ListaColores.Capacity);
+            ListaColores.Clear(); //Borro todo el contenido de la lista
+            foreach (String Str in ListaColores)
+            {
+                Console.WriteLine(Str);
+            }
+            Console.ReadKey();
+        }
         
     }
 }
