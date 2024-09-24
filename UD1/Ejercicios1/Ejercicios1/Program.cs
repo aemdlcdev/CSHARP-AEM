@@ -53,7 +53,16 @@ namespace Ejercicios1
             }
 
             Console.WriteLine(ListaColores.IndexOf("Rojo")); //Devuelve el indice del contenido
-
+            Console.WriteLine(ListaColores.Contains("Rojo")); //Para ver si la lista contiene la cadena
+            ListaColores[ListaColores.IndexOf("Alejandro")] = "Verde"; //Le decimos que donde este Alejandro lo cambie por Verde
+            Console.WriteLine(ListaColores[3]);
+            Console.WriteLine(ListaColores.Count);
+            Console.WriteLine(ListaColores.Capacity);
+            ListaColores.Clear(); //Borro todo el contenido de la lista
+            foreach (String Str in ListaColores)
+            {
+                Console.WriteLine(Str);
+            }
             Console.ReadKey();
         }
     }
