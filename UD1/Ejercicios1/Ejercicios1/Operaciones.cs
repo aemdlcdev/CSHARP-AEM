@@ -47,7 +47,7 @@ namespace Ejercicios1
             Random random = new Random();
             int num = random.Next(min, max+1); //+1 para incluir el valor maximo
             return num;
-        }
-
+        }        
+        
     }
 }
