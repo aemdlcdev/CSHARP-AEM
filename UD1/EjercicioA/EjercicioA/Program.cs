@@ -22,6 +22,8 @@ namespace EjercicioA
             EjercicioA.Apartado3Mod2(100);
             Console.WriteLine();
             EjercicioA.Apartado7();
+            Console.WriteLine();
+            EjercicioB.Apartado8();
             Console.ReadKey();
         }
     }
