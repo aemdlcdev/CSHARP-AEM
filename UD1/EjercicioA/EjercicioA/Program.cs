@@ -24,6 +24,14 @@ namespace EjercicioA
             EjercicioA.Apartado7();
             Console.WriteLine();
             EjercicioB.Apartado8();
+            Console.WriteLine();
+            EjercicioC.Apartado9("hola que tal");
+            Console.WriteLine();
+            EjercicioC.Apartado10("Dabale arroz a la zorra el abad");
+            Console.WriteLine();
+            EjercicioC.Apartado11("1011");
+            Console.WriteLine("");
+            EjercicioC.Apartado12("1A");
             Console.ReadKey();
         }
     }
