@@ -32,6 +32,10 @@ namespace EjercicioA
             EjercicioC.Apartado11("1011");
             Console.WriteLine("");
             EjercicioC.Apartado12("1A");
+            Console.WriteLine();
+            EjercicioD.Apartado13();
+            Console.WriteLine();
+            EjercicioD.Apartado14("1ABC");
             Console.ReadKey();
         }
     }

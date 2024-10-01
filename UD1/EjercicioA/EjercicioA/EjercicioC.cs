@@ -45,7 +45,7 @@ namespace EjercicioA
 
         }
 
-        private static bool EsBinarioValido(string binario) //Metodo auxiliar que comprueba que la cadena pasada solo contengan o 0 o 1
+        public static bool EsBinarioValido(string binario) //Metodo auxiliar que comprueba que la cadena pasada solo contengan o 0 o 1
         {
             foreach (char c in binario)
             {
@@ -57,20 +57,22 @@ namespace EjercicioA
             return true;
         }
 
-        public static void Apartado12(string hexadecimal)
+        public static int Apartado12(string hexadecimal)
         {
             if(EsHexadecimalValido(hexadecimal))
             {
                 int numDecimal = Convert.ToInt32(hexadecimal, 16);
                 Console.WriteLine($"El equivalente decimal para este numero hexadecimal \"{hexadecimal}\" es {numDecimal}.");
+                return numDecimal;
             }
             else
             {
                 Console.WriteLine("Numero hexadecimal invalido!");
+                return -1;
             }
         }
 
-        private static bool EsHexadecimalValido(string hexadecimal) //Metodo auxiliar que comprueba que la cadena pasada solo contenga numeros del 0 al 9 y ABCDEF
+        public static bool EsHexadecimalValido(string hexadecimal) //Metodo auxiliar que comprueba que la cadena pasada solo contenga numeros del 0 al 9 y ABCDEF
         {
             foreach (char c in hexadecimal)
             {
