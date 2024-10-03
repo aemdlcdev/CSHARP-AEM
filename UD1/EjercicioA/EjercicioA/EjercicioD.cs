@@ -47,7 +47,7 @@ namespace EjercicioA
             };
 
             string binario = "";
-
+            
             #region ConvertirBinario
             //Convierto a binario
             foreach (char c in hex)
