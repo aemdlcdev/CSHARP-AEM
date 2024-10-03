@@ -48,6 +48,7 @@ namespace EjercicioA
 
             string binario = "";
 
+            #region ConvertirBinario
             //Convierto a binario
             foreach (char c in hex)
             {
@@ -56,7 +57,7 @@ namespace EjercicioA
                 //Obtengo el numero binario correspondiente y lo concateno a mi cadena
                 binario += hexToBin[indice] + " ";
             }
-
+            #endregion
             //Muestro el resultado
             Console.WriteLine($"La cadena binaria equivalente para \"{hex}\" es {binario.Trim()}");
         }
