@@ -1,4 +1,4 @@
-﻿using System;
+﻿ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -15,6 +15,10 @@ namespace EjercicioA
 
             double area = 4 * Math.PI * Math.Pow(radio, 2);
             double volumen = (4.0 / 3.0) * Math.PI * Math.Pow(radio, 3);
+
+            //string opcion="hola";
+            //int op = (int)(opcion[0]);
+            //Console.WriteLine($"opcion: {op}");
 
             Console.WriteLine("El área de la superficie es: " + area);
             Console.WriteLine("El volumen de la esfera es: " + volumen);

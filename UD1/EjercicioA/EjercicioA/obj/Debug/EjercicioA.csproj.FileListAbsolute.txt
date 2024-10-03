@@ -12,3 +12,10 @@ C:\Users\Alejandro\Documents\GitHub\DI-AEM\UD1\EjercicioA\EjercicioA\obj\Debug\E
 C:\Users\Alejandro\Documents\GitHub\DI-AEM\UD1\EjercicioA\EjercicioA\obj\Debug\EjercicioA.csproj.CoreCompileInputs.cache
 C:\Users\Alejandro\Documents\GitHub\DI-AEM\UD1\EjercicioA\EjercicioA\obj\Debug\EjercicioA.exe
 C:\Users\Alejandro\Documents\GitHub\DI-AEM\UD1\EjercicioA\EjercicioA\obj\Debug\EjercicioA.pdb
+C:\Users\b15-03m\Documents\NetBeansProjects\DI-AEM\UD1\EjercicioA\EjercicioA\bin\Debug\EjercicioA.exe.config
+C:\Users\b15-03m\Documents\NetBeansProjects\DI-AEM\UD1\EjercicioA\EjercicioA\bin\Debug\EjercicioA.exe
+C:\Users\b15-03m\Documents\NetBeansProjects\DI-AEM\UD1\EjercicioA\EjercicioA\bin\Debug\EjercicioA.pdb
+C:\Users\b15-03m\Documents\NetBeansProjects\DI-AEM\UD1\EjercicioA\EjercicioA\obj\Debug\EjercicioA.csproj.AssemblyReference.cache
+C:\Users\b15-03m\Documents\NetBeansProjects\DI-AEM\UD1\EjercicioA\EjercicioA\obj\Debug\EjercicioA.csproj.CoreCompileInputs.cache
+C:\Users\b15-03m\Documents\NetBeansProjects\DI-AEM\UD1\EjercicioA\EjercicioA\obj\Debug\EjercicioA.exe
+C:\Users\b15-03m\Documents\NetBeansProjects\DI-AEM\UD1\EjercicioA\EjercicioA\obj\Debug\EjercicioA.pdb
