@@ -8,7 +8,6 @@ namespace Tablero
 {
     internal class Operaciones
     {
-
         public static void MuestraMenu()
         {
             Console.WriteLine("Seleccione una operacion");
@@ -50,6 +49,72 @@ namespace Tablero
             }
         }
 
+        public static void InicializarTablero(ref string[,] tablero)
+        {
+            for (int i = 0; i < tablero.GetLength(0); i++)
+            {
+                for (int j = 0; j < tablero.GetLength(1); j++)
+                {
+                    tablero[i, j] = "X"; 
+                }
+            }
+            tablero[0, 0] = "0"; 
+        }
+  
+        public static void MoverDerecha(ref string[,] tablero, ref int fila, ref int columna)
+        {
+            if (columna + 1 < tablero.GetLength(1)) 
+            {
+                tablero[fila, columna] = "X"; 
+                columna++; 
+                tablero[fila, columna] = "0"; 
+            }
+            else
+            {
+                Console.WriteLine("Movimiento no válido: no puedes moverte fuera del tablero.");
+            }
+        }
 
+        public static void MoverIzquierda(ref string[,] tablero, ref int fila, ref int columna)
+        {
+            if (columna - 1 >= 0) 
+            {
+                tablero[fila, columna] = "X"; 
+                columna--; 
+                tablero[fila, columna] = "0"; 
+            }
+            else
+            {
+                Console.WriteLine("Movimiento no válido: no puedes moverte fuera del tablero.");
+            }
+        }
+    
+        public static void MoverArriba(ref string[,] tablero, ref int fila, ref int columna)
+        {
+            if (fila - 1 >= 0) 
+            {
+                tablero[fila, columna] = "X"; 
+                fila--; 
+                tablero[fila, columna] = "0"; 
+            }
+            else
+            {
+                Console.WriteLine("Movimiento no válido: no puedes moverte fuera del tablero.");
+            }
+        }
+     
+        public static void MoverAbajo(ref string[,] tablero, ref int fila, ref int columna)
+        {
+            if (fila + 1 < tablero.GetLength(0)) 
+            {
+                tablero[fila, columna] = "X"; 
+                fila++; 
+                tablero[fila, columna] = "0"; 
+            }
+            else
+            {
+                Console.WriteLine("Movimiento no válido: no puedes moverte fuera del tablero.");
+            }
+        }
     }
 }

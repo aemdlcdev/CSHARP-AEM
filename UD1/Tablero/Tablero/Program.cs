@@ -12,24 +12,18 @@ namespace Tablero
 
         {
             #region TABLERO
-            string[,] tablero = new string[4, 4];
 
-            for (int i = 0; i < tablero.GetLength(0); i++)
-            {
-                for (int j = 0; j < tablero.GetLength(1); j++)
-                {
-                    tablero[i, j] = "X";
-                }
-            }
-            tablero[0, 0] = "0";
-            Operaciones.MuestraArray(tablero);
+            string[,] tablero = new string[4, 4];
+            Operaciones.InicializarTablero(ref tablero);
+
+            int fila = 0;
+            int columna = 0; 
+
+            bool esValido = false;
+
             #endregion
 
-            Console.WriteLine("");
-
-            #region MENU
-            bool esValido = false; 
-
+            #region MENUYOPCIONES
             do
             {
                 Operaciones.MuestraMenu(); 
@@ -38,39 +32,41 @@ namespace Tablero
 
                 switch (operacion)
                 {
-                    case 1: //Derecha
-                        tablero[0, 0] = "X";
-                        tablero[0, 0+1] = "0";
-                        Operaciones.MuestraArray(tablero);
-                        Console.WriteLine("Opción 1 seleccionada.");
-                      
+                    case 1: // Mover a la derecha
+                        Operaciones.MoverDerecha(ref tablero, ref fila, ref columna); 
+                        Operaciones.MuestraArray(tablero); 
                         break;
-                    case 2: //Izquierda
-                        Console.WriteLine("Opción 2 seleccionada.");
-                        
+
+                    case 2: // Mover a la izquierda
+                        Operaciones.MoverIzquierda(ref tablero, ref fila, ref columna); 
+                        Operaciones.MuestraArray(tablero); 
                         break;
-                    case 3: //Arriba
-                        Console.WriteLine("Opción 3 seleccionada.");
-                        
+
+                    case 3: // Mover hacia arriba
+                        Operaciones.MoverArriba(ref tablero, ref fila, ref columna); 
+                        Operaciones.MuestraArray(tablero); 
                         break;
-                    case 4: //Abajo
-                        Console.WriteLine("Opción 4 seleccionada.");
-                        
+
+                    case 4: // Mover hacia abajo
+                        Operaciones.MoverAbajo(ref tablero, ref fila, ref columna); 
+                        Operaciones.MuestraArray(tablero); 
                         break;
-                    case 5:
-                        Console.WriteLine("Adios"); 
+
+                    case 5: // Salir
                         esValido = true;
+                        Console.WriteLine("Finalizando el programa...");
                         break;
+
                     default:
-                        Console.WriteLine("Opción no reconocida. Intenta de nuevo."); 
+                        Console.WriteLine("Opción no válida, intenta de nuevo.");
                         break;
                 }
 
             } while (!esValido);
-            #endregion
+            #endregion  
 
+            Console.ReadLine();
 
-            Console.ReadKey();
         }
     }
 }
