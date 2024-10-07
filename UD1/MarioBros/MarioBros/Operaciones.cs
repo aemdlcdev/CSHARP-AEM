@@ -64,7 +64,7 @@ namespace MarioBros
             {
                 for (int j = 0; j < tablero.GetLength(1); j++)
                 {
-                    tablero[i, j] =""+GeneraRandom(0,3);
+                    tablero[i, j] =""+GeneraRandom(0,2);
                 }
             }
             tablero[0, 0] = "M";
