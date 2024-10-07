@@ -23,8 +23,6 @@ namespace Tablero
 
             #endregion
 
-            
-            
             #region MENUYOPCIONES
             do
             {
@@ -70,7 +68,6 @@ namespace Tablero
             #endregion  
 
             Console.ReadLine();
-
         }
     }
 }
