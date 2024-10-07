@@ -19,6 +19,7 @@ namespace MarioBros
             bool esValido = false;
             #endregion
 
+            // Variables para contar las vidas y los ml de pocion
             int vidas = 5;
             int pocion = 0;
 
