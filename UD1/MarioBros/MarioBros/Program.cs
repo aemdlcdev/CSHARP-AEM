@@ -20,7 +20,7 @@ namespace MarioBros
             #endregion
 
             // Variables para contar las vidas y los ml de pocion
-            int vidas = 5;
+            int vidas = 3;
             int pocion = 0;
 
             #region MENUYOPCIONES
