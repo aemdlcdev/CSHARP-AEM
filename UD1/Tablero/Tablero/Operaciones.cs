@@ -66,7 +66,7 @@ namespace Tablero
             if (columna + 1 < tablero.GetLength(1)) 
             {
                 tablero[fila, columna] = "X"; 
-                columna++; 
+                columna++;
                 tablero[fila, columna] = "0"; 
             }
             else
