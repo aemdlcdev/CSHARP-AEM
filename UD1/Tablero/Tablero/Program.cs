@@ -23,9 +23,13 @@ namespace Tablero
 
             #endregion
 
+            
+            
             #region MENUYOPCIONES
             do
             {
+                Console.Clear(); // Para borrar la consola
+                Operaciones.MuestraArray(tablero);
                 Operaciones.MuestraMenu(); 
 
                 int operacion = Operaciones.LeeOpcion(); 
@@ -61,7 +65,7 @@ namespace Tablero
                         Console.WriteLine("Opción no válida, intenta de nuevo.");
                         break;
                 }
-
+                
             } while (!esValido);
             #endregion  
 

@@ -5,3 +5,10 @@ C:\Users\Alejandro\Documents\GitHub\DI-AEM\UD1\Tablero\Tablero\obj\Debug\Tablero
 C:\Users\Alejandro\Documents\GitHub\DI-AEM\UD1\Tablero\Tablero\obj\Debug\Tablero.csproj.CoreCompileInputs.cache
 C:\Users\Alejandro\Documents\GitHub\DI-AEM\UD1\Tablero\Tablero\obj\Debug\Tablero.exe
 C:\Users\Alejandro\Documents\GitHub\DI-AEM\UD1\Tablero\Tablero\obj\Debug\Tablero.pdb
+C:\Users\b15-03m\Documents\NetBeansProjects\DI-AEM\UD1\Tablero\Tablero\bin\Debug\Tablero.exe.config
+C:\Users\b15-03m\Documents\NetBeansProjects\DI-AEM\UD1\Tablero\Tablero\bin\Debug\Tablero.exe
+C:\Users\b15-03m\Documents\NetBeansProjects\DI-AEM\UD1\Tablero\Tablero\bin\Debug\Tablero.pdb
+C:\Users\b15-03m\Documents\NetBeansProjects\DI-AEM\UD1\Tablero\Tablero\obj\Debug\Tablero.csproj.AssemblyReference.cache
+C:\Users\b15-03m\Documents\NetBeansProjects\DI-AEM\UD1\Tablero\Tablero\obj\Debug\Tablero.csproj.CoreCompileInputs.cache
+C:\Users\b15-03m\Documents\NetBeansProjects\DI-AEM\UD1\Tablero\Tablero\obj\Debug\Tablero.exe
+C:\Users\b15-03m\Documents\NetBeansProjects\DI-AEM\UD1\Tablero\Tablero\obj\Debug\Tablero.pdb
