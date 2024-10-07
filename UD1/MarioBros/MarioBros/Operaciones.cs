@@ -78,46 +78,61 @@ namespace MarioBros
         {
             if (columna + 1 < tablero.GetLength(1))
             {
-                tablero[fila, columna] = "X";
+                tablero[fila, columna] = "X"; 
                 columna++;
-                tablero[fila, columna] = "M";
-                if (tablero[fila, columna].Equals(0)){
+
+                
+                string valorCelda = tablero[fila, columna];
+
+                
+                if (valorCelda == "0")  
+                {
                     vidas--;
-                } else if(tablero[fila, columna].Equals(1))
+                }
+                else if (valorCelda == "1")  
                 {
                     vidas++;
-                } else if (tablero[fila,columna].Equals(2))
+                }
+                else if (valorCelda == "2")  
                 {
-                    pocion = pocion + 2;
+                    pocion += 2;
                 }
 
+                
+                tablero[fila, columna] = "M";
             }
             else
             {
                 Console.WriteLine("Movimiento no válido: no puedes moverte fuera del tablero.");
             }
-           
         }
 
         public static void MoverIzquierda(ref string[,] tablero, ref int fila, ref int columna, ref int vidas, ref int pocion)
         {
             if (columna - 1 >= 0)
             {
-                tablero[fila, columna] = "X";
+                tablero[fila, columna] = "X"; 
                 columna--;
-                tablero[fila, columna] = "M";
-                if (tablero[fila, columna].Equals(0))
+
+                
+                string valorCelda = tablero[fila, columna];
+
+                
+                if (valorCelda == "0")  
                 {
                     vidas--;
                 }
-                else if (tablero[fila, columna].Equals(1))
+                else if (valorCelda == "1")  
                 {
                     vidas++;
                 }
-                else if (tablero[fila, columna].Equals(2))
+                else if (valorCelda == "2")  
                 {
-                    pocion = pocion + 2;
+                    pocion += 2;
                 }
+
+               
+                tablero[fila, columna] = "M";
             }
             else
             {
@@ -129,21 +144,28 @@ namespace MarioBros
         {
             if (fila - 1 >= 0)
             {
-                tablero[fila, columna] = "X";
+                tablero[fila, columna] = "X"; 
                 fila--;
-                tablero[fila, columna] = "M";
-                if (tablero[fila, columna].Equals(0))
+
+                
+                string valorCelda = tablero[fila, columna];
+
+                
+                if (valorCelda == "0")  
                 {
                     vidas--;
                 }
-                else if (tablero[fila, columna].Equals(1))
+                else if (valorCelda == "1")  
                 {
                     vidas++;
                 }
-                else if (tablero[fila, columna].Equals(2))
+                else if (valorCelda == "2")  
                 {
-                    pocion = pocion + 2;
+                    pocion += 2;
                 }
+
+                
+                tablero[fila, columna] = "M";
             }
             else
             {
@@ -155,21 +177,28 @@ namespace MarioBros
         {
             if (fila + 1 < tablero.GetLength(0))
             {
-                tablero[fila, columna] = "X";
+                tablero[fila, columna] = "X"; 
                 fila++;
-                tablero[fila, columna] = "M";
-                if (tablero[fila, columna].Equals(0))
+
+                
+                string valorCelda = tablero[fila, columna];
+
+                
+                if (valorCelda == "0") 
                 {
                     vidas--;
                 }
-                else if (tablero[fila, columna].Equals(1))
+                else if (valorCelda == "1") 
                 {
                     vidas++;
                 }
-                else if (tablero[fila, columna].Equals(2))
+                else if (valorCelda == "2")  
                 {
-                    pocion = pocion + 2;
+                    pocion += 2;
                 }
+
+                
+                tablero[fila, columna] = "M";
             }
             else
             {

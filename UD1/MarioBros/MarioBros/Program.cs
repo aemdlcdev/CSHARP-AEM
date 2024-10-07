@@ -67,12 +67,12 @@ namespace MarioBros
                         break;
                 }
 
-                if (pocion == 5) { 
+                if (pocion >= 5) { 
                     Console.WriteLine("Has ganado, tienes un total de " + pocion);
                     esValido = true;
                 }
 
-                if (vidas == 0)
+                if (vidas <= 0)
                 {
                     Console.WriteLine("Has perdido");
                     esValido=true;
