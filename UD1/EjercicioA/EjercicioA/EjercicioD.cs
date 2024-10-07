@@ -59,7 +59,7 @@ namespace EjercicioA
             }
             #endregion
             //Muestro el resultado
-            Console.WriteLine($"La cadena binaria equivalente para \"{hex}\" es {binario.Trim()}");
+            Console.Write($"La cadena binaria equivalente para \"{hex}\" es {binario.Trim()}");
         }
     }
 }
