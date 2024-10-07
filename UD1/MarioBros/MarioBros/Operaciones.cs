@@ -8,9 +8,173 @@ namespace MarioBros
 {
     internal class Operaciones
     {
-        public static void inicializarTablero()
-        {
+        private static Random random = new Random();
 
+        public static void MuestraMenu()
+        {
+            Console.WriteLine("Seleccione una operacion");
+            Console.WriteLine("1: Derecha");
+            Console.WriteLine("2: Izquierda");
+            Console.WriteLine("3: Arriba");
+            Console.WriteLine("4: Abajo");
+            Console.WriteLine("5: Salir");
+        }
+
+        public static int LeeOpcion()
+        {
+            try
+            {
+                int opcion = 0;
+                if (int.TryParse(Console.ReadLine(), out opcion))
+                {
+                    return opcion;
+                }
+
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Opcion incorrecta" + ex.Message);
+            }
+            return 0;
+        }
+        public static void MuestraArray(string[,] array)
+        {
+            // GetLength(0) obtiene el número de filas, GetLength(1) obtiene el número de columnas
+            for (int i = 0; i < array.GetLength(0); i++) // Recorre las filas
+            {
+                for (int j = 0; j < array.GetLength(1); j++) // Recorre las columnas
+                {
+                    Console.Write(array[i, j] + " "); // Imprime cada elemento de la matriz
+                }
+                Console.WriteLine(); // Salto de línea al final de cada fila
+            }
+        }
+
+        
+        public static void MuestraStats(ref int vidas, ref int pocion)
+        {
+            Console.WriteLine("Vidas: " + vidas);
+            Console.WriteLine("Pocion: " + pocion +" ml");
+
+        }
+
+        public static void InicializarTablero(string[,] tablero) 
+        {
+            for (int i = 0; i < tablero.GetLength(0); i++) 
+            {
+                for (int j = 0; j < tablero.GetLength(1); j++)
+                {
+                    tablero[i, j] =""+GeneraRandom(0,3);
+                }
+            }
+            tablero[0, 0] = "M";
+        }
+
+        public static int GeneraRandom(int min, int max) {
+            return random.Next(min, max+1);
+        }
+
+        public static void MoverDerecha(ref string[,] tablero, ref int fila, ref int columna, ref int vidas, ref int pocion)
+        {
+            if (columna + 1 < tablero.GetLength(1))
+            {
+                tablero[fila, columna] = "X";
+                columna++;
+                tablero[fila, columna] = "M";
+                if (tablero[fila, columna].Equals(0)){
+                    vidas--;
+                } else if(tablero[fila, columna].Equals(1))
+                {
+                    vidas++;
+                } else if (tablero[fila,columna].Equals(2))
+                {
+                    pocion = pocion + 2;
+                }
+
+            }
+            else
+            {
+                Console.WriteLine("Movimiento no válido: no puedes moverte fuera del tablero.");
+            }
+           
+        }
+
+        public static void MoverIzquierda(ref string[,] tablero, ref int fila, ref int columna, ref int vidas, ref int pocion)
+        {
+            if (columna - 1 >= 0)
+            {
+                tablero[fila, columna] = "X";
+                columna--;
+                tablero[fila, columna] = "M";
+                if (tablero[fila, columna].Equals(0))
+                {
+                    vidas--;
+                }
+                else if (tablero[fila, columna].Equals(1))
+                {
+                    vidas++;
+                }
+                else if (tablero[fila, columna].Equals(2))
+                {
+                    pocion = pocion + 2;
+                }
+            }
+            else
+            {
+                Console.WriteLine("Movimiento no válido: no puedes moverte fuera del tablero.");
+            }
+        }
+
+        public static void MoverArriba(ref string[,] tablero, ref int fila, ref int columna, ref int vidas, ref int pocion)
+        {
+            if (fila - 1 >= 0)
+            {
+                tablero[fila, columna] = "X";
+                fila--;
+                tablero[fila, columna] = "M";
+                if (tablero[fila, columna].Equals(0))
+                {
+                    vidas--;
+                }
+                else if (tablero[fila, columna].Equals(1))
+                {
+                    vidas++;
+                }
+                else if (tablero[fila, columna].Equals(2))
+                {
+                    pocion = pocion + 2;
+                }
+            }
+            else
+            {
+                Console.WriteLine("Movimiento no válido: no puedes moverte fuera del tablero.");
+            }
+        }
+
+        public static void MoverAbajo(ref string[,] tablero, ref int fila, ref int columna, ref int vidas, ref int pocion)
+        {
+            if (fila + 1 < tablero.GetLength(0))
+            {
+                tablero[fila, columna] = "X";
+                fila++;
+                tablero[fila, columna] = "M";
+                if (tablero[fila, columna].Equals(0))
+                {
+                    vidas--;
+                }
+                else if (tablero[fila, columna].Equals(1))
+                {
+                    vidas++;
+                }
+                else if (tablero[fila, columna].Equals(2))
+                {
+                    pocion = pocion + 2;
+                }
+            }
+            else
+            {
+                Console.WriteLine("Movimiento no válido: no puedes moverte fuera del tablero.");
+            }
         }
     }
 }
