@@ -10,6 +10,11 @@ namespace Pinocho
     {
         private static Random random = new Random();
 
+        public const int PIRAÑA = 0;
+        public const int AGUA = 1;
+        public const int PIEDRA = 2;
+        public const int PEZ = 3;
+
         public static void MuestraMenu()
         {
             Console.WriteLine("Seleccione una operacion");
@@ -20,7 +25,7 @@ namespace Pinocho
             Console.WriteLine("5: Salir");
         }
 
-        public static int LeeOpcion()
+        public static int LeeOpcionEntero()
         {
             try
             {
@@ -73,10 +78,10 @@ namespace Pinocho
             }
         }
 
-        public static void MuestraStats(ref int vidas, ref int pocion)
+        public static void MuestraStats(Jugador jugador)
         {
-            Console.WriteLine("Vidas: " + vidas);
-            Console.WriteLine("Pocion: " + pocion + " ml");
+            Console.WriteLine("Vidas: " + jugador.GetVidas());
+            Console.WriteLine("Peces: " + jugador.GetPeces());
 
         }
 
@@ -86,7 +91,7 @@ namespace Pinocho
             {
                 for (int j = 0; j < tablero.GetLength(1); j++)
                 {
-                    tablero[i, j] = "" + GeneraRandom(0, 2);
+                    tablero[i, j] = "" + GeneraRandom(0, 3);
                 }
             }
             tablero[0, 0] = str;

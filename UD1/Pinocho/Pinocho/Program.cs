@@ -27,8 +27,12 @@ namespace Pinocho
 
             do
             {
+                Operaciones.MuestraTableroOculto(tablero, filas, columnas,pinocho.GetNombre());
+                Console.WriteLine("");
+                Operaciones.MuestraStats(pinocho);
+                Console.WriteLine();
 
-
+                int operacion = Operaciones.LeeOpcionEntero();
 
             } while (!esValido);
 

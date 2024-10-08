@@ -1,0 +1,7 @@
+C:\Users\b15-03m\Documents\NetBeansProjects\DI-AEM\UD1\Pinocho\Pinocho\bin\Debug\Pinocho.exe.config
+C:\Users\b15-03m\Documents\NetBeansProjects\DI-AEM\UD1\Pinocho\Pinocho\bin\Debug\Pinocho.exe
+C:\Users\b15-03m\Documents\NetBeansProjects\DI-AEM\UD1\Pinocho\Pinocho\bin\Debug\Pinocho.pdb
+C:\Users\b15-03m\Documents\NetBeansProjects\DI-AEM\UD1\Pinocho\Pinocho\obj\Debug\Pinocho.csproj.AssemblyReference.cache
+C:\Users\b15-03m\Documents\NetBeansProjects\DI-AEM\UD1\Pinocho\Pinocho\obj\Debug\Pinocho.csproj.CoreCompileInputs.cache
+C:\Users\b15-03m\Documents\NetBeansProjects\DI-AEM\UD1\Pinocho\Pinocho\obj\Debug\Pinocho.exe
+C:\Users\b15-03m\Documents\NetBeansProjects\DI-AEM\UD1\Pinocho\Pinocho\obj\Debug\Pinocho.pdb
