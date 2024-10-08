@@ -12,7 +12,7 @@ namespace MarioBros
         {
             #region TABLERO
             string[,] tablero = new string[8, 8];
-            Operaciones.InicializarTablero(tablero);
+            Operaciones.InicializarTablero(tablero,"M");
 
             int fila = 0;
             int columna = 0;
@@ -26,14 +26,16 @@ namespace MarioBros
             #region MENUYOPCIONES
             do
             {
-                Console.Clear(); // Para borrar la consola
-                Operaciones.MuestraArray(tablero);
+                Console.Clear(); // Para borrar la consola al inicio del ciclo
+                Operaciones.MuestraTableroOculto(tablero, fila, columna, "M"); // Muestra el tablero
                 Console.WriteLine("");
-                Operaciones.MuestraStats(ref vidas, ref pocion);
+                Operaciones.MuestraStats(ref vidas, ref pocion); // Muestra vidas y pociones
                 Console.WriteLine("");
-                Operaciones.MuestraMenu();
+                Operaciones.MuestraMenu(); // Muestra el menú
 
                 int operacion = Operaciones.LeeOpcion();
+
+                bool movimientoValido = true; // Controlar si el movimiento es válido
 
                 switch (operacion)
                 {
@@ -60,6 +62,7 @@ namespace MarioBros
 
                     default:
                         Console.WriteLine("Opción no válida, intenta de nuevo.");
+                        movimientoValido = false; // Marcamos el movimiento como inválido
                         break;
                 }
 
@@ -69,16 +72,26 @@ namespace MarioBros
                     Console.WriteLine("Has ganado, tienes un total de " + pocion + " ml de poción.");
                     esValido = true;
                 }
-                else
-                {
-                    Console.WriteLine("No has ganado. Necesitas más pociones o no estás en la posición correcta.");
-                }
 
                 // Comprobación de derrota
                 if (vidas <= 0)
                 {
+                    Console.WriteLine($"Vidas: {vidas}");
                     Console.WriteLine("Has perdido");
                     esValido = true;
+                }
+
+                // Mensaje de movimiento inválido si lo hubo
+                if (vidas < 0)
+                {
+                    Console.WriteLine("Movimiento no válido: no puedes moverte fuera del tablero.");
+                }
+
+                // Espera un momento para que el usuario vea el mensaje, pero solo si el movimiento fue inválido
+                if (!esValido)
+                {
+                    Console.WriteLine("Presiona cualquier tecla para continuar...");
+                    Console.ReadKey(); // Espera a que el usuario presione una tecla
                 }
 
             } while (!esValido);

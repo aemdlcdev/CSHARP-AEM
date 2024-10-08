@@ -50,7 +50,29 @@ namespace MarioBros
             }
         }
 
-        
+        public static void MuestraTableroOculto(string[,] tablero, int fila, int columna, String str)
+        {
+            for (int i = 0; i < tablero.GetLength(0); i++)
+            {
+                for (int j = 0; j < tablero.GetLength(1); j++)
+                {
+                    if (i == fila && j == columna) // Verifica si estamos en la posición del jugador
+                    {
+                        Console.Write(str+" "); // Muestra 'M' para la posición actual del jugador
+                    }
+                    else if (tablero[i, j] == "X")
+                    {
+                        Console.Write("X "); // Muestra 'X' para celdas visitadas
+                    }
+                    else
+                    {
+                        Console.Write("* "); // Muestra '*' para celdas no visitadas
+                    }
+                }
+                Console.WriteLine();
+            }
+        }
+
         public static void MuestraStats(ref int vidas, ref int pocion)
         {
             Console.WriteLine("Vidas: " + vidas);
@@ -58,7 +80,7 @@ namespace MarioBros
 
         }
 
-        public static void InicializarTablero(string[,] tablero) 
+        public static void InicializarTablero(string[,] tablero, String str) 
         {
             for (int i = 0; i < tablero.GetLength(0); i++) 
             {
@@ -67,10 +89,10 @@ namespace MarioBros
                     tablero[i, j] =""+GeneraRandom(0,2);
                 }
             }
-            tablero[0, 0] = "M";
+            tablero[0, 0] = str;
         }
 
-        public static int GeneraRandom(int min, int max) {
+        private static int GeneraRandom(int min, int max) {
             return random.Next(min, max+1);
         }
 
