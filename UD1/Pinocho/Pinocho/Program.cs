@@ -11,14 +11,13 @@ namespace Pinocho
         static void Main(string[] args)
         {
             //Jugadores
-            Jugador pinocho = new Jugador("PI", 18, 0);
-            Jugador pepito = new Jugador("PE", 18, 0);
+            Jugador pinocho = new Jugador("PI", 18);
+            Jugador pepito = new Jugador("PE", 18);
 
             #region TABLERO
             string[,] tablero = new string[8, 8];
             Operaciones.InicializarTablero(tablero, pinocho,pepito);
-            int filas = 0;
-            int columnas =0;
+            
             bool esValido = false;
 
             #endregion
@@ -27,7 +26,7 @@ namespace Pinocho
 
             do
             {
-                Operaciones.ProcesaOperacion(ref tablero, ref filas, ref columnas, pinocho, pepito, ref esValido);   
+                Operaciones.ProcesaOperacion(ref tablero, pinocho, pepito, ref esValido);   
             } while (!esValido);
 
             #endregion

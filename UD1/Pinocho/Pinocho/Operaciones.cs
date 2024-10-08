@@ -55,15 +55,26 @@ namespace Pinocho
             }
         }
 
-        public static void MuestraTableroOculto(string[,] tablero, int fila, int columna, Jugador jugador)
+        public static void MuestraTableroOculto(string[,] tablero, Jugador ju,Jugador ju2)
         {
+            int fila1 = ju.GetFila();
+            int columna1 = ju.GetColumna();
+
+            int fila2 = ju2.GetFila();
+            int columna2 = ju2.GetColumna();
             for (int i = 0; i < tablero.GetLength(0); i++)
             {
                 for (int j = 0; j < tablero.GetLength(1); j++)
                 {
-                    if (i == fila && j == columna) // Verifica si estamos en la posición del jugador
+                    if (i == fila1 && j == columna1) // Verifica si estamos en la posición del jugador
                     {
-                        Console.Write(jugador.GetNombre() + " "); // Muestra 'M' para la posición actual del jugador
+                        Console.Write(ju.GetNombre() + " "); // Muestra 'M' para la posición actual del jugador
+
+                    }
+                    if (i == fila2 && j == columna2) // Verifica si estamos en la posición del jugador
+                    {
+                        Console.Write(ju2.GetNombre() + " "); // Muestra 'M' para la posición actual del jugador
+
                     }
                     else if (tablero[i, j] == "X")
                     {
@@ -87,10 +98,10 @@ namespace Pinocho
 
         public static void MuestraStats(Jugador jugador, Jugador jugador2)
         {
-            Console.WriteLine("Vidas: " + jugador.GetVidas());
-            Console.WriteLine("Peces: " + jugador.GetPeces());
+            Console.WriteLine("Vidas de " + jugador.GetNombre() + ": " + jugador.GetVidas());
+            Console.WriteLine("Peces de " + jugador.GetNombre() + ": " + jugador.GetVidas());
             Console.WriteLine("");
-            Console.WriteLine("Vidas de " + jugador.GetNombre()+": "+ jugador.GetVidas());
+            Console.WriteLine("Vidas de " + jugador2.GetNombre()+": "+ jugador2.GetVidas());
             Console.WriteLine("Peces de " + jugador2.GetNombre() + ": " + jugador2.GetVidas());
 
         }
@@ -119,8 +130,12 @@ namespace Pinocho
             }
 
             // Asignar posiciones iniciales a los jugadores
-            tablero[0, 0] = j1.GetNombre(); // Posición del jugador 1
-            tablero[0, 1] = j2.GetNombre(); // Posición del jugador 2 (justo a la derecha del jugador 1)
+            // Asignar posiciones iniciales a los jugadores
+            j1.SetFila(0);  // Jugador 1 en la posición (0,0)
+            j1.SetFila(0);
+
+            j2.SetFila(1);  // Jugador 2 justo debajo, en la posición (1,0)
+            j2.SetFila(0);
         }
 
 
@@ -130,14 +145,16 @@ namespace Pinocho
         }
 
         #region MOVIMIENTOSSIMPLES
-        #endregion
+        
 
-        public static void MoverDerecha(ref string[,] tablero, ref int fila, ref int columna, Jugador ju)
+        public static void MoverDerecha(ref string[,] tablero, Jugador ju)
         {
+            int fila = ju.GetFila();
+            int columna = ju.GetColumna();
             if (columna + 1 < tablero.GetLength(1))
             {
                 tablero[fila, columna] = "X";
-                columna++;
+                ju.SetColumna(ju.GetColumna() + 1);
 
 
                 string valorCelda = tablero[fila, columna];
@@ -164,12 +181,14 @@ namespace Pinocho
             }
         }
 
-        public static void MoverIzquierda(ref string[,] tablero, ref int fila, ref int columna, Jugador ju)
+        public static void MoverIzquierda(ref string[,] tablero, Jugador ju)
         {
+            int fila = ju.GetFila();
+            int columna = ju.GetColumna();
             if (columna - 1 >= 0)  // Asegura que no salga del tablero a la izquierda
             {
                 tablero[fila, columna] = "X";  // Marca la posición actual como visitada
-                columna--;  // Mueve el jugador a la izquierda
+                ju.SetColumna(ju.GetColumna() - 1);  // Mueve el jugador a la izquierda
 
                 string valorCelda = tablero[fila, columna];
 
@@ -194,12 +213,14 @@ namespace Pinocho
             }
         }
 
-        public static void MoverArriba(ref string[,] tablero, ref int fila, ref int columna, Jugador ju)
+        public static void MoverArriba(ref string[,] tablero, Jugador ju)
         {
+            int fila = ju.GetFila();
+            int columna = ju.GetColumna();
             if (fila - 1 >= 0)  // Asegura que no salga del tablero hacia arriba
             {
                 tablero[fila, columna] = "X";  // Marca la posición actual como visitada
-                fila--;  // Mueve el jugador hacia arriba
+                ju.SetFila(ju.GetFila()-1);  // Mueve el jugador hacia arriba
 
                 string valorCelda = tablero[fila, columna];
 
@@ -224,12 +245,14 @@ namespace Pinocho
             }
         }
 
-        public static void MoverAbajo(ref string[,] tablero, ref int fila, ref int columna, Jugador ju)
+        public static void MoverAbajo(ref string[,] tablero, Jugador ju)
         {
+            int fila = ju.GetFila();
+            int columna = ju.GetColumna();
             if (fila + 1 < tablero.GetLength(0))  // Asegura que no salga del tablero hacia abajo
             {
                 tablero[fila, columna] = "X";  // Marca la posición actual como visitada
-                fila++;  // Mueve el jugador hacia abajo
+                ju.SetFila(ju.GetFila() + 1); ;  // Mueve el jugador hacia abajo
 
                 string valorCelda = tablero[fila, columna];
 
@@ -253,133 +276,15 @@ namespace Pinocho
                 Console.WriteLine("Movimiento no válido: no puedes moverte fuera del tablero.");
             }
         }
-
-        #region MOVIMIENTOSPARALELOS
-        public static void MoverDerecha(ref string[,] tablero, ref int fila, ref int columna, Jugador ju, Jugador juParalelo)
-        {
-            if (columna + 1 < tablero.GetLength(1))
-            {
-                tablero[fila, columna] = "X";  // Marca la posición del jugador principal como visitada
-                columna++;  // Mueve el jugador principal a la derecha
-
-                // Procesar el valor de la celda del jugador principal
-                ProcesarCelda(ref ju, tablero[fila, columna]);
-
-                // Mover al jugador paralelo a la misma posición
-                tablero[juParalelo.GetFila(), juParalelo.GetColumna()] = "X";  // Marca la posición del jugador paralelo como visitada
-                juParalelo.SetColumna(juParalelo.GetColumna() + 1);  // Mueve el jugador paralelo a la derecha
-                ProcesarCelda(ref juParalelo, tablero[juParalelo.GetFila(), juParalelo.GetColumna()]);
-
-                // Actualiza las posiciones en el tablero
-                tablero[fila, columna] = ju.GetNombre();  // Actualiza la posición del jugador principal
-                tablero[juParalelo.GetFila(), juParalelo.GetColumna()] = juParalelo.GetNombre();  // Actualiza la posición del jugador paralelo
-            }
-            else
-            {
-                Console.WriteLine("Movimiento no válido: no puedes moverte fuera del tablero.");
-            }
-        }
-
-        public static void MoverIzquierda(ref string[,] tablero, ref int fila, ref int columna, Jugador ju, Jugador juParalelo)
-        {
-            if (columna - 1 >= 0)  // Asegura que no salga del tablero a la izquierda
-            {
-                tablero[fila, columna] = "X";  // Marca la posición del jugador principal como visitada
-                columna--;  // Mueve el jugador principal a la izquierda
-
-                // Procesar el valor de la celda del jugador principal
-                ProcesarCelda(ref ju, tablero[fila, columna]);
-
-                // Mover al jugador paralelo a la misma posición
-                tablero[juParalelo.GetFila(), juParalelo.GetColumna()] = "X";  // Marca la posición del jugador paralelo como visitada
-                juParalelo.SetColumna(juParalelo.GetColumna() - 1);  // Mueve el jugador paralelo a la izquierda
-                ProcesarCelda(ref juParalelo, tablero[juParalelo.GetFila(), juParalelo.GetColumna()]);
-
-                // Actualiza las posiciones en el tablero
-                tablero[fila, columna] = ju.GetNombre();  // Actualiza la posición del jugador principal
-                tablero[juParalelo.GetFila(), juParalelo.GetColumna()] = juParalelo.GetNombre();  // Actualiza la posición del jugador paralelo
-            }
-            else
-            {
-                Console.WriteLine("Movimiento no válido: no puedes moverte fuera del tablero.");
-            }
-        }
-
-        public static void MoverArriba(ref string[,] tablero, ref int fila, ref int columna, Jugador ju, Jugador juParalelo)
-        {
-            if (fila - 1 >= 0)  // Asegura que no salga del tablero hacia arriba
-            {
-                tablero[fila, columna] = "X";  // Marca la posición del jugador principal como visitada
-                fila--;  // Mueve el jugador principal hacia arriba
-
-                // Procesar el valor de la celda del jugador principal
-                ProcesarCelda(ref ju, tablero[fila, columna]);
-
-                // Mover al jugador paralelo a la misma posición
-                tablero[juParalelo.GetFila(), juParalelo.GetColumna()] = "X";  // Marca la posición del jugador paralelo como visitada
-                juParalelo.SetFila(juParalelo.GetFila() - 1);  // Mueve el jugador paralelo hacia arriba
-                ProcesarCelda(ref juParalelo, tablero[juParalelo.GetFila(), juParalelo.GetColumna()]);
-
-                // Actualiza las posiciones en el tablero
-                tablero[fila, columna] = ju.GetNombre();  // Actualiza la posición del jugador principal
-                tablero[juParalelo.GetFila(), juParalelo.GetColumna()] = juParalelo.GetNombre();  // Actualiza la posición del jugador paralelo
-            }
-            else
-            {
-                Console.WriteLine("Movimiento no válido: no puedes moverte fuera del tablero.");
-            }
-        }
-
-        public static void MoverAbajo(ref string[,] tablero, ref int fila, ref int columna, Jugador ju, Jugador juParalelo)
-        {
-            if (fila + 1 < tablero.GetLength(0))  // Asegura que no salga del tablero hacia abajo
-            {
-                tablero[fila, columna] = "X";  // Marca la posición del jugador principal como visitada
-                fila++;  // Mueve el jugador principal hacia abajo
-
-                // Procesar el valor de la celda del jugador principal
-                ProcesarCelda(ref ju, tablero[fila, columna]);
-
-                // Mover al jugador paralelo a la misma posición
-                tablero[juParalelo.GetFila(), juParalelo.GetColumna()] = "X";  // Marca la posición del jugador paralelo como visitada
-                juParalelo.SetFila(juParalelo.GetFila() + 1);  // Mueve el jugador paralelo hacia abajo
-                ProcesarCelda(ref juParalelo, tablero[juParalelo.GetFila(), juParalelo.GetColumna()]);
-
-                // Actualiza las posiciones en el tablero
-                tablero[fila, columna] = ju.GetNombre();  // Actualiza la posición del jugador principal
-                tablero[juParalelo.GetFila(), juParalelo.GetColumna()] = juParalelo.GetNombre();  // Actualiza la posición del jugador paralelo
-            }
-            else
-            {
-                Console.WriteLine("Movimiento no válido: no puedes moverte fuera del tablero.");
-            }
-        }
-
-        // Método para procesar el valor de la celda
-        private static void ProcesarCelda(ref Jugador ju, string valorCelda)
-        {
-            if (valorCelda == "0")
-            {
-                ju.SetVidas(ju.GetVidas() - 1);
-            }
-            else if (valorCelda == "1")
-            {
-                ju.SetVidas(ju.GetVidas() + 1);
-            }
-            else if (valorCelda == "2")
-            {
-                ju.SetPeces(ju.GetPeces() + 1);
-            }
-        }
-
         #endregion
+       
 
-        public static void ProcesaOperacion(ref string[,] tablero, ref int fila, ref int columna, Jugador jugador, Jugador jugador2, ref bool esValido)
+        public static void ProcesaOperacion(ref string[,] tablero, Jugador jugador, Jugador jugador2, ref bool esValido)
         {
             // Mostrar tablero y estadísticas
-            Operaciones.MuestraTableroOculto(tablero, fila, columna, jugador);
+            Operaciones.MuestraTableroOculto(tablero, jugador,jugador2);
             Console.WriteLine("");
-            Operaciones.MuestraStats(jugador,jugador2);
+            Operaciones.MuestraStats(jugador, jugador2);
             Console.WriteLine("");
 
             // Mostrar el menú
@@ -392,19 +297,23 @@ namespace Pinocho
             switch (operacion)
             {
                 case 1: // Mover a la derecha
-                    Operaciones.MoverDerecha(ref tablero, ref fila, ref columna, jugador,jugador2);
+                    Operaciones.MoverDerecha(ref tablero, jugador);
+                    Operaciones.MoverDerecha(ref tablero, jugador2);
                     break;
 
                 case 2: // Mover a la izquierda
-                    Operaciones.MoverIzquierda(ref tablero, ref fila, ref columna, jugador,jugador2);
+                    Operaciones.MoverIzquierda(ref tablero, jugador);
+                    Operaciones.MoverIzquierda(ref tablero, jugador2);
                     break;
 
                 case 3: // Mover hacia arriba
-                    Operaciones.MoverArriba(ref tablero, ref fila, ref columna, jugador,jugador2);
+                    Operaciones.MoverArriba(ref tablero, jugador);
+                    Operaciones.MoverArriba(ref tablero, jugador2);
                     break;
 
                 case 4: // Mover hacia abajo
-                    Operaciones.MoverAbajo(ref tablero, ref fila, ref columna, jugador, jugador2);
+                    Operaciones.MoverAbajo(ref tablero, jugador);
+                    Operaciones.MoverAbajo(ref tablero, jugador2);
                     break;
 
                 case 5: // Salir
@@ -422,7 +331,8 @@ namespace Pinocho
             {
                 Console.WriteLine($"Has ganado, tienes un total de {jugador.GetPeces()} peces");
                 esValido = true;
-            } else if(jugador2.GetPeces() > 5 && tablero[7, 7] == jugador2.GetNombre())
+            }
+            else if (jugador2.GetPeces() > 5 && tablero[7, 7] == jugador2.GetNombre())
             {
                 Console.WriteLine($"Has ganado, tienes un total de {jugador2.GetPeces()} peces");
                 esValido = true;
@@ -436,6 +346,7 @@ namespace Pinocho
                 esValido = true;
             }
         }
+
 
 
     }
