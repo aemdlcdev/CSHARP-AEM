@@ -16,7 +16,7 @@ namespace Pinocho
 
             #region TABLERO
             string[,] tablero = new string[8, 8];
-            Operaciones.InicializarTablero(tablero, pinocho.GetNombre());
+            Operaciones.InicializarTablero(tablero, pinocho,pepito);
             int filas = 0;
             int columnas =0;
             bool esValido = false;
@@ -27,16 +27,8 @@ namespace Pinocho
 
             do
             {
-                Operaciones.MuestraTableroOculto(tablero, filas, columnas,pinocho.GetNombre());
-                Console.WriteLine("");
-                Operaciones.MuestraStats(pinocho);
-                Console.WriteLine();
-
-                int operacion = Operaciones.LeeOpcionEntero();
-
+                Operaciones.ProcesaOperacion(ref tablero, ref filas, ref columnas, pinocho, pepito, ref esValido);   
             } while (!esValido);
-
-
 
             #endregion
 
