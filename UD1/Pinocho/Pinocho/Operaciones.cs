@@ -25,23 +25,27 @@ namespace Pinocho
             Console.WriteLine("5: Salir");
         }
 
-        public static int LeeOpcionEntero()
+        public static int LeeOpcionEntero(bool auto)
         {
-            try
+            int opcion = 0;
+            if (!auto)
             {
-                int opcion = 0;
-                if (int.TryParse(Console.ReadLine(), out opcion))
+                try
                 {
-                    return opcion;
+                    int.TryParse(Console.ReadLine(), out opcion);
                 }
-
+                catch (Exception ex)
+                {
+                    Console.WriteLine("Opcion incorrecta" + ex.Message);
+                }
             }
-            catch (Exception ex)
+            else
             {
-                Console.WriteLine("Opcion incorrecta" + ex.Message);
+                opcion = GeneraRandom(1, 4);
             }
-            return 0;
+            return opcion;
         }
+
         public static void MuestraArray(string[,] array)
         {
             // GetLength(0) obtiene el número de filas, GetLength(1) obtiene el número de columnas
@@ -179,7 +183,7 @@ namespace Pinocho
             tablero[nuevaFila, nuevaColumna] = jugador.GetId();
         }
 
-        public static bool EsMovimientoValido(string[,] tablero, int fila, int columna)
+        protected static bool EsMovimientoValido(string[,] tablero, int fila, int columna)
         {
             return fila >= 0 && fila < tablero.GetLength(0) && columna >= 0 && columna < tablero.GetLength(1);
         }
@@ -231,11 +235,8 @@ namespace Pinocho
         #endregion
 
 
-        public static void ProcesaOperacion(ref string[,] tablero, Jugador jugador1, Jugador jugador2, ref bool esValido)
+        public static void ProcesaOperacion(ref string[,] tablero, Jugador jugador1, Jugador jugador2, ref bool esValido, bool auto)
         {
-            // Mostrar tablero y estadísticas
-            
-
             // Proceso de juego
             while (!esValido)
             {
@@ -248,7 +249,7 @@ namespace Pinocho
                 Operaciones.MuestraMenu();
 
                 // Leer opción del jugador 1
-                int operacion = Operaciones.LeeOpcionEntero();
+                int operacion = Operaciones.LeeOpcionEntero(auto);
 
                 switch (operacion)
                 {
@@ -289,7 +290,7 @@ namespace Pinocho
             }
         }
 
-        private static void VerificarCondicionesDeVictoria(ref bool esValido, string[,] tablero, Jugador jugador1, Jugador jugador2)
+        protected static void VerificarCondicionesDeVictoria(ref bool esValido, string[,] tablero, Jugador jugador1, Jugador jugador2)
         {
             int metaFila = tablero.GetLength(0) - 1;
             int metaColumna = tablero.GetLength(1) - 1;
