@@ -15,6 +15,7 @@ namespace Pinocho
             Jugador pepito = new Jugador("PE","Pepito", 18);
 
             #region TABLERO
+
             string[,] tablero = new string[8, 8];
             Operaciones.InicializarTablero(tablero, pinocho,pepito);
             
