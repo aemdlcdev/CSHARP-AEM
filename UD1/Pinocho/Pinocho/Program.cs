@@ -10,9 +10,12 @@ namespace Pinocho
     {
         static void Main(string[] args)
         {
-            //Jugadores
-            Jugador pinocho = new Jugador("PI","Pinocho", 18);
-            Jugador pepito = new Jugador("PE","Pepito", 18);
+            #region JUGADORES
+
+            Jugador pinocho = new Jugador("PI", "Pinocho", 18);
+            Jugador pepito = new Jugador("PE", "Pepito", 18);
+
+            #endregion
 
             #region TABLERO
 
