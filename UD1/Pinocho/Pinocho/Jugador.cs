@@ -8,65 +8,72 @@ namespace Pinocho
 {
     internal class Jugador
     {
-        private string nombre;
-        private int vidas;
-        private int peces;
-        private int fila; // Posición en fila del jugador
-        private int columna; // Posición en columna del jugador
+        private string _nombre;
+        private string _nombreCompleto;
+        private int _vidas;
+        private int _peces;
+        private int _fila; // Posición en fila del jugador
+        private int _columna; // Posición en columna del jugador
 
-        public Jugador(string nombre, int vidasIniciales)
+        public Jugador(string nombre, string nombreCompleto, int vidasIniciales)
         {
-            this.nombre = nombre;
-            this.vidas = vidasIniciales;
-            this.peces = 0;
-            this.fila = 0; // Posición inicial (puedes cambiarla según la lógica del juego)
-            this.columna = 0; // Posición inicial (puedes cambiarla según la lógica del juego)
+            this._nombre = nombre;
+            this._nombreCompleto = nombreCompleto;
+            this._vidas = vidasIniciales;
+            this._peces = 0;
+            this._fila = 0; // Posición inicial (puedes cambiarla según la lógica del juego)
+            this._columna = 0; // Posición inicial (puedes cambiarla según la lógica del juego)
         }
 
         public string GetNombre()
         {
-            return nombre;
+            return _nombre;
+        }
+
+        public string GetNombreCompleto()
+        {
+            return _nombreCompleto;
         }
 
         public int GetVidas()
         {
-            return vidas;
+            return _vidas;
         }
 
         public void SetVidas(int vidas)
         {
-            this.vidas = vidas;
+            this._vidas = vidas;
         }
 
         public int GetPeces()
         {
-            return peces;
+            return _peces;
         }
 
         public void SetPeces(int peces)
         {
-            this.peces = peces;
+            this._peces = peces;
         }
 
         // Métodos para manejar la posición en el tablero
         public int GetFila()
         {
-            return fila;
+            return _fila;
         }
 
         public void SetFila(int fila)
         {
-            this.fila = fila;
+            this._fila = fila;
         }
 
         public int GetColumna()
         {
-            return columna;
+            return _columna;
         }
 
         public void SetColumna(int columna)
         {
-            this.columna = columna;
+            this._columna = columna;
         }
     }
 }
