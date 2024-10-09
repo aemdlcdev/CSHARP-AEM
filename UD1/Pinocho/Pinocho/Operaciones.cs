@@ -200,6 +200,7 @@ namespace Pinocho
             // Nuevas posiciones calculadas
             int nuevaFila1 = fila1 + desplFila;
             int nuevaColumna1 = columna1 + desplColumna;
+
             int nuevaFila2 = fila2 + desplFila;
             int nuevaColumna2 = columna2 + desplColumna;
 
@@ -273,13 +274,17 @@ namespace Pinocho
                 }
 
                 // Verificar condiciones de victoria o derrota
-                if (jugador1.GetPeces() > 5 && tablero[7, 7] == jugador1.GetId())
+
+                int metaFila = tablero.GetLength(0)-1;
+                int metaColumna = tablero.GetLength(1)-1;
+
+                if (jugador1.GetPeces() > 5 && tablero[metaFila, metaColumna] == jugador1.GetId())
                 {
                     Console.WriteLine($"{jugador1.GetId()} ha ganado con un total de {jugador1.GetPeces()} peces.");
                     esValido = true;
                 }
 
-                if (jugador2.GetPeces() > 5 && tablero[7, 7] == jugador2.GetId())
+                if (jugador2.GetPeces() > 5 && tablero[metaFila, metaColumna] == jugador2.GetId())
                 {
                     Console.WriteLine($"{jugador2.GetId()} ha ganado con un total de {jugador2.GetPeces()} peces.");
                     esValido = true;
