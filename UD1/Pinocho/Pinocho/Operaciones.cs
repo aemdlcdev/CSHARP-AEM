@@ -68,11 +68,11 @@ namespace Pinocho
                 {
                     if (i == fila1 && j == columna1)
                     {
-                        Console.Write(ju.GetNombre() + " ");
+                        Console.Write(ju.GetId() + " ");
                     }
                     else if (i == fila2 && j == columna2) // Se usa "else if" para evitar superposición
                     {
-                        Console.Write(ju2.GetNombre() + " ");
+                        Console.Write(ju2.GetId() + " ");
                     }
                     else if (tablero[i, j] == "-")
                     {
@@ -113,7 +113,7 @@ namespace Pinocho
                     tablero[i, j] = "" + GeneraRandom(0, 3);
                 }
             }
-            tablero[0, 0] = j1.GetNombre();
+            tablero[0, 0] = j1.GetId();
         }
 
         public static void InicializarTablero(string[,] tablero, Jugador j1, Jugador j2)
@@ -176,7 +176,7 @@ namespace Pinocho
             jugador.SetColumna(nuevaColumna);
 
             // Colocar al jugador en la nueva posición
-            tablero[nuevaFila, nuevaColumna] = jugador.GetNombre();
+            tablero[nuevaFila, nuevaColumna] = jugador.GetId();
         }
 
         public static bool EsMovimientoValido(string[,] tablero, int fila, int columna)
@@ -193,6 +193,7 @@ namespace Pinocho
             // Posiciones actuales de ambos jugadores
             int fila1 = jugador1.GetFila();
             int columna1 = jugador1.GetColumna();
+
             int fila2 = jugador2.GetFila();
             int columna2 = jugador2.GetColumna();
 
@@ -272,15 +273,15 @@ namespace Pinocho
                 }
 
                 // Verificar condiciones de victoria o derrota
-                if (jugador1.GetPeces() > 5 && tablero[7, 7] == jugador1.GetNombre())
+                if (jugador1.GetPeces() > 5 && tablero[7, 7] == jugador1.GetId())
                 {
-                    Console.WriteLine($"{jugador1.GetNombre()} ha ganado con un total de {jugador1.GetPeces()} peces.");
+                    Console.WriteLine($"{jugador1.GetId()} ha ganado con un total de {jugador1.GetPeces()} peces.");
                     esValido = true;
                 }
 
-                if (jugador2.GetPeces() > 5 && tablero[7, 7] == jugador2.GetNombre())
+                if (jugador2.GetPeces() > 5 && tablero[7, 7] == jugador2.GetId())
                 {
-                    Console.WriteLine($"{jugador2.GetNombre()} ha ganado con un total de {jugador2.GetPeces()} peces.");
+                    Console.WriteLine($"{jugador2.GetId()} ha ganado con un total de {jugador2.GetPeces()} peces.");
                     esValido = true;
                 }
 

@@ -8,7 +8,7 @@ namespace Pinocho
 {
     internal class Jugador
     {
-        private string _nombre;
+        private string _id;
         private string _nombreCompleto;
         private int _vidas;
         private int _peces;
@@ -17,7 +17,7 @@ namespace Pinocho
 
         public Jugador(string nombre, string nombreCompleto, int vidasIniciales)
         {
-            this._nombre = nombre;
+            this._id = nombre;
             this._nombreCompleto = nombreCompleto;
             this._vidas = vidasIniciales;
             this._peces = 0;
@@ -25,9 +25,9 @@ namespace Pinocho
             this._columna = 0; // Posición inicial (puedes cambiarla según la lógica del juego)
         }
 
-        public string GetNombre()
+        public string GetId()
         {
-            return _nombre;
+            return _id;
         }
 
         public string GetNombreCompleto()
