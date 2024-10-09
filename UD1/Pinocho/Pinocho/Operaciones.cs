@@ -275,26 +275,7 @@ namespace Pinocho
 
                 // Verificar condiciones de victoria o derrota
 
-                int metaFila = tablero.GetLength(0)-1;
-                int metaColumna = tablero.GetLength(1)-1;
-
-                if (jugador1.GetPeces() > 5 && tablero[metaFila, metaColumna] == jugador1.GetId())
-                {
-                    Console.WriteLine($"{jugador1.GetId()} ha ganado con un total de {jugador1.GetPeces()} peces.");
-                    esValido = true;
-                }
-
-                if (jugador2.GetPeces() > 5 && tablero[metaFila, metaColumna] == jugador2.GetId())
-                {
-                    Console.WriteLine($"{jugador2.GetId()} ha ganado con un total de {jugador2.GetPeces()} peces.");
-                    esValido = true;
-                }
-
-                if (jugador1.GetVidas() <= 0 || jugador2.GetVidas() <= 0)
-                {
-                    Console.WriteLine("Uno de los jugadores ha perdido todas sus vidas.");
-                    esValido = true;
-                }
+                VerificarCondicionesDeVictoria(ref esValido,tablero,jugador1,jugador2);
 
                 // Bajo las vidas ya que de maximo tienen 18 intentos
                 jugador1.SetVidas(jugador1.GetVidas()-1);
@@ -308,9 +289,29 @@ namespace Pinocho
             }
         }
 
+        private static void VerificarCondicionesDeVictoria(ref bool esValido, string[,] tablero, Jugador jugador1, Jugador jugador2)
+        {
+            int metaFila = tablero.GetLength(0) - 1;
+            int metaColumna = tablero.GetLength(1) - 1;
 
+            if (jugador1.GetPeces() > 5 && tablero[metaFila, metaColumna] == jugador1.GetId())
+            {
+                Console.WriteLine($"{jugador1.GetId()} ha ganado con un total de {jugador1.GetPeces()} peces.");
+                esValido = true;
+            }
 
+            if (jugador2.GetPeces() > 5 && tablero[metaFila, metaColumna] == jugador2.GetId())
+            {
+                Console.WriteLine($"{jugador2.GetId()} ha ganado con un total de {jugador2.GetPeces()} peces.");
+                esValido = true;
+            }
 
+            if (jugador1.GetVidas() <= 0 || jugador2.GetVidas() <= 0)
+            {
+                Console.WriteLine("Uno de los jugadores ha perdido todas sus vidas.");
+                esValido = true;
+            }
+        }
 
     }
 
