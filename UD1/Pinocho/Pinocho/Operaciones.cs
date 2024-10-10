@@ -18,7 +18,7 @@ namespace Pinocho
 
         public static void MuestraPosiciones(Jugador jugador)
         {
-            foreach (int filas in jugador._listaFilas)
+            foreach (int filas in _listaFilas)
             {
                 Console.Write(filas + " ");
             }
