@@ -30,7 +30,7 @@ namespace Pinocho
 
             do
             {  
-                Operaciones2.ProcesaOperacionIndividual(ref tablero, pinocho, pepito, ref esValido,true);
+                Operaciones.ProcesaOperacionIndividual(ref tablero, pinocho, pepito, ref esValido,true);
                 
             } while (!esValido);
 
