@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -14,6 +15,7 @@ namespace Pinocho
         private int _peces;
         private int _fila; // Posición en fila del jugador
         private int _columna; // Posición en columna del jugador
+        private ArrayList _lista;
 
         public Jugador(string nombre, string nombreCompleto, int vidasIniciales)
         {

@@ -146,14 +146,19 @@ namespace Pinocho
 
         #region MOVIMIENTOSIMPLE
 
-        private static void MoverJugadorSiValido(ref string[,] tablero, Jugador jugador, int desplFila, int desplColumna)
+        private static void MoverJugadorSiValido(ref string[,] tablero, Jugador jugador, Jugador jugador2, int desplFila, int desplColumna)
         {
             int nuevaFila = jugador.GetFila() + desplFila;
             int nuevaColumna = jugador.GetColumna() + desplColumna;
 
             if (EsMovimientoValido(tablero, nuevaFila, nuevaColumna))
             {
-                if (tablero[nuevaFila,nuevaColumna]!= "1" || tablero[nuevaFila, nuevaColumna] != "2" || tablero[nuevaFila, nuevaColumna] != "3" || tablero[nuevaFila, nuevaColumna] != "-")
+                if (tablero[nuevaFila,nuevaColumna] == jugador2.GetId())
+                {
+                    Console.WriteLine("Hay una colision!");
+                    return;
+                }
+                else
                 {
                     MoverJugador(ref tablero, jugador, nuevaFila, nuevaColumna);
                 }
@@ -249,8 +254,6 @@ namespace Pinocho
                 Console.WriteLine("Movimiento no válido: uno o ambos jugadores se salen del tablero.");
             }
         }
-
-
 
         #endregion
 
@@ -354,16 +357,16 @@ namespace Pinocho
 
                 {
                     case 1: // Mover a la derecha
-                        MoverJugadorSiValido(ref tablero, jugador1, 0, 1);
+                        MoverJugadorSiValido(ref tablero, jugador1,jugador2, 0, 1);
                         break;
                     case 2: // Mover a la izquierda
-                        MoverJugadorSiValido(ref tablero, jugador1, 0, -1);
+                        MoverJugadorSiValido(ref tablero, jugador1,jugador2, 0, -1);
                         break;
                     case 3: // Mover hacia arriba
-                        MoverJugadorSiValido(ref tablero, jugador1, -1, 0);
+                        MoverJugadorSiValido(ref tablero, jugador1,jugador2, -1, 0);
                         break;
                     case 4: // Mover hacia abajo
-                        MoverJugadorSiValido(ref tablero, jugador1, 1, 0);
+                        MoverJugadorSiValido(ref tablero, jugador1,jugador2, 1, 0);
                         break;
                     case 5: // Salir
                         esValido = true;
@@ -391,16 +394,16 @@ namespace Pinocho
                 switch (operacion)
                 {
                     case 1: // Mover a la derecha
-                        MoverJugadorSiValido(ref tablero, jugador2, 0, 1);
+                        MoverJugadorSiValido(ref tablero, jugador2,jugador1, 0, 1);
                         break;
                     case 2: // Mover a la izquierda
-                        MoverJugadorSiValido(ref tablero, jugador2, 0, -1);
+                        MoverJugadorSiValido(ref tablero, jugador2, jugador1, 0, -1);
                         break;
                     case 3: // Mover hacia arriba
-                        MoverJugadorSiValido(ref tablero, jugador2, -1, 0);
+                        MoverJugadorSiValido(ref tablero, jugador2, jugador1, -1, 0);
                         break;
                     case 4: // Mover hacia abajo
-                        MoverJugadorSiValido(ref tablero, jugador2, 1, 0);
+                        MoverJugadorSiValido(ref tablero, jugador2, jugador1, 1, 0);
                         break;
                     case 5: // Salir
                         esValido = true;
