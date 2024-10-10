@@ -10,10 +10,13 @@ namespace Pinocho
     {
         private static Random random = new Random();
 
-        public const int PIRAÑA = 0;
-        public const int AGUA = 1;
-        public const int PIEDRA = 2;
-        public const int PEZ = 3;
+        public const string PIRAÑA = "1";
+        public const string AGUA = "2";
+        public const string PIEDRA = "3";
+        public const string PEZ = "4";
+        public const string PIERDE = "pierde";
+
+        #region MOSTRAR E INICIALIZAR
 
         public static void MuestraMenu()
         {
@@ -138,13 +141,9 @@ namespace Pinocho
             j2.SetColumna(0);
         }
 
+        #endregion
 
-        private static int GeneraRandom(int min, int max)
-        {
-            return random.Next(min, max + 1);
-        }
-
-        #region MOVIMIENTOSIMPLE
+        #region MOVIMIENTO SIMPLE
 
         private static void MoverJugadorSiValido(ref string[,] tablero, Jugador jugador, Jugador jugador2, int desplFila, int desplColumna)
         {
@@ -174,23 +173,29 @@ namespace Pinocho
         {
             // Obtener el valor de la nueva celda
             string contenidoCelda = tablero[nuevaFila, nuevaColumna];
-
+            if(jugador.GetVidas()<=0)
+            {
+                contenidoCelda = PIERDE;
+            }
             // Actualizar estadísticas del jugador dependiendo del contenido de la celda
             switch (contenidoCelda)
             {
-                case "0": // Piraña
+                case PIRAÑA: // Piraña
                     Console.WriteLine($"{jugador.GetNombreCompleto()} ha encontrado una piraña y pierde una vida.");
                     jugador.SetVidas(jugador.GetVidas() - 1);
                     break;
-                case "1": // Agua
+                case AGUA: // Agua
                     Console.WriteLine($"{jugador.GetNombreCompleto()} ha encontrado agua. No pasa nada.");
                     break;
-                case "2": // Piedra
+                case PIEDRA: // Piedra
                     Console.WriteLine($"{jugador.GetNombreCompleto()} ha chocado con una piedra. No pasa nada.");
                     break;
-                case "3": // Pez
+                case PEZ: // Pez
                     Console.WriteLine($"{jugador.GetNombreCompleto()} ha encontrado un pez y gana un pez.");
                     jugador.SetPeces(jugador.GetPeces() + 1);
+                    break;
+                case PIERDE:
+                    Console.WriteLine($"Al jugador {jugador.GetNombreCompleto()} no le quedan vidas");
                     break;
                 default:
                     Console.WriteLine($"{jugador.GetNombreCompleto()} se ha movido a una celda vacía.");
@@ -208,14 +213,9 @@ namespace Pinocho
             tablero[nuevaFila, nuevaColumna] = jugador.GetId();
         }
 
-        protected static bool EsMovimientoValido(string[,] tablero, int fila, int columna)
-        {
-            return fila >= 0 && fila < tablero.GetLength(0) && columna >= 0 && columna < tablero.GetLength(1);
-        }
-
         #endregion
 
-        #region MOVIMIENTOPARALELO
+        #region MOVIMIENTO PARALELO
 
         public static void MoverEnParalelo(ref string[,] tablero, Jugador jugador1, Jugador jugador2, int desplFila, int desplColumna)
         {
@@ -257,11 +257,11 @@ namespace Pinocho
 
         #endregion
 
-
+        #region PROCESAR
         public static void ProcesaOperacionParalelo(ref string[,] tablero, Jugador jugador1, Jugador jugador2, ref bool esValido, bool auto)
         {
             // Proceso de juego
-            while (!esValido)
+            while (esValido)
             {
                 
                 Operaciones.MuestraTableroOculto(tablero, jugador1, jugador2);
@@ -289,7 +289,7 @@ namespace Pinocho
                         MoverEnParalelo(ref tablero, jugador1, jugador2, 1, 0);
                         break;
                     case 5: // Salir
-                        esValido = true;
+                        esValido = false;
                         Console.WriteLine("Finalizando el programa...");
                         break;
                     default:
@@ -297,15 +297,10 @@ namespace Pinocho
                         break;
                 }
 
-                // Verificar condiciones de victoria o derrota
-
-                VerificarCondicionesDeVictoria(ref esValido,tablero,jugador1,jugador2);
-
                 // Bajo las vidas ya que de maximo tienen 18 intentos
-                jugador1.SetVidas(jugador1.GetVidas()-1);
-                jugador2.SetVidas(jugador1.GetVidas() - 1);
-
-                
+                BajaVidas(jugador1,jugador2);
+                // Verificar condiciones de victoria o derrota
+                VerificarCondicionesDeVictoria(ref esValido, tablero, jugador1, jugador2);
                 Console.WriteLine("Pulse cualquier tecla para continuar...");
                 Console.ReadKey();
                 Console.Clear();
@@ -313,36 +308,10 @@ namespace Pinocho
             }
         }
 
-        protected static void VerificarCondicionesDeVictoria(ref bool esValido, string[,] tablero, Jugador jugador1, Jugador jugador2)
-        {
-            int metaFila = tablero.GetLength(0) - 1;
-            int metaColumna = tablero.GetLength(1) - 1;
-
-            if (jugador1.GetPeces() > 5 && tablero[metaFila, metaColumna] == jugador1.GetId())
-            {
-                Console.WriteLine($"{jugador1.GetId()} ha ganado con un total de {jugador1.GetPeces()} peces.");
-                esValido = true;
-            }
-
-            if (jugador2.GetPeces() > 5 && tablero[metaFila, metaColumna] == jugador2.GetId())
-            {
-                Console.WriteLine($"{jugador2.GetId()} ha ganado con un total de {jugador2.GetPeces()} peces.");
-                esValido = true;
-            }
-
-            if (jugador1.GetVidas() <= 0 || jugador2.GetVidas() <= 0)
-            {
-                Console.WriteLine("Uno de los jugadores ha perdido todas sus vidas.");
-                esValido = true;
-            }
-        }
-
-        
-
         public static void ProcesaOperacionIndividual(ref string[,] tablero, Jugador jugador1, Jugador jugador2, ref bool esValido, bool auto)
         {
             // Proceso de juego
-            while (!esValido)
+            while (esValido)
             {
                 // Turno del jugador 1
                 Console.WriteLine($"{jugador1.GetNombreCompleto()}, es tu turno.");
@@ -352,10 +321,14 @@ namespace Pinocho
 
                 // Leer opción del jugador 1
                 int operacion = Operaciones.LeeOpcionEntero(auto);
-
+                if (jugador1.GetVidas() <= 0) 
+                {
+                    operacion = 6;
+                }
                 switch (operacion)
 
                 {
+                    
                     case 1: // Mover a la derecha
                         MoverJugadorSiValido(ref tablero, jugador1,jugador2, 0, 1);
                         break;
@@ -369,18 +342,19 @@ namespace Pinocho
                         MoverJugadorSiValido(ref tablero, jugador1,jugador2, 1, 0);
                         break;
                     case 5: // Salir
-                        esValido = true;
+                        esValido = false;
                         Console.WriteLine("Finalizando el programa...");
+                        break;
+                    case 6: // Salto de turno
                         break;
                     default:
                         Console.WriteLine("Opción no válida, intenta de nuevo.");
                         break;
                 }
-
                 
                 VerificarCondicionesDeVictoria(ref esValido, tablero, jugador1, jugador2);
 
-                if (esValido) break; // Si hay un ganador, salir del bucle
+                if (!esValido) break; // Si hay un ganador, salir del bucle
 
                 // Turno del jugador 2
                 Console.WriteLine($"{jugador2.GetNombreCompleto()}, es tu turno.");
@@ -390,7 +364,10 @@ namespace Pinocho
 
                 // Leer opción del jugador 2
                 operacion = Operaciones.LeeOpcionEntero(auto);
-
+                if (jugador2.GetVidas() <= 0)
+                {
+                    operacion = 6;
+                }
                 switch (operacion)
                 {
                     case 1: // Mover a la derecha
@@ -406,30 +383,93 @@ namespace Pinocho
                         MoverJugadorSiValido(ref tablero, jugador2, jugador1, 1, 0);
                         break;
                     case 5: // Salir
-                        esValido = true;
+                        esValido = false;
                         Console.WriteLine("Finalizando el programa...");
+                        break;
+                    case 6: // Salto de turno
                         break;
                     default:
                         Console.WriteLine("Opción no válida, intenta de nuevo.");
                         break;
                 }
 
-                
+               
+
+                if (!esValido) break; // Si hay un ganador, salir del bucle
+
+                // Reducir vidas (maximo 18 intentos), verificando que las vidas sean mayores que 0
+                BajaVidas(jugador1,jugador2);
+                // Verificamos las condiciones
                 VerificarCondicionesDeVictoria(ref esValido, tablero, jugador1, jugador2);
-
-                if (esValido) break; // Si hay un ganador, salir del bucle
-
-                // Reducir vidas (maximo 18 intentos)
-                jugador1.SetVidas(jugador1.GetVidas() - 1);
-                jugador2.SetVidas(jugador2.GetVidas() - 1);
-
                 Console.WriteLine("Pulse cualquier tecla para continuar...");
                 Console.ReadKey();
                 Console.Clear();
             }
         }
-    }
+        #endregion
 
+        #region METODOS PRIVADOS
+
+        private static bool EsMovimientoValido(string[,] tablero, int fila, int columna)
+        {
+            return fila >= 0 && fila < tablero.GetLength(0) && columna >= 0 && columna < tablero.GetLength(1);
+        }
+
+        private static void VerificarCondicionesDeVictoria(ref bool esValido, string[,] tablero, Jugador jugador1, Jugador jugador2)
+        {
+            int metaFila = tablero.GetLength(0) - 1;
+            int metaColumna = tablero.GetLength(1) - 1;
+
+            if (jugador1.GetPeces() > 5 && tablero[metaFila, metaColumna] == jugador1.GetId())
+            {
+                Console.WriteLine($"{jugador1.GetId()} ha ganado con un total de {jugador1.GetPeces()} peces.");
+                esValido = false;
+            }
+
+            if (jugador2.GetPeces() > 5 && tablero[metaFila, metaColumna] == jugador2.GetId())
+            {
+                Console.WriteLine($"{jugador2.GetId()} ha ganado con un total de {jugador2.GetPeces()} peces.");
+                esValido = false;
+            }
+
+            if (jugador1.GetVidas() <= 0)
+            {
+                Console.WriteLine($"El jugador {jugador1.GetNombreCompleto()} se ha quedado sin vidas!");
+            }
+            else if (jugador2.GetVidas() <= 0)
+            {
+                Console.WriteLine($"El jugador {jugador2.GetNombreCompleto()} se ha quedado sin vidas!");
+            }
+            else if (jugador1.GetVidas() <= 0 && jugador2.GetVidas() <= 0)
+                {
+                Console.WriteLine("Ambos jugadores se han quedado sin vidas, el juego ha terminado");
+                esValido=false;
+                }
+        }
+
+        private static int GeneraRandom(int min, int max)
+        {
+            return random.Next(min, max + 1);
+        }
+
+        private static void BajaVidas(Jugador jugador1, Jugador jugador2)
+        {
+            if (jugador1.GetVidas() > 0 && jugador2.GetVidas() > 0)
+            {
+                jugador1.SetVidas(jugador1.GetVidas() - 1);
+                jugador2.SetVidas(jugador2.GetVidas() - 1);
+            }
+            else if (jugador1.GetVidas() > 0)
+            {
+                jugador1.SetVidas(jugador1.GetVidas() - 1);
+            }
+            else if(jugador2.GetVidas() > 0)
+            {
+                jugador2.SetVidas(jugador2.GetVidas() - 1);
+            }
+        }
+        #endregion
+    }
 
 }
 

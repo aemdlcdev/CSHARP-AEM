@@ -12,7 +12,7 @@ namespace Pinocho
         {
             #region JUGADORES
 
-            Jugador pinocho = new Jugador("PI", "Pinocho", 18);
+            Jugador pinocho = new Jugador("PI", "Pinocho", 28);
             Jugador pepito = new Jugador("PE", "Pepito", 18);
 
             #endregion
@@ -22,7 +22,7 @@ namespace Pinocho
             string[,] tablero = new string[8, 8];
             Operaciones.InicializarTablero(tablero, pinocho,pepito);
             
-            bool esValido = false;
+            bool esValido = true;
 
             #endregion
 
