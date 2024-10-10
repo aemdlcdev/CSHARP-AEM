@@ -16,6 +16,19 @@ namespace Pinocho
         public const string PEZ = "4";
         public const string PIERDE = "pierde";
 
+        public static void MuestraPosiciones(Jugador jugador)
+        {
+            foreach (int filas in jugador._listaFilas)
+            {
+                Console.Write(filas + " ");
+            }
+            Console.WriteLine(); // salto de linea
+            foreach (int columnas in jugador._listaFilas)
+            {
+                Console.Write(columnas + " ");
+            }
+        }
+
         #region MOSTRAR E INICIALIZAR
 
         public static void MuestraMenu()
@@ -209,6 +222,10 @@ namespace Pinocho
             jugador.SetFila(nuevaFila);
             jugador.SetColumna(nuevaColumna);
 
+            // Añadimos la posicion de cada jugar a las lista para saber por donde se han movido
+            jugador.AñadirPosicionF(nuevaFila);
+            jugador.AñadirPosicionC(nuevaColumna);
+            
             // Colocar al jugador en la nueva posición
             tablero[nuevaFila, nuevaColumna] = jugador.GetId();
         }
@@ -247,6 +264,13 @@ namespace Pinocho
                     // Mover ambos jugadores y actualizar el tablero
                     MoverJugador(ref tablero, jugador1, nuevaFila1, nuevaColumna1);
                     MoverJugador(ref tablero, jugador2, nuevaFila2, nuevaColumna2);
+
+                    // Añadimos la posicion de cada jugar a las lista para saber por donde se han movido
+                    jugador1.AñadirPosicionF(nuevaFila1);
+                    jugador1.AñadirPosicionC(nuevaColumna1);
+
+                    jugador2.AñadirPosicionF(nuevaFila2);
+                    jugador2.AñadirPosicionC(nuevaColumna2);
                 }
             }
             else
@@ -321,6 +345,8 @@ namespace Pinocho
 
                 // Leer opción del jugador 1
                 int operacion = Operaciones.LeeOpcionEntero(auto);
+
+                // Compruebo que si no tiene vidas que no haga nada
                 if (jugador1.GetVidas() <= 0) 
                 {
                     operacion = 6;
@@ -364,6 +390,8 @@ namespace Pinocho
 
                 // Leer opción del jugador 2
                 operacion = Operaciones.LeeOpcionEntero(auto);
+
+                // Compruebo que si no tiene vidas que no haga nada
                 if (jugador2.GetVidas() <= 0)
                 {
                     operacion = 6;
@@ -393,7 +421,6 @@ namespace Pinocho
                         break;
                 }
 
-               
 
                 if (!esValido) break; // Si hay un ganador, salir del bucle
 
@@ -420,6 +447,7 @@ namespace Pinocho
             int metaFila = tablero.GetLength(0) - 1;
             int metaColumna = tablero.GetLength(1) - 1;
 
+
             if (jugador1.GetPeces() > 5 && tablero[metaFila, metaColumna] == jugador1.GetId())
             {
                 Console.WriteLine($"{jugador1.GetId()} ha ganado con un total de {jugador1.GetPeces()} peces.");
@@ -432,6 +460,12 @@ namespace Pinocho
                 esValido = false;
             }
 
+            if (jugador1.GetVidas() <= 0 && jugador2.GetVidas() <= 0)
+            {
+                Console.WriteLine("Ambos jugadores se han quedado sin vidas, el juego ha terminado");
+                esValido = false;
+            }
+
             if (jugador1.GetVidas() <= 0)
             {
                 Console.WriteLine($"El jugador {jugador1.GetNombreCompleto()} se ha quedado sin vidas!");
@@ -440,11 +474,7 @@ namespace Pinocho
             {
                 Console.WriteLine($"El jugador {jugador2.GetNombreCompleto()} se ha quedado sin vidas!");
             }
-            else if (jugador1.GetVidas() <= 0 && jugador2.GetVidas() <= 0)
-                {
-                Console.WriteLine("Ambos jugadores se han quedado sin vidas, el juego ha terminado");
-                esValido=false;
-                }
+            
         }
 
         private static int GeneraRandom(int min, int max)

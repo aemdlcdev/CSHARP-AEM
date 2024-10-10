@@ -15,7 +15,8 @@ namespace Pinocho
         private int _peces;
         private int _fila; // Posición en fila del jugador
         private int _columna; // Posición en columna del jugador
-        private ArrayList _lista;
+        public List<int> _listaFilas;
+        public List<int> _listaColumnas;
 
         public Jugador(string nombre, string nombreCompleto, int vidasIniciales)
         {
@@ -25,6 +26,18 @@ namespace Pinocho
             this._peces = 0;
             this._fila = 0; // Posición inicial (puedes cambiarla según la lógica del juego)
             this._columna = 0; // Posición inicial (puedes cambiarla según la lógica del juego)
+            _listaFilas.Add(0);
+            _listaColumnas.Add(0);
+        }
+
+        public void AñadirPosicionF(int fila)
+        {
+            _listaFilas.Add(fila);
+        }
+
+        public void AñadirPosicionC(int columna)
+        {
+            _listaColumnas.Add(columna);
         }
 
         public string GetId()

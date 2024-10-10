@@ -32,8 +32,11 @@ namespace Pinocho
             {  
                 Operaciones.ProcesaOperacionIndividual(ref tablero, pinocho, pepito, ref esValido,true);
                 
-            } while (!esValido);
+            } while (esValido);
 
+            Operaciones.MuestraPosiciones(pinocho);
+
+            Console.ReadKey();
             #endregion
 
         }
