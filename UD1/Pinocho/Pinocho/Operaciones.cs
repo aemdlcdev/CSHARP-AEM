@@ -15,18 +15,13 @@ namespace Pinocho
         public const string PIEDRA = "3";
         public const string PEZ = "4";
         public const string PIERDE = "pierde";
-
+        
         public static void MuestraPosiciones(Jugador jugador)
         {
-            foreach (int filas in _listaFilas)
-            {
-                Console.Write(filas + " ");
-            }
-            Console.WriteLine(); // salto de linea
-            foreach (int columnas in jugador._listaFilas)
-            {
-                Console.Write(columnas + " ");
-            }
+            Console.WriteLine("Filas: F, Columnas: C");
+            Console.Write("F de " + jugador.GetNombreCompleto() + " " +jugador.GetPosicionesF().ToString());
+            Console.WriteLine();
+            Console.Write("C de " + jugador.GetNombreCompleto() + " " + jugador.GetPosicionesC().ToString());
         }
 
         #region MOSTRAR E INICIALIZAR
@@ -130,7 +125,7 @@ namespace Pinocho
             {
                 for (int j = 0; j < tablero.GetLength(1); j++)
                 {
-                    tablero[i, j] = "" + GeneraRandom(0, 3);
+                    tablero[i, j] = "" + GeneraRandom(1, 4);
                 }
             }
             tablero[0, 0] = j1.GetId();
@@ -143,7 +138,7 @@ namespace Pinocho
             {
                 for (int j = 0; j < tablero.GetLength(1); j++)
                 {
-                    tablero[i, j] = "" + GeneraRandom(0, 3); // Llenar el tablero con valores aleatorios
+                    tablero[i, j] = "" + GeneraRandom(1, 4); // Llenar el tablero con valores aleatorios
                 }
             }
 
@@ -222,12 +217,12 @@ namespace Pinocho
             jugador.SetFila(nuevaFila);
             jugador.SetColumna(nuevaColumna);
 
-            // Añadimos la posicion de cada jugar a las lista para saber por donde se han movido
-            jugador.AñadirPosicionF(nuevaFila);
-            jugador.AñadirPosicionC(nuevaColumna);
-            
             // Colocar al jugador en la nueva posición
             tablero[nuevaFila, nuevaColumna] = jugador.GetId();
+
+            // Añadimos la posicion de cada jugar a las lista para saber por donde se han movido
+            jugador.AñadirPosicionF();
+            jugador.AñadirPosicionC();
         }
 
         #endregion
@@ -266,11 +261,11 @@ namespace Pinocho
                     MoverJugador(ref tablero, jugador2, nuevaFila2, nuevaColumna2);
 
                     // Añadimos la posicion de cada jugar a las lista para saber por donde se han movido
-                    jugador1.AñadirPosicionF(nuevaFila1);
-                    jugador1.AñadirPosicionC(nuevaColumna1);
+                    jugador1.AñadirPosicionF();
+                    jugador1.AñadirPosicionC();
 
-                    jugador2.AñadirPosicionF(nuevaFila2);
-                    jugador2.AñadirPosicionC(nuevaColumna2);
+                    jugador2.AñadirPosicionF();
+                    jugador2.AñadirPosicionC();
                 }
             }
             else

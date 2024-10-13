@@ -15,8 +15,8 @@ namespace Pinocho
         private int _peces;
         private int _fila; // Posición en fila del jugador
         private int _columna; // Posición en columna del jugador
-        public List<int> _listaFilas;
-        public List<int> _listaColumnas;
+        private StringBuilder _posicionesF = new StringBuilder();
+        private StringBuilder _posicionesC = new StringBuilder();
 
         public Jugador(string nombre, string nombreCompleto, int vidasIniciales)
         {
@@ -26,18 +26,19 @@ namespace Pinocho
             this._peces = 0;
             this._fila = 0; // Posición inicial (puedes cambiarla según la lógica del juego)
             this._columna = 0; // Posición inicial (puedes cambiarla según la lógica del juego)
-            _listaFilas.Add(0);
-            _listaColumnas.Add(0);
+            _posicionesF.Append(_fila + " ");
+            _posicionesC.Append(_columna+  " ");
+
         }
 
-        public void AñadirPosicionF(int fila)
+        public void AñadirPosicionF()
         {
-            _listaFilas.Add(fila);
+            _posicionesF.Append(this._fila + " ");
         }
 
-        public void AñadirPosicionC(int columna)
+        public void AñadirPosicionC()
         {
-            _listaColumnas.Add(columna);
+            _posicionesC.Append(this._columna + " ");
         }
 
         public string GetId()
@@ -89,6 +90,16 @@ namespace Pinocho
         public void SetColumna(int columna)
         {
             this._columna = columna;
+        }
+
+        public StringBuilder GetPosicionesF()
+        {
+            return _posicionesF;
+        }
+
+        public StringBuilder GetPosicionesC()
+        {
+            return _posicionesC;
         }
     }
 }
