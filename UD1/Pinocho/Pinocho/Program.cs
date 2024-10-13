@@ -12,7 +12,7 @@ namespace Pinocho
         {
             #region JUGADORES
 
-            Jugador pinocho = new Jugador("PI", "Pinocho", 28);
+            Jugador pinocho = new Jugador("PI", "Pinocho", 18);
             Jugador pepito = new Jugador("PE", "Pepito", 18);
 
             #endregion
@@ -28,13 +28,17 @@ namespace Pinocho
 
             #region MENUYOPCIONES
 
+            // Hay dos versiones, una llamando a ProcesaOperacionParalelo y otra a ProcesaOperacionIndividual
+            // ProcesaOperacionParalelo realiza las operaciones de ambos jugadores de forma paralela
+            // ProcesaOperacionIndividual realiza las operaciones de ambos jugadores de forma secuencial
+
+            //Pasando true o false a ProcesaOperacionIndividual, los movimientos son automaticos (true) o manuales (false)
+
             do
             {  
-                Operaciones.ProcesaOperacionIndividual(ref tablero, pinocho, pepito, ref esValido,true);
+                Operaciones.ProcesaOperacionIndividual(ref tablero, pinocho, pepito, ref esValido, true);
                 
             } while (esValido);
-
-            Operaciones.MuestraPosiciones(pinocho);
 
             Console.ReadKey();
             #endregion

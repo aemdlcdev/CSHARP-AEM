@@ -22,6 +22,7 @@ namespace Pinocho
             Console.Write("F de " + jugador.GetNombreCompleto() + " " +jugador.GetPosicionesF().ToString());
             Console.WriteLine();
             Console.Write("C de " + jugador.GetNombreCompleto() + " " + jugador.GetPosicionesC().ToString());
+            Console.WriteLine();
         }
 
         #region MOSTRAR E INICIALIZAR
@@ -427,6 +428,9 @@ namespace Pinocho
                 Console.ReadKey();
                 Console.Clear();
             }
+            MuestraPosiciones(jugador1);
+            MuestraPosiciones(jugador2);
+
         }
         #endregion
 
