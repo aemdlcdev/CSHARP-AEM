@@ -8,22 +8,18 @@ namespace Pinocho
 {
     internal class Operaciones
     {
+
         private static Random random = new Random();
+
+        #region CONSTANTES
 
         public const string PIRAÑA = "1";
         public const string AGUA = "2";
         public const string PIEDRA = "3";
         public const string PEZ = "4";
         public const string PIERDE = "pierde";
-        
-        public static void MuestraPosiciones(Jugador jugador)
-        {
-            Console.WriteLine("Filas: F, Columnas: C");
-            Console.Write("F de " + jugador.GetNombreCompleto() + " " +jugador.GetPosicionesF().ToString());
-            Console.WriteLine();
-            Console.Write("C de " + jugador.GetNombreCompleto() + " " + jugador.GetPosicionesC().ToString());
-            Console.WriteLine();
-        }
+
+        #endregion
 
         #region MOSTRAR E INICIALIZAR
 
@@ -148,6 +144,15 @@ namespace Pinocho
 
             j2.SetFila(1);  // Jugador 2 justo debajo, en la posición (1,0)
             j2.SetColumna(0);
+        }
+
+        public static void MuestraPosiciones(Jugador jugador)
+        {
+            Console.WriteLine("Filas: F, Columnas: C");
+            Console.Write("F de " + jugador.GetNombreCompleto() + " " + jugador.GetPosicionesF().ToString());
+            Console.WriteLine();
+            Console.Write("C de " + jugador.GetNombreCompleto() + " " + jugador.GetPosicionesC().ToString());
+            Console.WriteLine();
         }
 
         #endregion

@@ -15,8 +15,8 @@ namespace Pinocho
         private int _peces;
         private int _fila; // Posición en fila del jugador
         private int _columna; // Posición en columna del jugador
-        private StringBuilder _posicionesF = new StringBuilder();
-        private StringBuilder _posicionesC = new StringBuilder();
+        private StringBuilder _posicionesF = new StringBuilder(); // Para guardar las posiciones de las filas
+        private StringBuilder _posicionesC = new StringBuilder(); // Para guardar las posiciones de las columnas
 
         public Jugador(string nombre, string nombreCompleto, int vidasIniciales)
         {
