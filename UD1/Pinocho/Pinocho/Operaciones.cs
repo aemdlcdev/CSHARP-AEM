@@ -225,111 +225,8 @@ namespace Pinocho
 
         #endregion
 
-        #region MOVIMIENTO PARALELO
-
-        public static void MoverEnParalelo(ref string[,] tablero, Jugador jugador1, Jugador jugador2, int desplFila, int desplColumna)
-        {
-            // Posiciones actuales de ambos jugadores
-            int fila1 = jugador1.GetFila();
-            int columna1 = jugador1.GetColumna();
-
-            int fila2 = jugador2.GetFila();
-            int columna2 = jugador2.GetColumna();
-
-            // Nuevas posiciones calculadas
-            int nuevaFila1 = fila1 + desplFila;
-            int nuevaColumna1 = columna1 + desplColumna;
-
-            int nuevaFila2 = fila2 + desplFila;
-            int nuevaColumna2 = columna2 + desplColumna;
-
-            // Verificar si ambas nuevas posiciones están dentro de los límites del tablero
-            if (EsMovimientoValido(tablero, nuevaFila1, nuevaColumna1) && EsMovimientoValido(tablero, nuevaFila2, nuevaColumna2))
-            {
-                // Verificar que no haya colisión entre los jugadores
-                if (nuevaFila1 == nuevaFila2 && nuevaColumna1 == nuevaColumna2)
-                {
-                    Console.WriteLine("Movimiento no válido: ambos jugadores colisionarían.");
-                    return; // Sale si colisonan
-                }
-                else
-                {
-                    // Mover ambos jugadores y actualizar el tablero
-                    MoverJugador(ref tablero, jugador1, nuevaFila1, nuevaColumna1);
-                    MoverJugador(ref tablero, jugador2, nuevaFila2, nuevaColumna2);
-
-                    // Añadimos la posicion de cada jugar a las lista para saber por donde se han movido
-                    jugador1.AñadirPosicionF();
-                    jugador1.AñadirPosicionC();
-
-                    jugador2.AñadirPosicionF();
-                    jugador2.AñadirPosicionC();
-                }
-            }
-            else
-            {
-                Console.WriteLine("Movimiento no válido: uno o ambos jugadores se salen del tablero.");
-            }
-        }
-
-        #endregion
-
         #region PROCESAR
-        public static void ProcesaOperacionParalelo(ref string[,] tablero, Jugador jugador1, Jugador jugador2, ref bool esValido, bool auto)
-        {
-            // Proceso de juego
-            while (esValido)
-            {
-                
-                Operaciones.MuestraTableroOculto(tablero, jugador1, jugador2);
-                Console.WriteLine("");
-                Operaciones.MuestraStats(jugador1);
-                Operaciones.MuestraStats(jugador2);
-                Console.WriteLine("");
-                
-                Operaciones.MuestraMenu();
-
-                // Leer opción del jugador 1
-                int operacion = Operaciones.LeeOpcionEntero(auto);
-                // Compruebo que si no tiene vidas que no haga nada
-                if (jugador1.GetVidas() <= 0 || jugador1.GetSaltos() <= 0)
-                {
-                    operacion = 6;
-                }
-                switch (operacion)
-                {
-                    case 1: // Mover a la derecha
-                        MoverEnParalelo(ref tablero, jugador1, jugador2, 0, 1);
-                        break;
-                    case 2: // Mover a la izquierda
-                        MoverEnParalelo(ref tablero, jugador1, jugador2, 0, -1);
-                        break;
-                    case 3: // Mover hacia arriba
-                        MoverEnParalelo(ref tablero, jugador1, jugador2, -1, 0);
-                        break;
-                    case 4: // Mover hacia abajo
-                        MoverEnParalelo(ref tablero, jugador1, jugador2, 1, 0);
-                        break;
-                    case 5: // Salir
-                        esValido = false;
-                        Console.WriteLine("Finalizando el programa...");
-                        break;
-                    default:
-                        Console.WriteLine("Opción no válida, intenta de nuevo.");
-                        break;
-                }
-
-                // Bajo las vidas ya que de maximo tienen 18 intentos
-                BajaSaltos(jugador1,jugador2);
-                // Verificar condiciones de victoria o derrota
-                VerificarCondicionesDeVictoria(ref esValido, tablero, jugador1, jugador2);
-                Console.WriteLine("Pulse cualquier tecla para continuar...");
-                Console.ReadKey();
-                Console.Clear();
-                
-            }
-        }
-
+        
         public static void ProcesaOperacionIndividual(ref string[,] tablero, Jugador jugador1, Jugador jugador2, ref bool esValido, bool auto)
         {
             // Proceso de juego
@@ -490,7 +387,6 @@ namespace Pinocho
             {
                 Console.WriteLine($"El jugador {jugador2.GetNombreCompleto()} se ha quedado sin saltos!");
             }
-
         }
 
         private static int GeneraRandom(int min, int max)
