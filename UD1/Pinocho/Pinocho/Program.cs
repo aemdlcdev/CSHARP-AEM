@@ -22,19 +22,18 @@ namespace Pinocho
             string[,] tablero = new string[8, 8];
             Operaciones.InicializarTablero(tablero, pinocho,pepito);
             
-            bool esValido = true;
+            
 
             #endregion
 
             #region MENUYOPCIONES
 
-            // Hay dos versiones, una llamando a ProcesaOperacionParalelo y otra a ProcesaOperacionIndividual
-            // ProcesaOperacionParalelo realiza las operaciones de ambos jugadores de forma paralela
+            bool automatico = true;
             // ProcesaOperacionIndividual realiza las operaciones de ambos jugadores de forma secuencial
 
-            //Pasando true o false a ProcesaOperacionIndividual, los movimientos son automaticos (true) o manuales (false)
+            //Pasando "automatico" a ProcesaOperacionIndividual, los movimientos son automaticos (true) o manuales (false)
 
-            Operaciones.ProcesaOperacionIndividual(ref tablero, pinocho, pepito, ref esValido, true);
+            Operaciones.ProcesaOperacionIndividual(ref tablero, pinocho, pepito, automatico);
                 
             Console.ReadKey();
             #endregion

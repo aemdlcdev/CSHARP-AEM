@@ -8,8 +8,10 @@ namespace Pinocho
 {
     internal class Operaciones
     {
-
+        #region VARIABLES 
         private static Random random = new Random();
+        private static bool esValido = true;
+        #endregion
 
         #region CONSTANTES
 
@@ -74,6 +76,7 @@ namespace Pinocho
 
             int fila2 = ju2.GetFila();
             int columna2 = ju2.GetColumna();
+
             for (int i = 0; i < tablero.GetLength(0); i++)
             {
                 for (int j = 0; j < tablero.GetLength(1); j++)
@@ -82,7 +85,7 @@ namespace Pinocho
                     {
                         Console.Write(ju.GetId() + " ");
                     }
-                    else if (i == fila2 && j == columna2) // Se usa "else if" para evitar superposición
+                    else if (i == fila2 && j == columna2) 
                     {
                         Console.Write(ju2.GetId() + " ");
                     }
@@ -227,7 +230,7 @@ namespace Pinocho
 
         #region PROCESAR
         
-        public static void ProcesaOperacionIndividual(ref string[,] tablero, Jugador jugador1, Jugador jugador2, ref bool esValido, bool auto)
+        public static void ProcesaOperacionIndividual(ref string[,] tablero, Jugador jugador1, Jugador jugador2, bool auto)
         {
             // Proceso de juego
             while (esValido)
@@ -333,6 +336,7 @@ namespace Pinocho
             MuestraPosiciones(jugador2);
 
         }
+
         #endregion
 
         #region METODOS PRIVADOS
