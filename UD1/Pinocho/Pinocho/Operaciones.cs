@@ -103,6 +103,7 @@ namespace Pinocho
         {
             Console.WriteLine("Vidas de " + jugador.GetNombreCompleto() + ": " + jugador.GetVidas());
             Console.WriteLine("Peces de " + jugador.GetNombreCompleto() + ": " + jugador.GetPeces());
+            Console.WriteLine("Saltos de " + jugador.GetNombreCompleto() + ": " + jugador.GetSaltos());
             Console.WriteLine("");
 
         }
@@ -290,7 +291,11 @@ namespace Pinocho
 
                 // Leer opción del jugador 1
                 int operacion = Operaciones.LeeOpcionEntero(auto);
-
+                // Compruebo que si no tiene vidas que no haga nada
+                if (jugador1.GetVidas() <= 0 || jugador1.GetSaltos() <= 0)
+                {
+                    operacion = 6;
+                }
                 switch (operacion)
                 {
                     case 1: // Mover a la derecha
@@ -315,7 +320,7 @@ namespace Pinocho
                 }
 
                 // Bajo las vidas ya que de maximo tienen 18 intentos
-                BajaVidas(jugador1,jugador2);
+                BajaSaltos(jugador1,jugador2);
                 // Verificar condiciones de victoria o derrota
                 VerificarCondicionesDeVictoria(ref esValido, tablero, jugador1, jugador2);
                 Console.WriteLine("Pulse cualquier tecla para continuar...");
@@ -341,7 +346,7 @@ namespace Pinocho
                 int operacion = Operaciones.LeeOpcionEntero(auto);
 
                 // Compruebo que si no tiene vidas que no haga nada
-                if (jugador1.GetVidas() <= 0) 
+                if (jugador1.GetVidas() <= 0 || jugador1.GetSaltos() <=0) 
                 {
                     operacion = 6;
                 }
@@ -420,7 +425,7 @@ namespace Pinocho
                 if (!esValido) break; // Si hay un ganador, salir del bucle
 
                 // Reducir vidas (maximo 18 intentos), verificando que las vidas sean mayores que 0
-                BajaVidas(jugador1,jugador2);
+                BajaSaltos(jugador1,jugador2);
                 // Verificamos las condiciones
                 VerificarCondicionesDeVictoria(ref esValido, tablero, jugador1, jugador2);
                 Console.WriteLine("Pulse cualquier tecla para continuar...");
@@ -473,6 +478,19 @@ namespace Pinocho
                 Console.WriteLine($"El jugador {jugador2.GetNombreCompleto()} se ha quedado sin vidas!");
             }
             
+            if(jugador1.GetSaltos() <= 0 && jugador2.GetSaltos() <= 0)
+            {
+                Console.WriteLine("Ambos jugadores se han quedado sin saltos, el juego ha terminado");
+                esValido = false;
+            } else if(jugador1.GetSaltos() <= 0)
+            {
+                Console.WriteLine($"El jugador {jugador1.GetNombreCompleto()} se ha quedado sin saltos!");
+            }
+            else if (jugador2.GetSaltos() <= 0)
+            {
+                Console.WriteLine($"El jugador {jugador2.GetNombreCompleto()} se ha quedado sin saltos!");
+            }
+
         }
 
         private static int GeneraRandom(int min, int max)
@@ -480,20 +498,20 @@ namespace Pinocho
             return random.Next(min, max + 1);
         }
 
-        private static void BajaVidas(Jugador jugador1, Jugador jugador2)
+        private static void BajaSaltos(Jugador jugador1, Jugador jugador2)
         {
-            if (jugador1.GetVidas() > 0 && jugador2.GetVidas() > 0)
+            if (jugador1.GetSaltos() > 0 && jugador2.GetSaltos() > 0)
             {
-                jugador1.SetVidas(jugador1.GetVidas() - 1);
-                jugador2.SetVidas(jugador2.GetVidas() - 1);
+                jugador1.SetSaltos(jugador1.GetSaltos() - 1);
+                jugador2.SetSaltos(jugador2.GetSaltos() - 1);
             }
-            else if (jugador1.GetVidas() > 0)
+            else if (jugador1.GetSaltos() > 0)
             {
-                jugador1.SetVidas(jugador1.GetVidas() - 1);
+                jugador1.SetSaltos(jugador1.GetSaltos() - 1);
             }
-            else if(jugador2.GetVidas() > 0)
+            else if(jugador2.GetSaltos() > 0)
             {
-                jugador2.SetVidas(jugador2.GetVidas() - 1);
+                jugador2.SetSaltos(jugador2.GetSaltos() - 1);
             }
         }
         #endregion

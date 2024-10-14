@@ -12,6 +12,7 @@ namespace Pinocho
         private string _id;
         private string _nombreCompleto;
         private int _vidas;
+        private int _saltos;
         private int _peces;
         private int _fila; // Posición en fila del jugador
         private int _columna; // Posición en columna del jugador
@@ -26,6 +27,7 @@ namespace Pinocho
             this._peces = 0;
             this._fila = 0; // Posición inicial (puedes cambiarla según la lógica del juego)
             this._columna = 0; // Posición inicial (puedes cambiarla según la lógica del juego)
+            this._saltos = 18;
             _posicionesF.Append(_fila + " ");
             _posicionesC.Append(_columna+  " ");
 
@@ -39,6 +41,16 @@ namespace Pinocho
         public void AñadirPosicionC()
         {
             _posicionesC.Append(this._columna + " ");
+        }
+
+        public int GetSaltos()
+        {
+            return _saltos;
+        }
+
+        public void SetSaltos(int saltos)
+        {
+            this._saltos = saltos;
         }
 
         public string GetId()

@@ -12,8 +12,8 @@ namespace Pinocho
         {
             #region JUGADORES
 
-            Jugador pinocho = new Jugador("PI", "Pinocho", 18);
-            Jugador pepito = new Jugador("PE", "Pepito", 18);
+            Jugador pinocho = new Jugador("PI", "Pinocho", 3);
+            Jugador pepito = new Jugador("PE", "Pepito", 3);
 
             #endregion
 
@@ -42,3 +42,4 @@ namespace Pinocho
         }
     }
 }
+
