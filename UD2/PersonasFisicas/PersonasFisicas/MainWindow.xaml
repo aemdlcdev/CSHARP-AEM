@@ -1,0 +1,42 @@
+﻿<Window x:Class="PersonasFisicas.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:PersonasFisicas"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800">
+    <Grid>
+        <Label x:Name="lblProfesón" Content="Profesión" HorizontalAlignment="Left" Margin="105,114,0,0" VerticalAlignment="Top"/>
+        <TextBox x:Name="txtProfesion" HorizontalAlignment="Left" Margin="210,118,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="165"/>
+        <Label x:Name="lblHermanos" Content="Nº Hermanos" HorizontalAlignment="Left" Margin="105,145,0,0" VerticalAlignment="Top"/>
+        <TextBox x:Name="txtNumHermanos" HorizontalAlignment="Left" Margin="210,149,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="55"/>
+        <Label x:Name="lblEdadHermanos" Content="Edad" HorizontalAlignment="Left" Margin="270,145,0,0" VerticalAlignment="Top"/>
+        <ComboBox HorizontalAlignment="Left" Margin="311,147,0,0" VerticalAlignment="Top" Width="64">
+            <MenuItem Header="De 15 a 18"/>
+            <MenuItem Header="De 19 a 30"/>
+            <MenuItem Header="De 31 a 60"/>
+        </ComboBox>
+        <Label x:Name="lblHermanos_Copiar" Content="Sexo" HorizontalAlignment="Left" Margin="105,176,0,0" VerticalAlignment="Top"/>
+        <RadioButton x:Name="rbtMasculino" Content="Masculino" HorizontalAlignment="Left" Margin="210,187,0,0" VerticalAlignment="Top"/>
+        <RadioButton x:Name="rbtFemenino" Content="Femenino" HorizontalAlignment="Left" Margin="302,187,0,0" VerticalAlignment="Top"/>
+        <CheckBox x:Name="chbDeporte" Content="Practica algún deporte. ¿Cúal?" HorizontalAlignment="Left" Margin="105,217,0,0" VerticalAlignment="Top"/>
+        <ListBox Margin="105,240,425,105" SelectionChanged="ListBox_SelectionChanged">
+            <ListBoxItem Content="Fútbol"/>
+            <ListBoxItem Content="Tenis"/>
+            <ListBoxItem Content="Piragüismo"/>
+            <ListBoxItem Content="Baloncesto"/>
+            <ListBoxItem Content="Boxeo"/>
+        </ListBox>
+        <Label x:Name="lblGrado" Content="Marque del 1 al 10 su grado de afición a:" HorizontalAlignment="Left" Margin="467,114,0,0" VerticalAlignment="Top" Width="228"/>
+        <Label x:Name="lblCompras" HorizontalAlignment="Left" Margin="467,145,0,0" VerticalAlignment="Top" Width="228" Content="Compras"/>
+        <Slider x:Name="sliCompras" HorizontalAlignment="Left" Margin="475,180,0,0" VerticalAlignment="Top" Width="220"/>
+        <Label x:Name="lblTelevision" HorizontalAlignment="Left" Margin="467,0,0,0" VerticalAlignment="Center" Width="228" Content="Ver la televisión"/>
+        <Slider x:Name="sliTelevision" HorizontalAlignment="Left" Margin="475,240,0,0" VerticalAlignment="Top" Width="220"/>
+        <Label x:Name="lblCine" HorizontalAlignment="Left" Margin="467,276,0,0" VerticalAlignment="Top" Width="228" Content="Ir al cine"/>
+        <Slider x:Name="sliCine" HorizontalAlignment="Left" Margin="475,311,0,0" VerticalAlignment="Top" Width="220"/>
+        <Button x:Name="btnRegistrar" Content="Registrar" HorizontalAlignment="Left" Margin="105,354,0,0" VerticalAlignment="Top" Height="45" Width="114"/>
+        <Button x:Name="btnSalir" Content="Salir" HorizontalAlignment="Left" Margin="581,354,0,0" VerticalAlignment="Top" Height="45" Width="114" Click="Button_Click"/>
+
+    </Grid>
+</Window>
