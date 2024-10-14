@@ -24,5 +24,10 @@ namespace Alumnos
         {
             InitializeComponent();
         }
+
+        private void listaSexos_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+
+        }
     }
 }
