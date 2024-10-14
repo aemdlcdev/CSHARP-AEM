@@ -35,18 +35,16 @@ namespace Pinocho
             Console.WriteLine("5: Salir");
         }
 
-        public static int LeeOpcionEntero(bool auto)
+        public static int LeeOpcionEntero(bool automatico)
         {
             int opcion = 0;
-            if (!auto)
+            if (!automatico)
             {
-                try
+                string input = Console.ReadLine();
+                if (!int.TryParse(input, out opcion))
                 {
-                    int.TryParse(Console.ReadLine(), out opcion);
-                }
-                catch (Exception ex)
-                {
-                    Console.WriteLine("Opcion incorrecta" + ex.Message);
+                    Console.WriteLine("Opción incorrecta. Por favor, ingrese un número entero!");
+                    return LeeOpcionEntero(automatico);
                 }
             }
             else
@@ -54,6 +52,35 @@ namespace Pinocho
                 opcion = GeneraRandom(1, 4);
             }
             return opcion;
+        }
+
+        public static void InicializarTablero(string[,] tablero, List<Jugador> jugadores)
+        {
+            // Llenar el tablero con valores aleatorios
+            for (int i = 0; i < tablero.GetLength(0); i++)
+            {
+                for (int j = 0; j < tablero.GetLength(1); j++)
+                {
+                    tablero[i, j] = "" + GeneraRandom(1, 4);
+                }
+            }
+
+            // Asignar posiciones iniciales a los jugadores
+            
+            for (int indice = 0; indice < jugadores.Count; indice++) // Count para el num de elementos de la lista
+            {
+
+                int fila = indice / tablero.GetLength(1); // Calcular la fila (aqui me quedo con el cociente al divir entre las columnas)
+                int columna = indice % tablero.GetLength(1); // Calcular la columna (aqui me quedo con el resto al divir entre las columnas)
+
+                // Asignar la posicion inicial a cada jugador de la listaa
+                
+                jugadores[indice].SetFila(fila);
+                jugadores[indice].SetColumna(columna);
+
+                // Coloco a cada jugador de la lista en el tablero
+                tablero[fila, columna] = jugadores[indice].GetId();
+            }
         }
 
         public static void MuestraArray(string[,] array)
@@ -71,16 +98,16 @@ namespace Pinocho
 
         public static void MuestraTableroOculto(string[,] tablero, List<Jugador> jugadores)
         {
-            for (int i = 0; i < tablero.GetLength(0); i++)
+            for (int fila = 0; fila < tablero.GetLength(0); fila++)
             {
-                for (int j = 0; j < tablero.GetLength(1); j++)
+                for (int columna = 0; columna < tablero.GetLength(1); columna++)
                 {
                     bool esJugador = false;
 
                     // Comprobar si la celda contiene a algún jugador
                     foreach (var jugador in jugadores)
                     {
-                        if (i == jugador.GetFila() && j == jugador.GetColumna())
+                        if (fila == jugador.GetFila() && columna == jugador.GetColumna())
                         {
                             Console.Write(jugador.GetId() + " ");
                             esJugador = true;
@@ -90,7 +117,7 @@ namespace Pinocho
 
                     if (!esJugador)
                     {
-                        if (tablero[i, j] == "-")
+                        if (tablero[fila, columna] == "-")
                         {
                             Console.Write("- ");
                         }
@@ -104,7 +131,6 @@ namespace Pinocho
             }
         }
 
-
         public static void MuestraStats(Jugador jugador)
         {
             Console.WriteLine("Vidas de " + jugador.GetNombreCompleto() + ": " + jugador.GetVidas());
@@ -112,32 +138,7 @@ namespace Pinocho
             Console.WriteLine("Saltos de " + jugador.GetNombreCompleto() + ": " + jugador.GetSaltos());
             Console.WriteLine("");
         }  
-        public static void InicializarTablero(string[,] tablero, List<Jugador> jugadores)
-        {
-            // Llenar el tablero con valores aleatorios
-            for (int i = 0; i < tablero.GetLength(0); i++)
-            {
-                for (int j = 0; j < tablero.GetLength(1); j++)
-                {
-                    tablero[i, j] = "" + GeneraRandom(1, 4);
-                }
-            }
-
-            // Asignar posiciones iniciales a los jugadores
-            for (int indice = 0; indice < jugadores.Count; indice++) // Count para el num de elementos de la lista
-            {
-                int fila = indice / tablero.GetLength(1); // Calcular la fila
-                int columna = indice % tablero.GetLength(1); // Calcular la columna
-
-                jugadores[indice].SetFila(fila);
-                jugadores[indice].SetColumna(columna);
-
-                // Colocar al jugador en la posición inicial en el tablero
-                tablero[fila, columna] = jugadores[indice].GetId();
-            }
-        }
-
-
+        
         public static void MuestraPosiciones(Jugador jugador)
         {
             Console.WriteLine("Filas: F, Columnas: C");

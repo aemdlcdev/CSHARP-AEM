@@ -11,11 +11,12 @@ namespace Pinocho
         static void Main(string[] args)
         {
             #region JUGADORES
-            // Le pasamos una abrebiatura o "id", el nombre completo y las vidas iniciales
-            Jugador pinocho = new Jugador("PI", "Pinocho", 30);
-            Jugador pepito = new Jugador("PE", "Pepito", 30);
-            Jugador gapetto = new Jugador("GA", "Gapetto",30);
-            Jugador figaro = new Jugador("FI", "Figaro", 30);
+            // Le pasamos una abrebiatura o "id", el nombre completo, las vidas iniciales, y los saltos iniciales
+            Jugador pinocho = new Jugador("PI", "Pinocho", 30, 18);
+            Jugador pepito = new Jugador("PE", "Pepito", 30, 18);
+            Jugador gapetto = new Jugador("GA", "Gapetto",30, 18);
+            Jugador figaro = new Jugador("FI", "Figaro", 30, 18);
+
             // Añadimos los jugadores a una lista, podemos añadir los que queramos, para probar he añadido 4
             List<Jugador> jugadores = new List<Jugador> { pinocho, pepito, gapetto, figaro  /* otros jugadores */ };
             #endregion

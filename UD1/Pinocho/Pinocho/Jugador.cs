@@ -19,7 +19,7 @@ namespace Pinocho
         private StringBuilder _posicionesF = new StringBuilder(); // Para guardar las posiciones de las filas
         private StringBuilder _posicionesC = new StringBuilder(); // Para guardar las posiciones de las columnas
 
-        public Jugador(string nombre, string nombreCompleto, int vidasIniciales)
+        public Jugador(string nombre, string nombreCompleto, int vidasIniciales, int saltos)
         {
             this._id = nombre;
             this._nombreCompleto = nombreCompleto;
@@ -27,7 +27,7 @@ namespace Pinocho
             this._peces = 0;
             this._fila = 0; // Posición inicial (puedes cambiarla según la lógica del juego)
             this._columna = 0; // Posición inicial (puedes cambiarla según la lógica del juego)
-            this._saltos = 18;
+            this._saltos = saltos;
             _posicionesF.Append(_fila + " ");
             _posicionesC.Append(_columna+  " ");
 
