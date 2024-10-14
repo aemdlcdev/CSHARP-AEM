@@ -34,12 +34,8 @@ namespace Pinocho
 
             //Pasando true o false a ProcesaOperacionIndividual, los movimientos son automaticos (true) o manuales (false)
 
-            do
-            {  
-                Operaciones.ProcesaOperacionIndividual(ref tablero, pinocho, pepito, ref esValido, true);
+            Operaciones.ProcesaOperacionIndividual(ref tablero, pinocho, pepito, ref esValido, true);
                 
-            } while (esValido);
-
             Console.ReadKey();
             #endregion
 
