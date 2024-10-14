@@ -14,13 +14,14 @@ namespace Pinocho
 
             Jugador pinocho = new Jugador("PI", "Pinocho", 3);
             Jugador pepito = new Jugador("PE", "Pepito", 3);
-
+            Jugador manolo = new Jugador("MA", "Manolo",100);
+            List<Jugador> jugadores = new List<Jugador> { pinocho, pepito, manolo /* otros jugadores */ };
             #endregion
 
             #region TABLERO
 
             string[,] tablero = new string[8, 8];
-            Operaciones.InicializarTablero(tablero, pinocho,pepito);
+            Operaciones.InicializarTablero(tablero, jugadores);
             
             #endregion
 
@@ -32,7 +33,7 @@ namespace Pinocho
 
             //Pasando "automatico" a ProcesaOperacionIndividual, los movimientos son automaticos (true) o manuales (false)
 
-            Operaciones.ProcesaOperacionIndividual(ref tablero, pinocho, pepito, automatico);
+            Operaciones.ProcesaOperacionIndividual(ref tablero, jugadores, automatico);
                 
             Console.ReadKey();
             #endregion
