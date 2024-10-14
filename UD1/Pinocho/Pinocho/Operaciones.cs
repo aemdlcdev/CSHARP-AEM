@@ -101,18 +101,9 @@ namespace Pinocho
 
         public static void MuestraStats(Jugador jugador)
         {
-            Console.WriteLine("Vidas: " + jugador.GetVidas());
-            Console.WriteLine("Peces: " + jugador.GetPeces());
-
-        }
-
-        public static void MuestraStats(Jugador jugador, Jugador jugador2)
-        {
             Console.WriteLine("Vidas de " + jugador.GetNombreCompleto() + ": " + jugador.GetVidas());
             Console.WriteLine("Peces de " + jugador.GetNombreCompleto() + ": " + jugador.GetPeces());
             Console.WriteLine("");
-            Console.WriteLine("Vidas de " + jugador2.GetNombreCompleto()+": "+ jugador2.GetVidas());
-            Console.WriteLine("Peces de " + jugador2.GetNombreCompleto() + ": " + jugador2.GetPeces());
 
         }
 
@@ -291,7 +282,8 @@ namespace Pinocho
                 
                 Operaciones.MuestraTableroOculto(tablero, jugador1, jugador2);
                 Console.WriteLine("");
-                Operaciones.MuestraStats(jugador1, jugador2);
+                Operaciones.MuestraStats(jugador1);
+                Operaciones.MuestraStats(jugador2);
                 Console.WriteLine("");
                 
                 Operaciones.MuestraMenu();
@@ -341,7 +333,8 @@ namespace Pinocho
                 // Turno del jugador 1
                 Console.WriteLine($"{jugador1.GetNombreCompleto()}, es tu turno.");
                 Operaciones.MuestraTableroOculto(tablero, jugador1, jugador2);
-                Operaciones.MuestraStats(jugador1, jugador2);
+                Operaciones.MuestraStats(jugador1);
+                Operaciones.MuestraStats(jugador2);
                 Operaciones.MuestraMenu();
 
                 // Leer opción del jugador 1
@@ -386,7 +379,8 @@ namespace Pinocho
                 // Turno del jugador 2
                 Console.WriteLine($"{jugador2.GetNombreCompleto()}, es tu turno.");
                 Operaciones.MuestraTableroOculto(tablero, jugador1, jugador2);
-                Operaciones.MuestraStats(jugador1, jugador2);
+                Operaciones.MuestraStats(jugador1);
+                Operaciones.MuestraStats(jugador2);
                 Operaciones.MuestraMenu();
 
                 // Leer opción del jugador 2
