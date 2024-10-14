@@ -22,13 +22,12 @@ namespace Pinocho
             string[,] tablero = new string[8, 8];
             Operaciones.InicializarTablero(tablero, pinocho,pepito);
             
-            
-
             #endregion
 
             #region MENUYOPCIONES
 
             bool automatico = true;
+
             // ProcesaOperacionIndividual realiza las operaciones de ambos jugadores de forma secuencial
 
             //Pasando "automatico" a ProcesaOperacionIndividual, los movimientos son automaticos (true) o manuales (false)
