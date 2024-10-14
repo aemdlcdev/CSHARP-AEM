@@ -111,7 +111,6 @@ namespace Pinocho
             Console.WriteLine("Peces de " + jugador.GetNombreCompleto() + ": " + jugador.GetPeces());
             Console.WriteLine("Saltos de " + jugador.GetNombreCompleto() + ": " + jugador.GetSaltos());
             Console.WriteLine("");
-
         }  
         public static void InicializarTablero(string[,] tablero, List<Jugador> jugadores)
         {
@@ -125,16 +124,16 @@ namespace Pinocho
             }
 
             // Asignar posiciones iniciales a los jugadores
-            for (int index = 0; index < jugadores.Count; index++) // Count para el num de elementos de la lista
+            for (int indice = 0; indice < jugadores.Count; indice++) // Count para el num de elementos de la lista
             {
-                int fila = index / tablero.GetLength(1); // Calcular la fila
-                int columna = index % tablero.GetLength(1); // Calcular la columna
+                int fila = indice / tablero.GetLength(1); // Calcular la fila
+                int columna = indice % tablero.GetLength(1); // Calcular la columna
 
-                jugadores[index].SetFila(fila);
-                jugadores[index].SetColumna(columna);
+                jugadores[indice].SetFila(fila);
+                jugadores[indice].SetColumna(columna);
 
                 // Colocar al jugador en la posición inicial en el tablero
-                tablero[fila, columna] = jugadores[index].GetId();
+                tablero[fila, columna] = jugadores[indice].GetId();
             }
         }
 
