@@ -242,15 +242,15 @@ namespace Pinocho
 
         public static void ProcesaOperacionIndividual(ref string[,] tablero, List<Jugador> jugadores, bool auto)
         {
-            bool esValido = true;
+            bool juegoEnCurso = true;
 
-            while (esValido)
+            while (juegoEnCurso)
             {
                 foreach (var jugador in jugadores)
                 {
                     if (jugador.GetVidas() <= 0 || jugador.GetSaltos() <= 0)
                     {
-                        continue; // Saltar turno si el jugador no tiene vidas o saltos
+                        continue; // Saltar el turno si el jugador no tiene vidas o saltos
                     }
 
                     Console.WriteLine($"{jugador.GetNombreCompleto()}, es tu turno.");
@@ -275,7 +275,7 @@ namespace Pinocho
                             MoverJugadorSiValido(ref tablero, jugador, jugadores, 1, 0);
                             break;
                         case 5: // Salir
-                            esValido = false;
+                            juegoEnCurso = false;
                             Console.WriteLine("Finalizando el programa...");
                             break;
                         default:
@@ -283,27 +283,29 @@ namespace Pinocho
                             break;
                     }
 
-                    VerificarCondicionesDeVictoria(ref esValido, tablero, jugadores);
+                    // Verificar condiciones de victoria después de cada movimiento
+                    VerificarCondicionesDeVictoriaDerrota(ref juegoEnCurso, tablero, jugadores);
 
-                    if (!esValido) break; // Si hay un ganador, salir del bucle
+                    if (!juegoEnCurso) break; // Si hay un ganador, salir del bucle
                 }
 
-                if (!esValido) break; // Si hay un ganador, salir del bucle
+                if (!juegoEnCurso) break; // Si hay un ganador, salir del bucle
 
-                // Reducir vidas (máximo 18 intentos), verificando que las vidas sean mayores que 0
+                // Reducir saltos (máximo 18 intentos), verificando que las vidas sean mayores que 0
                 BajaSaltos(jugadores);
-                VerificarCondicionesDeVictoria(ref esValido, tablero, jugadores);
+                VerificarCondicionesDeVictoriaDerrota(ref juegoEnCurso, tablero, jugadores);
+
                 Console.WriteLine("Pulse cualquier tecla para continuar...");
                 Console.ReadKey();
                 Console.Clear();
             }
 
+            // Mostrar posiciones finales de los jugadores
             foreach (var jugador in jugadores)
             {
                 MuestraPosiciones(jugador);
             }
         }
-
 
         #endregion
 
@@ -314,7 +316,7 @@ namespace Pinocho
             return fila >= 0 && fila < tablero.GetLength(0) && columna >= 0 && columna < tablero.GetLength(1);
         }
 
-        private static void VerificarCondicionesDeVictoria(ref bool esValido, string[,] tablero, List<Jugador> jugadores)
+        private static void VerificarCondicionesDeVictoriaDerrota(ref bool esValido, string[,] tablero, List<Jugador> jugadores)
         {
             int metaFila = tablero.GetLength(0) - 1;
             int metaColumna = tablero.GetLength(1) - 1;
@@ -343,7 +345,6 @@ namespace Pinocho
                 }
             }
         }
-
 
         private static int GeneraRandom(int min, int max)
         {
