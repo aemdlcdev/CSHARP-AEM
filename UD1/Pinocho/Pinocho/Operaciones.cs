@@ -119,11 +119,11 @@ namespace Pinocho
                     {
                         if (tablero[fila, columna] == "-")
                         {
-                            Console.Write("- ");
+                            Console.Write("- "); // Celdas ya visitadas o vacias
                         }
                         else
                         {
-                            Console.Write("* ");
+                            Console.Write("* "); // Celdas no visitadas
                         }
                     }
                 }
