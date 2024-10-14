@@ -1,0 +1,15 @@
+C:\Users\b15-03m\Documents\NetBeansProjects\DI-AEM\UD2\HolaMundoWPF\HolaMundoWPF\bin\Debug\HolaMundoWPF.exe.config
+C:\Users\b15-03m\Documents\NetBeansProjects\DI-AEM\UD2\HolaMundoWPF\HolaMundoWPF\bin\Debug\HolaMundoWPF.exe
+C:\Users\b15-03m\Documents\NetBeansProjects\DI-AEM\UD2\HolaMundoWPF\HolaMundoWPF\bin\Debug\HolaMundoWPF.pdb
+C:\Users\b15-03m\Documents\NetBeansProjects\DI-AEM\UD2\HolaMundoWPF\HolaMundoWPF\obj\Debug\HolaMundoWPF.csproj.AssemblyReference.cache
+C:\Users\b15-03m\Documents\NetBeansProjects\DI-AEM\UD2\HolaMundoWPF\HolaMundoWPF\obj\Debug\MainWindow.g.cs
+C:\Users\b15-03m\Documents\NetBeansProjects\DI-AEM\UD2\HolaMundoWPF\HolaMundoWPF\obj\Debug\App.g.cs
+C:\Users\b15-03m\Documents\NetBeansProjects\DI-AEM\UD2\HolaMundoWPF\HolaMundoWPF\obj\Debug\HolaMundoWPF_MarkupCompile.cache
+C:\Users\b15-03m\Documents\NetBeansProjects\DI-AEM\UD2\HolaMundoWPF\HolaMundoWPF\obj\Debug\HolaMundoWPF_MarkupCompile.lref
+C:\Users\b15-03m\Documents\NetBeansProjects\DI-AEM\UD2\HolaMundoWPF\HolaMundoWPF\obj\Debug\MainWindow.baml
+C:\Users\b15-03m\Documents\NetBeansProjects\DI-AEM\UD2\HolaMundoWPF\HolaMundoWPF\obj\Debug\HolaMundoWPF.g.resources
+C:\Users\b15-03m\Documents\NetBeansProjects\DI-AEM\UD2\HolaMundoWPF\HolaMundoWPF\obj\Debug\HolaMundoWPF.Properties.Resources.resources
+C:\Users\b15-03m\Documents\NetBeansProjects\DI-AEM\UD2\HolaMundoWPF\HolaMundoWPF\obj\Debug\HolaMundoWPF.csproj.GenerateResource.cache
+C:\Users\b15-03m\Documents\NetBeansProjects\DI-AEM\UD2\HolaMundoWPF\HolaMundoWPF\obj\Debug\HolaMundoWPF.csproj.CoreCompileInputs.cache
+C:\Users\b15-03m\Documents\NetBeansProjects\DI-AEM\UD2\HolaMundoWPF\HolaMundoWPF\obj\Debug\HolaMundoWPF.exe
+C:\Users\b15-03m\Documents\NetBeansProjects\DI-AEM\UD2\HolaMundoWPF\HolaMundoWPF\obj\Debug\HolaMundoWPF.pdb

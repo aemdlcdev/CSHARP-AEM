@@ -13,7 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace HolaMundoWPF
+namespace Alumnos
 {
     /// <summary>
     /// Lógica de interacción para MainWindow.xaml
@@ -23,17 +23,6 @@ namespace HolaMundoWPF
         public MainWindow()
         {
             InitializeComponent();
-            
-        }
-
-        private void Button_Click(object sender, RoutedEventArgs e)
-        {
-            lEtiqueta.Content = "Hola Mundo WPF";
-        }
-
-        private void btnPulsame_MouseEnter(object sender, MouseEventArgs e)
-        {
-            lEtiqueta.Content = "Estoy encima del botón";
         }
     }
 }
