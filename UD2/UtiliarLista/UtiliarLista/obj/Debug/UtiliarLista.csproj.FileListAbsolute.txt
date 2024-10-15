@@ -1,0 +1,15 @@
+C:\Users\b15-03m\Documents\NetBeansProjects\DI-AEM\UD2\UtiliarLista\UtiliarLista\bin\Debug\UtiliarLista.exe.config
+C:\Users\b15-03m\Documents\NetBeansProjects\DI-AEM\UD2\UtiliarLista\UtiliarLista\bin\Debug\UtiliarLista.exe
+C:\Users\b15-03m\Documents\NetBeansProjects\DI-AEM\UD2\UtiliarLista\UtiliarLista\bin\Debug\UtiliarLista.pdb
+C:\Users\b15-03m\Documents\NetBeansProjects\DI-AEM\UD2\UtiliarLista\UtiliarLista\obj\Debug\UtiliarLista.csproj.AssemblyReference.cache
+C:\Users\b15-03m\Documents\NetBeansProjects\DI-AEM\UD2\UtiliarLista\UtiliarLista\obj\Debug\MainWindow.g.cs
+C:\Users\b15-03m\Documents\NetBeansProjects\DI-AEM\UD2\UtiliarLista\UtiliarLista\obj\Debug\App.g.cs
+C:\Users\b15-03m\Documents\NetBeansProjects\DI-AEM\UD2\UtiliarLista\UtiliarLista\obj\Debug\UtiliarLista_MarkupCompile.cache
+C:\Users\b15-03m\Documents\NetBeansProjects\DI-AEM\UD2\UtiliarLista\UtiliarLista\obj\Debug\UtiliarLista_MarkupCompile.lref
+C:\Users\b15-03m\Documents\NetBeansProjects\DI-AEM\UD2\UtiliarLista\UtiliarLista\obj\Debug\MainWindow.baml
+C:\Users\b15-03m\Documents\NetBeansProjects\DI-AEM\UD2\UtiliarLista\UtiliarLista\obj\Debug\UtiliarLista.g.resources
+C:\Users\b15-03m\Documents\NetBeansProjects\DI-AEM\UD2\UtiliarLista\UtiliarLista\obj\Debug\UtiliarLista.Properties.Resources.resources
+C:\Users\b15-03m\Documents\NetBeansProjects\DI-AEM\UD2\UtiliarLista\UtiliarLista\obj\Debug\UtiliarLista.csproj.GenerateResource.cache
+C:\Users\b15-03m\Documents\NetBeansProjects\DI-AEM\UD2\UtiliarLista\UtiliarLista\obj\Debug\UtiliarLista.csproj.CoreCompileInputs.cache
+C:\Users\b15-03m\Documents\NetBeansProjects\DI-AEM\UD2\UtiliarLista\UtiliarLista\obj\Debug\UtiliarLista.exe
+C:\Users\b15-03m\Documents\NetBeansProjects\DI-AEM\UD2\UtiliarLista\UtiliarLista\obj\Debug\UtiliarLista.pdb
