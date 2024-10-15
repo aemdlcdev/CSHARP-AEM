@@ -1,0 +1,15 @@
+C:\Users\b15-03m\Documents\NetBeansProjects\DI-AEM\UD2\CopiarValor\CopiarValor\bin\Debug\CopiarValor.exe.config
+C:\Users\b15-03m\Documents\NetBeansProjects\DI-AEM\UD2\CopiarValor\CopiarValor\bin\Debug\CopiarValor.exe
+C:\Users\b15-03m\Documents\NetBeansProjects\DI-AEM\UD2\CopiarValor\CopiarValor\bin\Debug\CopiarValor.pdb
+C:\Users\b15-03m\Documents\NetBeansProjects\DI-AEM\UD2\CopiarValor\CopiarValor\obj\Debug\CopiarValor.csproj.AssemblyReference.cache
+C:\Users\b15-03m\Documents\NetBeansProjects\DI-AEM\UD2\CopiarValor\CopiarValor\obj\Debug\MainWindow.g.cs
+C:\Users\b15-03m\Documents\NetBeansProjects\DI-AEM\UD2\CopiarValor\CopiarValor\obj\Debug\App.g.cs
+C:\Users\b15-03m\Documents\NetBeansProjects\DI-AEM\UD2\CopiarValor\CopiarValor\obj\Debug\CopiarValor_MarkupCompile.cache
+C:\Users\b15-03m\Documents\NetBeansProjects\DI-AEM\UD2\CopiarValor\CopiarValor\obj\Debug\CopiarValor_MarkupCompile.lref
+C:\Users\b15-03m\Documents\NetBeansProjects\DI-AEM\UD2\CopiarValor\CopiarValor\obj\Debug\MainWindow.baml
+C:\Users\b15-03m\Documents\NetBeansProjects\DI-AEM\UD2\CopiarValor\CopiarValor\obj\Debug\CopiarValor.g.resources
+C:\Users\b15-03m\Documents\NetBeansProjects\DI-AEM\UD2\CopiarValor\CopiarValor\obj\Debug\CopiarValor.Properties.Resources.resources
+C:\Users\b15-03m\Documents\NetBeansProjects\DI-AEM\UD2\CopiarValor\CopiarValor\obj\Debug\CopiarValor.csproj.GenerateResource.cache
+C:\Users\b15-03m\Documents\NetBeansProjects\DI-AEM\UD2\CopiarValor\CopiarValor\obj\Debug\CopiarValor.csproj.CoreCompileInputs.cache
+C:\Users\b15-03m\Documents\NetBeansProjects\DI-AEM\UD2\CopiarValor\CopiarValor\obj\Debug\CopiarValor.exe
+C:\Users\b15-03m\Documents\NetBeansProjects\DI-AEM\UD2\CopiarValor\CopiarValor\obj\Debug\CopiarValor.pdb

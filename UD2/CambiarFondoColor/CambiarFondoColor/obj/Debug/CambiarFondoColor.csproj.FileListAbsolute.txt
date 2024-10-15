@@ -1,0 +1,15 @@
+C:\Users\b15-03m\Documents\NetBeansProjects\DI-AEM\UD2\CambiarFondoColor\CambiarFondoColor\bin\Debug\CambiarFondoColor.exe.config
+C:\Users\b15-03m\Documents\NetBeansProjects\DI-AEM\UD2\CambiarFondoColor\CambiarFondoColor\bin\Debug\CambiarFondoColor.exe
+C:\Users\b15-03m\Documents\NetBeansProjects\DI-AEM\UD2\CambiarFondoColor\CambiarFondoColor\bin\Debug\CambiarFondoColor.pdb
+C:\Users\b15-03m\Documents\NetBeansProjects\DI-AEM\UD2\CambiarFondoColor\CambiarFondoColor\obj\Debug\CambiarFondoColor.csproj.AssemblyReference.cache
+C:\Users\b15-03m\Documents\NetBeansProjects\DI-AEM\UD2\CambiarFondoColor\CambiarFondoColor\obj\Debug\MainWindow.g.cs
+C:\Users\b15-03m\Documents\NetBeansProjects\DI-AEM\UD2\CambiarFondoColor\CambiarFondoColor\obj\Debug\App.g.cs
+C:\Users\b15-03m\Documents\NetBeansProjects\DI-AEM\UD2\CambiarFondoColor\CambiarFondoColor\obj\Debug\CambiarFondoColor_MarkupCompile.cache
+C:\Users\b15-03m\Documents\NetBeansProjects\DI-AEM\UD2\CambiarFondoColor\CambiarFondoColor\obj\Debug\CambiarFondoColor_MarkupCompile.lref
+C:\Users\b15-03m\Documents\NetBeansProjects\DI-AEM\UD2\CambiarFondoColor\CambiarFondoColor\obj\Debug\MainWindow.baml
+C:\Users\b15-03m\Documents\NetBeansProjects\DI-AEM\UD2\CambiarFondoColor\CambiarFondoColor\obj\Debug\CambiarFondoColor.g.resources
+C:\Users\b15-03m\Documents\NetBeansProjects\DI-AEM\UD2\CambiarFondoColor\CambiarFondoColor\obj\Debug\CambiarFondoColor.Properties.Resources.resources
+C:\Users\b15-03m\Documents\NetBeansProjects\DI-AEM\UD2\CambiarFondoColor\CambiarFondoColor\obj\Debug\CambiarFondoColor.csproj.GenerateResource.cache
+C:\Users\b15-03m\Documents\NetBeansProjects\DI-AEM\UD2\CambiarFondoColor\CambiarFondoColor\obj\Debug\CambiarFondoColor.csproj.CoreCompileInputs.cache
+C:\Users\b15-03m\Documents\NetBeansProjects\DI-AEM\UD2\CambiarFondoColor\CambiarFondoColor\obj\Debug\CambiarFondoColor.exe
+C:\Users\b15-03m\Documents\NetBeansProjects\DI-AEM\UD2\CambiarFondoColor\CambiarFondoColor\obj\Debug\CambiarFondoColor.pdb

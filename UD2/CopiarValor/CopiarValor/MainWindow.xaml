@@ -1,0 +1,17 @@
+﻿<Window x:Class="CopiarValor.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:CopiarValor"
+        mc:Ignorable="d"
+        Title="Copia Valor" Height="450" Width="800">
+    <Grid>
+        <Label x:Name="lblValor" Content="Valor:" HorizontalAlignment="Left" Margin="140,169,0,0" VerticalAlignment="Top"/>
+        <Label x:Name="lblCopiaValor" Content="Copia:" HorizontalAlignment="Left" Margin="382,170,0,0" VerticalAlignment="Top"/>
+        <TextBox x:Name="tbxValor" HorizontalAlignment="Left" Margin="179,173,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+        <TextBox x:Name="tbxResultado" HorizontalAlignment="Left" Margin="430,174,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" IsReadOnly="True"/>
+        <Button x:Name="btnCopiar" Content="Copiar" HorizontalAlignment="Left" Margin="310,173,0,0" VerticalAlignment="Top" Width="50" Click="btnCopiar_Click"/>
+
+    </Grid>
+</Window>
