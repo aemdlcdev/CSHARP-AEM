@@ -1,0 +1,15 @@
+C:\Users\b15-03m\Documents\NetBeansProjects\DI-AEM\UD2\GridsEmails\GridsEmails\bin\Debug\GridsEmails.exe.config
+C:\Users\b15-03m\Documents\NetBeansProjects\DI-AEM\UD2\GridsEmails\GridsEmails\bin\Debug\GridsEmails.exe
+C:\Users\b15-03m\Documents\NetBeansProjects\DI-AEM\UD2\GridsEmails\GridsEmails\bin\Debug\GridsEmails.pdb
+C:\Users\b15-03m\Documents\NetBeansProjects\DI-AEM\UD2\GridsEmails\GridsEmails\obj\Debug\GridsEmails.csproj.AssemblyReference.cache
+C:\Users\b15-03m\Documents\NetBeansProjects\DI-AEM\UD2\GridsEmails\GridsEmails\obj\Debug\MainWindow.g.cs
+C:\Users\b15-03m\Documents\NetBeansProjects\DI-AEM\UD2\GridsEmails\GridsEmails\obj\Debug\App.g.cs
+C:\Users\b15-03m\Documents\NetBeansProjects\DI-AEM\UD2\GridsEmails\GridsEmails\obj\Debug\GridsEmails_MarkupCompile.cache
+C:\Users\b15-03m\Documents\NetBeansProjects\DI-AEM\UD2\GridsEmails\GridsEmails\obj\Debug\GridsEmails_MarkupCompile.lref
+C:\Users\b15-03m\Documents\NetBeansProjects\DI-AEM\UD2\GridsEmails\GridsEmails\obj\Debug\MainWindow.baml
+C:\Users\b15-03m\Documents\NetBeansProjects\DI-AEM\UD2\GridsEmails\GridsEmails\obj\Debug\GridsEmails.g.resources
+C:\Users\b15-03m\Documents\NetBeansProjects\DI-AEM\UD2\GridsEmails\GridsEmails\obj\Debug\GridsEmails.Properties.Resources.resources
+C:\Users\b15-03m\Documents\NetBeansProjects\DI-AEM\UD2\GridsEmails\GridsEmails\obj\Debug\GridsEmails.csproj.GenerateResource.cache
+C:\Users\b15-03m\Documents\NetBeansProjects\DI-AEM\UD2\GridsEmails\GridsEmails\obj\Debug\GridsEmails.csproj.CoreCompileInputs.cache
+C:\Users\b15-03m\Documents\NetBeansProjects\DI-AEM\UD2\GridsEmails\GridsEmails\obj\Debug\GridsEmails.exe
+C:\Users\b15-03m\Documents\NetBeansProjects\DI-AEM\UD2\GridsEmails\GridsEmails\obj\Debug\GridsEmails.pdb

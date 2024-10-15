@@ -1,0 +1,15 @@
+C:\Users\b15-03m\Documents\NetBeansProjects\DI-AEM\UD2\GridEjecucion\GridEjecucion\bin\Debug\GridEjecucion.exe.config
+C:\Users\b15-03m\Documents\NetBeansProjects\DI-AEM\UD2\GridEjecucion\GridEjecucion\bin\Debug\GridEjecucion.exe
+C:\Users\b15-03m\Documents\NetBeansProjects\DI-AEM\UD2\GridEjecucion\GridEjecucion\bin\Debug\GridEjecucion.pdb
+C:\Users\b15-03m\Documents\NetBeansProjects\DI-AEM\UD2\GridEjecucion\GridEjecucion\obj\Debug\GridEjecucion.csproj.AssemblyReference.cache
+C:\Users\b15-03m\Documents\NetBeansProjects\DI-AEM\UD2\GridEjecucion\GridEjecucion\obj\Debug\MainWindow.g.cs
+C:\Users\b15-03m\Documents\NetBeansProjects\DI-AEM\UD2\GridEjecucion\GridEjecucion\obj\Debug\App.g.cs
+C:\Users\b15-03m\Documents\NetBeansProjects\DI-AEM\UD2\GridEjecucion\GridEjecucion\obj\Debug\GridEjecucion_MarkupCompile.cache
+C:\Users\b15-03m\Documents\NetBeansProjects\DI-AEM\UD2\GridEjecucion\GridEjecucion\obj\Debug\GridEjecucion_MarkupCompile.lref
+C:\Users\b15-03m\Documents\NetBeansProjects\DI-AEM\UD2\GridEjecucion\GridEjecucion\obj\Debug\MainWindow.baml
+C:\Users\b15-03m\Documents\NetBeansProjects\DI-AEM\UD2\GridEjecucion\GridEjecucion\obj\Debug\GridEjecucion.g.resources
+C:\Users\b15-03m\Documents\NetBeansProjects\DI-AEM\UD2\GridEjecucion\GridEjecucion\obj\Debug\GridEjecucion.Properties.Resources.resources
+C:\Users\b15-03m\Documents\NetBeansProjects\DI-AEM\UD2\GridEjecucion\GridEjecucion\obj\Debug\GridEjecucion.csproj.GenerateResource.cache
+C:\Users\b15-03m\Documents\NetBeansProjects\DI-AEM\UD2\GridEjecucion\GridEjecucion\obj\Debug\GridEjecucion.csproj.CoreCompileInputs.cache
+C:\Users\b15-03m\Documents\NetBeansProjects\DI-AEM\UD2\GridEjecucion\GridEjecucion\obj\Debug\GridEjecucion.exe
+C:\Users\b15-03m\Documents\NetBeansProjects\DI-AEM\UD2\GridEjecucion\GridEjecucion\obj\Debug\GridEjecucion.pdb
