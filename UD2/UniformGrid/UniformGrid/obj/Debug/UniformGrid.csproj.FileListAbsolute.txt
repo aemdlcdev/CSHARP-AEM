@@ -1,0 +1,15 @@
+C:\Users\b15-03m\Documents\NetBeansProjects\DI-AEM\UD2\UniformGrid\UniformGrid\bin\Debug\UniformGrid.exe.config
+C:\Users\b15-03m\Documents\NetBeansProjects\DI-AEM\UD2\UniformGrid\UniformGrid\bin\Debug\UniformGrid.exe
+C:\Users\b15-03m\Documents\NetBeansProjects\DI-AEM\UD2\UniformGrid\UniformGrid\bin\Debug\UniformGrid.pdb
+C:\Users\b15-03m\Documents\NetBeansProjects\DI-AEM\UD2\UniformGrid\UniformGrid\obj\Debug\UniformGrid.csproj.AssemblyReference.cache
+C:\Users\b15-03m\Documents\NetBeansProjects\DI-AEM\UD2\UniformGrid\UniformGrid\obj\Debug\MainWindow.g.cs
+C:\Users\b15-03m\Documents\NetBeansProjects\DI-AEM\UD2\UniformGrid\UniformGrid\obj\Debug\App.g.cs
+C:\Users\b15-03m\Documents\NetBeansProjects\DI-AEM\UD2\UniformGrid\UniformGrid\obj\Debug\UniformGrid_MarkupCompile.cache
+C:\Users\b15-03m\Documents\NetBeansProjects\DI-AEM\UD2\UniformGrid\UniformGrid\obj\Debug\UniformGrid_MarkupCompile.lref
+C:\Users\b15-03m\Documents\NetBeansProjects\DI-AEM\UD2\UniformGrid\UniformGrid\obj\Debug\MainWindow.baml
+C:\Users\b15-03m\Documents\NetBeansProjects\DI-AEM\UD2\UniformGrid\UniformGrid\obj\Debug\UniformGrid.g.resources
+C:\Users\b15-03m\Documents\NetBeansProjects\DI-AEM\UD2\UniformGrid\UniformGrid\obj\Debug\UniformGrid.Properties.Resources.resources
+C:\Users\b15-03m\Documents\NetBeansProjects\DI-AEM\UD2\UniformGrid\UniformGrid\obj\Debug\UniformGrid.csproj.GenerateResource.cache
+C:\Users\b15-03m\Documents\NetBeansProjects\DI-AEM\UD2\UniformGrid\UniformGrid\obj\Debug\UniformGrid.csproj.CoreCompileInputs.cache
+C:\Users\b15-03m\Documents\NetBeansProjects\DI-AEM\UD2\UniformGrid\UniformGrid\obj\Debug\UniformGrid.exe
+C:\Users\b15-03m\Documents\NetBeansProjects\DI-AEM\UD2\UniformGrid\UniformGrid\obj\Debug\UniformGrid.pdb

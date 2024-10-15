@@ -1,0 +1,15 @@
+C:\Users\b15-03m\Documents\NetBeansProjects\DI-AEM\UD2\ContenedorUniformGrid2\ContenedorUniformGrid2\bin\Debug\ContenedorUniformGrid2.exe.config
+C:\Users\b15-03m\Documents\NetBeansProjects\DI-AEM\UD2\ContenedorUniformGrid2\ContenedorUniformGrid2\bin\Debug\ContenedorUniformGrid2.exe
+C:\Users\b15-03m\Documents\NetBeansProjects\DI-AEM\UD2\ContenedorUniformGrid2\ContenedorUniformGrid2\bin\Debug\ContenedorUniformGrid2.pdb
+C:\Users\b15-03m\Documents\NetBeansProjects\DI-AEM\UD2\ContenedorUniformGrid2\ContenedorUniformGrid2\obj\Debug\ContenedorUniformGrid2.csproj.AssemblyReference.cache
+C:\Users\b15-03m\Documents\NetBeansProjects\DI-AEM\UD2\ContenedorUniformGrid2\ContenedorUniformGrid2\obj\Debug\MainWindow.g.cs
+C:\Users\b15-03m\Documents\NetBeansProjects\DI-AEM\UD2\ContenedorUniformGrid2\ContenedorUniformGrid2\obj\Debug\App.g.cs
+C:\Users\b15-03m\Documents\NetBeansProjects\DI-AEM\UD2\ContenedorUniformGrid2\ContenedorUniformGrid2\obj\Debug\ContenedorUniformGrid2_MarkupCompile.cache
+C:\Users\b15-03m\Documents\NetBeansProjects\DI-AEM\UD2\ContenedorUniformGrid2\ContenedorUniformGrid2\obj\Debug\ContenedorUniformGrid2_MarkupCompile.lref
+C:\Users\b15-03m\Documents\NetBeansProjects\DI-AEM\UD2\ContenedorUniformGrid2\ContenedorUniformGrid2\obj\Debug\MainWindow.baml
+C:\Users\b15-03m\Documents\NetBeansProjects\DI-AEM\UD2\ContenedorUniformGrid2\ContenedorUniformGrid2\obj\Debug\ContenedorUniformGrid2.g.resources
+C:\Users\b15-03m\Documents\NetBeansProjects\DI-AEM\UD2\ContenedorUniformGrid2\ContenedorUniformGrid2\obj\Debug\ContenedorUniformGrid2.Properties.Resources.resources
+C:\Users\b15-03m\Documents\NetBeansProjects\DI-AEM\UD2\ContenedorUniformGrid2\ContenedorUniformGrid2\obj\Debug\ContenedorUniformGrid2.csproj.GenerateResource.cache
+C:\Users\b15-03m\Documents\NetBeansProjects\DI-AEM\UD2\ContenedorUniformGrid2\ContenedorUniformGrid2\obj\Debug\ContenedorUniformGrid2.csproj.CoreCompileInputs.cache
+C:\Users\b15-03m\Documents\NetBeansProjects\DI-AEM\UD2\ContenedorUniformGrid2\ContenedorUniformGrid2\obj\Debug\ContenedorUniformGrid2.exe
+C:\Users\b15-03m\Documents\NetBeansProjects\DI-AEM\UD2\ContenedorUniformGrid2\ContenedorUniformGrid2\obj\Debug\ContenedorUniformGrid2.pdb

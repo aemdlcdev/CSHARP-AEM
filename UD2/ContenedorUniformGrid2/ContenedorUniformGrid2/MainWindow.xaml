@@ -1,0 +1,16 @@
+﻿<Window x:Class="ContenedorUniformGrid2.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:ContenedorUniformGrid2"
+        mc:Ignorable="d"
+        Title="UniformGrid Container 2" Height="450" Width="800">
+    <UniformGrid Background="Thistle" Margin="0,0,375,219">
+        <Button Content="Botón 1" Background="LightBlue" />
+        <Button Content="Botón 2" Background="LightCoral" />
+        <Button Content="Botón 3" Background="LightGreen" />
+        <Button Content="Botón 4" Background="LightPink" />
+        <Button Content="Botón 5" Background="LightSalmon" />
+    </UniformGrid>
+</Window>
