@@ -30,10 +30,10 @@ namespace UtiliarLista
         {
             if(string.IsNullOrEmpty(txtTituloPelicula.Text))
             {
-                MessageBox.Show("Debe ingresar un titulo de pelicula");
+                MessageBox.Show("Debe ingresar un titulo de pelicula!");
                 return;
             }
-            //Añadir elementos a la lista
+            
             cmbPeliculas.Items.Add(txtTituloPelicula.Text);
 
             txtTituloPelicula.Text = "";
