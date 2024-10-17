@@ -1,0 +1,23 @@
+﻿<Window x:Class="StackPanel.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:StackPanel"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*" Name="columna1"/>
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+        <StackPanel Name="contenedor" Orientation="Vertical" Grid.Column="1">
+            <Button Content="BTN 1 1"/>
+            <Button Content="BTN 0 2"/>
+            <Label Content="Label"/>
+            <TextBox Text="TextBox" TextWrapping="Wrap"/>
+            <RadioButton Content="RadioButton"/>
+        </StackPanel>
+    </Grid>
+</Window>
