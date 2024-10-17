@@ -1,0 +1,15 @@
+C:\Users\b15-03m\source\repos\ContenedorCanvas\ContenedorCanvas\bin\Debug\ContenedorCanvas.exe.config
+C:\Users\b15-03m\source\repos\ContenedorCanvas\ContenedorCanvas\bin\Debug\ContenedorCanvas.exe
+C:\Users\b15-03m\source\repos\ContenedorCanvas\ContenedorCanvas\bin\Debug\ContenedorCanvas.pdb
+C:\Users\b15-03m\source\repos\ContenedorCanvas\ContenedorCanvas\obj\Debug\ContenedorCanvas.csproj.AssemblyReference.cache
+C:\Users\b15-03m\source\repos\ContenedorCanvas\ContenedorCanvas\obj\Debug\MainWindow.g.cs
+C:\Users\b15-03m\source\repos\ContenedorCanvas\ContenedorCanvas\obj\Debug\App.g.cs
+C:\Users\b15-03m\source\repos\ContenedorCanvas\ContenedorCanvas\obj\Debug\ContenedorCanvas_MarkupCompile.cache
+C:\Users\b15-03m\source\repos\ContenedorCanvas\ContenedorCanvas\obj\Debug\ContenedorCanvas_MarkupCompile.lref
+C:\Users\b15-03m\source\repos\ContenedorCanvas\ContenedorCanvas\obj\Debug\MainWindow.baml
+C:\Users\b15-03m\source\repos\ContenedorCanvas\ContenedorCanvas\obj\Debug\ContenedorCanvas.g.resources
+C:\Users\b15-03m\source\repos\ContenedorCanvas\ContenedorCanvas\obj\Debug\ContenedorCanvas.Properties.Resources.resources
+C:\Users\b15-03m\source\repos\ContenedorCanvas\ContenedorCanvas\obj\Debug\ContenedorCanvas.csproj.GenerateResource.cache
+C:\Users\b15-03m\source\repos\ContenedorCanvas\ContenedorCanvas\obj\Debug\ContenedorCanvas.csproj.CoreCompileInputs.cache
+C:\Users\b15-03m\source\repos\ContenedorCanvas\ContenedorCanvas\obj\Debug\ContenedorCanvas.exe
+C:\Users\b15-03m\source\repos\ContenedorCanvas\ContenedorCanvas\obj\Debug\ContenedorCanvas.pdb

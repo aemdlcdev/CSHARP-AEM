@@ -1,0 +1,15 @@
+C:\Users\b15-03m\source\repos\ContenedorCanvasGrafico\ContenedorCanvasGrafico\bin\Debug\ContenedorCanvasGrafico.exe.config
+C:\Users\b15-03m\source\repos\ContenedorCanvasGrafico\ContenedorCanvasGrafico\bin\Debug\ContenedorCanvasGrafico.exe
+C:\Users\b15-03m\source\repos\ContenedorCanvasGrafico\ContenedorCanvasGrafico\bin\Debug\ContenedorCanvasGrafico.pdb
+C:\Users\b15-03m\source\repos\ContenedorCanvasGrafico\ContenedorCanvasGrafico\obj\Debug\ContenedorCanvasGrafico.csproj.AssemblyReference.cache
+C:\Users\b15-03m\source\repos\ContenedorCanvasGrafico\ContenedorCanvasGrafico\obj\Debug\MainWindow.g.cs
+C:\Users\b15-03m\source\repos\ContenedorCanvasGrafico\ContenedorCanvasGrafico\obj\Debug\App.g.cs
+C:\Users\b15-03m\source\repos\ContenedorCanvasGrafico\ContenedorCanvasGrafico\obj\Debug\ContenedorCanvasGrafico_MarkupCompile.cache
+C:\Users\b15-03m\source\repos\ContenedorCanvasGrafico\ContenedorCanvasGrafico\obj\Debug\ContenedorCanvasGrafico_MarkupCompile.lref
+C:\Users\b15-03m\source\repos\ContenedorCanvasGrafico\ContenedorCanvasGrafico\obj\Debug\MainWindow.baml
+C:\Users\b15-03m\source\repos\ContenedorCanvasGrafico\ContenedorCanvasGrafico\obj\Debug\ContenedorCanvasGrafico.g.resources
+C:\Users\b15-03m\source\repos\ContenedorCanvasGrafico\ContenedorCanvasGrafico\obj\Debug\ContenedorCanvasGrafico.Properties.Resources.resources
+C:\Users\b15-03m\source\repos\ContenedorCanvasGrafico\ContenedorCanvasGrafico\obj\Debug\ContenedorCanvasGrafico.csproj.GenerateResource.cache
+C:\Users\b15-03m\source\repos\ContenedorCanvasGrafico\ContenedorCanvasGrafico\obj\Debug\ContenedorCanvasGrafico.csproj.CoreCompileInputs.cache
+C:\Users\b15-03m\source\repos\ContenedorCanvasGrafico\ContenedorCanvasGrafico\obj\Debug\ContenedorCanvasGrafico.exe
+C:\Users\b15-03m\source\repos\ContenedorCanvasGrafico\ContenedorCanvasGrafico\obj\Debug\ContenedorCanvasGrafico.pdb

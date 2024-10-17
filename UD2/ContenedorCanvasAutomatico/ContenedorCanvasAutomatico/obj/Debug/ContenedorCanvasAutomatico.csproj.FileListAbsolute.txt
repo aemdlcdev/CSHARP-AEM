@@ -1,0 +1,15 @@
+C:\Users\b15-03m\source\repos\ContenedorCanvasAutomatico\ContenedorCanvasAutomatico\obj\Debug\ContenedorCanvasAutomatico.csproj.AssemblyReference.cache
+C:\Users\b15-03m\source\repos\ContenedorCanvasAutomatico\ContenedorCanvasAutomatico\obj\Debug\MainWindow.g.cs
+C:\Users\b15-03m\source\repos\ContenedorCanvasAutomatico\ContenedorCanvasAutomatico\obj\Debug\App.g.cs
+C:\Users\b15-03m\source\repos\ContenedorCanvasAutomatico\ContenedorCanvasAutomatico\obj\Debug\ContenedorCanvasAutomatico_MarkupCompile.cache
+C:\Users\b15-03m\source\repos\ContenedorCanvasAutomatico\ContenedorCanvasAutomatico\obj\Debug\ContenedorCanvasAutomatico_MarkupCompile.lref
+C:\Users\b15-03m\source\repos\ContenedorCanvasAutomatico\ContenedorCanvasAutomatico\bin\Debug\ContenedorCanvasAutomatico.exe.config
+C:\Users\b15-03m\source\repos\ContenedorCanvasAutomatico\ContenedorCanvasAutomatico\bin\Debug\ContenedorCanvasAutomatico.exe
+C:\Users\b15-03m\source\repos\ContenedorCanvasAutomatico\ContenedorCanvasAutomatico\bin\Debug\ContenedorCanvasAutomatico.pdb
+C:\Users\b15-03m\source\repos\ContenedorCanvasAutomatico\ContenedorCanvasAutomatico\obj\Debug\MainWindow.baml
+C:\Users\b15-03m\source\repos\ContenedorCanvasAutomatico\ContenedorCanvasAutomatico\obj\Debug\ContenedorCanvasAutomatico.g.resources
+C:\Users\b15-03m\source\repos\ContenedorCanvasAutomatico\ContenedorCanvasAutomatico\obj\Debug\ContenedorCanvasAutomatico.Properties.Resources.resources
+C:\Users\b15-03m\source\repos\ContenedorCanvasAutomatico\ContenedorCanvasAutomatico\obj\Debug\ContenedorCanvasAutomatico.csproj.GenerateResource.cache
+C:\Users\b15-03m\source\repos\ContenedorCanvasAutomatico\ContenedorCanvasAutomatico\obj\Debug\ContenedorCanvasAutomatico.csproj.CoreCompileInputs.cache
+C:\Users\b15-03m\source\repos\ContenedorCanvasAutomatico\ContenedorCanvasAutomatico\obj\Debug\ContenedorCanvasAutomatico.exe
+C:\Users\b15-03m\source\repos\ContenedorCanvasAutomatico\ContenedorCanvasAutomatico\obj\Debug\ContenedorCanvasAutomatico.pdb
