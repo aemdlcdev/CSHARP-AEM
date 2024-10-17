@@ -8,11 +8,11 @@
         Title="MainWindow" Height="450" Width="800">
     <Grid>
         <DockPanel Name="contenedor">
-            <Button Content="BTN 1 1" DockPanel.Dock="Top"/>
-            <Button Content="BTN 0 2" DockPanel.Dock="Bottom"/>
-            <Label Content="Label" DockPanel.Dock="Left"/>
-            <TextBox Text="TextBox" DockPanel.Dock="Right"/>
-            <RadioButton Content="RadioButton" Width="95"/>
+            <Button DockPanel.Dock="Top" Content="Top"/>
+            <Button DockPanel.Dock="Right" Content="Right"/>
+            <Button DockPanel.Dock="Left" Content="Left"/>
+            <Button DockPanel.Dock="Bottom" Content="Bottom"/>
+            <Button Content="Center"/>
         </DockPanel>
     </Grid>
 </Window>
