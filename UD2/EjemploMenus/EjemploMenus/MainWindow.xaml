@@ -1,0 +1,36 @@
+﻿<Window x:Class="EjemploMenus.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:EjemploMenus"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="25"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <Menu Grid.Row="0">
+            <MenuItem Header="_Archivo" Background="BlanchedAlmond" >
+                <MenuItem Header="_Nuevo" />
+                <MenuItem Header="_Abrir" />
+                <MenuItem Header="_Guardar" />
+                <Separator />
+
+                <MenuItem Header="_Reciente">
+                    <MenuItem Header="_Archivo 1" />
+                    <MenuItem Header="_Archivo 2" />
+                    <MenuItem Header="_Archivo 3" />
+                </MenuItem>
+            </MenuItem>
+            
+            <MenuItem Header="_Editar" Background="BlanchedAlmond">
+                <MenuItem Header="_Copiar" />
+                <MenuItem Header="_Cortar" />
+                <MenuItem Header="_Pegar" />
+            </MenuItem>
+        </Menu>
+        <Frame Source="https://iesmaestredecalatrava.es/" Grid.Row="1"/>
+    </Grid>
+</Window>
