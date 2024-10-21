@@ -24,21 +24,5 @@ namespace DataBindingSlider
         {
             InitializeComponent();
         }
-
-        private void Slider_ValueChanged(object sender, RoutedPropertyChangedEventArgs<double> e)
-        {
-            var fontSizeMapa = new Dictionary<double, double>
-            {
-                { 2.0, 15 },
-                { 5.0, 20 },
-                { 8.0, 30 },
-                { 10.0, 40 }
-            };
-
-            if (fontSizeMapa.TryGetValue(sldT.Value, out double fontSize))
-            {
-                lblEjemploTexto.FontSize = fontSize;
-            }
-        }
     }
 }

@@ -19,7 +19,8 @@
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
 
-        <Slider x:Name="sldT" HorizontalAlignment="Center" Grid.Column="1" Grid.Row="0" Margin="0,119,0,0" VerticalAlignment="Top" Width="340" Height="16" ValueChanged="Slider_ValueChanged" Minimum="1" Maximum="10" IsSnapToTickEnabled="True" TickFrequency="1"/>
+        <Slider x:Name="sldT" HorizontalAlignment="Center" Grid.Column="1" Grid.Row="0" Margin="0,109,0,0" VerticalAlignment="Top" Width="330" Height="26" 
+                Minimum="1" Maximum="10" IsSnapToTickEnabled="True" TickFrequency="1" TickPlacement="BottomRight"/>
 
         <!-- Grid para la enumeración debajo del Slider -->
         <Grid Grid.Column="1" Grid.Row="1" HorizontalAlignment="Center" VerticalAlignment="Top" Width="360">
@@ -47,9 +48,8 @@
             <TextBlock Text="10" HorizontalAlignment="Center" Grid.Column="9"/>
         </Grid>
 
-        <TextBlock x:Name="lblEjemploTexto" Text="{Binding ElementName=lblEjemploTexto, Path=FontSize }" Grid.Column="1" Grid.Row="2" HorizontalAlignment="Left" Margin="10,10,0,0" TextWrapping="Wrap" Text="Cambia mi tamaño" VerticalAlignment="Top" Height="auto" Width="auto"/>
+        <TextBlock x:Name="lblEjemploTexto"  Grid.Column="1" Grid.Row="2" HorizontalAlignment="Left" Margin="10,10,0,0" TextWrapping="Wrap" Text="Cambia mi tamaño" FontSize="{Binding ElementName=sldT, Path=Value, Mode=TwoWay}" VerticalAlignment="Top" Height="auto" Width="auto"/>
         <Label x:Name="lblResultado" Grid.Column="1" Content="Tamaño exacto:" HorizontalAlignment="Left" Margin="10,108,0,0" Grid.Row="2" VerticalAlignment="Top" RenderTransformOrigin="0.395,-0.179"/>
-        <TextBox x:Name="txbMuestraResultado" Grid.Column="1" HorizontalAlignment="Left" Margin="102,112,0,0" Grid.Row="2" TextWrapping="Wrap" VerticalAlignment="Top" Width="68" Height="22"/>
+        <TextBox x:Name="txbMuestraResultado" Text="{Binding ElementName=lblEjemploTexto, Path=FontSize, Mode=TwoWay}" Grid.Column="1" HorizontalAlignment="Left" Margin="102,112,0,0" Grid.Row="2" TextWrapping="Wrap" VerticalAlignment="Top" Width="73" Height="22"/>
     </Grid>
 </Window>
-
