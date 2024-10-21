@@ -1,0 +1,55 @@
+﻿<Window x:Class="DataBindingSlider.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:DataBindingSlider"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="45*"/>
+            <ColumnDefinition Width="76*"/>
+            <ColumnDefinition Width="39*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <Slider x:Name="sldT" HorizontalAlignment="Center" Grid.Column="1" Grid.Row="0" Margin="0,119,0,0" VerticalAlignment="Top" Width="340" Height="16" ValueChanged="Slider_ValueChanged" Minimum="1" Maximum="10" IsSnapToTickEnabled="True" TickFrequency="1"/>
+
+        <!-- Grid para la enumeración debajo del Slider -->
+        <Grid Grid.Column="1" Grid.Row="1" HorizontalAlignment="Center" VerticalAlignment="Top" Width="360">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <TextBlock Text="1" HorizontalAlignment="Center" Grid.Column="0"/>
+            <TextBlock Text="2" HorizontalAlignment="Center" Grid.Column="1"/>
+            <TextBlock Text="3" HorizontalAlignment="Center" Grid.Column="2"/>
+            <TextBlock Text="4" HorizontalAlignment="Center" Grid.Column="3"/>
+            <TextBlock Text="5" HorizontalAlignment="Center" Grid.Column="4"/>
+            <TextBlock Text="6" HorizontalAlignment="Center" Grid.Column="5"/>
+            <TextBlock Text="7" HorizontalAlignment="Center" Grid.Column="6"/>
+            <TextBlock Text="8" HorizontalAlignment="Center" Grid.Column="7"/>
+            <TextBlock Text="9" HorizontalAlignment="Center" Grid.Column="8"/>
+            <TextBlock Text="10" HorizontalAlignment="Center" Grid.Column="9"/>
+        </Grid>
+
+        <TextBlock x:Name="lblEjemploTexto" Text="{Binding ElementName=lblEjemploTexto, Path=FontSize }" Grid.Column="1" Grid.Row="2" HorizontalAlignment="Left" Margin="10,10,0,0" TextWrapping="Wrap" Text="Cambia mi tamaño" VerticalAlignment="Top" Height="auto" Width="auto"/>
+        <Label x:Name="lblResultado" Grid.Column="1" Content="Tamaño exacto:" HorizontalAlignment="Left" Margin="10,108,0,0" Grid.Row="2" VerticalAlignment="Top" RenderTransformOrigin="0.395,-0.179"/>
+        <TextBox x:Name="txbMuestraResultado" Grid.Column="1" HorizontalAlignment="Left" Margin="102,112,0,0" Grid.Row="2" TextWrapping="Wrap" VerticalAlignment="Top" Width="68" Height="22"/>
+    </Grid>
+</Window>
+
