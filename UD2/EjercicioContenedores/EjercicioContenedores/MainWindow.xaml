@@ -43,6 +43,13 @@
             <Button Content="Botón 8"/>
             <Button Content="Botón 9"/>
             <Button Content="Botón 10"/>
+            <TreeView Name="Archivo">
+                <TreeViewItem Header="Archivo">
+                    <TreeViewItem Header="Gaurdar"/>
+                    <TreeViewItem Header="Guardar como"/>
+                    <TreeViewItem Header="Salir"/>
+                </TreeViewItem>
+            </TreeView>
         </WrapPanel>
 
         <StackPanel Name="stackpanel" Grid.Row="1" Grid.Column="1" Orientation="Vertical" Margin="10">
