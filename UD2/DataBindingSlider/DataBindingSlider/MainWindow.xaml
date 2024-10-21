@@ -7,7 +7,7 @@
         mc:Ignorable="d"
         Title="MainWindow" MinHeight="450" MinWidth="800" Height="450" Width="800"
         Background="#202023">
-    <Window.Resources>
+    <Window.Resources> <!--Estilos para los controles-->
         <Style TargetType="TextBlock">
             <Setter Property="Foreground" Value="White"/>
         </Style>
