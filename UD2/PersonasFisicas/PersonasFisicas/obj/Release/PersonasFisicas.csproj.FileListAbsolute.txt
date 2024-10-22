@@ -1,0 +1,15 @@
+C:\Users\Alejandro\Documents\GitHub\DI-AEM\UD2\PersonasFisicas\PersonasFisicas\bin\Release\PersonasFisicas.exe.config
+C:\Users\Alejandro\Documents\GitHub\DI-AEM\UD2\PersonasFisicas\PersonasFisicas\bin\Release\PersonasFisicas.exe
+C:\Users\Alejandro\Documents\GitHub\DI-AEM\UD2\PersonasFisicas\PersonasFisicas\bin\Release\PersonasFisicas.pdb
+C:\Users\Alejandro\Documents\GitHub\DI-AEM\UD2\PersonasFisicas\PersonasFisicas\obj\Release\PersonasFisicas.csproj.AssemblyReference.cache
+C:\Users\Alejandro\Documents\GitHub\DI-AEM\UD2\PersonasFisicas\PersonasFisicas\obj\Release\MainWindow.g.cs
+C:\Users\Alejandro\Documents\GitHub\DI-AEM\UD2\PersonasFisicas\PersonasFisicas\obj\Release\App.g.cs
+C:\Users\Alejandro\Documents\GitHub\DI-AEM\UD2\PersonasFisicas\PersonasFisicas\obj\Release\PersonasFisicas_MarkupCompile.cache
+C:\Users\Alejandro\Documents\GitHub\DI-AEM\UD2\PersonasFisicas\PersonasFisicas\obj\Release\PersonasFisicas_MarkupCompile.lref
+C:\Users\Alejandro\Documents\GitHub\DI-AEM\UD2\PersonasFisicas\PersonasFisicas\obj\Release\MainWindow.baml
+C:\Users\Alejandro\Documents\GitHub\DI-AEM\UD2\PersonasFisicas\PersonasFisicas\obj\Release\PersonasFisicas.g.resources
+C:\Users\Alejandro\Documents\GitHub\DI-AEM\UD2\PersonasFisicas\PersonasFisicas\obj\Release\PersonasFisicas.Properties.Resources.resources
+C:\Users\Alejandro\Documents\GitHub\DI-AEM\UD2\PersonasFisicas\PersonasFisicas\obj\Release\PersonasFisicas.csproj.GenerateResource.cache
+C:\Users\Alejandro\Documents\GitHub\DI-AEM\UD2\PersonasFisicas\PersonasFisicas\obj\Release\PersonasFisicas.csproj.CoreCompileInputs.cache
+C:\Users\Alejandro\Documents\GitHub\DI-AEM\UD2\PersonasFisicas\PersonasFisicas\obj\Release\PersonasFisicas.exe
+C:\Users\Alejandro\Documents\GitHub\DI-AEM\UD2\PersonasFisicas\PersonasFisicas\obj\Release\PersonasFisicas.pdb
