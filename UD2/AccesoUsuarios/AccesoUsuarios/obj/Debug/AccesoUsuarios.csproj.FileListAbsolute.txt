@@ -1,0 +1,15 @@
+C:\Users\b15-03m\Documents\NetBeansProjects\DI-AEM\UD2\AccesoUsuarios\AccesoUsuarios\bin\Debug\AccesoUsuarios.exe.config
+C:\Users\b15-03m\Documents\NetBeansProjects\DI-AEM\UD2\AccesoUsuarios\AccesoUsuarios\bin\Debug\AccesoUsuarios.exe
+C:\Users\b15-03m\Documents\NetBeansProjects\DI-AEM\UD2\AccesoUsuarios\AccesoUsuarios\bin\Debug\AccesoUsuarios.pdb
+C:\Users\b15-03m\Documents\NetBeansProjects\DI-AEM\UD2\AccesoUsuarios\AccesoUsuarios\obj\Debug\AccesoUsuarios.csproj.AssemblyReference.cache
+C:\Users\b15-03m\Documents\NetBeansProjects\DI-AEM\UD2\AccesoUsuarios\AccesoUsuarios\obj\Debug\view\MainWindow.g.cs
+C:\Users\b15-03m\Documents\NetBeansProjects\DI-AEM\UD2\AccesoUsuarios\AccesoUsuarios\obj\Debug\App.g.cs
+C:\Users\b15-03m\Documents\NetBeansProjects\DI-AEM\UD2\AccesoUsuarios\AccesoUsuarios\obj\Debug\AccesoUsuarios_MarkupCompile.cache
+C:\Users\b15-03m\Documents\NetBeansProjects\DI-AEM\UD2\AccesoUsuarios\AccesoUsuarios\obj\Debug\AccesoUsuarios_MarkupCompile.lref
+C:\Users\b15-03m\Documents\NetBeansProjects\DI-AEM\UD2\AccesoUsuarios\AccesoUsuarios\obj\Debug\view\MainWindow.baml
+C:\Users\b15-03m\Documents\NetBeansProjects\DI-AEM\UD2\AccesoUsuarios\AccesoUsuarios\obj\Debug\AccesoUsuarios.g.resources
+C:\Users\b15-03m\Documents\NetBeansProjects\DI-AEM\UD2\AccesoUsuarios\AccesoUsuarios\obj\Debug\AccesoUsuarios.Properties.Resources.resources
+C:\Users\b15-03m\Documents\NetBeansProjects\DI-AEM\UD2\AccesoUsuarios\AccesoUsuarios\obj\Debug\AccesoUsuarios.csproj.GenerateResource.cache
+C:\Users\b15-03m\Documents\NetBeansProjects\DI-AEM\UD2\AccesoUsuarios\AccesoUsuarios\obj\Debug\AccesoUsuarios.csproj.CoreCompileInputs.cache
+C:\Users\b15-03m\Documents\NetBeansProjects\DI-AEM\UD2\AccesoUsuarios\AccesoUsuarios\obj\Debug\AccesoUsuarios.exe
+C:\Users\b15-03m\Documents\NetBeansProjects\DI-AEM\UD2\AccesoUsuarios\AccesoUsuarios\obj\Debug\AccesoUsuarios.pdb
