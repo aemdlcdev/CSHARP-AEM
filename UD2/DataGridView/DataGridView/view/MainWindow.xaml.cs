@@ -46,8 +46,6 @@ namespace DataGridView
             start();
         }
 
-
-
         private void start()
         {
             txtNombre.Text = "";
@@ -82,6 +80,11 @@ namespace DataGridView
                 dataGridPersonas.Items.Refresh();
                 start();
             }
+        }
+
+        private void btnModificar_Click(object sender, RoutedEventArgs e)
+        {
+            
         }
     }
 }
