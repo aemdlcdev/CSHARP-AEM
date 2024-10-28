@@ -52,7 +52,7 @@
                     <ColumnDefinition Width="*" />
                     <ColumnDefinition Width="*" />
                 </Grid.ColumnDefinitions>
-                <Button x:Name="btnModificar" Content="Modificar" HorizontalAlignment="Stretch" Grid.Column="0" />
+                <Button x:Name="btnModificar" Content="Modificar" Grid.Column="0" Click="btnModificar_Click" />
                 <Button x:Name="btnEliminar" Content="Eliminar" HorizontalAlignment="Stretch" Grid.Column="1" Click="btnEliminar_Click" />
             </Grid>
         </StackPanel>
