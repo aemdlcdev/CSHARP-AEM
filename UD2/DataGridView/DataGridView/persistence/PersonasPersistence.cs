@@ -29,6 +29,7 @@ namespace DataGridView.persistence
             personas.Add(new Persona("Javier", "García", 21));
             personas.Add(new Persona("Marta", "González", 22));
             personas.Add(new Persona("Lucía", "Martínez", 23));
+            personas.Add(new Persona("Sara", "Gómez", 24));
 
             return personas;
 

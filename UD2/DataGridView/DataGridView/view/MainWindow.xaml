@@ -34,15 +34,15 @@
                 </Grid.ColumnDefinitions>
 
                 <Label Content="Nombre:" Grid.Row="0" Grid.Column="0" Margin="4" />
-                <TextBox x:Name="txtNombre" Grid.Row="1" Grid.Column="0" Margin="4" Grid.ColumnSpan="2" TextChanged="txtNombre_TextChanged" />
+                <TextBox x:Name="txtNombre" Grid.Row="1" Grid.Column="0" Margin="4" Grid.ColumnSpan="2" />
 
                 <Label Content="Apellidos:" Grid.Row="2" Grid.Column="0" Margin="4" />
-                <TextBox x:Name="txtApellidos" Grid.Row="3" Grid.Column="0" Margin="4" Grid.ColumnSpan="2" TextChanged="txtApellidos_TextChanged" />
+                <TextBox x:Name="txtApellidos" Grid.Row="3" Grid.Column="0" Margin="4" Grid.ColumnSpan="2" />
 
                 <Label Content="Edad:" Grid.Row="4" Grid.Column="0" Margin="4" />
-                <TextBox x:Name="txtEdad" Grid.Row="5" Grid.Column="0" Margin="4" Grid.ColumnSpan="2" TextChanged="txtEdad_TextChanged" />
+                <TextBox x:Name="txtEdad" Grid.Row="5" Grid.Column="0" Margin="4" Grid.ColumnSpan="2" />
 
-                <Button Content="Agregar Persona" Grid.Row="6" Grid.Column="0" Margin="4" Grid.ColumnSpan="2" Click="AgregarPersona_Click" />
+                <Button x:Name="btnAgregarPersona" Content="Agregar Persona" Grid.Row="6" Grid.Column="0" Margin="4,4,4,0" Grid.ColumnSpan="2" Height="20" VerticalAlignment="Top" Click="btnAgregarPersona_Click" />
             </Grid>
         </StackPanel>
 
@@ -52,13 +52,13 @@
                     <ColumnDefinition Width="*" />
                     <ColumnDefinition Width="*" />
                 </Grid.ColumnDefinitions>
-                <Button Content="Modificar" HorizontalAlignment="Stretch" Click="ModificarPersona_Click" Grid.Column="0" />
-                <Button Content="Eliminar" HorizontalAlignment="Stretch" Click="EliminarPersona_Click" Grid.Column="1" />
+                <Button x:Name="btnModificar" Content="Modificar" HorizontalAlignment="Stretch" Grid.Column="0" />
+                <Button x:Name="btnEliminar" Content="Eliminar" HorizontalAlignment="Stretch" Grid.Column="1" Click="btnEliminar_Click" />
             </Grid>
         </StackPanel>
 
-        <DataGrid x:Name="dataGridPersonas" Grid.Column="1" Margin="10" AutoGenerateColumns="True" Grid.Row="0" />
-        
-        
+        <DataGrid x:Name="dataGridPersonas" Grid.Column="1" Margin="10" AutoGenerateColumns="True" Grid.Row="0" SelectionChanged="dataGridPersonas_SelectionChanged" />
+
+
     </Grid>
 </Window>
