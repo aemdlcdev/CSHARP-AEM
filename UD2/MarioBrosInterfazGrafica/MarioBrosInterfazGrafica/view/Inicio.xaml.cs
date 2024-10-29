@@ -23,5 +23,21 @@ namespace MarioBrosInterfazGrafica.view
         {
             InitializeComponent();
         }
+
+        private void TextBox_TextChanged(object sender, TextChangedEventArgs e)
+        {
+
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            MessageBoxResult result = MessageBox.Show("¿Ha introducido correctamente los datos?", "Confirmar", MessageBoxButton.YesNo,MessageBoxImage.Warning);
+            if (result == MessageBoxResult.Yes) 
+            {
+                MainWindow mainWindow = new MainWindow();
+                mainWindow.Show();
+                this.Hide();
+            }
+        }
     }
 }

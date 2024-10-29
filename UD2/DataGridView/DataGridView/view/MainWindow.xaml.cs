@@ -64,7 +64,7 @@ namespace DataGridView
                 }
    
             } else if (btnAgregarPersona.Content.Equals("Guardar cambios"))
-                {
+              {
                     error = ValidarCampos();
                     if (dataGridPersonas.SelectedItem is Persona personaSeleccionada && error == false)
                     {
@@ -84,7 +84,7 @@ namespace DataGridView
                         dataGridPersonas.Items.Refresh();
                         start();
                     }
-            }
+              }
         }
 
         private void dataGridPersonas_SelectionChanged(object sender, System.Windows.Controls.SelectionChangedEventArgs e)
