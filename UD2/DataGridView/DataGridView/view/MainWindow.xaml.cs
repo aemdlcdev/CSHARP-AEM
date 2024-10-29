@@ -62,31 +62,28 @@ namespace DataGridView
                         start();
                     }
                 }
-
-                
-            }
-            else if (btnAgregarPersona.Content.Equals("Guardar cambios"))
-            {
-                error = ValidarCampos();
-                if (dataGridPersonas.SelectedItem is Persona personaSeleccionada && error == false)
+   
+            } else if (btnAgregarPersona.Content.Equals("Guardar cambios"))
                 {
-                    // Validar que la edad sea un número
-                    if (!int.TryParse(txtEdad.Text, out int edad))
+                    error = ValidarCampos();
+                    if (dataGridPersonas.SelectedItem is Persona personaSeleccionada && error == false)
                     {
-                        MessageBox.Show("Por favor, ingrese una edad válida.", "Edad inválida", MessageBoxButton.OK, MessageBoxImage.Warning);
-                        return;
+                        // Validar que la edad sea un número
+                        if (!int.TryParse(txtEdad.Text, out int edad))
+                        {
+                            MessageBox.Show("Por favor, ingrese una edad válida.", "Edad inválida", MessageBoxButton.OK, MessageBoxImage.Warning);
+                            return;
+                        }
+
+                        personaSeleccionada.Nombre = txtNombre.Text;
+                        personaSeleccionada.Apellidos = txtApellidos.Text;
+                        personaSeleccionada.Edad = edad;
+
+                        MessageBox.Show("Cambios guardados", "Cambios guardados", MessageBoxButton.OK, MessageBoxImage.Information);
+
+                        dataGridPersonas.Items.Refresh();
+                        start();
                     }
-
-                    personaSeleccionada.Nombre = txtNombre.Text;
-                    personaSeleccionada.Apellidos = txtApellidos.Text;
-                    personaSeleccionada.Edad = edad;
-
-                    MessageBox.Show("Cambios guardados", "Cambios guardados", MessageBoxButton.OK, MessageBoxImage.Information);
-
-                    dataGridPersonas.Items.Refresh();
-                    start();
-                    
-                }
             }
         }
 
@@ -144,10 +141,8 @@ namespace DataGridView
             string name = persona.Nombre;
             string lastName = persona.Apellidos;
             int age = persona.Edad;
-            if (listaPersonas.Exists(p => p.Nombre == name && p.Apellidos == lastName && p.Edad == age))
-            {
-                existe = true;
-            }
+            existe = listaPersonas.Exists(p => p.Nombre == name && p.Apellidos == lastName && p.Edad == age);
+            
             return existe;
         }
 
