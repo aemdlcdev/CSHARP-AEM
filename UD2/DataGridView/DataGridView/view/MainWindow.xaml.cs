@@ -1,5 +1,6 @@
 ﻿using DataGridView;
 using DataGridView.persistence;
+using System;
 using System.Collections.Generic;
 using System.Windows;
 
@@ -9,6 +10,7 @@ namespace DataGridView
     {
         private List<Persona> listaPersonas;
         private Persona persona;
+        private string btnAgregarPersonaContent;
 
         public MainWindow()
         {
@@ -20,17 +22,20 @@ namespace DataGridView
             listaPersonas = persona.GetPersonas();
 
             dataGridPersonas.ItemsSource = listaPersonas;
+
+            btnAgregarPersonaContent = "Añadir persona";
+            btnAgregarPersona.Content = btnAgregarPersonaContent;
         }
 
         private void btnAgregarPersona_Click(object sender, RoutedEventArgs e)
         {
-            if(btnAgregarPersona.Content.Equals("Añadir persona"))
+            bool error = false;
+            if (btnAgregarPersona.Content.Equals("Añadir persona"))
             {
-                if (string.IsNullOrWhiteSpace(txtNombre.Text) || string.IsNullOrWhiteSpace(txtApellidos.Text) || string.IsNullOrWhiteSpace(txtEdad.Text))
-                {
-                    MessageBox.Show("Por favor, complete todos los campos.", "Campos vacíos", MessageBoxButton.OK, MessageBoxImage.Warning);
-                    return;
-                }
+                string nombre = txtNombre.Text;
+                string apellidos = txtApellidos.Text;
+
+                // Validar que la edad sea un número
 
                 if (!int.TryParse(txtEdad.Text, out int edad))
                 {
@@ -38,36 +43,49 @@ namespace DataGridView
                     return;
                 }
 
-                string nombre = txtNombre.Text;
-                string apellidos = txtApellidos.Text;
+                error = ValidarCampos();
 
-                Persona nuevaPersona = new Persona(nombre, apellidos, edad);
-                if (VerificarExistencia(nuevaPersona))
+                if (error == false) 
                 {
-                    MessageBox.Show("La persona ya existe", "Persona existente", MessageBoxButton.OK, MessageBoxImage.Warning);
-                    return;
+                    Persona nuevaPersona = new Persona(nombre, apellidos, edad);
+                    if (VerificarExistencia(nuevaPersona))
+                    {
+                        MessageBox.Show("La persona ya existe", "Persona existente", MessageBoxButton.OK, MessageBoxImage.Warning);
+                        return;
+                    }
+                    else
+                    {
+                        listaPersonas.Add(nuevaPersona);
+                        dataGridPersonas.Items.Refresh();
+                        start();
+                    }
                 }
-                else
-                {
-                    listaPersonas.Add(nuevaPersona);
-                    dataGridPersonas.Items.Refresh();
-                    start();
-                }
+
+                
             }
             else if (btnAgregarPersona.Content.Equals("Guardar cambios"))
             {
-                if (dataGridPersonas.SelectedItem is Persona personaSeleccionada)
+                error = ValidarCampos();
+                if (dataGridPersonas.SelectedItem is Persona personaSeleccionada && error == false)
                 {
-                    
+                    // Validar que la edad sea un número
+                    if (!int.TryParse(txtEdad.Text, out int edad))
+                    {
+                        MessageBox.Show("Por favor, ingrese una edad válida.", "Edad inválida", MessageBoxButton.OK, MessageBoxImage.Warning);
+                        return;
+                    }
+
                     personaSeleccionada.Nombre = txtNombre.Text;
                     personaSeleccionada.Apellidos = txtApellidos.Text;
-                    personaSeleccionada.Edad = int.Parse(txtEdad.Text);
+                    personaSeleccionada.Edad = edad;
+
+                    MessageBox.Show("Cambios guardados", "Cambios guardados", MessageBoxButton.OK, MessageBoxImage.Information);
 
                     dataGridPersonas.Items.Refresh();
                     start();
+                    
                 }
             }
-
         }
 
         private void start()
@@ -76,7 +94,8 @@ namespace DataGridView
             txtApellidos.Text = "";
             txtEdad.Text = "";
             btnAgregarPersona.IsEnabled = true;
-            btnAgregarPersona.Content = "Añadir persona";
+            btnAgregarPersonaContent = "Añadir persona";
+            btnAgregarPersona.Content = btnAgregarPersonaContent;
             btnEliminar.IsEnabled = true;
             btnModificar.IsEnabled = true;
         }
@@ -99,8 +118,6 @@ namespace DataGridView
             }
         }
 
-
-
         private void btnEliminar_Click(object sender, RoutedEventArgs e)
         {
             if (MessageBox.Show("¿Está seguro que quiere eliminar esta persona?", "Eliminar", MessageBoxButton.YesNo, MessageBoxImage.Warning) == MessageBoxResult.Yes && dataGridPersonas.SelectedItem is Persona personaSeleccionada)
@@ -113,28 +130,43 @@ namespace DataGridView
 
         private void btnModificar_Click(object sender, RoutedEventArgs e)
         {
-            if(dataGridPersonas.SelectedItem is Persona personaSeleccionada)
+
+            bool errorCampos = ValidarCampos();
+
+            if (errorCampos == false && dataGridPersonas.SelectedItem is Persona personaSeleccionada)
             {
-                btnAgregarPersona.Content = "Guardar cambios";
+                btnAgregarPersonaContent = "Guardar cambios";
+                btnAgregarPersona.Content = btnAgregarPersonaContent;
                 btnEliminar.IsEnabled = false;
                 btnModificar.IsEnabled = false;
                 btnAgregarPersona.IsEnabled = true;
             }
-
+            
         }
 
         private bool VerificarExistencia(Persona persona)
-        { 
+        {
             bool existe = false;
             string name = persona.Nombre;
             string lastName = persona.Apellidos;
             int age = persona.Edad;
-            if(listaPersonas.Exists(p => p.Nombre == name && p.Apellidos == lastName && p.Edad == age))
+            if (listaPersonas.Exists(p => p.Nombre == name && p.Apellidos == lastName && p.Edad == age))
             {
                 existe = true;
             }
             return existe;
         }
 
+        private bool ValidarCampos()
+        {
+            bool error = false;
+            if (string.IsNullOrWhiteSpace(txtNombre.Text) || string.IsNullOrWhiteSpace(txtApellidos.Text) || string.IsNullOrWhiteSpace(txtEdad.Text))
+            {
+                MessageBox.Show("Por favor, complete todos los campos.", "Campos vacíos", MessageBoxButton.OK, MessageBoxImage.Warning);
+                error = true;
+            }
+
+            return error;
+        }
     }
 }
