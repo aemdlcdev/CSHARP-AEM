@@ -23,9 +23,11 @@ namespace DataGridView
 
             dataGridPersonas.ItemsSource = listaPersonas;
 
-            btnAgregarPersonaContent = "Añadir persona";
+            btnAgregarPersonaContent = "Añadir persona"; // String para el content del btnAgregarPersona
             btnAgregarPersona.Content = btnAgregarPersonaContent;
         }
+
+        #region Eventos de botones
 
         private void btnAgregarPersona_Click(object sender, RoutedEventArgs e)
         {
@@ -88,18 +90,6 @@ namespace DataGridView
             }
         }
 
-        private void start()
-        {
-            txtNombre.Text = "";
-            txtApellidos.Text = "";
-            txtEdad.Text = "";
-            btnAgregarPersona.IsEnabled = true;
-            btnAgregarPersonaContent = "Añadir persona";
-            btnAgregarPersona.Content = btnAgregarPersonaContent;
-            btnEliminar.IsEnabled = true;
-            btnModificar.IsEnabled = true;
-        }
-
         private void dataGridPersonas_SelectionChanged(object sender, System.Windows.Controls.SelectionChangedEventArgs e)
         {
             if (dataGridPersonas.SelectedItem is Persona personaSeleccionada)
@@ -144,6 +134,10 @@ namespace DataGridView
             
         }
 
+        #endregion
+
+        #region Eventos de validación de campos y start
+
         private bool VerificarExistencia(Persona persona)
         {
             bool existe = false;
@@ -168,5 +162,19 @@ namespace DataGridView
 
             return error;
         }
+
+        private void start()
+        {
+            txtNombre.Text = "";
+            txtApellidos.Text = "";
+            txtEdad.Text = "";
+            btnAgregarPersona.IsEnabled = true;
+            btnAgregarPersonaContent = "Añadir persona";
+            btnAgregarPersona.Content = btnAgregarPersonaContent;
+            btnEliminar.IsEnabled = true;
+            btnModificar.IsEnabled = true;
+        }
+
+        #endregion
     }
 }
