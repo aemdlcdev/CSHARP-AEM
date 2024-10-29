@@ -1,0 +1,17 @@
+C:\Users\b15-03m\Documents\NetBeansProjects\DI-AEM\UD2\MarioBrosInterfazGrafica\MarioBrosInterfazGrafica\bin\Debug\MarioBrosInterfazGrafica.exe.config
+C:\Users\b15-03m\Documents\NetBeansProjects\DI-AEM\UD2\MarioBrosInterfazGrafica\MarioBrosInterfazGrafica\bin\Debug\MarioBrosInterfazGrafica.exe
+C:\Users\b15-03m\Documents\NetBeansProjects\DI-AEM\UD2\MarioBrosInterfazGrafica\MarioBrosInterfazGrafica\bin\Debug\MarioBrosInterfazGrafica.pdb
+C:\Users\b15-03m\Documents\NetBeansProjects\DI-AEM\UD2\MarioBrosInterfazGrafica\MarioBrosInterfazGrafica\obj\Debug\MarioBrosInterfazGrafica.csproj.AssemblyReference.cache
+C:\Users\b15-03m\Documents\NetBeansProjects\DI-AEM\UD2\MarioBrosInterfazGrafica\MarioBrosInterfazGrafica\obj\Debug\view\MainWindow.g.cs
+C:\Users\b15-03m\Documents\NetBeansProjects\DI-AEM\UD2\MarioBrosInterfazGrafica\MarioBrosInterfazGrafica\obj\Debug\App.g.cs
+C:\Users\b15-03m\Documents\NetBeansProjects\DI-AEM\UD2\MarioBrosInterfazGrafica\MarioBrosInterfazGrafica\obj\Debug\MarioBrosInterfazGrafica_MarkupCompile.cache
+C:\Users\b15-03m\Documents\NetBeansProjects\DI-AEM\UD2\MarioBrosInterfazGrafica\MarioBrosInterfazGrafica\obj\Debug\MarioBrosInterfazGrafica_MarkupCompile.lref
+C:\Users\b15-03m\Documents\NetBeansProjects\DI-AEM\UD2\MarioBrosInterfazGrafica\MarioBrosInterfazGrafica\obj\Debug\view\MainWindow.baml
+C:\Users\b15-03m\Documents\NetBeansProjects\DI-AEM\UD2\MarioBrosInterfazGrafica\MarioBrosInterfazGrafica\obj\Debug\MarioBrosInterfazGrafica.g.resources
+C:\Users\b15-03m\Documents\NetBeansProjects\DI-AEM\UD2\MarioBrosInterfazGrafica\MarioBrosInterfazGrafica\obj\Debug\MarioBrosInterfazGrafica.Properties.Resources.resources
+C:\Users\b15-03m\Documents\NetBeansProjects\DI-AEM\UD2\MarioBrosInterfazGrafica\MarioBrosInterfazGrafica\obj\Debug\MarioBrosInterfazGrafica.csproj.GenerateResource.cache
+C:\Users\b15-03m\Documents\NetBeansProjects\DI-AEM\UD2\MarioBrosInterfazGrafica\MarioBrosInterfazGrafica\obj\Debug\MarioBrosInterfazGrafica.csproj.CoreCompileInputs.cache
+C:\Users\b15-03m\Documents\NetBeansProjects\DI-AEM\UD2\MarioBrosInterfazGrafica\MarioBrosInterfazGrafica\obj\Debug\MarioBrosInterfazGrafica.exe
+C:\Users\b15-03m\Documents\NetBeansProjects\DI-AEM\UD2\MarioBrosInterfazGrafica\MarioBrosInterfazGrafica\obj\Debug\MarioBrosInterfazGrafica.pdb
+C:\Users\b15-03m\Documents\NetBeansProjects\DI-AEM\UD2\MarioBrosInterfazGrafica\MarioBrosInterfazGrafica\obj\Debug\view\Inicio.g.cs
+C:\Users\b15-03m\Documents\NetBeansProjects\DI-AEM\UD2\MarioBrosInterfazGrafica\MarioBrosInterfazGrafica\obj\Debug\view\Inicio.baml
