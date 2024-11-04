@@ -15,6 +15,7 @@ namespace MarioBrosInterfazGrafica
         {
             InitializeComponent();
             btnSiguiente.IsEnabled = false;
+            btnParar.IsEnabled = false;
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
@@ -25,15 +26,28 @@ namespace MarioBrosInterfazGrafica
         private void btnJugar_Click(object sender, RoutedEventArgs e)
         {
             tableroArray = new string[10, 10];
-            Operaciones.InicializarTablero(tableroArray, "M");
-            Operaciones.MuestraTableroOculto(tableroArray, fila, columna, "M", tablero);
-            btnJugar.IsEnabled = false;
-            btnSiguiente.IsEnabled = true;
-            tabInicio.IsEnabled = false; // Deshabilitar la pestaña "Inicio"
+
+            if(btnJugar.Content.ToString() == "Reiniciar")
+            {  
+                Operaciones.InicializarTablero(tableroArray, "M");
+                Operaciones.MuestraTableroOculto(tableroArray, fila, columna, "M", tablero);
+                btnJugar.Content = "Jugar";
+            }
+
+            if(btnJugar.Content.ToString() == "Jugar")
+            {
+                Operaciones.InicializarTablero(tableroArray, "M");
+                Operaciones.MuestraTableroOculto(tableroArray, fila, columna, "M", tablero);
+                btnSiguiente.IsEnabled = true;
+                btnParar.IsEnabled = true;
+                tabInicio.IsEnabled = false;
+            }
+
         }
 
         private void btnSiguiente_Click(object sender, RoutedEventArgs e)
         {
+            btnJugar.IsEnabled = false;
             int movimiento = Operaciones.GeneraRandom(1, 4);
             switch (movimiento)
             {
@@ -66,6 +80,15 @@ namespace MarioBrosInterfazGrafica
                     btnSiguiente.IsEnabled = false;
                 }
             }
+        }
+
+        private void btnParar_Click(object sender, RoutedEventArgs e)
+        {
+            btnJugar.Content = "Reiniciar";
+            btnJugar.IsEnabled = true;
+            btnSiguiente.IsEnabled = false;
+            tabInicio.IsEnabled = true; // Habilitar la pestaña "Inicio"
+
         }
     }
 }
