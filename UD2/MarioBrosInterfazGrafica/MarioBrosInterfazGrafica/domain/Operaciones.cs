@@ -1,4 +1,7 @@
 ﻿using System;
+using System.Windows.Controls;
+using System.Windows.Media;
+using System.Windows;
 
 namespace MarioBrosInterfazGrafica
 {
@@ -33,6 +36,7 @@ namespace MarioBrosInterfazGrafica
             }
             return 0;
         }
+
         public static void MuestraArray(string[,] array)
         {
             // GetLength(0) obtiene el número de filas, GetLength(1) obtiene el número de columnas
@@ -46,26 +50,47 @@ namespace MarioBrosInterfazGrafica
             }
         }
 
-        public static void MuestraTableroOculto(string[,] tablero, int fila, int columna, String str)
+        public static void MuestraTableroOculto(string[,] tablero, int fila, int columna, string str, Grid grid)
         {
+            grid.Children.Clear(); // Limpiar el grid antes de llenarlo
+
             for (int i = 0; i < tablero.GetLength(0); i++)
             {
                 for (int j = 0; j < tablero.GetLength(1); j++)
                 {
-                    if (i == fila && j == columna) // Verifica si estamos en la posición del jugador
+                    string caracter;
+                    if (i == fila && j == columna)
                     {
-                        Console.Write(str + " "); // Muestra 'M' para la posición actual del jugador
+                        caracter = str;
                     }
                     else if (tablero[i, j] == "X")
                     {
-                        Console.Write("X "); // Muestra 'X' para celdas visitadas
+                        caracter = "X";
                     }
                     else
                     {
-                        Console.Write("* "); // Muestra '*' para celdas no visitadas
+                        caracter = "*";
                     }
+
+                    TextBlock textBlock = new TextBlock
+                    {
+                        Text = caracter,
+                        HorizontalAlignment = HorizontalAlignment.Center,
+                        VerticalAlignment = VerticalAlignment.Center,
+                        Background = new SolidColorBrush(Colors.LightGray)
+                    };
+
+                    Border border = new Border
+                    {
+                        BorderBrush = new SolidColorBrush(Colors.Black),
+                        BorderThickness = new Thickness(1),
+                        Child = textBlock
+                    };
+
+                    Grid.SetRow(border, i);
+                    Grid.SetColumn(border, j);
+                    grid.Children.Add(border);
                 }
-                Console.WriteLine();
             }
         }
 
@@ -73,7 +98,6 @@ namespace MarioBrosInterfazGrafica
         {
             Console.WriteLine("Vidas: " + vidas);
             Console.WriteLine("Pocion: " + pocion + " ml");
-
         }
 
         public static void InicializarTablero(string[,] tablero, String str)
@@ -88,21 +112,19 @@ namespace MarioBrosInterfazGrafica
             tablero[0, 0] = str;
         }
 
-        private static int GeneraRandom(int min, int max)
+        public static int GeneraRandom(int min, int max)
         {
             return random.Next(min, max + 1);
         }
 
-        public static void MoverDerecha(ref string[,] tablero, ref int fila, ref int columna, ref int vidas, ref int pocion)
+        public static void MoverDerecha(ref string[,] tablero, ref int fila, ref int columna, ref int vidas, ref int pocion, Grid grid)
         {
             if (columna + 1 < tablero.GetLength(1))
             {
                 tablero[fila, columna] = "X";
                 columna++;
 
-
                 string valorCelda = tablero[fila, columna];
-
 
                 if (valorCelda == "0")
                 {
@@ -117,25 +139,23 @@ namespace MarioBrosInterfazGrafica
                     pocion += 2;
                 }
 
-
                 tablero[fila, columna] = "M";
+                MuestraTableroOculto(tablero, fila, columna, "M", grid);
             }
             else
             {
-                Console.WriteLine("Movimiento no válido: no puedes moverte fuera del tablero.");
+                MessageBox.Show("Movimiento no válido: no puedes moverte fuera del tablero.");
             }
         }
 
-        public static void MoverIzquierda(ref string[,] tablero, ref int fila, ref int columna, ref int vidas, ref int pocion)
+        public static void MoverIzquierda(ref string[,] tablero, ref int fila, ref int columna, ref int vidas, ref int pocion, Grid grid)
         {
             if (columna - 1 >= 0)
             {
                 tablero[fila, columna] = "X";
                 columna--;
 
-
                 string valorCelda = tablero[fila, columna];
-
 
                 if (valorCelda == "0")
                 {
@@ -150,25 +170,23 @@ namespace MarioBrosInterfazGrafica
                     pocion += 2;
                 }
 
-
                 tablero[fila, columna] = "M";
+                MuestraTableroOculto(tablero, fila, columna, "M", grid);
             }
             else
             {
-                Console.WriteLine("Movimiento no válido: no puedes moverte fuera del tablero.");
+                MessageBox.Show("Movimiento no válido: no puedes moverte fuera del tablero.");
             }
         }
 
-        public static void MoverArriba(ref string[,] tablero, ref int fila, ref int columna, ref int vidas, ref int pocion)
+        public static void MoverArriba(ref string[,] tablero, ref int fila, ref int columna, ref int vidas, ref int pocion, Grid grid)
         {
             if (fila - 1 >= 0)
             {
                 tablero[fila, columna] = "X";
                 fila--;
 
-
                 string valorCelda = tablero[fila, columna];
-
 
                 if (valorCelda == "0")
                 {
@@ -183,25 +201,23 @@ namespace MarioBrosInterfazGrafica
                     pocion += 2;
                 }
 
-
                 tablero[fila, columna] = "M";
+                MuestraTableroOculto(tablero, fila, columna, "M", grid);
             }
             else
             {
-                Console.WriteLine("Movimiento no válido: no puedes moverte fuera del tablero.");
+                MessageBox.Show("Movimiento no válido: no puedes moverte fuera del tablero.");
             }
         }
 
-        public static void MoverAbajo(ref string[,] tablero, ref int fila, ref int columna, ref int vidas, ref int pocion)
+        public static void MoverAbajo(ref string[,] tablero, ref int fila, ref int columna, ref int vidas, ref int pocion, Grid grid)
         {
             if (fila + 1 < tablero.GetLength(0))
             {
                 tablero[fila, columna] = "X";
                 fila++;
 
-
                 string valorCelda = tablero[fila, columna];
-
 
                 if (valorCelda == "0")
                 {
@@ -216,12 +232,12 @@ namespace MarioBrosInterfazGrafica
                     pocion += 2;
                 }
 
-
                 tablero[fila, columna] = "M";
+                MuestraTableroOculto(tablero, fila, columna, "M", grid);
             }
             else
             {
-                Console.WriteLine("Movimiento no válido: no puedes moverte fuera del tablero.");
+                MessageBox.Show("Movimiento no válido: no puedes moverte fuera del tablero.");
             }
         }
     }

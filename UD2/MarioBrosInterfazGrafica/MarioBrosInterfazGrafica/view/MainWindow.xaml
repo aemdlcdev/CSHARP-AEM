@@ -5,34 +5,39 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:MarioBrosInterfazGrafica"
         mc:Ignorable="d"
-        Title="Mario Bros" Height="450" Width="800" MinHeight="450" MinWidth="800" WindowStartupLocation="CenterScreen">
+        Title="Mario Bros" Height="450" Width="800" MinHeight="450" MinWidth="800">
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="Auto" />
             <ColumnDefinition Width="5" />
-            <!-- Ancho del GridSplitter -->
             <ColumnDefinition Width="*" />
         </Grid.ColumnDefinitions>
 
-        <StackPanel Orientation="Horizontal" Grid.Column="0">
-            <Grid>
-                <Grid.RowDefinitions>
-                    <RowDefinition Height="Auto" />
-                    <RowDefinition Height="Auto" />
-                </Grid.RowDefinitions>
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="Auto" />
-                </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*" />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
 
-                <Button Content="Inicio" Width="100" Height="50" Margin="10" Grid.Row="0" Grid.Column="0" Click="Button_Click" />
-                <Button Content="Jugar" Width="100" Height="50" Margin="10" Grid.Row="1" Grid.Column="0" />
-            </Grid>
-        </StackPanel>
+        <TabControl x:Name="mainTabControl" Grid.Column="0" Grid.Row="0" Grid.RowSpan="2" SelectionChanged="TabControl_SelectionChanged">
+            <TabItem x:Name="tabInicio" Header="Inicio">
+                <StackPanel HorizontalAlignment="Right" VerticalAlignment="Center">
+                    <Button x:Name="btnInicio" Content="Inicio" Width="150" Height="70" Margin="10" Click="Button_Click" />
+                    <TextBlock Text="Vidas:" Margin="10" FontSize="16" />
+                    <Slider x:Name="sliderVidas" Minimum="0" Maximum="10" Value="3" Margin="10" Width="200" Height="30" />
+                    <TextBlock Text="Pociones:" Margin="10" FontSize="16" />
+                    <Slider x:Name="sliderPociones" Minimum="0" Maximum="10" Value="0" Margin="10" Width="200" Height="30" />
+                </StackPanel>
+            </TabItem>
+            <TabItem x:Name="tabJugar" Header="Jugar">
+                <StackPanel>
+                    <Button x:Name="btnJugar" Content="Jugar" Width="100" Height="50" Margin="10" Click="btnJugar_Click" />
+                </StackPanel>
+            </TabItem>
+        </TabControl>
 
-        <!-- GridSplitter para separar las columnas -->
         <GridSplitter Grid.Column="1" Width="5" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" IsEnabled="False" />
 
-        <Grid Name="tablero" ShowGridLines="True" Grid.Column="2">
+        <Grid Name="tablero" ShowGridLines="True" Grid.Column="2" Grid.Row="0" Visibility="Collapsed">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="*" />
                 <ColumnDefinition Width="*" />
@@ -59,5 +64,7 @@
                 <RowDefinition Height="*" />
             </Grid.RowDefinitions>
         </Grid>
+
+        <Button x:Name="btnSiguiente" Content="Siguiente" Width="100" Height="50" Margin="10" Grid.Row="1" Grid.Column="2" HorizontalAlignment="Right" VerticalAlignment="Bottom" Click="btnSiguiente_Click" />
     </Grid>
 </Window>
