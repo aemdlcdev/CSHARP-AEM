@@ -2,114 +2,63 @@
 using System.Windows.Controls;
 using System.Windows.Media;
 using System.Windows;
+using System.Windows.Media.Imaging;
 
 namespace MarioBrosInterfazGrafica
 {
     internal class Operaciones
     {
         private static Random random = new Random();
+        private static string rutaMario = "/resources/mario.png"; // Imagen de Mario
+        private static string rutaNoVisitada = "/resources/novisitada.png"; // Imagen de celda no visitada
+        private static string rutaVisitada = "/resources/visitada.png"; // Imagen de celda visitada
 
-        public static void MuestraMenu()
+        public static void InicializarTablero(int[,] tableroValores, Image[,] tableroArray, string imagePath, Grid tablero)
         {
-            Console.WriteLine("Seleccione una operacion");
-            Console.WriteLine("1: Derecha");
-            Console.WriteLine("2: Izquierda");
-            Console.WriteLine("3: Arriba");
-            Console.WriteLine("4: Abajo");
-            Console.WriteLine("5: Salir");
-        }
+            double cellWidth = tablero.ActualWidth / tablero.ColumnDefinitions.Count;
+            double cellHeight = tablero.ActualHeight / tablero.RowDefinitions.Count;
 
-        public static int LeeOpcion()
-        {
-            try
+            tablero.Children.Clear(); // Limpiar el Grid antes de agregar nuevas imágenes
+
+            for (int i = 0; i < tableroValores.GetLength(0); i++)
             {
-                int opcion = 0;
-                if (int.TryParse(Console.ReadLine(), out opcion))
+                for (int j = 0; j < tableroValores.GetLength(1); j++)
                 {
-                    return opcion;
-                }
-
-            }
-            catch (Exception ex)
-            {
-                Console.WriteLine("Opcion incorrecta" + ex.Message);
-            }
-            return 0;
-        }
-
-        public static void MuestraArray(string[,] array)
-        {
-            // GetLength(0) obtiene el número de filas, GetLength(1) obtiene el número de columnas
-            for (int i = 0; i < array.GetLength(0); i++) // Recorre las filas
-            {
-                for (int j = 0; j < array.GetLength(1); j++) // Recorre las columnas
-                {
-                    Console.Write(array[i, j] + " "); // Imprime cada elemento de la matriz
-                }
-                Console.WriteLine(); // Salto de línea al final de cada fila
-            }
-        }
-
-        public static void MuestraTableroOculto(string[,] tablero, int fila, int columna, string str, Grid grid)
-        {
-            grid.Children.Clear(); // Limpiar el grid antes de llenarlo
-
-            for (int i = 0; i < tablero.GetLength(0); i++)
-            {
-                for (int j = 0; j < tablero.GetLength(1); j++)
-                {
-                    string caracter;
-                    if (i == fila && j == columna)
+                    tableroValores[i, j] = GeneraRandom(0, 2);
+                    tableroArray[i, j] = new Image
                     {
-                        caracter = str;
-                    }
-                    else if (tablero[i, j] == "X")
-                    {
-                        caracter = "X";
-                    }
-                    else
-                    {
-                        caracter = "*";
-                    }
-
-                    TextBlock textBlock = new TextBlock
-                    {
-                        Text = caracter,
-                        HorizontalAlignment = HorizontalAlignment.Center,
-                        VerticalAlignment = VerticalAlignment.Center,
-                        Background = new SolidColorBrush(Colors.LightGray)
+                        Source = new BitmapImage(new Uri(imagePath, UriKind.Relative)),
+                        Width = cellWidth,
+                        Height = cellHeight,
+                        Stretch = Stretch.Uniform
                     };
-
-                    Border border = new Border
-                    {
-                        BorderBrush = new SolidColorBrush(Colors.Black),
-                        BorderThickness = new Thickness(1),
-                        Child = textBlock
-                    };
-
-                    Grid.SetRow(border, i);
-                    Grid.SetColumn(border, j);
-                    grid.Children.Add(border);
+                    Grid.SetRow(tableroArray[i, j], i);
+                    Grid.SetColumn(tableroArray[i, j], j);
+                    tablero.Children.Add(tableroArray[i, j]);
                 }
             }
         }
 
-        public static void MuestraStats(ref int vidas, ref int pocion)
-        {
-            Console.WriteLine("Vidas: " + vidas);
-            Console.WriteLine("Pocion: " + pocion + " ml");
-        }
 
-        public static void InicializarTablero(string[,] tablero, String str)
+        public static void MuestraTableroOculto(Image[,] tableroArray, Grid tablero)
         {
-            for (int i = 0; i < tablero.GetLength(0); i++)
+            tablero.Children.Clear();
+            double cellWidth = tablero.ActualWidth / tablero.ColumnDefinitions.Count;
+            double cellHeight = tablero.ActualHeight / tablero.RowDefinitions.Count;
+
+            for (int i = 0; i < tableroArray.GetLength(0); i++)
             {
-                for (int j = 0; j < tablero.GetLength(1); j++)
+                for (int j = 0; j < tableroArray.GetLength(1); j++)
                 {
-                    tablero[i, j] = "" + GeneraRandom(0, 2);
+                    Image img = tableroArray[i, j];
+                    img.Width = cellWidth;
+                    img.Height = cellHeight;
+                    img.Stretch = Stretch.Uniform;
+                    Grid.SetRow(img, i);
+                    Grid.SetColumn(img, j);
+                    tablero.Children.Add(img);
                 }
             }
-            tablero[0, 0] = str;
         }
 
         public static int GeneraRandom(int min, int max)
@@ -117,30 +66,60 @@ namespace MarioBrosInterfazGrafica
             return random.Next(min, max + 1);
         }
 
-        public static void MoverDerecha(ref string[,] tablero, ref int fila, ref int columna, ref int vidas, ref int pocion, Grid grid)
+        private static void ActualizarVidasYPociones(ref int vidas, ref int pocion, int valorCelda)
         {
-            if (columna + 1 < tablero.GetLength(1))
+            if (valorCelda == -1)
             {
-                tablero[fila, columna] = "X";
-                columna++;
+                return; // No hacer nada si la celda ya ha sido visitada
+            }
 
-                string valorCelda = tablero[fila, columna];
-
-                if (valorCelda == "0")
-                {
+            switch (valorCelda)
+            {
+                case 0:
                     vidas--;
-                }
-                else if (valorCelda == "1")
-                {
+                    break;
+                case 1:
                     vidas++;
-                }
-                else if (valorCelda == "2")
-                {
+                    break;
+                case 2:
                     pocion += 2;
-                }
+                    break;
+            }
+        }
 
-                tablero[fila, columna] = "M";
-                MuestraTableroOculto(tablero, fila, columna, "M", grid);
+        private static bool VerificarGameOver(int vidas)
+        {
+            if (vidas <= 0)
+            {
+                MessageBox.Show("Game Over!");
+                return true;
+            }
+            return false;
+        }
+
+        private static bool VerificarVictoria(int pocion, int fila, int columna)
+        {
+            if (pocion > 6 && fila == 10 && columna == 10)
+            {
+                MessageBox.Show("¡Has ganado!");
+                return true;
+            }
+            return false;
+        }
+
+
+
+        public static void MoverDerecha(ref int[,] tableroValores, ref Image[,] tableroArray, ref int fila, ref int columna, ref int vidas, ref int pocion, Grid grid)
+        {
+            if (columna + 1 < tableroArray.GetLength(1))
+            {
+                tableroArray[fila, columna].Source = new BitmapImage(new Uri(rutaVisitada, UriKind.Relative));
+                tableroValores[fila, columna] = -1; // Marcar la casilla como visitada
+                columna++;
+                ActualizarVidasYPociones(ref vidas, ref pocion, tableroValores[fila, columna]);
+                if (VerificarGameOver(vidas) || VerificarVictoria(pocion, fila, columna)) return; // Verificar si el juego ha terminado o si has ganado
+                tableroArray[fila, columna].Source = new BitmapImage(new Uri(rutaMario, UriKind.Relative));
+                MuestraTableroOculto(tableroArray, grid);
             }
             else
             {
@@ -148,30 +127,17 @@ namespace MarioBrosInterfazGrafica
             }
         }
 
-        public static void MoverIzquierda(ref string[,] tablero, ref int fila, ref int columna, ref int vidas, ref int pocion, Grid grid)
+        public static void MoverIzquierda(ref int[,] tableroValores, ref Image[,] tableroArray, ref int fila, ref int columna, ref int vidas, ref int pocion, Grid grid)
         {
             if (columna - 1 >= 0)
             {
-                tablero[fila, columna] = "X";
+                tableroArray[fila, columna].Source = new BitmapImage(new Uri(rutaVisitada, UriKind.Relative));
+                tableroValores[fila, columna] = -1; // Marcar la casilla como visitada
                 columna--;
-
-                string valorCelda = tablero[fila, columna];
-
-                if (valorCelda == "0")
-                {
-                    vidas--;
-                }
-                else if (valorCelda == "1")
-                {
-                    vidas++;
-                }
-                else if (valorCelda == "2")
-                {
-                    pocion += 2;
-                }
-
-                tablero[fila, columna] = "M";
-                MuestraTableroOculto(tablero, fila, columna, "M", grid);
+                ActualizarVidasYPociones(ref vidas, ref pocion, tableroValores[fila, columna]);
+                if (VerificarGameOver(vidas) || VerificarVictoria(pocion, fila, columna)) return; // Verificar si el juego ha terminado o si has ganado
+                tableroArray[fila, columna].Source = new BitmapImage(new Uri(rutaMario, UriKind.Relative));
+                MuestraTableroOculto(tableroArray, grid);
             }
             else
             {
@@ -179,30 +145,17 @@ namespace MarioBrosInterfazGrafica
             }
         }
 
-        public static void MoverArriba(ref string[,] tablero, ref int fila, ref int columna, ref int vidas, ref int pocion, Grid grid)
+        public static void MoverArriba(ref int[,] tableroValores, ref Image[,] tableroArray, ref int fila, ref int columna, ref int vidas, ref int pocion, Grid grid)
         {
             if (fila - 1 >= 0)
             {
-                tablero[fila, columna] = "X";
+                tableroArray[fila, columna].Source = new BitmapImage(new Uri(rutaVisitada, UriKind.Relative));
+                tableroValores[fila, columna] = -1; // Marcar la casilla como visitada
                 fila--;
-
-                string valorCelda = tablero[fila, columna];
-
-                if (valorCelda == "0")
-                {
-                    vidas--;
-                }
-                else if (valorCelda == "1")
-                {
-                    vidas++;
-                }
-                else if (valorCelda == "2")
-                {
-                    pocion += 2;
-                }
-
-                tablero[fila, columna] = "M";
-                MuestraTableroOculto(tablero, fila, columna, "M", grid);
+                ActualizarVidasYPociones(ref vidas, ref pocion, tableroValores[fila, columna]);
+                if (VerificarGameOver(vidas) || VerificarVictoria(pocion, fila, columna)) return; // Verificar si el juego ha terminado o si has ganado
+                tableroArray[fila, columna].Source = new BitmapImage(new Uri(rutaMario, UriKind.Relative));
+                MuestraTableroOculto(tableroArray, grid);
             }
             else
             {
@@ -210,35 +163,25 @@ namespace MarioBrosInterfazGrafica
             }
         }
 
-        public static void MoverAbajo(ref string[,] tablero, ref int fila, ref int columna, ref int vidas, ref int pocion, Grid grid)
+        public static void MoverAbajo(ref int[,] tableroValores, ref Image[,] tableroArray, ref int fila, ref int columna, ref int vidas, ref int pocion, Grid grid)
         {
-            if (fila + 1 < tablero.GetLength(0))
+            if (fila + 1 < tableroArray.GetLength(0))
             {
-                tablero[fila, columna] = "X";
+                tableroArray[fila, columna].Source = new BitmapImage(new Uri(rutaVisitada, UriKind.Relative));
+                tableroValores[fila, columna] = -1; // Marcar la casilla como visitada
                 fila++;
-
-                string valorCelda = tablero[fila, columna];
-
-                if (valorCelda == "0")
-                {
-                    vidas--;
-                }
-                else if (valorCelda == "1")
-                {
-                    vidas++;
-                }
-                else if (valorCelda == "2")
-                {
-                    pocion += 2;
-                }
-
-                tablero[fila, columna] = "M";
-                MuestraTableroOculto(tablero, fila, columna, "M", grid);
+                ActualizarVidasYPociones(ref vidas, ref pocion, tableroValores[fila, columna]);
+                if (VerificarGameOver(vidas) || VerificarVictoria(pocion, fila, columna)) return; // Verificar si el juego ha terminado o si has ganado
+                tableroArray[fila, columna].Source = new BitmapImage(new Uri(rutaMario, UriKind.Relative));
+                MuestraTableroOculto(tableroArray, grid);
             }
             else
             {
                 MessageBox.Show("Movimiento no válido: no puedes moverte fuera del tablero.");
             }
         }
+
+
     }
 }
+

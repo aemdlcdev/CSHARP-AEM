@@ -15,35 +15,38 @@
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="Auto" />
             <ColumnDefinition Width="5" />
-            <ColumnDefinition Width="*" />
+            <ColumnDefinition />
+            <ColumnDefinition Width="Auto" MinWidth="147" />
         </Grid.ColumnDefinitions>
 
         <Grid.RowDefinitions>
             <RowDefinition Height="*" />
-            <RowDefinition Height="Auto" />
         </Grid.RowDefinitions>
 
-        <TabControl x:Name="mainTabControl" Grid.Column="0" Grid.Row="0" Grid.RowSpan="2" SelectionChanged="TabControl_SelectionChanged" TabStripPlacement="Top">
+        <TabControl x:Name="mainTabControl" Grid.Column="0" Grid.Row="0" Grid.RowSpan="2" TabStripPlacement="Top" SelectionChanged="mainTabControl_SelectionChanged">
             <TabItem x:Name="tabInicio" Header="Inicio">
                 <StackPanel HorizontalAlignment="Right" VerticalAlignment="Center">
                     <TextBlock Text="Vidas:" Margin="10" FontSize="16" />
                     <Slider x:Name="sliderVidas" Minimum="0" Maximum="10" Value="3" Margin="10" Width="200" Height="30" />
+                    <TextBlock Text="{Binding ElementName=sliderVidas, Path=Value}" HorizontalAlignment="Center" Margin="0,5,0,10"/>
                     <TextBlock Text="Pociones:" Margin="10" FontSize="16" />
                     <Slider x:Name="sliderPociones" Minimum="0" Maximum="10" Value="0" Margin="10" Width="200" Height="30" />
-                    <Button x:Name="btnInicio" Content="Aceptar" Width="150" Height="70" Margin="10" Click="Button_Click" />
+                    <TextBlock Text="{Binding ElementName=sliderPociones, Path=Value}" HorizontalAlignment="Center" Margin="0,5,0,10"/>
+                    <Button x:Name="btnInicio" Content="Aceptar" Width="150" Height="70" Margin="10" Click="btnInicio_Click"/>
                 </StackPanel>
             </TabItem>
             <TabItem x:Name="tabJugar" Header="Jugar">
                 <StackPanel VerticalAlignment="Center">
-                    <Button x:Name="btnJugar" Content="Jugar" Width="100" Height="50" Click="btnJugar_Click"/>
-                    <Button x:Name="btnParar" Content="Parar" Width="100" Height="50" Click="btnParar_Click" Margin="0,20"/>
+                    <Button x:Name="btnJugar" Content="Jugar" Width="100" Height="50" Click="btnJugar_Click" Margin="0,0,0,10"/>
+                    <Label x:Name="lblVidas" Content="Vidas:" FontSize="16" />
+                    <Label x:Name="lblPociones" Content="Pociones:" FontSize="16" />
                 </StackPanel>
             </TabItem>
         </TabControl>
 
-        <GridSplitter Grid.Column="1" Width="5" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" IsEnabled="False" />
+        <GridSplitter Grid.Column="1" HorizontalAlignment="Stretch" IsEnabled="False" />
 
-        <Grid Name="tablero" ShowGridLines="True" Grid.Column="2" Grid.Row="0" Visibility="Collapsed">
+        <Grid Name="tablero" Grid.Column="2" Grid.Row="0" Visibility="Visible">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="*" />
                 <ColumnDefinition Width="*" />
@@ -70,7 +73,16 @@
                 <RowDefinition Height="*" />
             </Grid.RowDefinitions>
         </Grid>
-
-        <Button x:Name="btnSiguiente" Content="Siguiente" Width="100" Height="50" Margin="10" Grid.Row="1" Grid.Column="2" HorizontalAlignment="Right" VerticalAlignment="Bottom" Click="btnSiguiente_Click" />
+        <StackPanel Grid.Column="3" VerticalAlignment="Center" Margin="0,0,0,20">
+            <Grid x:Name="Controles">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+                <Button x:Name="btnArriba" Content="Arriba" Width="61" Height="20" Margin="0,42,0,0" Grid.Row="0" HorizontalAlignment="Center" VerticalAlignment="Top" Click="btnArriba_Click" />
+                <Button x:Name="btnAbajo" Content="Aabajo" Width="61" Height="20" Margin="0,124,0,0" Grid.Row="0" HorizontalAlignment="Center" VerticalAlignment="Top" Click="btnAbajo_Click"/>
+                <Button x:Name="btnIzquierda" Content="Izquierda" HorizontalAlignment="Left" Margin="10,82,0,0" VerticalAlignment="Top" Width="52" Height="20" Click="btnIzquierda_Click"/>
+                <Button x:Name="btnDerecha" Content="Derecha" HorizontalAlignment="Left" Margin="77,82,0,0" VerticalAlignment="Top" Width="60" Height="20" Click="btnDerecha_Click"/>
+            </Grid>
+        </StackPanel>
     </Grid>
 </Window>
