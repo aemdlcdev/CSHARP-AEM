@@ -21,11 +21,11 @@
         <TabControl x:Name="mainTabControl" Grid.Column="0" Grid.Row="0" Grid.RowSpan="2" SelectionChanged="TabControl_SelectionChanged">
             <TabItem x:Name="tabInicio" Header="Inicio">
                 <StackPanel HorizontalAlignment="Right" VerticalAlignment="Center">
-                    <Button x:Name="btnInicio" Content="Inicio" Width="150" Height="70" Margin="10" Click="Button_Click" />
                     <TextBlock Text="Vidas:" Margin="10" FontSize="16" />
                     <Slider x:Name="sliderVidas" Minimum="0" Maximum="10" Value="3" Margin="10" Width="200" Height="30" />
                     <TextBlock Text="Pociones:" Margin="10" FontSize="16" />
                     <Slider x:Name="sliderPociones" Minimum="0" Maximum="10" Value="0" Margin="10" Width="200" Height="30" />
+                    <Button x:Name="btnInicio" Content="Aceptar" Width="150" Height="70" Margin="10" Click="Button_Click" />
                 </StackPanel>
             </TabItem>
             <TabItem x:Name="tabJugar" Header="Jugar">
