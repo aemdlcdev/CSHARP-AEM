@@ -1,0 +1,92 @@
+﻿<Window x:Class="MiniHito1.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:MiniHito1"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800">
+    <Grid> <!--Grid Principal -->
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="Auto"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        
+        <!-- Barra encabezado -->
+        <StackPanel VerticalAlignment="Top" Background="Violet" Grid.Column="0" Grid.Row="0">
+            <Label Content="GESPROC" Foreground="AliceBlue" HorizontalAlignment="Center"/>
+        </StackPanel>
+        
+        <!-- Grid Contenedor -->
+        
+        <Grid x:Name="contenedor" Grid.Column="0" Grid.Row="1"> 
+            <Grid.RowDefinitions>
+                <RowDefinition Height="20"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="20"/>
+            </Grid.RowDefinitions>
+            <Grid.Background>
+                <SolidColorBrush Color="White"/>
+            </Grid.Background>
+
+            <Grid Grid.Row="1" Background="Violet">
+                <TabControl TabStripPlacement="Left" Margin="0,0,0,0" Padding="10">
+                    <TabControl.Resources> <!-- Estilo de los TabsItems -->
+                        <Style TargetType="TabItem">
+                            <Setter Property="Width" Value="95"/>
+                            <Setter Property="Height" Value="34"/>
+                            <Setter Property="FontSize" Value="12"/>
+                            <Setter Property="Margin" Value="0,0,0,0"/>
+                            <Setter Property="Background" Value="Transparent"/>
+                            <Setter Property="BorderThickness" Value="0"/>
+                            <Setter Property="BorderBrush" Value="Transparent"/>
+                        </Style>
+                    </TabControl.Resources>
+                    <TabItem Header="Inicio" Margin="-1,51,1,-51">
+                        <StackPanel HorizontalAlignment="Left">
+                            <Button Content="PROYECTOS" Width="100" Height="30" Margin="0,100,500,0"/>
+                            <Button Content="EMPLEADOS" Width="100" Height="30" Margin="0,10,500,0"/>
+                            <Button Content="ECONOMIA" Width="100" Height="30" Margin="0,10,500,0"/>
+                            <Button Content="ESTADISTICAS" Width="100" Height="30" Margin="0,-110,250,200"/>
+                            <Button Content="USUARIOS" Width="100" Height="30" Margin="0,-350,250,0"/>
+                        </StackPanel>
+                    </TabItem>
+                    <TabItem Header="Proyectos" Margin="-1,58,1,-58">
+                        <StackPanel>
+                            <Label Content="Proyectos" FontSize="20" FontWeight="Bold"/>
+                            <Label Content="Listado de Proyectos" FontSize="16"/>
+                        </StackPanel>
+                    </TabItem>
+                    <TabItem Header="Empleados" Margin="-1,65,1,-65">
+                        <StackPanel>
+                            <Label Content="Tareas" FontSize="20" FontWeight="Bold"/>
+                            <Label Content="Listado de Tareas" FontSize="16"/>
+                        </StackPanel>
+                    </TabItem>
+                    <TabItem Header="ECONOMIA" Margin="-1,73,1,-73">
+                        <StackPanel>
+                            <Label Content="Clientes" FontSize="20" FontWeight="Bold"/>
+                            <Label Content="Listado de Clientes" FontSize="16"/>
+                        </StackPanel>
+                    </TabItem>
+                    <TabItem Header="ESTADISTICAS" Margin="1,79,-1,-79">
+                        <StackPanel>
+                            <Label Content="Configuración" FontSize="20" FontWeight="Bold"/>
+                            <Label Content="Configuración de la aplicación" FontSize="16"/>
+                        </StackPanel>
+                    </TabItem>
+                    <TabItem Header="Usuarios" Margin="1,84,-1,-84">
+                        <StackPanel>
+                            <Label Content="Usuarios" FontSize="20" FontWeight="Bold"/>
+                            <Label Content="Listado de Usuarios" FontSize="16"/>
+                        </StackPanel>
+                    </TabItem>
+                </TabControl>
+            </Grid>
+        </Grid>
+    </Grid>
+</Window>
