@@ -24,5 +24,10 @@ namespace MiniHito1
         {
             InitializeComponent();
         }
+
+        private void btnProyectos_Click(object sender, RoutedEventArgs e)
+        {
+            tabMenu.SelectedItem = tabProyectos;
+        }
     }
 }
