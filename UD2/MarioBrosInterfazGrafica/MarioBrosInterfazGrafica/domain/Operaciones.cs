@@ -13,8 +13,9 @@ namespace MarioBrosInterfazGrafica
         private static string rutaNoVisitada = "/resources/novisitada.png"; // Imagen de celda no visitada
         private static string rutaVisitada = "/resources/visitada.png"; // Imagen de celda visitada
 
-        public static void InicializarTablero(int[,] tableroValores, Image[,] tableroArray, string imagePath, Grid tablero)
+        public static void InicializarTablero(int[,] tableroValores, Image[,] tableroImagenes, string imagePath, Grid tablero)
         {
+            // Calculo el ancho y el largo de las celdas
             double cellWidth = tablero.ActualWidth / tablero.ColumnDefinitions.Count;
             double cellHeight = tablero.ActualHeight / tablero.RowDefinitions.Count;
 
@@ -25,32 +26,32 @@ namespace MarioBrosInterfazGrafica
                 for (int j = 0; j < tableroValores.GetLength(1); j++)
                 {
                     tableroValores[i, j] = GeneraRandom(0, 2);
-                    tableroArray[i, j] = new Image
+                    tableroImagenes[i, j] = new Image
                     {
                         Source = new BitmapImage(new Uri(imagePath, UriKind.Relative)),
-                        Width = cellWidth,
-                        Height = cellHeight,
-                        Stretch = Stretch.Uniform
+                        Width = cellWidth, // Le asigno al ancho de la imagen el ancho de la celda
+                        Height = cellHeight, // Le asigno al alto de la imagen el alto de la celda
+                        Stretch = Stretch.Uniform // Para que la imagen se ajuste a la celda
                     };
-                    Grid.SetRow(tableroArray[i, j], i);
-                    Grid.SetColumn(tableroArray[i, j], j);
-                    tablero.Children.Add(tableroArray[i, j]);
+                    Grid.SetRow(tableroImagenes[i, j], i);
+                    Grid.SetColumn(tableroImagenes[i, j], j);
+                    tablero.Children.Add(tableroImagenes[i, j]);
                 }
             }
         }
 
 
-        public static void MuestraTableroOculto(Image[,] tableroArray, Grid tablero)
+        public static void MuestraTableroOculto(Image[,] tableroImagenes, Grid tablero)
         {
             tablero.Children.Clear();
             double cellWidth = tablero.ActualWidth / tablero.ColumnDefinitions.Count;
             double cellHeight = tablero.ActualHeight / tablero.RowDefinitions.Count;
 
-            for (int i = 0; i < tableroArray.GetLength(0); i++)
+            for (int i = 0; i < tableroImagenes.GetLength(0); i++)
             {
-                for (int j = 0; j < tableroArray.GetLength(1); j++)
+                for (int j = 0; j < tableroImagenes.GetLength(1); j++)
                 {
-                    Image img = tableroArray[i, j];
+                    Image img = tableroImagenes[i, j];
                     img.Width = cellWidth;
                     img.Height = cellHeight;
                     img.Stretch = Stretch.Uniform;
@@ -109,17 +110,20 @@ namespace MarioBrosInterfazGrafica
 
 
 
-        public static void MoverDerecha(ref int[,] tableroValores, ref Image[,] tableroArray, ref int fila, ref int columna, ref int vidas, ref int pocion, Grid grid)
+        public static void MoverDerecha(ref int[,] tableroValores, ref Image[,] tableroImagenes, ref int fila, ref int columna, ref int vidas, ref int pocion, Grid grid)
         {
-            if (columna + 1 < tableroArray.GetLength(1))
+            if (columna + 1 < tableroImagenes.GetLength(1))
             {
-                tableroArray[fila, columna].Source = new BitmapImage(new Uri(rutaVisitada, UriKind.Relative));
+                tableroImagenes[fila, columna].Source = new BitmapImage(new Uri(rutaVisitada, UriKind.Relative));
                 tableroValores[fila, columna] = -1; // Marcar la casilla como visitada
                 columna++;
                 ActualizarVidasYPociones(ref vidas, ref pocion, tableroValores[fila, columna]);
-                if (VerificarGameOver(vidas) || VerificarVictoria(pocion, fila, columna)) return; // Verificar si el juego ha terminado o si has ganado
-                tableroArray[fila, columna].Source = new BitmapImage(new Uri(rutaMario, UriKind.Relative));
-                MuestraTableroOculto(tableroArray, grid);
+                if (VerificarGameOver(vidas) || VerificarVictoria(pocion, fila, columna))
+                {
+                    return; // Verificar si el juego ha terminado o si has ganado
+                } 
+                tableroImagenes[fila, columna].Source = new BitmapImage(new Uri(rutaMario, UriKind.Relative));
+                MuestraTableroOculto(tableroImagenes, grid);
             }
             else
             {
@@ -127,17 +131,20 @@ namespace MarioBrosInterfazGrafica
             }
         }
 
-        public static void MoverIzquierda(ref int[,] tableroValores, ref Image[,] tableroArray, ref int fila, ref int columna, ref int vidas, ref int pocion, Grid grid)
+        public static void MoverIzquierda(ref int[,] tableroValores, ref Image[,] tableroImagenes, ref int fila, ref int columna, ref int vidas, ref int pocion, Grid grid)
         {
             if (columna - 1 >= 0)
             {
-                tableroArray[fila, columna].Source = new BitmapImage(new Uri(rutaVisitada, UriKind.Relative));
+                tableroImagenes[fila, columna].Source = new BitmapImage(new Uri(rutaVisitada, UriKind.Relative));
                 tableroValores[fila, columna] = -1; // Marcar la casilla como visitada
                 columna--;
                 ActualizarVidasYPociones(ref vidas, ref pocion, tableroValores[fila, columna]);
-                if (VerificarGameOver(vidas) || VerificarVictoria(pocion, fila, columna)) return; // Verificar si el juego ha terminado o si has ganado
-                tableroArray[fila, columna].Source = new BitmapImage(new Uri(rutaMario, UriKind.Relative));
-                MuestraTableroOculto(tableroArray, grid);
+                if (VerificarGameOver(vidas) || VerificarVictoria(pocion, fila, columna))
+                {
+                    return; // Verificar si el juego ha terminado o si has ganado
+                }
+                tableroImagenes[fila, columna].Source = new BitmapImage(new Uri(rutaMario, UriKind.Relative));
+                MuestraTableroOculto(tableroImagenes, grid);
             }
             else
             {
@@ -145,17 +152,20 @@ namespace MarioBrosInterfazGrafica
             }
         }
 
-        public static void MoverArriba(ref int[,] tableroValores, ref Image[,] tableroArray, ref int fila, ref int columna, ref int vidas, ref int pocion, Grid grid)
+        public static void MoverArriba(ref int[,] tableroValores, ref Image[,] tableroImagenes, ref int fila, ref int columna, ref int vidas, ref int pocion, Grid grid)
         {
             if (fila - 1 >= 0)
             {
-                tableroArray[fila, columna].Source = new BitmapImage(new Uri(rutaVisitada, UriKind.Relative));
+                tableroImagenes[fila, columna].Source = new BitmapImage(new Uri(rutaVisitada, UriKind.Relative));
                 tableroValores[fila, columna] = -1; // Marcar la casilla como visitada
                 fila--;
                 ActualizarVidasYPociones(ref vidas, ref pocion, tableroValores[fila, columna]);
-                if (VerificarGameOver(vidas) || VerificarVictoria(pocion, fila, columna)) return; // Verificar si el juego ha terminado o si has ganado
-                tableroArray[fila, columna].Source = new BitmapImage(new Uri(rutaMario, UriKind.Relative));
-                MuestraTableroOculto(tableroArray, grid);
+                if (VerificarGameOver(vidas) || VerificarVictoria(pocion, fila, columna))
+                {
+                    return; // Verificar si el juego ha terminado o si has ganado
+                }
+                tableroImagenes[fila, columna].Source = new BitmapImage(new Uri(rutaMario, UriKind.Relative));
+                MuestraTableroOculto(tableroImagenes, grid);
             }
             else
             {
@@ -163,17 +173,20 @@ namespace MarioBrosInterfazGrafica
             }
         }
 
-        public static void MoverAbajo(ref int[,] tableroValores, ref Image[,] tableroArray, ref int fila, ref int columna, ref int vidas, ref int pocion, Grid grid)
+        public static void MoverAbajo(ref int[,] tableroValores, ref Image[,] tableroImagenes, ref int fila, ref int columna, ref int vidas, ref int pocion, Grid grid)
         {
-            if (fila + 1 < tableroArray.GetLength(0))
+            if (fila + 1 < tableroImagenes.GetLength(0))
             {
-                tableroArray[fila, columna].Source = new BitmapImage(new Uri(rutaVisitada, UriKind.Relative));
+                tableroImagenes[fila, columna].Source = new BitmapImage(new Uri(rutaVisitada, UriKind.Relative));
                 tableroValores[fila, columna] = -1; // Marcar la casilla como visitada
                 fila++;
                 ActualizarVidasYPociones(ref vidas, ref pocion, tableroValores[fila, columna]);
-                if (VerificarGameOver(vidas) || VerificarVictoria(pocion, fila, columna)) return; // Verificar si el juego ha terminado o si has ganado
-                tableroArray[fila, columna].Source = new BitmapImage(new Uri(rutaMario, UriKind.Relative));
-                MuestraTableroOculto(tableroArray, grid);
+                if (VerificarGameOver(vidas) || VerificarVictoria(pocion, fila, columna))
+                {
+                    return; // Verificar si el juego ha terminado o si has ganado
+                }
+                tableroImagenes[fila, columna].Source = new BitmapImage(new Uri(rutaMario, UriKind.Relative));
+                MuestraTableroOculto(tableroImagenes, grid);
             }
             else
             {

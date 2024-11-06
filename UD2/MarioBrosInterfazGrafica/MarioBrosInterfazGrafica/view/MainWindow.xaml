@@ -27,10 +27,10 @@
             <TabItem x:Name="tabInicio" Header="Inicio">
                 <StackPanel HorizontalAlignment="Right" VerticalAlignment="Center">
                     <TextBlock Text="Vidas:" Margin="10" FontSize="16" />
-                    <Slider x:Name="sliderVidas" Minimum="0" Maximum="10" Value="3" Margin="10" Width="200" Height="30" />
+                    <Slider x:Name="sliderVidas" Minimum="0" Maximum="10" Value="3" Margin="10" Width="200" Height="30" SmallChange="1" IsSnapToTickEnabled="True"/>
                     <TextBlock Text="{Binding ElementName=sliderVidas, Path=Value}" HorizontalAlignment="Center" Margin="0,5,0,10"/>
                     <TextBlock Text="Pociones:" Margin="10" FontSize="16" />
-                    <Slider x:Name="sliderPociones" Minimum="0" Maximum="10" Value="0" Margin="10" Width="200" Height="30" />
+                    <Slider x:Name="sliderPociones" Minimum="0" Maximum="10" Value="0" Margin="10" Width="200" Height="30" IsSnapToTickEnabled="True"/>
                     <TextBlock Text="{Binding ElementName=sliderPociones, Path=Value}" HorizontalAlignment="Center" Margin="0,5,0,10"/>
                     <Button x:Name="btnInicio" Content="Aceptar" Width="150" Height="70" Margin="10" Click="btnInicio_Click"/>
                 </StackPanel>

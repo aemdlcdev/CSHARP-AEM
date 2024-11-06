@@ -48,8 +48,11 @@ namespace MarioBrosInterfazGrafica
             tableroArray[0, 0].Source = new BitmapImage(new Uri("/resources/mario.png", UriKind.Relative));
             fila = 0;
             columna = 0;
-
+            vidas = (int)sliderVidas.Value;
+            pocion = (int)sliderPociones.Value;
+            ActualizarStats();
             Operaciones.MuestraTableroOculto(tableroArray, tablero);
+
         }
 
         private void ReiniciarJuego()
