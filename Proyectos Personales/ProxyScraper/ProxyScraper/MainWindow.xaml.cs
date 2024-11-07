@@ -54,6 +54,7 @@ namespace ProxyScraper
                     process.WaitForExit(); // Esperar a que el proceso termine
 
                 }
+
             }
             catch (Exception ex)
             {
