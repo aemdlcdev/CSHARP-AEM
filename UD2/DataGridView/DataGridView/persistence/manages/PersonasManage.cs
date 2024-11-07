@@ -45,5 +45,20 @@ namespace DataGridView.persistence
 
         }
 
+        public void InsertarPersona(Persona persona)
+        {
+            DBBroker.obtenerAgente().modificar("INSERT INTO mydb.persona (nombre, apellido, edad) VALUES ('" + persona.Nombre + "', '" + persona.Apellidos + "', " + persona.Edad + ")");
+        }
+
+        public void ModificarPersona(Persona persona)
+        {
+            DBBroker.obtenerAgente().modificar("UPDATE mydb.persona SET nombre = '" + persona.Nombre + "', apellido = '" + persona.Apellidos + "', edad = " + persona.Edad + " WHERE id = " + persona.id);
+        }
+
+        public void EliminarPersona(Persona persona)
+        {
+            DBBroker.obtenerAgente().modificar("DELETE FROM mydb.persona WHERE id = " + persona.id);
+        }
+
     }
 }

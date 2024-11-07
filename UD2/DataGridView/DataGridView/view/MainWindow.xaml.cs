@@ -10,6 +10,7 @@ namespace DataGridView
     {
         private List<Persona> listaPersonas;
         private Persona persona;
+        private PersonasManage personasManage;
         private string btnAgregarPersonaContent;
 
         public MainWindow()
@@ -18,13 +19,23 @@ namespace DataGridView
             listaPersonas = new List<Persona>();
 
             persona = new Persona();
+            personasManage = new PersonasManage();
 
             listaPersonas = persona.GetPersonas();
 
+            dataGridPersonas.AutoGeneratingColumn += DataGridPersonas_AutoGeneratingColumn;
             dataGridPersonas.ItemsSource = listaPersonas;
 
             btnAgregarPersonaContent = "Añadir persona"; // String para el content del btnAgregarPersona
             btnAgregarPersona.Content = btnAgregarPersonaContent;
+        }
+
+        private void DataGridPersonas_AutoGeneratingColumn(object sender, System.Windows.Controls.DataGridAutoGeneratingColumnEventArgs e)
+        {
+            if (e.PropertyName == "personas")
+            {
+                e.Cancel = true;
+            }
         }
 
         #region Eventos de botones
@@ -57,6 +68,7 @@ namespace DataGridView
                     else
                     {
                         listaPersonas.Add(nuevaPersona);
+                        personasManage.InsertarPersona(nuevaPersona); // Insertar en la base de datos
                         dataGridPersonas.Items.Refresh();
                         start();
                     }
@@ -78,6 +90,8 @@ namespace DataGridView
                     personaSeleccionada.Nombre = txtNombre.Text;
                     personaSeleccionada.Apellidos = txtApellidos.Text;
                     personaSeleccionada.Edad = edad;
+
+                    personasManage.ModificarPersona(personaSeleccionada); // Modificar en la base de datos
 
                     MessageBox.Show("Cambios guardados", "Cambios guardados", MessageBoxButton.OK, MessageBoxImage.Information);
 
@@ -110,6 +124,7 @@ namespace DataGridView
             if (MessageBox.Show("¿Está seguro que quiere eliminar esta persona?", "Eliminar", MessageBoxButton.YesNo, MessageBoxImage.Warning) == MessageBoxResult.Yes && dataGridPersonas.SelectedItem is Persona personaSeleccionada)
             {
                 listaPersonas.Remove(personaSeleccionada);
+                personasManage.EliminarPersona(personaSeleccionada); // Eliminar de la base de datos
                 dataGridPersonas.Items.Refresh();
                 start();
             }
