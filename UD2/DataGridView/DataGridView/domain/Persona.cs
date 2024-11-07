@@ -1,32 +1,39 @@
 ﻿using DataGridView.persistence;
 using System.Collections.Generic;
-using System.Security.RightsManagement;
 
 namespace DataGridView
 {
     public class Persona
     {
+        public int id { get; set; }
         public string Nombre { get; set; }
         public string Apellidos { get; set; }
         public int Edad { get; set; }
 
-        public List<Persona> personas { get; set; }
+        private PersonasManage pm { get; set; }
+        private List<Persona> personas { get; set; }
+
+        public Persona()
+        {
+            pm = new PersonasManage();
+        }
+
+        public Persona(int id)
+        {
+            this.id = id;
+        }
 
         public Persona(string nombre, string apellidos, int edad)
         {
-            Nombre = nombre;
-            Apellidos = apellidos;
-            Edad = edad;
+            this.Nombre = nombre;
+            this.Apellidos = apellidos;
+            this.Edad = edad;
         }
-
-        // Constructor sin parámetros para permitir la inicialización sin argumentos
-        public Persona() { }
 
         public List<Persona> GetPersonas()
         {
-            personas = PersonasPersistence.LeerPersonas();
+            personas = pm.LeerPersonas();
             return personas;
         }
-
     }
 }
