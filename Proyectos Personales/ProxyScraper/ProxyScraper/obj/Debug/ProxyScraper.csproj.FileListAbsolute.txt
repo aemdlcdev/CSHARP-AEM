@@ -1,0 +1,32 @@
+C:\Users\Alejandro\source\repos\ProxyScraper\ProxyScraper\bin\Debug\ProxyScraper.exe.config
+C:\Users\Alejandro\source\repos\ProxyScraper\ProxyScraper\bin\Debug\ProxyScraper.exe
+C:\Users\Alejandro\source\repos\ProxyScraper\ProxyScraper\bin\Debug\ProxyScraper.pdb
+C:\Users\Alejandro\source\repos\ProxyScraper\ProxyScraper\obj\Debug\ProxyScraper.csproj.AssemblyReference.cache
+C:\Users\Alejandro\source\repos\ProxyScraper\ProxyScraper\obj\Debug\MainWindow.g.cs
+C:\Users\Alejandro\source\repos\ProxyScraper\ProxyScraper\obj\Debug\App.g.cs
+C:\Users\Alejandro\source\repos\ProxyScraper\ProxyScraper\obj\Debug\ProxyScraper_Content.g.cs
+C:\Users\Alejandro\source\repos\ProxyScraper\ProxyScraper\obj\Debug\ProxyScraper_MarkupCompile.cache
+C:\Users\Alejandro\source\repos\ProxyScraper\ProxyScraper\obj\Debug\ProxyScraper_MarkupCompile.lref
+C:\Users\Alejandro\source\repos\ProxyScraper\ProxyScraper\obj\Debug\MainWindow.baml
+C:\Users\Alejandro\source\repos\ProxyScraper\ProxyScraper\obj\Debug\ProxyScraper.g.resources
+C:\Users\Alejandro\source\repos\ProxyScraper\ProxyScraper\obj\Debug\ProxyScraper.Properties.Resources.resources
+C:\Users\Alejandro\source\repos\ProxyScraper\ProxyScraper\obj\Debug\ProxyScraper.csproj.GenerateResource.cache
+C:\Users\Alejandro\source\repos\ProxyScraper\ProxyScraper\obj\Debug\ProxyScraper.csproj.CoreCompileInputs.cache
+C:\Users\Alejandro\source\repos\ProxyScraper\ProxyScraper\obj\Debug\ProxyScraper.exe
+C:\Users\Alejandro\source\repos\ProxyScraper\ProxyScraper\obj\Debug\ProxyScraper.pdb
+C:\Users\Alejandro\Documents\GitHub\DI-AEM\Proyectos Personales\ProxyScraper\ProxyScraper\bin\Debug\ProxyScraper.exe.config
+C:\Users\Alejandro\Documents\GitHub\DI-AEM\Proyectos Personales\ProxyScraper\ProxyScraper\bin\Debug\ProxyScraper.exe
+C:\Users\Alejandro\Documents\GitHub\DI-AEM\Proyectos Personales\ProxyScraper\ProxyScraper\bin\Debug\ProxyScraper.pdb
+C:\Users\Alejandro\Documents\GitHub\DI-AEM\Proyectos Personales\ProxyScraper\ProxyScraper\obj\Debug\ProxyScraper.csproj.AssemblyReference.cache
+C:\Users\Alejandro\Documents\GitHub\DI-AEM\Proyectos Personales\ProxyScraper\ProxyScraper\obj\Debug\MainWindow.g.cs
+C:\Users\Alejandro\Documents\GitHub\DI-AEM\Proyectos Personales\ProxyScraper\ProxyScraper\obj\Debug\App.g.cs
+C:\Users\Alejandro\Documents\GitHub\DI-AEM\Proyectos Personales\ProxyScraper\ProxyScraper\obj\Debug\ProxyScraper_Content.g.cs
+C:\Users\Alejandro\Documents\GitHub\DI-AEM\Proyectos Personales\ProxyScraper\ProxyScraper\obj\Debug\ProxyScraper_MarkupCompile.cache
+C:\Users\Alejandro\Documents\GitHub\DI-AEM\Proyectos Personales\ProxyScraper\ProxyScraper\obj\Debug\ProxyScraper_MarkupCompile.lref
+C:\Users\Alejandro\Documents\GitHub\DI-AEM\Proyectos Personales\ProxyScraper\ProxyScraper\obj\Debug\MainWindow.baml
+C:\Users\Alejandro\Documents\GitHub\DI-AEM\Proyectos Personales\ProxyScraper\ProxyScraper\obj\Debug\ProxyScraper.g.resources
+C:\Users\Alejandro\Documents\GitHub\DI-AEM\Proyectos Personales\ProxyScraper\ProxyScraper\obj\Debug\ProxyScraper.Properties.Resources.resources
+C:\Users\Alejandro\Documents\GitHub\DI-AEM\Proyectos Personales\ProxyScraper\ProxyScraper\obj\Debug\ProxyScraper.csproj.GenerateResource.cache
+C:\Users\Alejandro\Documents\GitHub\DI-AEM\Proyectos Personales\ProxyScraper\ProxyScraper\obj\Debug\ProxyScraper.csproj.CoreCompileInputs.cache
+C:\Users\Alejandro\Documents\GitHub\DI-AEM\Proyectos Personales\ProxyScraper\ProxyScraper\obj\Debug\ProxyScraper.exe
+C:\Users\Alejandro\Documents\GitHub\DI-AEM\Proyectos Personales\ProxyScraper\ProxyScraper\obj\Debug\ProxyScraper.pdb
