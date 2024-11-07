@@ -25,6 +25,7 @@ namespace ProxyScraper
         public MainWindow()
         {
             InitializeComponent();
+            
         }
 
         private void lanzarProceso()

@@ -98,8 +98,10 @@
     <Resource Include="resources\PXS AEMDLC.png" />
   </ItemGroup>
   <ItemGroup>
+    <Resource Include="resources\PXS-AEMDLC.ico" />
+  </ItemGroup>
+  <ItemGroup>
     <Content Include="procesos\proxyScraper.exe" />
-    <Resource Include="procesos\PXS-AEMDLC.ico" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
