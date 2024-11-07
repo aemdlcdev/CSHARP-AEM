@@ -31,7 +31,7 @@ namespace ProxyScraper
         {
             try
             {
-                string exePath = System.IO.Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "C:\\Users\\Alejandro\\source\\repos\\ProxyScraper\\ProxyScraper\\procesos\\proxyScraper.exe");
+                string exePath = System.IO.Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "C:\\Users\\Alejandro\\Documents\\GitHub\\DI-AEM\\Proyectos Personales\\ProxyScraper\\ProxyScraper\\procesos\\proxyScraper.exe");
                 if (!System.IO.File.Exists(exePath))
                 {
                     MessageBox.Show($"El ejecutable no se encontró en la ruta: {exePath}", "Error!", MessageBoxButton.OK, MessageBoxImage.Error);
