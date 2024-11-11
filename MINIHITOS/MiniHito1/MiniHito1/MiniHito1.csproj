@@ -63,6 +63,7 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="domain\Proyectos.cs" />
     <Compile Include="MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
@@ -97,6 +98,9 @@
   <ItemGroup>
     <Resource Include="resources\maestre.png" />
     <Resource Include="resources\hoja.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="persistence\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
