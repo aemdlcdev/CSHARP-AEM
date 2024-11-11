@@ -10,7 +10,6 @@ namespace DataGridView
     {
         private List<Persona> listaPersonas;
         private Persona persona;
-        private PersonasManage personasManage;
         private string btnAgregarPersonaContent;
 
         public MainWindow()
@@ -19,24 +18,16 @@ namespace DataGridView
             listaPersonas = new List<Persona>();
 
             persona = new Persona();
-            personasManage = new PersonasManage();
+
 
             listaPersonas = persona.GetPersonas();
 
-            dataGridPersonas.AutoGeneratingColumn += DataGridPersonas_AutoGeneratingColumn;
             dataGridPersonas.ItemsSource = listaPersonas;
 
             btnAgregarPersonaContent = "Añadir persona"; // String para el content del btnAgregarPersona
             btnAgregarPersona.Content = btnAgregarPersonaContent;
         }
 
-        private void DataGridPersonas_AutoGeneratingColumn(object sender, System.Windows.Controls.DataGridAutoGeneratingColumnEventArgs e)
-        {
-            if (e.PropertyName == "personas")
-            {
-                e.Cancel = true;
-            }
-        }
 
         #region Eventos de botones
 
@@ -45,6 +36,13 @@ namespace DataGridView
             bool error = false;
             if (btnAgregarPersona.Content.Equals("Añadir persona"))
             {
+                // Validar que el ID sea un número
+                if (!int.TryParse(txtId.Text, out int id))
+                {
+                    MessageBox.Show("Por favor, ingrese un ID válido.", "ID inválido", MessageBoxButton.OK, MessageBoxImage.Warning);
+                    return;
+                }
+
                 string nombre = txtNombre.Text;
                 string apellidos = txtApellidos.Text;
 
@@ -59,7 +57,14 @@ namespace DataGridView
 
                 if (error == false)
                 {
-                    Persona nuevaPersona = new Persona(nombre, apellidos, edad);
+                    // Verificar si los campos están vacíos
+                    if (string.IsNullOrWhiteSpace(nombre) || string.IsNullOrWhiteSpace(apellidos) || edad == 0)
+                    {
+                        MessageBox.Show("Por favor, complete todos los campos.", "Campos vacíos", MessageBoxButton.OK, MessageBoxImage.Warning);
+                        return;
+                    }
+
+                    Persona nuevaPersona = new Persona(id, nombre, apellidos, edad);
                     if (VerificarExistencia(nuevaPersona))
                     {
                         MessageBox.Show("La persona ya existe", "Persona existente", MessageBoxButton.OK, MessageBoxImage.Warning);
@@ -68,7 +73,7 @@ namespace DataGridView
                     else
                     {
                         listaPersonas.Add(nuevaPersona);
-                        personasManage.InsertarPersona(nuevaPersona); // Insertar en la base de datos
+                        persona.InsertarPersona(nuevaPersona); // Insertar en la base de datos
                         dataGridPersonas.Items.Refresh();
                         start();
                     }
@@ -91,7 +96,7 @@ namespace DataGridView
                     personaSeleccionada.Apellidos = txtApellidos.Text;
                     personaSeleccionada.Edad = edad;
 
-                    personasManage.ModificarPersona(personaSeleccionada); // Modificar en la base de datos
+                    persona.ModificarPersona(personaSeleccionada); // Modificar en la base de datos
 
                     MessageBox.Show("Cambios guardados", "Cambios guardados", MessageBoxButton.OK, MessageBoxImage.Information);
 
@@ -105,6 +110,7 @@ namespace DataGridView
         {
             if (dataGridPersonas.SelectedItem is Persona personaSeleccionada)
             {
+                txtId.Text = personaSeleccionada.id.ToString();
                 txtNombre.Text = personaSeleccionada.Nombre;
                 txtApellidos.Text = personaSeleccionada.Apellidos;
                 txtEdad.Text = personaSeleccionada.Edad.ToString();
@@ -112,6 +118,7 @@ namespace DataGridView
             }
             else
             {
+                txtId.Text = "";
                 txtNombre.Text = "";
                 txtApellidos.Text = "";
                 txtEdad.Text = "";
@@ -124,7 +131,7 @@ namespace DataGridView
             if (MessageBox.Show("¿Está seguro que quiere eliminar esta persona?", "Eliminar", MessageBoxButton.YesNo, MessageBoxImage.Warning) == MessageBoxResult.Yes && dataGridPersonas.SelectedItem is Persona personaSeleccionada)
             {
                 listaPersonas.Remove(personaSeleccionada);
-                personasManage.EliminarPersona(personaSeleccionada); // Eliminar de la base de datos
+                persona.EliminarPersona(personaSeleccionada); // Eliminar de la base de datos
                 dataGridPersonas.Items.Refresh();
                 start();
             }
@@ -151,10 +158,11 @@ namespace DataGridView
         private bool VerificarExistencia(Persona persona)
         {
             bool existe = false;
+            int id = persona.id;
             string name = persona.Nombre;
             string lastName = persona.Apellidos;
             int age = persona.Edad;
-            existe = listaPersonas.Exists(p => p.Nombre == name && p.Apellidos == lastName && p.Edad == age);
+            existe = listaPersonas.Exists(p => p.id == id || (p.Nombre == name && p.Apellidos == lastName && p.Edad == age));
 
             return existe;
         }
@@ -162,7 +170,7 @@ namespace DataGridView
         private bool ValidarCampos()
         {
             bool error = false;
-            if (string.IsNullOrWhiteSpace(txtNombre.Text) || string.IsNullOrWhiteSpace(txtApellidos.Text) || string.IsNullOrWhiteSpace(txtEdad.Text))
+            if (string.IsNullOrWhiteSpace(txtId.Text) || string.IsNullOrWhiteSpace(txtNombre.Text) || string.IsNullOrWhiteSpace(txtApellidos.Text) || string.IsNullOrWhiteSpace(txtEdad.Text))
             {
                 MessageBox.Show("Por favor, complete todos los campos.", "Campos vacíos", MessageBoxButton.OK, MessageBoxImage.Warning);
                 error = true;
@@ -173,6 +181,7 @@ namespace DataGridView
 
         private void start()
         {
+            txtId.Text = "";
             txtNombre.Text = "";
             txtApellidos.Text = "";
             txtEdad.Text = "";

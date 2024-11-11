@@ -12,6 +12,8 @@ namespace DataGridView.persistence
     {
         private DataTable dataTable { get; set; }
         private List<Persona> personas { get; set; }
+
+        private DBBroker dbBroker = DBBroker.obtenerAgente();
         public PersonasManage()
         {
             dataTable = new DataTable();
@@ -30,7 +32,7 @@ namespace DataGridView.persistence
 
             foreach (List<Object> c in aux) 
             {
-                persona = new Persona(c[1].ToString(), c[2].ToString(), Convert.ToInt32(c[3]));
+                persona = new Persona(int.Parse(c[0].ToString()) ,c[1].ToString(), c[2].ToString(), Convert.ToInt32(c[3]));
                 this.personas.Add(persona);
             }
 
@@ -47,17 +49,30 @@ namespace DataGridView.persistence
 
         public void InsertarPersona(Persona persona)
         {
-            DBBroker.obtenerAgente().modificar("INSERT INTO mydb.persona (nombre, apellido, edad) VALUES ('" + persona.Nombre + "', '" + persona.Apellidos + "', " + persona.Edad + ")");
+            string sql = $"INSERT INTO persona (idpersona, nombre, apellido, edad) VALUES ({persona.id}, '{persona.Nombre}', '{persona.Apellidos}', {persona.Edad})";
+            dbBroker.modificar(sql);
+            personas.Add(persona);
         }
 
         public void ModificarPersona(Persona persona)
         {
-            DBBroker.obtenerAgente().modificar("UPDATE mydb.persona SET nombre = '" + persona.Nombre + "', apellido = '" + persona.Apellidos + "', edad = " + persona.Edad + " WHERE id = " + persona.id);
+            string sql = $"UPDATE mydb.persona SET nombre = '{persona.Nombre}', apellido = '{persona.Apellidos}', edad = {persona.Edad} WHERE idpersona = {persona.id}";
+            dbBroker.modificar(sql);
+
+            var personaExistente = personas.Find(p => p.id == persona.id);
+            if (personaExistente != null)
+            {
+                personaExistente.Nombre = persona.Nombre;
+                personaExistente.Apellidos = persona.Apellidos;
+                personaExistente.Edad = persona.Edad;
+            }
         }
 
         public void EliminarPersona(Persona persona)
         {
-            DBBroker.obtenerAgente().modificar("DELETE FROM mydb.persona WHERE id = " + persona.id);
+            string sql = $"DELETE FROM persona WHERE idpersona = {persona.id}";
+            dbBroker.modificar(sql);
+            personas.RemoveAll(p => p.id == persona.id);
         }
 
     }

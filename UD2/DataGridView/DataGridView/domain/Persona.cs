@@ -23,8 +23,9 @@ namespace DataGridView
             this.id = id;
         }
 
-        public Persona(string nombre, string apellidos, int edad)
+        public Persona(int id,string nombre, string apellidos, int edad)
         {
+            this.id = id;
             this.Nombre = nombre;
             this.Apellidos = apellidos;
             this.Edad = edad;
@@ -35,5 +36,21 @@ namespace DataGridView
             personas = pm.LeerPersonas();
             return personas;
         }
+
+        public void InsertarPersona(Persona persona)
+        {
+            pm.InsertarPersona(this);
+        }
+
+        public void ModificarPersona(Persona persona)
+        {
+            pm.ModificarPersona(persona);
+        }
+
+        public void EliminarPersona(Persona persona)
+        {
+            pm.EliminarPersona(persona);
+        }
+
     }
 }
