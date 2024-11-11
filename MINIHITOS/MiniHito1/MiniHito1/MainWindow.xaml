@@ -19,7 +19,7 @@
 
         <!-- Barra encabezado -->
         <StackPanel VerticalAlignment="Top" Background="Violet" Grid.Column="0" Grid.Row="0">
-            <Label Content="GESPROC" Foreground="AliceBlue" HorizontalAlignment="Center"/>
+            <Label Content="GESTPROC" Foreground="AliceBlue" HorizontalAlignment="Center"/>
         </StackPanel>
 
         <!-- Grid Contenedor -->
