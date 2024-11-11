@@ -95,7 +95,7 @@
                                     <RowDefinition Height="*"/>
                                     <RowDefinition Height="*"/>
                                 </Grid.RowDefinitions>
-                                <Button x:Name="btnProyectoss" Content="Proyectos" Grid.Column="0" Grid.Row="0"  Width="80" Height="27"/>
+                                <Button x:Name="btnProyectoss" Content="Proyectos" Grid.Column="0" Grid.Row="0"  Width="80" Height="27" Click="btnProyectoss_Click"/>
                                 <Button Content="Empleados" Grid.Column="1" Grid.Row="0" Width="80" Height="27"/>
                                 <Button Content="Clientes" Grid.Column="0" Grid.Row="1" Width="80" Height="27"/>
                                 <Button Content="Estadisticas" Grid.Column="0" Grid.Row="2" Width="80" Height="27"/>

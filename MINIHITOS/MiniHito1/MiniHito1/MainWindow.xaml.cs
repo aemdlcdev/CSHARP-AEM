@@ -48,7 +48,7 @@ namespace MiniHito1
 
         private void btnProyectoss_Click(object sender, RoutedEventArgs e)
         {
-            tabMenu.Selected = tabProyectos;
+            tabMenu.SelectedItem = tabProyectos;
         }
     }
 }
