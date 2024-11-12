@@ -213,7 +213,7 @@ namespace DataGridView
 
         private void MainGrid_MouseDown(object sender, MouseButtonEventArgs e)
         {
-            // Verificar si el clic se realizó fuera del DataGrid
+            // Verificar si el clic se ha hecho fuera del datagrid y del boton de guardar cambios
             if (!dataGridPersonas.IsMouseOver && !btnAgregarPersona.Content.Equals("Guardar cambios"))
             {
                 btnAgregarPersona.IsEnabled = true;
