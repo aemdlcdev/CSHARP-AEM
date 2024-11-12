@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Windows;
 
 namespace MiniHito1.domain
 {
@@ -39,7 +40,18 @@ namespace MiniHito1.domain
 
         public List<Proyectos> BuscarProyectosPorNombre(string nombre)
         {
-            return proyectos.Where(p => p.Nombre.Equals(nombre, StringComparison.OrdinalIgnoreCase)).ToList();
+            var proyectosEncontrados = proyectos.Exists(p => p.Nombre.Equals(nombre, StringComparison.OrdinalIgnoreCase));
+
+            if (proyectosEncontrados)
+            {
+                return proyectos.Where(p => p.Nombre.Equals(nombre, StringComparison.OrdinalIgnoreCase)).ToList();
+            }
+
+            else
+            {
+                MessageBox.Show("No se encontraron proyectos con ese nombre", "Advertencia", MessageBoxButton.OK, MessageBoxImage.Warning);
+                return proyectos;
+            }
         }
     }
 }

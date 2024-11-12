@@ -19,7 +19,7 @@ namespace MiniHito1
         private void btnSearch_Click_1(object sender, RoutedEventArgs e)
         {
             // Obtener el nombre del proyecto a buscar (puedes obtener este valor de un control de entrada en tu formulario)
-            string nombreProyecto = txtNombre.Text;
+            string nombreProyecto = txtBuscar.Text;
 
             // Buscar proyectos por nombre
             var proyectosEncontrados = proyecto.BuscarProyectosPorNombre(nombreProyecto);

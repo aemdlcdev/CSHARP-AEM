@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:MiniHito1"
         mc:Ignorable="d"
-        Title="MainWindow" Height="455" Width="810" MinHeight="455" MinWidth="810" WindowStartupLocation="CenterScreen">
+        Title="Gestproc" Height="455" Width="810" MinHeight="455" MinWidth="810" WindowStartupLocation="CenterScreen">
     <Grid>
         <!--Grid Principal -->
         <Grid.ColumnDefinitions>
@@ -109,7 +109,6 @@
                             <Grid.ColumnDefinitions>
                                 <ColumnDefinition Width="*"/>
                                 <ColumnDefinition Width="Auto"/>
-                                <ColumnDefinition Width="Auto"/>
                             </Grid.ColumnDefinitions>
                             <Grid.RowDefinitions>
                                 <RowDefinition Height="Auto"/>
@@ -148,8 +147,6 @@
                                 <Button x:Name="btnSearch" Content="Buscar" Grid.Column="2" Height="21" Width="68" Click="btnSearch_Click_1"/>
                             </Grid>
 
-
-                            
                             <DataGrid x:Name="dataGridView1" Grid.Row="1" Margin="10" AutoGenerateColumns="True"/>
                         </Grid>
                     </TabItem>
