@@ -11,17 +11,16 @@ namespace DataGridView.persistence
     internal class PersonasManage
     {
         private DataTable dataTable { get; set; }
-        private List<Persona> personas { get; set; }
+        private List<Persona> listaPersonas { get; set; }
 
         private DBBroker dbBroker = DBBroker.obtenerAgente();
         public PersonasManage()
         {
             dataTable = new DataTable();
-            personas = new List<Persona>();
+            listaPersonas = new List<Persona>();
 
         }
 
-        // SIMULACION DE LECTURA BASE DE DATOS
 
         public List<Persona> LeerPersonas() 
         {
@@ -33,10 +32,10 @@ namespace DataGridView.persistence
             foreach (List<Object> c in aux) 
             {
                 persona = new Persona(int.Parse(c[0].ToString()) ,c[1].ToString(), c[2].ToString(), Convert.ToInt32(c[3]));
-                this.personas.Add(persona);
+                this.listaPersonas.Add(persona);
             }
 
-            return personas;
+            return listaPersonas;
 
         }
 
@@ -44,7 +43,7 @@ namespace DataGridView.persistence
         {
             string sql = $"INSERT INTO persona (idpersona, nombre, apellido, edad) VALUES ({persona.id}, '{persona.Nombre}', '{persona.Apellidos}', {persona.Edad})";
             dbBroker.modificar(sql);
-            personas.Add(persona);
+            listaPersonas.Add(persona);
         }
 
         public void ModificarPersona(Persona persona)
@@ -52,7 +51,7 @@ namespace DataGridView.persistence
             string sql = $"UPDATE mydb.persona SET nombre = '{persona.Nombre}', apellido = '{persona.Apellidos}', edad = {persona.Edad} WHERE idpersona = {persona.id}";
             dbBroker.modificar(sql);
 
-            var personaExistente = personas.Find(p => p.id == persona.id);
+            var personaExistente = listaPersonas.Find(p => p.id == persona.id);
             if (personaExistente != null)
             {
                 personaExistente.Nombre = persona.Nombre;
@@ -65,7 +64,7 @@ namespace DataGridView.persistence
         {
             string sql = $"DELETE FROM persona WHERE idpersona = {persona.id}";
             dbBroker.modificar(sql);
-            personas.RemoveAll(p => p.id == persona.id);
+            listaPersonas.RemoveAll(p => p.id == persona.id);
         }
 
         public int LastId()

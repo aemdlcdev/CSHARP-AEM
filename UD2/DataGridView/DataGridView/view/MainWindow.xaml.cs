@@ -45,7 +45,7 @@ namespace DataGridView
 
                 if (error == false)
                 {
-                    // Verificar si los campos están vacíos
+                    // Verificar si los campos estan vacios
                     if (string.IsNullOrWhiteSpace(nombre) || string.IsNullOrWhiteSpace(apellidos) || edad == 0)
                     {
                         MessageBox.Show("Por favor, complete todos los campos.", "Campos vacíos", MessageBoxButton.OK, MessageBoxImage.Warning);
@@ -102,6 +102,11 @@ namespace DataGridView
                 txtApellidos.Text = personaSeleccionada.Apellidos;
                 txtEdad.Text = personaSeleccionada.Edad.ToString();
                 btnAgregarPersona.IsEnabled = false;
+
+                // Establezco los TextBox como solo lectura para que no puedan hacer cosas raras
+                txtNombre.IsReadOnly = true;
+                txtApellidos.IsReadOnly = true;
+                txtEdad.IsReadOnly = true;
             }
             else
             {
@@ -109,6 +114,11 @@ namespace DataGridView
                 txtApellidos.Text = "";
                 txtEdad.Text = "";
                 btnAgregarPersona.IsEnabled = true;
+
+                // Habilito los TextBox para que se puedan editar
+                txtNombre.IsReadOnly = false;
+                txtApellidos.IsReadOnly = false;
+                txtEdad.IsReadOnly = false;
             }
         }
 
@@ -134,6 +144,11 @@ namespace DataGridView
                 btnEliminar.IsEnabled = false;
                 btnModificar.IsEnabled = false;
                 btnAgregarPersona.IsEnabled = true;
+
+                // Habilito los TextBox para que se puedan editar
+                txtNombre.IsReadOnly = false;
+                txtApellidos.IsReadOnly = false;
+                txtEdad.IsReadOnly = false;
             }
         }
 
@@ -175,18 +190,22 @@ namespace DataGridView
             btnAgregarPersona.Content = btnAgregarPersonaContent;
             btnEliminar.IsEnabled = true;
             btnModificar.IsEnabled = true;
+
+            // Habilito los TextBox para que se puedan editar
+            txtNombre.IsReadOnly = false;
+            txtApellidos.IsReadOnly = false;
+            txtEdad.IsReadOnly = false;
         }
 
         private void RefreshDataGrid()
         {
             listaPersonas.Clear(); // Limpio la lista antes de cargarla para que no me aparezca duplicada
             listaPersonas = personasManage.LeerPersonas(); // Recargo la lista desde la bbdd
-            dataGridPersonas.ItemsSource = null; 
-            dataGridPersonas.ItemsSource = listaPersonas; 
+            dataGridPersonas.ItemsSource = null;
+            dataGridPersonas.ItemsSource = listaPersonas;
             dataGridPersonas.Items.Refresh();
         }
 
         #endregion
     }
 }
-

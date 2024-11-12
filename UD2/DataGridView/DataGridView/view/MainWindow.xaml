@@ -55,7 +55,6 @@
             <Button x:Name="btnModificar" Content="Modificar" Grid.Column="0" Click="btnModificar_Click" Margin="10,5,227,15" Grid.ColumnSpan="2" />
             <Button x:Name="btnEliminar" Content="Eliminar" Grid.Column="2" Click="btnEliminar_Click" Margin="0,5,10,15" />
         </Grid>
-        
         <DataGrid x:Name="dataGridPersonas" Grid.Column="1" Margin="10" AutoGenerateColumns="True" Grid.Row="0" SelectionChanged="dataGridPersonas_SelectionChanged" />
     </Grid>
 </Window>

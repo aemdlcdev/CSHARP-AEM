@@ -11,24 +11,11 @@ namespace DataGridView
         public int Edad { get; set; }
 
         private PersonasManage pm { get; set; }
-        private List<Persona> personas { get; set; }
+        private List<Persona> listaPersonas { get; set; }
 
         public Persona()
         {
             pm = new PersonasManage();
-        }
-
-        public Persona(int id)
-        {
-            this.id = id;
-        }
-
-        public Persona(string nombre, string apellidos, int edad)
-        {
-            pm = new PersonasManage();
-            this.Nombre = nombre;
-            this.Apellidos = apellidos;
-            this.Edad = edad;
         }
 
         public Persona(int id, string nombre, string apellidos, int edad)
@@ -42,8 +29,8 @@ namespace DataGridView
 
         public List<Persona> GetPersonas()
         {
-            personas = pm.LeerPersonas();
-            return personas;
+            listaPersonas = pm.LeerPersonas();
+            return listaPersonas;
         }
 
         public void InsertarPersona(Persona persona)
