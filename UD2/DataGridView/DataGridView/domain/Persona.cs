@@ -13,11 +13,6 @@ namespace DataGridView
         private PersonasManage pm { get; set; }
         private List<Persona> listaPersonas { get; set; }
 
-        public Persona()
-        {
-            pm = new PersonasManage();
-        }
-
         public Persona(int id, string nombre, string apellidos, int edad)
         {
             pm = new PersonasManage();

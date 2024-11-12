@@ -20,8 +20,7 @@ namespace DataGridView.persistence
             listaPersonas = new List<Persona>();
 
         }
-
-
+        
         public List<Persona> LeerPersonas() 
         {
 
