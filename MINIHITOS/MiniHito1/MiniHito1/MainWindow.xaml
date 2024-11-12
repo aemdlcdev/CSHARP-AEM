@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:MiniHito1"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800" WindowStartupLocation="CenterScreen">
+        Title="MainWindow" Height="455" Width="810" MinHeight="455" MinWidth="810" WindowStartupLocation="CenterScreen">
     <Grid>
         <!--Grid Principal -->
         <Grid.ColumnDefinitions>
@@ -127,39 +127,48 @@
                                 </Grid.RowDefinitions>
 
                                 <Label Content="Identificador:" Margin="-5,0,0,0"/>
-                                <TextBox x:Name="txtId" Height="18"/>
+                                <TextBox x:Name="txtId" Height="18" Margin="0,29,0,11"/>
                                 <Label Content="Nombre:" Grid.Row="1" Margin="-5,0,0,0"/>
-                                <TextBox x:Name="txtNombre" Height="18" Grid.Row="1"/>
+                                <TextBox x:Name="txtNombre" Height="18" Grid.Row="1" Margin="0,29,0,11"/>
                                 <Label Content="Fecha Inicio:" Grid.Row="2" Margin="-5,0,0,0"/>
-                                <TextBox x:Name="txtFechaInicio" Height="18" Grid.Row="2"/>
+                                <TextBox x:Name="txtFechaInicio" Height="18" Grid.Row="2" Margin="0,29,0,11"/>
                                 <Label Content="Fecha Fin:" Grid.Row="3" Margin="-5,0,0,0"/>
-                                <TextBox x:Name="txtFechaFin" Height="18" Grid.Row="3"/>
+                                <TextBox x:Name="txtFechaFin" Height="18" Grid.Row="3" Margin="0,29,0,11"/>
                                 <Button x:Name="addProyecto" Content="Añadir Proyecto" Grid.Row="4" Width="99" HorizontalAlignment="Center" Height="37" Click="addProyecto_Click" />
 
                             </Grid>
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="Auto"/>
+                                    <ColumnDefinition Width="*"/>
+                                    <ColumnDefinition Width="Auto"/>
+                                </Grid.ColumnDefinitions>
+                                <Label Content="Proyectos" FontSize="20" Grid.Column="0" FontWeight="Bold" Margin="0,0,0,1" />
+                                <TextBox x:Name="txtBuscar" Text="Buscar" Grid.Column="1" Margin="10,10,10,8"/>
+                                <Button x:Name="btnSearch" Content="Buscar" Grid.Column="2" Height="21" Width="68" Click="btnSearch_Click_1"/>
+                            </Grid>
 
-                            <Label Content="Proyectos" FontSize="20" FontWeight="Bold" Margin="10,10,431,10"/>
-                            <TextBox x:Name="txtBuscar" Grid.Column="0" Margin="175,18,101,18" Text="Buscar"/>
-                            <Button x:Name="btnSearch" Content="Buscar" Grid.Column="0" Margin="474,0,0,0" Height="21" Width="68" Click="btnSearch_Click_1"/>
+
+                            
                             <DataGrid x:Name="dataGridView1" Grid.Row="1" Margin="10" AutoGenerateColumns="True"/>
                         </Grid>
                     </TabItem>
                     <TabItem Header="Empleados" Margin="-1,65,1,-65">
                         <StackPanel>
-                            <Label Content="Tareas" FontSize="20" FontWeight="Bold"/>
-                            <Label Content="Listado de Tareas" FontSize="16"/>
+                            <Label Content="Empleados" FontSize="20" FontWeight="Bold"/>
+                            <Label Content="Listado de Empleados" FontSize="16"/>
                         </StackPanel>
                     </TabItem>
                     <TabItem Header="ECONOMIA" Margin="-1,73,1,-73">
                         <StackPanel>
-                            <Label Content="Clientes" FontSize="20" FontWeight="Bold"/>
-                            <Label Content="Listado de Clientes" FontSize="16"/>
+                            <Label Content="Economía" FontSize="20" FontWeight="Bold"/>
+                            <Label Content="Economía de la empresas" FontSize="16"/>
                         </StackPanel>
                     </TabItem>
                     <TabItem Header="ESTADISTICAS" Margin="1,79,-1,-79">
                         <StackPanel>
-                            <Label Content="Configuración" FontSize="20" FontWeight="Bold"/>
-                            <Label Content="Configuración de la aplicación" FontSize="16"/>
+                            <Label Content="Estadísticas" FontSize="20" FontWeight="Bold"/>
+                            <Label Content="Estadísticas de la empresa" FontSize="16"/>
                         </StackPanel>
                     </TabItem>
                     <TabItem Header="Usuarios" Margin="1,84,-1,-84">
