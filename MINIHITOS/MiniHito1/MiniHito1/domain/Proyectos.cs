@@ -35,7 +35,16 @@ namespace MiniHito1.domain
 
         public void AñadirProyecto(Proyectos proyecto)
         {
-            proyectos.Add(proyecto);
+            var proyectoExistente = proyectos.Exists(p => p.Id == proyecto.Id);
+            if (proyectoExistente)
+            {
+                MessageBox.Show("Ya existe un proyecto con ese ID!", "Advertencia", MessageBoxButton.OK, MessageBoxImage.Warning);
+                return;
+            }
+            else
+            {
+                proyectos.Add(proyecto);
+            }
         }
 
         public List<Proyectos> BuscarProyectosPorNombre(string nombre)
@@ -49,7 +58,7 @@ namespace MiniHito1.domain
 
             else
             {
-                MessageBox.Show("No se encontraron proyectos con ese nombre", "Advertencia", MessageBoxButton.OK, MessageBoxImage.Warning);
+                MessageBox.Show("No se encontraron proyectos con ese nombre!", "Advertencia", MessageBoxButton.OK, MessageBoxImage.Warning);
                 return proyectos;
             }
         }
