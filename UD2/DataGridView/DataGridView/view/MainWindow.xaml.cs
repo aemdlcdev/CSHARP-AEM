@@ -9,25 +9,20 @@ namespace DataGridView
     public partial class MainWindow : Window
     {
         private List<Persona> listaPersonas;
-        private Persona persona;
+        private PersonasManage personasManage;
         private string btnAgregarPersonaContent;
 
         public MainWindow()
         {
             InitializeComponent();
-            listaPersonas = new List<Persona>();
-
-            persona = new Persona();
-
-
-            listaPersonas = persona.GetPersonas();
+            personasManage = new PersonasManage();
+            listaPersonas = personasManage.LeerPersonas();
 
             dataGridPersonas.ItemsSource = listaPersonas;
 
             btnAgregarPersonaContent = "Añadir persona"; // String para el content del btnAgregarPersona
             btnAgregarPersona.Content = btnAgregarPersonaContent;
         }
-
 
         #region Eventos de botones
 
@@ -36,13 +31,6 @@ namespace DataGridView
             bool error = false;
             if (btnAgregarPersona.Content.Equals("Añadir persona"))
             {
-                // Validar que el ID sea un número
-                if (!int.TryParse(txtId.Text, out int id))
-                {
-                    MessageBox.Show("Por favor, ingrese un ID válido.", "ID inválido", MessageBoxButton.OK, MessageBoxImage.Warning);
-                    return;
-                }
-
                 string nombre = txtNombre.Text;
                 string apellidos = txtApellidos.Text;
 
@@ -64,7 +52,9 @@ namespace DataGridView
                         return;
                     }
 
-                    Persona nuevaPersona = new Persona(id, nombre, apellidos, edad);
+                    int lastId = personasManage.LastId() + 1;
+                    Persona nuevaPersona = new Persona(lastId, nombre, apellidos, edad);
+
                     if (VerificarExistencia(nuevaPersona))
                     {
                         MessageBox.Show("La persona ya existe", "Persona existente", MessageBoxButton.OK, MessageBoxImage.Warning);
@@ -72,13 +62,11 @@ namespace DataGridView
                     }
                     else
                     {
-                        listaPersonas.Add(nuevaPersona);
-                        persona.InsertarPersona(nuevaPersona); // Insertar en la base de datos
-                        dataGridPersonas.Items.Refresh();
+                        personasManage.InsertarPersona(nuevaPersona); // Insertar en la base de datos
+                        RefreshDataGrid(); // Refrescar el DataGrid
                         start();
                     }
                 }
-
             }
             else if (btnAgregarPersona.Content.Equals("Guardar cambios"))
             {
@@ -96,11 +84,11 @@ namespace DataGridView
                     personaSeleccionada.Apellidos = txtApellidos.Text;
                     personaSeleccionada.Edad = edad;
 
-                    persona.ModificarPersona(personaSeleccionada); // Modificar en la base de datos
+                    personasManage.ModificarPersona(personaSeleccionada); // Modificar en la base de datos
 
                     MessageBox.Show("Cambios guardados", "Cambios guardados", MessageBoxButton.OK, MessageBoxImage.Information);
 
-                    dataGridPersonas.Items.Refresh();
+                    RefreshDataGrid(); // Refrescar el DataGrid
                     start();
                 }
             }
@@ -110,7 +98,6 @@ namespace DataGridView
         {
             if (dataGridPersonas.SelectedItem is Persona personaSeleccionada)
             {
-                txtId.Text = personaSeleccionada.id.ToString();
                 txtNombre.Text = personaSeleccionada.Nombre;
                 txtApellidos.Text = personaSeleccionada.Apellidos;
                 txtEdad.Text = personaSeleccionada.Edad.ToString();
@@ -118,7 +105,6 @@ namespace DataGridView
             }
             else
             {
-                txtId.Text = "";
                 txtNombre.Text = "";
                 txtApellidos.Text = "";
                 txtEdad.Text = "";
@@ -131,8 +117,8 @@ namespace DataGridView
             if (MessageBox.Show("¿Está seguro que quiere eliminar esta persona?", "Eliminar", MessageBoxButton.YesNo, MessageBoxImage.Warning) == MessageBoxResult.Yes && dataGridPersonas.SelectedItem is Persona personaSeleccionada)
             {
                 listaPersonas.Remove(personaSeleccionada);
-                persona.EliminarPersona(personaSeleccionada); // Eliminar de la base de datos
-                dataGridPersonas.Items.Refresh();
+                personasManage.EliminarPersona(personaSeleccionada); // Eliminar de la base de datos
+                RefreshDataGrid(); // Refrescar el DataGrid
                 start();
             }
         }
@@ -170,7 +156,7 @@ namespace DataGridView
         private bool ValidarCampos()
         {
             bool error = false;
-            if (string.IsNullOrWhiteSpace(txtId.Text) || string.IsNullOrWhiteSpace(txtNombre.Text) || string.IsNullOrWhiteSpace(txtApellidos.Text) || string.IsNullOrWhiteSpace(txtEdad.Text))
+            if (string.IsNullOrWhiteSpace(txtNombre.Text) || string.IsNullOrWhiteSpace(txtApellidos.Text) || string.IsNullOrWhiteSpace(txtEdad.Text))
             {
                 MessageBox.Show("Por favor, complete todos los campos.", "Campos vacíos", MessageBoxButton.OK, MessageBoxImage.Warning);
                 error = true;
@@ -181,7 +167,6 @@ namespace DataGridView
 
         private void start()
         {
-            txtId.Text = "";
             txtNombre.Text = "";
             txtApellidos.Text = "";
             txtEdad.Text = "";
@@ -192,6 +177,16 @@ namespace DataGridView
             btnModificar.IsEnabled = true;
         }
 
+        private void RefreshDataGrid()
+        {
+            listaPersonas.Clear(); // Limpio la lista antes de cargarla para que no me aparezca duplicada
+            listaPersonas = personasManage.LeerPersonas(); // Recargo la lista desde la bbdd
+            dataGridPersonas.ItemsSource = null; 
+            dataGridPersonas.ItemsSource = listaPersonas; 
+            dataGridPersonas.Items.Refresh();
+        }
+
         #endregion
     }
 }
+

@@ -36,13 +36,6 @@ namespace DataGridView.persistence
                 this.personas.Add(persona);
             }
 
-            /* personas.Add(new Persona("Alejandro", "Esteban", 20));
-             personas.Add(new Persona("Pablo", "Velasco", 19));
-             personas.Add(new Persona("Javier", "García", 21));
-             personas.Add(new Persona("Marta", "González", 22));
-             personas.Add(new Persona("Lucía", "Martínez", 23));
-             personas.Add(new Persona("Sara", "Gómez", 24));*/
-
             return personas;
 
         }
@@ -75,5 +68,16 @@ namespace DataGridView.persistence
             personas.RemoveAll(p => p.id == persona.id);
         }
 
+        public int LastId()
+        {
+            int lastID = 0;
+            List<Object> aux = DBBroker.obtenerAgente().leer("SELECT MAX(idpersona) FROM mydb.persona");
+
+            foreach (List<Object> c in aux)
+            {
+                lastID = int.Parse(c[0].ToString());
+            }
+            return lastID;
+        }
     }
 }
