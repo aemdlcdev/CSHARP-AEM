@@ -3,6 +3,7 @@ using DataGridView.persistence;
 using System;
 using System.Collections.Generic;
 using System.Windows;
+using System.Windows.Input;
 
 namespace DataGridView
 {
@@ -124,7 +125,7 @@ namespace DataGridView
 
         private void btnEliminar_Click(object sender, RoutedEventArgs e)
         {
-            if (MessageBox.Show("¿Está seguro que quiere eliminar esta persona?", "Eliminar", MessageBoxButton.YesNo, MessageBoxImage.Warning) == MessageBoxResult.Yes && dataGridPersonas.SelectedItem is Persona personaSeleccionada)
+            if (dataGridPersonas.SelectedItem != null && MessageBox.Show("¿Está seguro que quiere eliminar esta persona?", "Eliminar", MessageBoxButton.YesNo, MessageBoxImage.Warning) == MessageBoxResult.Yes && dataGridPersonas.SelectedItem is Persona personaSeleccionada)
             {
                 listaPersonas.Remove(personaSeleccionada);
                 personasManage.EliminarPersona(personaSeleccionada); // Eliminar de la base de datos
@@ -204,6 +205,28 @@ namespace DataGridView
             dataGridPersonas.ItemsSource = null;
             dataGridPersonas.ItemsSource = listaPersonas;
             dataGridPersonas.Items.Refresh();
+        }
+
+        #endregion
+
+        #region Evento de clic en el Grid principal
+
+        private void MainGrid_MouseDown(object sender, MouseButtonEventArgs e)
+        {
+            // Verificar si el clic se realizó fuera del DataGrid
+            if (!dataGridPersonas.IsMouseOver && !btnAgregarPersona.Content.Equals("Guardar cambios"))
+            {
+                btnAgregarPersona.IsEnabled = true;
+                dataGridPersonas.SelectedItem = null;
+                LimpiarTextBoxes();
+            }
+        }
+
+        private void LimpiarTextBoxes()
+        {
+            txtNombre.Text = "";
+            txtApellidos.Text = "";
+            txtEdad.Text = "";
         }
 
         #endregion
