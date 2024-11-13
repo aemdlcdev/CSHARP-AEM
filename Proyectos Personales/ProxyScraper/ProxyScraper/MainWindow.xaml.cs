@@ -1,19 +1,8 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Diagnostics;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
 using System.Windows.Media.Animation;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
+
 
 namespace ProxyScraper
 {
@@ -22,17 +11,19 @@ namespace ProxyScraper
     /// </summary>
     public partial class MainWindow : Window
     {
+        private bool isClosing = false; // Bandera para evitar el bucle infinito
+
         public MainWindow()
         {
             InitializeComponent();
-            
         }
 
         private void lanzarProceso()
         {
             try
             {
-                string exePath = System.IO.Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "C:\\Users\\Alejandro\\Documents\\GitHub\\DI-AEM\\Proyectos Personales\\ProxyScraper\\ProxyScraper\\procesos\\proxyScraper.exe");
+                string exePath = System.IO.Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "C:\\Users\\b15-03m\\Documents\\NetBeansProjects\\DI-AEM\\Proyectos Personales\\ProxyScraper\\ProxyScraper\\procesos\\proxyScraper.exe");
+                
                 if (!System.IO.File.Exists(exePath))
                 {
                     MessageBox.Show($"El ejecutable no se encontró en la ruta: {exePath}", "Error!", MessageBoxButton.OK, MessageBoxImage.Error);
@@ -48,14 +39,12 @@ namespace ProxyScraper
 
                 using (Process process = Process.Start(start))
                 {
-                    // Leer la salida estándar y de error
+                    // Para redireccionar las salidas de error y salida normal
                     string output = process.StandardOutput.ReadToEnd();
                     string error = process.StandardError.ReadToEnd();
 
-                    process.WaitForExit(); // Esperar a que el proceso termine
-
+                    process.WaitForExit(); // Para esperar al proceso que termine
                 }
-                 
             }
             catch (Exception ex)
             {
@@ -70,15 +59,21 @@ namespace ProxyScraper
 
         private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)
         {
-            e.Cancel = true; // Cancelar el cierre de la ventana
-            var fadeOutStoryboard = (Storyboard)this.Resources["FadeOutStoryboard"];
-            fadeOutStoryboard.Completed += (s, a) => this.Close(); // Cerrar la ventana después de la animación
-            fadeOutStoryboard.Begin(this);
+            if (!isClosing)
+            {
+                e.Cancel = true; // Cancelar el cierre de la ventana
+                isClosing = true; // Establecer la bandera para evitar el bucle infinito
+                var fadeOutStoryboard = (Storyboard)this.Resources["FadeOutStoryboard"];
+                fadeOutStoryboard.Completed += FadeOutStoryboard_Completed;
+                fadeOutStoryboard.Begin(this);
+            }
         }
 
-
-
-
-
+        private void FadeOutStoryboard_Completed(object sender, EventArgs e)
+        {
+            var fadeOutStoryboard = (Storyboard)this.Resources["FadeOutStoryboard"];
+            fadeOutStoryboard.Completed -= FadeOutStoryboard_Completed; // Me desuscribo del evento
+            this.Close(); // Cierro la ventan despues de que termine la animacion
+        }
     }
 }
