@@ -148,7 +148,7 @@
                                 <Button x:Name="btnSearch" Content="Buscar" Grid.Column="2" Height="21" Width="68" Click="btnSearch_Click_1"/>
                             </Grid>
 
-                            <DataGrid x:Name="dataGridView1" Grid.Row="1" Margin="10" AutoGenerateColumns="True"/>
+                            <DataGrid x:Name="dataGridView1" Grid.Row="1" Margin="10" AutoGenerateColumns="True" IsReadOnly="True"/>
                         </Grid>
                     </TabItem>
                     <TabItem Header="Empleados" Margin="-1,65,1,-65">
