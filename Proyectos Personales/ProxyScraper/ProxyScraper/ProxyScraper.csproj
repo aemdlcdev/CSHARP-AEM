@@ -101,7 +101,7 @@
     <Resource Include="resources\PXS-AEMDLC.ico" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="scripts\proxyScraper.py" />
+    <Folder Include="scripts\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

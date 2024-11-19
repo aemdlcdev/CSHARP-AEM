@@ -36,7 +36,6 @@ C:\Users\b15-03m\Documents\NetBeansProjects\DI-AEM\Proyectos Personales\ProxyScr
 C:\Users\b15-03m\Documents\NetBeansProjects\DI-AEM\Proyectos Personales\ProxyScraper\ProxyScraper\obj\Debug\ProxyScraper.csproj.AssemblyReference.cache
 C:\Users\b15-03m\Documents\NetBeansProjects\DI-AEM\Proyectos Personales\ProxyScraper\ProxyScraper\obj\Debug\MainWindow.g.cs
 C:\Users\b15-03m\Documents\NetBeansProjects\DI-AEM\Proyectos Personales\ProxyScraper\ProxyScraper\obj\Debug\App.g.cs
-C:\Users\b15-03m\Documents\NetBeansProjects\DI-AEM\Proyectos Personales\ProxyScraper\ProxyScraper\obj\Debug\ProxyScraper_Content.g.cs
 C:\Users\b15-03m\Documents\NetBeansProjects\DI-AEM\Proyectos Personales\ProxyScraper\ProxyScraper\obj\Debug\ProxyScraper_MarkupCompile.cache
 C:\Users\b15-03m\Documents\NetBeansProjects\DI-AEM\Proyectos Personales\ProxyScraper\ProxyScraper\obj\Debug\ProxyScraper_MarkupCompile.lref
 C:\Users\b15-03m\Documents\NetBeansProjects\DI-AEM\Proyectos Personales\ProxyScraper\ProxyScraper\obj\Debug\MainWindow.baml
