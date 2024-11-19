@@ -10,7 +10,7 @@ namespace ProxyScraper
     /// </summary>
     public partial class MainWindow : Window
     {
-        private bool isClosing = false; // Bandera para evitar el bucle infinito
+        private bool isClosing = false; // Para salir del bucle infinito
 
         public MainWindow()
         {
@@ -21,16 +21,17 @@ namespace ProxyScraper
         {
             try
             {
-                string exePath = System.IO.Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "C:\\Users\\b15-03m\\Documents\\NetBeansProjects\\DI-AEM\\Proyectos Personales\\ProxyScraper\\ProxyScraper\\procesos\\proxyScraper.exe");
-                
-                if (!System.IO.File.Exists(exePath))
+                string scriptPath = System.IO.Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "scripts\\proxyScraper.py"); // Ruta al script de Python
+
+                if (!System.IO.File.Exists(scriptPath))
                 {
-                    MessageBox.Show($"El ejecutable no se encontró en la ruta: {exePath}", "Error!", MessageBoxButton.OK, MessageBoxImage.Error);
+                    MessageBox.Show($"El script de Python no se encontró en la ruta: {scriptPath}", "Error!", MessageBoxButton.OK, MessageBoxImage.Error);
                     return;
                 }
 
                 ProcessStartInfo start = new ProcessStartInfo();
-                start.FileName = exePath;
+                start.FileName = "python"; // Python tiene que estar en el PATH del sistema
+                start.Arguments = scriptPath;
                 start.UseShellExecute = false;
                 start.RedirectStandardOutput = true;
                 start.RedirectStandardError = true;
@@ -43,6 +44,13 @@ namespace ProxyScraper
                     string error = process.StandardError.ReadToEnd();
 
                     process.WaitForExit(); // Para esperar al proceso que termine
+
+                    // Mostrar la salida del script
+                    MessageBox.Show(output, "Salida del script", MessageBoxButton.OK, MessageBoxImage.Information);
+                    if (!string.IsNullOrEmpty(error))
+                    {
+                        MessageBox.Show(error, "Error del script", MessageBoxButton.OK, MessageBoxImage.Error);
+                    }
                 }
             }
             catch (Exception ex)
