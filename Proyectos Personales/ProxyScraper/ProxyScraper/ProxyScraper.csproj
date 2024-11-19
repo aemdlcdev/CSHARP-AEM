@@ -100,8 +100,9 @@
   <ItemGroup>
     <Resource Include="resources\PXS-AEMDLC.ico" />
   </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
-    <Folder Include="scripts\" />
+    <Content Include="procesos\proxyScraper.exe" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

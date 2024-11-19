@@ -45,3 +45,4 @@ C:\Users\b15-03m\Documents\NetBeansProjects\DI-AEM\Proyectos Personales\ProxyScr
 C:\Users\b15-03m\Documents\NetBeansProjects\DI-AEM\Proyectos Personales\ProxyScraper\ProxyScraper\obj\Debug\ProxyScraper.csproj.CoreCompileInputs.cache
 C:\Users\b15-03m\Documents\NetBeansProjects\DI-AEM\Proyectos Personales\ProxyScraper\ProxyScraper\obj\Debug\ProxyScraper.exe
 C:\Users\b15-03m\Documents\NetBeansProjects\DI-AEM\Proyectos Personales\ProxyScraper\ProxyScraper\obj\Debug\ProxyScraper.pdb
+C:\Users\b15-03m\Documents\NetBeansProjects\DI-AEM\Proyectos Personales\ProxyScraper\ProxyScraper\obj\Debug\ProxyScraper_Content.g.cs

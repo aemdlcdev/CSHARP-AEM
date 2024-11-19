@@ -8,6 +8,6 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("scripts/proxyscraper.py")]
+[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("procesos/proxyscraper.exe")]
 
 
