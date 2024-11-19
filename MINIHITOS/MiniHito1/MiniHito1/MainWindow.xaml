@@ -85,7 +85,7 @@
                             </Grid.RowDefinitions>
                             <Image Source="/resources/hoja.png" Grid.Column="1" Width="200" Margin="0,117,140,0" Grid.RowSpan="2" />
 
-                            <Image Source="/resources/maestre.png" Grid.Column="1" Grid.Row="2" Height="60" Width="200" Margin="126,48,10,7"/>
+                            <Image Source="/resources/maestre.png" Grid.Column="1" Grid.Row="2" Width="210" Height="60" Margin="120,48,10,9" />
                             <Grid x:Name="gridBotones" Grid.Column="0" Grid.Row="1">
                                 <Grid.ColumnDefinitions>
                                     <ColumnDefinition Width="Auto"/>
