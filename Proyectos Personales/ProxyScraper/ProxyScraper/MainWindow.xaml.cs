@@ -21,7 +21,7 @@ namespace ProxyScraper
         {
             try
             {
-                string exePath = System.IO.Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "C:\\Users\\b15-03m\\Documents\\NetBeansProjects\\DI-AEM\\Proyectos Personales\\ProxyScraper\\ProxyScraper\\procesos\\proxyScraper.exe");
+                string exePath = System.IO.Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "procesos\\proxyScraper.exe");
                 
                 if (!System.IO.File.Exists(exePath))
                 {
