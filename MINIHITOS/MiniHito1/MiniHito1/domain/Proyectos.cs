@@ -49,11 +49,6 @@ namespace MiniHito1.domain
             listaProyectos = new List<Proyectos>();
         }
 
-        public List<Proyectos> GetProyectos()
-        {
-            return listaProyectos;
-        }
-
         public List<Proyectos> LeerProyectos()
         {
 
@@ -121,6 +116,21 @@ namespace MiniHito1.domain
                 pm.InsertarProyecto(proyecto);
             }
         }
+
+        public void ModificarProyecto(Proyectos proyecto)
+        {
+            var proyectoExistente = listaProyectos.Find(p => p.Id == proyecto.Id);
+            if (proyectoExistente != null)
+            {
+                proyectoExistente.Codigopy = proyecto.Codigopy;
+                proyectoExistente.Nombre = proyecto.Nombre;
+                proyectoExistente.FechaInicio = proyecto.FechaInicio;
+                proyectoExistente.FechaFin = proyecto.FechaFin;
+            }
+            pm.ModificarProyecto(proyectoExistente);
+
+        }
+
 
     }
 }

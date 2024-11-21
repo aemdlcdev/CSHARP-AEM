@@ -17,7 +17,8 @@ namespace MiniHito1
             InitializeComponent();
             proyectosManage = new ProyectoManage();
             proyecto = new Proyectos();
-            dataGridView1.ItemsSource = proyecto.GetProyectos();
+            // Cargo los proyectos de la bbdd en el data grid
+            dataGridView1.ItemsSource = proyecto.LeerProyectos();
         }
 
 
@@ -63,6 +64,32 @@ namespace MiniHito1
             dataGridView1.ItemsSource = null;
             dataGridView1.ItemsSource = listaProyectos;
             
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            string codigoproyec = txtId.Text;
+            string nombre = txtNombre.Text;
+            string fechaInicio = txtFechaInicio.Text;
+            string fechaFin = txtFechaFin.Text;
+
+            Proyectos proyecto = new Proyectos(codigoproyec, nombre, fechaInicio, fechaFin);
+            proyecto.ModificarProyecto(proyecto);
+            listaProyectos.Clear();
+            dataGridView1.ItemsSource = null;
+            dataGridView1.ItemsSource = proyecto.LeerProyectos();
+        }
+
+        private void dataGridView1_SelectionChanged(object sender, System.Windows.Controls.SelectionChangedEventArgs e)
+        {
+            if (dataGridView1.SelectedItem != null)
+            {
+                Proyectos proyecto = (Proyectos)dataGridView1.SelectedItem;
+                txtId.Text = proyecto.Codigopy;
+                txtNombre.Text = proyecto.Nombre;
+                txtFechaInicio.Text = proyecto.FechaInicio;
+                txtFechaFin.Text = proyecto.FechaFin;
+            }
         }
 
     }

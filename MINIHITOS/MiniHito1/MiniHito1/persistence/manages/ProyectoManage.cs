@@ -22,17 +22,18 @@ namespace MiniHito1.persistence.manages
 
         }
 
-        public List<Proyectos> LeerPersonas()
+        public List<Proyectos> LeerProyectos()
         {
 
             Proyectos proyecto = null;
 
-            List<Object> aux = DBBroker.obtenerAgente().leer("SELECT * FROM mydb.persona");
+            List<Object> aux = DBBroker.obtenerAgente().leer("SELECT * FROM mydb.proyecto");
 
             foreach (List<Object> c in aux)
             {
                 proyecto = new Proyectos(int.Parse(c[0].ToString()), c[1].ToString(), c[2].ToString(), c[3].ToString(),
                    float.Parse(c[4].ToString()), c[5].ToString(), c[6].ToString());
+
                 this.listaProyectos.Add(proyecto);
             }
 
@@ -50,7 +51,7 @@ namespace MiniHito1.persistence.manages
 
         public void ModificarProyecto(Proyectos proyecto)
         {
-            string sql = $"UPDATE mydb.persona SET codigopy = '{proyecto.Codigopy}', nombreproy = '{proyecto.Nombre}',  fec_inicio = '{proyecto.FechaInicio}', fec_fin = '{proyecto.FechaFin}' WHERE idpersona = {proyecto.Id}";
+            string sql = $"UPDATE mydb.proyecto SET codigopy = '{proyecto.Codigopy}', nombreproy = '{proyecto.Nombre}',  fec_inicio = '{proyecto.FechaInicio}', fec_fin = '{proyecto.FechaFin}' WHERE idpersona = {proyecto.Id}";
             dbBroker.modificar(sql);
 
             var proyectoExistente = listaProyectos.Find(p => p.Id == proyecto.Id);
@@ -63,13 +64,13 @@ namespace MiniHito1.persistence.manages
             }
         }
 
-        //public void EliminarPersona(Persona persona)
-        //{
-        //    string sql = $"DELETE FROM persona WHERE idpersona = {persona.id}";
-        //    dbBroker.modificar(sql);
-        //    listaPersonas.RemoveAll(p => p.id == persona.id);
-        //}
+        public void EliminarProyecto(Proyectos proyecto)
+        {
+            string sql = $"DELETE FROM mydb.proyecto WHERE idproyecto = {proyecto.Id}";
+            dbBroker.modificar(sql);
+            listaProyectos.RemoveAll(p => p.Id == proyecto.Id);
+        }
 
-       
+
     }
 }

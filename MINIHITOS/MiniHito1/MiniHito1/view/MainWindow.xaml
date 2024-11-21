@@ -128,7 +128,7 @@
                                 </Grid.ColumnDefinitions>
                                 <Image Source="/resources/maestre.png"/>
                                 <Button x:Name="addProyecto" Content="Añadir Proyecto" Grid.Column="3" Width="95" HorizontalAlignment="Center" Height="20" Click="addProyecto_Click" />
-                                <Button Content="Modificar" Grid.Column="4" Width="95" HorizontalAlignment="Center" Height="20"/>
+                                <Button Content="Modificar" Grid.Column="4" Width="95" HorizontalAlignment="Center" Height="20" Click="Button_Click"/>
                                 <Button Content="Eliminar" Grid.Column="5" Width="95" HorizontalAlignment="Center" Height="20"/>
 
                             </Grid>
