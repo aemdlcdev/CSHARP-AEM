@@ -68,17 +68,37 @@ namespace MiniHito1
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
+            // Verificar que los campos de texto no estén vacíos
+            if (string.IsNullOrEmpty(txtId.Text) || string.IsNullOrEmpty(txtNombre.Text) ||
+                string.IsNullOrEmpty(txtFechaInicio.Text) || string.IsNullOrEmpty(txtFechaFin.Text))
+            {
+                MessageBox.Show("Por favor, rellena todos los campos antes de modificar el proyecto.");
+                return;
+            }
+
             string codigoproyec = txtId.Text;
             string nombre = txtNombre.Text;
             string fechaInicio = txtFechaInicio.Text;
             string fechaFin = txtFechaFin.Text;
 
+            // Crear el objeto Proyectos
             Proyectos proyecto = new Proyectos(codigoproyec, nombre, fechaInicio, fechaFin);
+
+            // Modificar el proyecto
             proyecto.ModificarProyecto(proyecto);
+
+            // Verificar que listaProyectos esté inicializada
+            if (listaProyectos == null)
+            {
+                listaProyectos = new List<Proyectos>();
+            }
+
+            // Limpiar y actualizar el DataGrid
             listaProyectos.Clear();
             dataGridView1.ItemsSource = null;
             dataGridView1.ItemsSource = proyecto.LeerProyectos();
         }
+
 
         private void dataGridView1_SelectionChanged(object sender, System.Windows.Controls.SelectionChangedEventArgs e)
         {

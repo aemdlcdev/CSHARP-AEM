@@ -167,7 +167,7 @@
                                 <Button x:Name="btnCargar" Content="Cargar Datos" Grid.Column="3" Height="21" Width="78" Click="btnCargar_Click"/>
                             </Grid>
 
-                            <DataGrid x:Name="dataGridView1" Grid.Row="1" Margin="10" AutoGenerateColumns="True" IsReadOnly="True"/>
+                            <DataGrid x:Name="dataGridView1" Grid.Row="1" Margin="10" AutoGenerateColumns="True" IsReadOnly="True" SelectionChanged="dataGridView1_SelectionChanged"/>
                         </Grid>
                     </TabItem>
                     <TabItem Header="Empleados" Margin="-1,65,1,-65">

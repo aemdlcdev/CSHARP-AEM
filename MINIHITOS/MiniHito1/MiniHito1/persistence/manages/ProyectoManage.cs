@@ -51,10 +51,10 @@ namespace MiniHito1.persistence.manages
 
         public void ModificarProyecto(Proyectos proyecto)
         {
-            string sql = $"UPDATE mydb.proyecto SET codigopy = '{proyecto.Codigopy}', nombreproy = '{proyecto.Nombre}',  fec_inicio = '{proyecto.FechaInicio}', fec_fin = '{proyecto.FechaFin}' WHERE idpersona = {proyecto.Id}";
+            string sql = $"UPDATE mydb.proyecto SET codigopy = '{proyecto.Codigopy}', nombreproy = '{proyecto.Nombre}',  fec_inicio = '{proyecto.FechaInicio}', fec_fin = '{proyecto.FechaFin}' WHERE codigopy = '{proyecto.Codigopy}'";
             dbBroker.modificar(sql);
 
-            var proyectoExistente = listaProyectos.Find(p => p.Id == proyecto.Id);
+            var proyectoExistente = listaProyectos.Find(p => p.Codigopy == proyecto.Codigopy);
             if (proyectoExistente != null)
             {
                 proyectoExistente.Codigopy = proyecto.Codigopy;

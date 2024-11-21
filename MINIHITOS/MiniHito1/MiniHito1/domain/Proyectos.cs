@@ -119,15 +119,9 @@ namespace MiniHito1.domain
 
         public void ModificarProyecto(Proyectos proyecto)
         {
-            var proyectoExistente = listaProyectos.Find(p => p.Id == proyecto.Id);
-            if (proyectoExistente != null)
-            {
-                proyectoExistente.Codigopy = proyecto.Codigopy;
-                proyectoExistente.Nombre = proyecto.Nombre;
-                proyectoExistente.FechaInicio = proyecto.FechaInicio;
-                proyectoExistente.FechaFin = proyecto.FechaFin;
-            }
-            pm.ModificarProyecto(proyectoExistente);
+            pm = new ProyectoManage();
+
+            pm.ModificarProyecto(proyecto);
 
         }
 
