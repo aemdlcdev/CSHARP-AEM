@@ -10,8 +10,8 @@ namespace Excepciones
     {
         static void Main(string[] args)
         {
-            int[] dividendo = { 4, 8, 15, 16, 23, 42, 65, 56, 34, 97 };
-            int[] divisor = { 2, 0, 4, 4, 0, 8, 7, 0, 3, 5 };
+            int[] dividendo = { -4, 8, 15, 16, 23, 42, 65, -56, 34, 97 };
+            int[] divisor = { 2, 0, 4, 4, -0, 8, -7, 0, 3, 5 };
 
             int[] resultado = new int[10];
 
@@ -37,7 +37,7 @@ namespace Excepciones
                 }
                 catch (NumeroNegativoException ex)
                 {
-                    Console.WriteLine("Error: " + ex.Message + " Valor: " + ex.ValorNegativo);
+                    Console.WriteLine("Error: " + ex.Message + " | Valor por el que se está intentando dividir: " + ex.ValorNegativo);
                     resultado[i] = 0;
                 }
                 catch (IndexOutOfRangeException ex)
