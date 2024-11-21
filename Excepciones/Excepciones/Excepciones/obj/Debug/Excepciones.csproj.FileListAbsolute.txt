@@ -1,0 +1,7 @@
+C:\Users\b15-03m\Documents\NetBeansProjects\DI-AEM\Excepciones\Excepciones\Excepciones\bin\Debug\Excepciones.exe.config
+C:\Users\b15-03m\Documents\NetBeansProjects\DI-AEM\Excepciones\Excepciones\Excepciones\bin\Debug\Excepciones.exe
+C:\Users\b15-03m\Documents\NetBeansProjects\DI-AEM\Excepciones\Excepciones\Excepciones\bin\Debug\Excepciones.pdb
+C:\Users\b15-03m\Documents\NetBeansProjects\DI-AEM\Excepciones\Excepciones\Excepciones\obj\Debug\Excepciones.csproj.AssemblyReference.cache
+C:\Users\b15-03m\Documents\NetBeansProjects\DI-AEM\Excepciones\Excepciones\Excepciones\obj\Debug\Excepciones.csproj.CoreCompileInputs.cache
+C:\Users\b15-03m\Documents\NetBeansProjects\DI-AEM\Excepciones\Excepciones\Excepciones\obj\Debug\Excepciones.exe
+C:\Users\b15-03m\Documents\NetBeansProjects\DI-AEM\Excepciones\Excepciones\Excepciones\obj\Debug\Excepciones.pdb
