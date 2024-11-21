@@ -27,7 +27,7 @@ namespace MiniHito1.persistence.manages
 
             Proyectos proyecto = null;
 
-            List<Object> aux = DBBroker.obtenerAgente().leer("SELECT * FROM mydb.proyecto");
+            List<Object> aux = DBBroker.obtenerAgente().leer("SELECT * FROM mydb.proyectsso");
 
             foreach (List<Object> c in aux)
             {
@@ -43,7 +43,7 @@ namespace MiniHito1.persistence.manages
 
         public void InsertarProyecto(Proyectos proyecto)
         {
-            string sql = $"INSERT INTO proyecto ( codigopy, nombreproy, descproy,presupuesto,fec_inicio,fec_fin) " +
+            string sql = $"INSERT INTO mydb.proyecto ( codigopy, nombreproy, descproy,presupuesto,fec_inicio,fec_fin) " +
                 $"VALUES ('{proyecto.Codigopy}', '{proyecto.Nombre}', '{proyecto.Descproy}', '{proyecto.Presupuesto}', '{proyecto.FechaInicio}','{proyecto.FechaFin}')";
             dbBroker.modificar(sql);
             listaProyectos.Add(proyecto);
