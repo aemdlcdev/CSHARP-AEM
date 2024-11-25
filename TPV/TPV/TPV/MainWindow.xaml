@@ -57,6 +57,27 @@
                         </TabControl.Resources>
                         <TabItem Header="Productos" Margin="-1,51,1,-51">
                             <Grid x:Name="gridTabProductos">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="*"/>
+                                    <ColumnDefinition Width="*"/>
+                                    <ColumnDefinition Width="*"/>
+                                    <ColumnDefinition Width="*"/>
+                                    <ColumnDefinition Width="*"/>
+                                </Grid.ColumnDefinitions>
+
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="*"/>
+                                    <RowDefinition Height="*"/>
+                                    <RowDefinition Height="*"/>
+                                    <RowDefinition Height="*"/>
+                                    <RowDefinition Height="*"/>
+                                </Grid.RowDefinitions>
+
+                                <Image Source="/resources/nuggets.png"/>
+                                <Image Grid.Column="1" Source="/resources/pescado.png"/>
+                                <Image Grid.Column="2" Source="/resources/ensalada.png"/>
+                                <Image Grid.Column="3" Source="/resources/patatas.png"/>
+                                <Image Grid.Column="4" Source="/resources/ibericos.png"/>
 
                             </Grid>
                         </TabItem>
