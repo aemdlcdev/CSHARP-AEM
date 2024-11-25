@@ -5,55 +5,234 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:TPV"
         mc:Ignorable="d"
-        Title="TPV" Height="450" Width="800" WindowStartupLocation="CenterScreen">
+        Title="TPV" Height="1080" Width="1920" WindowStartupLocation="CenterScreen">
     <Grid>
-
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="Auto"/>
             <ColumnDefinition Width="*"/>
-            <ColumnDefinition Width="Auto"/>
         </Grid.ColumnDefinitions>
 
-        <Grid.RowDefinitions>
-            <RowDefinition Height="Auto"/>
-            <RowDefinition Height="*"/>
-            <RowDefinition Height="Auto"/>
-        </Grid.RowDefinitions>
-
-        <Grid x:Name="medio" Grid.Row="1" Grid.Column="0">
+        <Grid x:Name="derecha" Grid.Column="1" Margin="10,0,0,0">
+            <!--Grid Principal -->
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="Auto"/>
+            </Grid.ColumnDefinitions>
             <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
 
+            <!-- Barra encabezado -->
+            <StackPanel VerticalAlignment="Top" Background="ForestGreen" Grid.Column="0" Grid.Row="0">
+                <Label Content="TPV ALEJANDRO" Foreground="AliceBlue" HorizontalAlignment="Center"/>
+            </StackPanel>
+
+            <!-- Grid Contenedor -->
+
+            <Grid x:Name="contenedor" Grid.Column="0" Grid.Row="1">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="20"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="20"/>
+                </Grid.RowDefinitions>
+                <Grid.Background>
+                    <SolidColorBrush Color="White"/>
+                </Grid.Background>
+                <TextBox Name="Hora" Text="03:01:34 PM" Grid.Row="2" TextAlignment="Right" BorderBrush="Transparent" Height="Auto" Margin="0,0,10,0"/>
+                <Grid Grid.Row="1" Background="ForestGreen">
+                    <TabControl x:Name="tabMenu" TabStripPlacement="Left" Margin="0,0,10,0" Padding="10">
+                        <TabControl.Resources>
+                            <!-- Estilo de los TabsItems -->
+                            <Style TargetType="TabItem">
+                                <Setter Property="Width" Value="95"/>
+                                <Setter Property="Height" Value="34"/>
+                                <Setter Property="FontSize" Value="12"/>
+                                <Setter Property="Margin" Value="0,0,0,0"/>
+                                <Setter Property="Background" Value="Transparent"/>
+                                <Setter Property="BorderThickness" Value="0"/>
+                                <Setter Property="BorderBrush" Value="Transparent"/>
+                            </Style>
+
+                        </TabControl.Resources>
+                        <TabItem Header="Productos" Margin="-1,51,1,-51">
+                            <Grid x:Name="gridTabProductos">
+
+                            </Grid>
+                        </TabItem>
+                        <TabItem Name="tabMesas" Header="Mesas" Margin="-1,58,0,-58">
+                            <Grid x:Name="contenedorTabProyectos">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="*"/>
+                                    <ColumnDefinition Width="Auto"/>
+                                </Grid.ColumnDefinitions>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="Auto"/>
+                                    <RowDefinition Height="*"/>
+                                    <RowDefinition Height="Auto"/>
+                                </Grid.RowDefinitions>
+
+                                <Grid Name="botones"  Grid.Row="2">
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="*"/>
+                                        <ColumnDefinition Width="*"/>
+                                        <ColumnDefinition Width="*"/>
+                                        <ColumnDefinition Width="Auto"/>
+                                        <ColumnDefinition Width="Auto"/>
+                                        <ColumnDefinition Width="Auto"/>
+                                    </Grid.ColumnDefinitions>
+                                    
+
+                                </Grid>
+
+                                <Grid x:Name="gridDatos" Grid.Column="1" Grid.Row="1">
+
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="*"/>
+                                        <RowDefinition Height="*"/>
+                                        <RowDefinition Height="*"/>
+                                        <RowDefinition Height="*"/>
+
+                                    </Grid.RowDefinitions>
+
+                                    <Label Content="Código Proyecto:" Margin="-5,0,0,0"/>
+                                    <TextBox x:Name="txtId" Height="18" Margin="0,29,0,11"/>
+                                    <Label Content="Nombre:" Grid.Row="1" Margin="-5,0,0,0"/>
+                                    <TextBox x:Name="txtNombre" Height="18" Grid.Row="1" Margin="0,29,0,11"/>
+                                    <Label Content="Fecha Inicio:" Grid.Row="2" Margin="-5,0,0,0"/>
+                                    <TextBox x:Name="txtFechaInicio" Height="18" Grid.Row="2" Margin="0,29,0,11"/>
+                                    <Label Content="Fecha Fin:" Grid.Row="3" Margin="-5,0,0,0"/>
+                                    <TextBox x:Name="txtFechaFin" Height="18" Grid.Row="3" Margin="0,29,0,11"/>
+
+                                </Grid>
+                                <Grid>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="Auto"/>
+                                        <ColumnDefinition Width="*"/>
+                                        <ColumnDefinition Width="Auto"/>
+                                        <ColumnDefinition Width="Auto"/>
+                                    </Grid.ColumnDefinitions>
+                                    <Label Content="Proyectos" FontSize="20" Grid.Column="0" FontWeight="Bold" Margin="0,0,0,1" />
+                                    <TextBox x:Name="txtBuscar" Text="Buscar" Grid.Column="1" Margin="10,10,10,8"/>
+                                   
+                                </Grid>
+
+                                <DataGrid x:Name="dataGridView1" Grid.Row="1" Margin="10" AutoGenerateColumns="True" IsReadOnly="True"/>
+                            </Grid>
+                        </TabItem>
+                        
+                        <TabItem Header="Camareros" Margin="-2,62,0,-57">
+                            <StackPanel>
+                                <Label Content="Camareros" FontSize="20" FontWeight="Bold"/>
+                                <Label Content="Datos de los camareros" FontSize="16"/>
+                            </StackPanel>
+                        </TabItem>
+                        
+                        <TabItem Header="Proveedores" Margin="-3,67,0,-65">
+                            <StackPanel>
+                                <Label Content="Proveedores" FontSize="20" FontWeight="Bold"/>
+                                <Label Content="Lista proveedores" FontSize="16"/>
+                            </StackPanel>
+                        </TabItem>
+                    </TabControl>
+                </Grid>
+            </Grid>
+        </Grid>
+        
+        <Grid x:Name="izquierda" Grid.Column="0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto"/>
+            </Grid.ColumnDefinitions>
+
+            <Grid.RowDefinitions>
                 <RowDefinition Height="Auto"/>
                 <RowDefinition Height="*"/>
                 <RowDefinition Height="Auto"/>
-
             </Grid.RowDefinitions>
 
-            <Grid x:Name="cliente" >
+            <Grid x:Name="clienteTodo" Grid.Row="0" Grid.Column="0">
+                <Grid.RowDefinitions>
 
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="Auto"/>
-                    <ColumnDefinition Width="*"/>
-                </Grid.ColumnDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="Auto"/>
 
+                </Grid.RowDefinitions>
+
+                <Grid x:Name="cliente" >
+
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto"/>
+                        <ColumnDefinition Width="Auto"/>
+                    </Grid.ColumnDefinitions>
+                    <Grid Name="datos" Grid.Column="1">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                        </Grid.RowDefinitions>
+                        <Label Name="lblNombre" Content="Nombre:" Grid.Row="0" />
+                        <TextBox Name="txtNombree" Grid.Row="1" Grid.Column="1" Width="100"/>
+                        <Label Name="lblCorreo" Content="Correo:" Grid.Row="2"  />
+                        <TextBox Name="txtCorreo" Grid.Row="3" Width="100"/>
+                        <Label Name="lblCodCliente" Content="Código Cliente:" Grid.Row="4" Width="100"/>
+                        <TextBox Name="txtCodCliente" Grid.Row="5"/>
+                    </Grid>
+                    <Image Source="/resources/usuario.png" Width="65"/>
+
+                </Grid>
+
+            </Grid>
+
+            <Grid x:Name="clientesGrid" Grid.Row="1" Margin="0,10,0,0">
                 <Grid.RowDefinitions>
                     <RowDefinition Height="*"/>
-                    <RowDefinition Height="*"/>
-                    <RowDefinition Height="*"/>
-                    <RowDefinition Height="*"/>
-                    <RowDefinition Height="*"/>
-                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
                 </Grid.RowDefinitions>
-                <Image Source="/resources/usuario.png" Width="50"/>
-                <Label Name="lblNombre" Content="Nombre:" Grid.Row="0" Grid.Column="1" Width="200"/>
-                <TextBox Name="txtNombre" Grid.Row="1" Grid.Column="1"/>
-                <Label Name="lblCorreo" Content="Correo:" Grid.Row="2" Grid.Column="1"/>
-                <TextBox Name="txtCorreo" Grid.Row="3" Grid.Column="1"/>
+
+                <DataGrid x:Name="rowClientes" Grid.Row="0" Margin="15,0,0,0" AutoGenerateColumns="True" IsReadOnly="True" Width="150"/>
+
+                <TextBox x:Name="txtSaldo" Grid.Row="1" Text="7.00" BorderBrush="Transparent" TextAlignment="Right" Margin="12,10,0,0"  Padding="10" FontSize="18" Height="50" Width="148"/>
+
+                <Grid x:Name="teclado" Grid.Row="2" Margin="15,0,0,0">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto"/>
+                        <ColumnDefinition Width="Auto"/>
+                        <ColumnDefinition Width="Auto"/>
+                    </Grid.ColumnDefinitions>
+
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                    </Grid.RowDefinitions>
+
+                    <Button x:Name="btn1" Content="1" Grid.Row="0" Grid.Column="0" Width="50" Height="50" FontSize="18"/>
+                    <Button x:Name="btn2" Content="2" Grid.Row="0" Grid.Column="1" Width="50" Height="50" FontSize="18"/>
+                    <Button x:Name="btn3" Content="3" Grid.Row="0" Grid.Column="2" Width="50" Height="50" FontSize="18"/>
+                    <Button x:Name="btn4" Content="4" Grid.Row="1" Grid.Column="0" Width="50" Height="50" FontSize="18"/>
+                    <Button x:Name="btn5" Content="5" Grid.Row="1" Grid.Column="1" Width="50" Height="50" FontSize="18"/>
+                    <Button x:Name="btn6" Content="6" Grid.Row="1" Grid.Column="2" Width="50" Height="50" FontSize="18"/>
+                    <Button x:Name="btn7" Content="7" Grid.Row="2" Grid.Column="0" Width="50" Height="50" FontSize="18"/>
+                    <Button x:Name="btn8" Content="8" Grid.Row="2" Grid.Column="1" Width="50" Height="50" FontSize="18"/>
+                    <Button x:Name="btn9" Content="9" Grid.Row="2" Grid.Column="2" Width="50" Height="50" FontSize="18"/>
+                    <Button x:Name="btn0" Content="0" Grid.Row="3" Grid.Column="1" Width="50" Height="50" FontSize="18"/>
+                    <Button x:Name="btnBorrar" Content="C" Grid.Row="3" Grid.Column="2" Width="50" Height="50" FontSize="18"/>
+                    <Button x:Name="btnPunto" Content="," Grid.Row="3" Grid.Column="0" Width="50" Height="50" FontSize="18"/>
+
+                </Grid>
+
             </Grid>
-            
-            <DataGrid x:Name="rowClientes" Grid.Row="1"/>
+
+            <Grid x:Name="barra" Grid.Row="2" Margin="0,0,0,0">
+               
+            </Grid>
 
         </Grid>
-        
     </Grid>
 </Window>
