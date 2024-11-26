@@ -27,7 +27,7 @@ namespace MiniHito1.persistence.manages
 
             Proyectos proyecto = null;
 
-            List<Object> aux = DBBroker.obtenerAgente().leer("SELECT * FROM mydb.proyectsso");
+            List<Object> aux = DBBroker.obtenerAgente().leer("SELECT * FROM mydb.proyecto");
 
             foreach (List<Object> c in aux)
             {
