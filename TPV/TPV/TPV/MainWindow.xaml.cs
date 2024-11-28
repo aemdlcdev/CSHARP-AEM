@@ -26,5 +26,10 @@ namespace TPV
         {
             Hora.Text = DateTime.Now.ToString("hh:mm:ss tt");
         }
+
+        private void rowClientes_SelectionChanged(object sender, System.Windows.Controls.SelectionChangedEventArgs e)
+        {
+
+        }
     }
 }
