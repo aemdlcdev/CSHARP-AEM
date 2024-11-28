@@ -352,7 +352,7 @@
 
                 <DataGrid x:Name="rowClientes" Grid.Row="0" Margin="7,0,0,0" AutoGenerateColumns="True" IsReadOnly="True" SelectionChanged="rowClientes_SelectionChanged"/>
 
-                <TextBox x:Name="txtSaldo" Grid.Row="1" Text="0.00" BorderBrush="Transparent" TextAlignment="Right" Margin="16,10,0,0"  Padding="10,10,0,0" FontSize="18" Height="50" Width="148"/>
+                <TextBox x:Name="txtSaldo" IsReadOnly="True" Grid.Row="1" Text="0.00" BorderBrush="Transparent" TextAlignment="Right" Margin="16,10,0,0"  Padding="10,10,0,0" FontSize="18" Height="50" Width="148"/>
 
                 <Grid x:Name="teclado" Grid.Row="2" Margin="15,0,0,20">
                     <Grid.ColumnDefinitions>
