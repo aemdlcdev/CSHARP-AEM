@@ -39,7 +39,7 @@
                 <Grid.Background>
                     <SolidColorBrush Color="White"/>
                 </Grid.Background>
-                <TextBox Name="Hora" Text="03:01:34 PM" Grid.Row="2" TextAlignment="Right" BorderBrush="Transparent" Height="Auto" Margin="0,0,10,0"/>
+                <TextBox Name="Hora" IsReadOnly="True" Grid.Row="2" TextAlignment="Right" BorderBrush="Transparent" Height="Auto" Margin="0,0,10,0"/>
                 <Grid Grid.Row="1" Background="ForestGreen">
                     <TabControl x:Name="tabMenu" TabStripPlacement="Left" Margin="0,0,10,0" Padding="10">
                         <TabControl.Resources>
@@ -52,6 +52,42 @@
                                 <Setter Property="Background" Value="Transparent"/>
                                 <Setter Property="BorderThickness" Value="0"/>
                                 <Setter Property="BorderBrush" Value="Transparent"/>
+                                
+                            </Style>
+
+                            <Style TargetType="Button">
+                                <Setter Property="Background" Value="ForestGreen" />
+                                <Setter Property="Foreground" Value="White" />
+                                <Setter Property="FontFamily" Value="Arial" />
+                                <Setter Property="FontSize" Value="14" />
+                                <Setter Property="FontWeight" Value="Bold" />
+                                <Setter Property="BorderBrush" Value="White" />
+                                <Setter Property="BorderThickness" Value="1" />
+                                <Setter Property="Padding" Value="10" />
+                                <Setter Property="Template">
+                                    <Setter.Value>
+                                        <ControlTemplate TargetType="Button">
+                                            <Grid>
+                                                <Border CornerRadius="25" Background="{TemplateBinding Background}" 
+                                            BorderBrush="{TemplateBinding BorderBrush}" 
+                                            BorderThickness="{TemplateBinding BorderThickness}">
+                                                    <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                                </Border>
+                                            </Grid>
+                                            <ControlTemplate.Triggers>
+                                                <Trigger Property="IsMouseOver" Value="True">
+                                                    <Setter Property="Background" Value="LightGreen" />
+                                                    <Setter Property="Foreground" Value="Black"/>
+                                                    <Setter Property="Cursor" Value="Hand"/>
+                                                </Trigger>
+                                                <Trigger Property="IsPressed" Value="True">
+                                                    <Setter Property="Background" Value="LightGreen" />
+                                                    <Setter Property="Foreground" Value="Black"/>
+                                                </Trigger>
+                                            </ControlTemplate.Triggers>
+                                        </ControlTemplate>
+                                    </Setter.Value>
+                                </Setter>
                             </Style>
 
                         </TabControl.Resources>
@@ -69,20 +105,34 @@
                                     <RowDefinition Height="*"/>
                                     <RowDefinition Height="*"/>
                                     <RowDefinition Height="*"/>
-                                    <RowDefinition Height="*"/>
-                                    <RowDefinition Height="*"/>
                                 </Grid.RowDefinitions>
-
+                                
+                                <!-- Comidas -->
                                 <Image Source="/resources/nuggets.png"/>
                                 <Image Grid.Column="1" Source="/resources/pescado.png"/>
                                 <Image Grid.Column="2" Source="/resources/ensalada.png"/>
                                 <Image Grid.Column="3" Source="/resources/patatas.png"/>
                                 <Image Grid.Column="4" Source="/resources/ibericos.png"/>
 
+                                <!-- Postres -->
+                                <Image Grid.Row="1" Source="/resources/tartaqueso.png"/>
+                                <Image Grid.Row="1" Grid.Column="1" Source="/resources/flan.png"/>
+                                <Image Grid.Row="1" Grid.Column="2" Source="/resources/natillas.png"/>
+                                <Image Grid.Row="1" Grid.Column="3" Source="/resources/gofres.png"/>
+                                <Image Grid.Row="1" Grid.Column="4" Source="/resources/helado.png"/>
+                                
+                                <!-- Bebidas -->
+
+                                <Image Grid.Row="2" Source="/resources/refrescos.png"/>
+                                <Image Grid.Row="2" Grid.Column="1" Source="/resources/cervezas.png"/>
+                                <Image Grid.Row="2" Grid.Column="2" Source="/resources/vinos.png"/>
+                                <Image Grid.Row="2" Grid.Column="3" Source="/resources/licores.png"/>
+                                <Image Grid.Row="2" Grid.Column="4" Source="/resources/agua.png"/>
+
                             </Grid>
                         </TabItem>
-                        <TabItem Name="tabMesas" Header="Mesas" Margin="-1,58,0,-58">
-                            <Grid x:Name="contenedorTabProyectos">
+                        <TabItem Name="tabInventario" Header="Inventario" Margin="-1,58,0,-58">
+                            <Grid x:Name="contenedorInventario">
                                 <Grid.ColumnDefinitions>
                                     <ColumnDefinition Width="*"/>
                                     <ColumnDefinition Width="Auto"/>
@@ -98,34 +148,14 @@
                                         <ColumnDefinition Width="*"/>
                                         <ColumnDefinition Width="*"/>
                                         <ColumnDefinition Width="*"/>
-                                        <ColumnDefinition Width="Auto"/>
-                                        <ColumnDefinition Width="Auto"/>
-                                        <ColumnDefinition Width="Auto"/>
+
                                     </Grid.ColumnDefinitions>
-                                    
+                                    <Button x:Name="addProducto" Content="Añadir Producto" Grid.Column="0" Width="130" HorizontalAlignment="Center" Height="20"/>
+                                    <Button Content="Modificar" Grid.Column="1" Width="130" HorizontalAlignment="Center" Height="20"/>
+                                    <Button Content="Eliminar" Grid.Column="2" Width="130" HorizontalAlignment="Center" Height="20"/>
 
                                 </Grid>
 
-                                <Grid x:Name="gridDatos" Grid.Column="1" Grid.Row="1">
-
-                                    <Grid.RowDefinitions>
-                                        <RowDefinition Height="*"/>
-                                        <RowDefinition Height="*"/>
-                                        <RowDefinition Height="*"/>
-                                        <RowDefinition Height="*"/>
-
-                                    </Grid.RowDefinitions>
-
-                                    <Label Content="Código Proyecto:" Margin="-5,0,0,0"/>
-                                    <TextBox x:Name="txtId" Height="18" Margin="0,29,0,11"/>
-                                    <Label Content="Nombre:" Grid.Row="1" Margin="-5,0,0,0"/>
-                                    <TextBox x:Name="txtNombre" Height="18" Grid.Row="1" Margin="0,29,0,11"/>
-                                    <Label Content="Fecha Inicio:" Grid.Row="2" Margin="-5,0,0,0"/>
-                                    <TextBox x:Name="txtFechaInicio" Height="18" Grid.Row="2" Margin="0,29,0,11"/>
-                                    <Label Content="Fecha Fin:" Grid.Row="3" Margin="-5,0,0,0"/>
-                                    <TextBox x:Name="txtFechaFin" Height="18" Grid.Row="3" Margin="0,29,0,11"/>
-
-                                </Grid>
                                 <Grid>
                                     <Grid.ColumnDefinitions>
                                         <ColumnDefinition Width="Auto"/>
@@ -133,7 +163,8 @@
                                         <ColumnDefinition Width="Auto"/>
                                         <ColumnDefinition Width="Auto"/>
                                     </Grid.ColumnDefinitions>
-                                    <Label Content="Proyectos" FontSize="20" Grid.Column="0" FontWeight="Bold" Margin="0,0,0,1" />
+                                    <Button x:Name="btnSearch" Content="Buscar" Grid.Column="2" Height="21" Width="90"/>
+                                    <Label Content="Productos" FontSize="20" Grid.Column="0" FontWeight="Bold" Margin="0,0,0,1" />
                                     <TextBox x:Name="txtBuscar" Text="Buscar" Grid.Column="1" Margin="10,10,10,8"/>
                                    
                                 </Grid>
@@ -149,9 +180,9 @@
                             </StackPanel>
                         </TabItem>
                         
-                        <TabItem Header="Proveedores" Margin="-3,67,0,-65">
+                        <TabItem Header="Configuracion" Margin="-3,67,0,-65">
                             <StackPanel>
-                                <Label Content="Proveedores" FontSize="20" FontWeight="Bold"/>
+                                <Label Content="Configuracion" FontSize="20" FontWeight="Bold"/>
                                 <Label Content="Lista proveedores" FontSize="16"/>
                             </StackPanel>
                         </TabItem>
@@ -217,7 +248,7 @@
 
                 <DataGrid x:Name="rowClientes" Grid.Row="0" Margin="7,0,0,0" AutoGenerateColumns="True" IsReadOnly="True"/>
 
-                <TextBox x:Name="txtSaldo" Grid.Row="1" Text="7.00" BorderBrush="Transparent" TextAlignment="Right" Margin="16,10,0,0"  Padding="10,10,0,0" FontSize="18" Height="50" Width="148"/>
+                <TextBox x:Name="txtSaldo" Grid.Row="1" Text="0.00" BorderBrush="Transparent" TextAlignment="Right" Margin="16,10,0,0"  Padding="10,10,0,0" FontSize="18" Height="50" Width="148"/>
 
                 <Grid x:Name="teclado" Grid.Row="2" Margin="15,0,0,20">
                     <Grid.ColumnDefinitions>
