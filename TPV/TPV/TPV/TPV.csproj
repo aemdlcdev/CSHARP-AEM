@@ -112,5 +112,41 @@
   <ItemGroup>
     <Resource Include="resources\ibericos.png" />
   </ItemGroup>
+  <ItemGroup>
+    <Resource Include="resources\tartaqueso.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="resources\flan.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="resources\natillas.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="resources\gofres.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="resources\helado.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="resources\refrescos.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="resources\cerveza.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="resources\refresco.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="resources\cervezas.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="resources\vinos.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="resources\licores.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="resources\agua.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

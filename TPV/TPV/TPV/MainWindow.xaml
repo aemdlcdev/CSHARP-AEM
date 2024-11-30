@@ -39,7 +39,7 @@
                 <Grid.Background>
                     <SolidColorBrush Color="White"/>
                 </Grid.Background>
-                <TextBox Name="Hora" Text="03:01:34 PM" Grid.Row="2" TextAlignment="Right" BorderBrush="Transparent" Height="Auto" Margin="0,0,10,0"/>
+                <TextBox Name="Hora" IsReadOnly="True" Grid.Row="2" TextAlignment="Right" BorderBrush="Transparent" Height="Auto" Margin="0,0,10,0"/>
                 <Grid Grid.Row="1" Background="ForestGreen">
                     <TabControl x:Name="tabMenu" TabStripPlacement="Left" Margin="0,0,10,0" Padding="10">
                         <TabControl.Resources>
@@ -52,7 +52,67 @@
                                 <Setter Property="Background" Value="Transparent"/>
                                 <Setter Property="BorderThickness" Value="0"/>
                                 <Setter Property="BorderBrush" Value="Transparent"/>
+
                             </Style>
+                            <!-- Estilo para los botones dentro de este Grid -->
+                            <Style TargetType="Button">
+                                <Setter Property="Background">
+                                    <Setter.Value>
+                                        <LinearGradientBrush StartPoint="0,0" EndPoint="0,1">
+                                            <GradientStop Color="#6B8E23" Offset="0.0" />
+                                            <!-- Verde oliva -->
+                                            <GradientStop Color="#98FB98" Offset="1.0" />
+                                            <!-- Verde claro -->
+                                        </LinearGradientBrush>
+                                    </Setter.Value>
+                                </Setter>
+                                <Setter Property="Foreground" Value="White" />
+                                <Setter Property="FontFamily" Value="Segoe UI" />
+                                <Setter Property="FontSize" Value="16" />
+                                <Setter Property="FontWeight" Value="Bold" />
+                                <Setter Property="Padding" Value="10,5" />
+                                <Setter Property="BorderBrush" Value="#4CAF50" />
+                                <Setter Property="BorderThickness" Value="1" />
+                                <Setter Property="HorizontalAlignment" Value="Center" />
+                                <Setter Property="VerticalAlignment" Value="Center" />
+                                <Setter Property="Template">
+                                    <Setter.Value>
+                                        <ControlTemplate TargetType="Button">
+                                            <Grid>
+                                                <!-- Fondo redondeado con sombra -->
+                                                <Border x:Name="border" CornerRadius="20" Background="{TemplateBinding Background}" 
+                                    BorderBrush="{TemplateBinding BorderBrush}" 
+                                    BorderThickness="{TemplateBinding BorderThickness}">
+                                                    <Border.Effect>
+                                                        <DropShadowEffect Color="Gray" BlurRadius="10" ShadowDepth="3" />
+                                                    </Border.Effect>
+                                                    <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                                </Border>
+                                            </Grid>
+                                            <ControlTemplate.Triggers>
+                                                <!-- Cambio de fondo al pasar el mouse -->
+                                                <Trigger Property="IsMouseOver" Value="True">
+                                                    <Setter Property="Background" TargetName="border">
+                                                        <Setter.Value>
+                                                            <LinearGradientBrush StartPoint="0,0" EndPoint="0,1">
+                                                                <GradientStop Color="#98FB98" Offset="0.0" />
+                                                                <GradientStop Color="#6B8E23" Offset="1.0" />
+                                                            </LinearGradientBrush>
+                                                        </Setter.Value>
+                                                    </Setter>
+                                                    <Setter Property="BorderBrush" Value="#76D275" />
+                                                </Trigger>
+                                                <!-- Cambio de fondo al presionar -->
+                                                <Trigger Property="IsPressed" Value="True">
+                                                    <Setter Property="Background" TargetName="border" Value="#4CAF50" />
+                                                    <Setter Property="BorderBrush" Value="#388E3C" />
+                                                </Trigger>
+                                            </ControlTemplate.Triggers>
+                                        </ControlTemplate>
+                                    </Setter.Value>
+                                </Setter>
+                            </Style>
+                            
 
                         </TabControl.Resources>
                         <TabItem Header="Productos" Margin="-1,51,1,-51">
@@ -69,20 +129,34 @@
                                     <RowDefinition Height="*"/>
                                     <RowDefinition Height="*"/>
                                     <RowDefinition Height="*"/>
-                                    <RowDefinition Height="*"/>
-                                    <RowDefinition Height="*"/>
                                 </Grid.RowDefinitions>
-
+                                
+                                <!-- Comidas -->
                                 <Image Source="/resources/nuggets.png"/>
                                 <Image Grid.Column="1" Source="/resources/pescado.png"/>
                                 <Image Grid.Column="2" Source="/resources/ensalada.png"/>
                                 <Image Grid.Column="3" Source="/resources/patatas.png"/>
                                 <Image Grid.Column="4" Source="/resources/ibericos.png"/>
 
+                                <!-- Postres -->
+                                <Image Grid.Row="1" Source="/resources/tartaqueso.png"/>
+                                <Image Grid.Row="1" Grid.Column="1" Source="/resources/flan.png"/>
+                                <Image Grid.Row="1" Grid.Column="2" Source="/resources/natillas.png"/>
+                                <Image Grid.Row="1" Grid.Column="3" Source="/resources/gofres.png"/>
+                                <Image Grid.Row="1" Grid.Column="4" Source="/resources/helado.png"/>
+                                
+                                <!-- Bebidas -->
+
+                                <Image Grid.Row="2" Source="/resources/refrescos.png"/>
+                                <Image Grid.Row="2" Grid.Column="1" Source="/resources/cervezas.png"/>
+                                <Image Grid.Row="2" Grid.Column="2" Source="/resources/vinos.png"/>
+                                <Image Grid.Row="2" Grid.Column="3" Source="/resources/licores.png"/>
+                                <Image Grid.Row="2" Grid.Column="4" Source="/resources/agua.png"/>
+
                             </Grid>
                         </TabItem>
-                        <TabItem Name="tabMesas" Header="Mesas" Margin="-1,58,0,-58">
-                            <Grid x:Name="contenedorTabProyectos">
+                        <TabItem Name="tabInventario" Header="Inventario" Margin="-1,58,0,-58">
+                            <Grid x:Name="contenedorInventario">
                                 <Grid.ColumnDefinitions>
                                     <ColumnDefinition Width="*"/>
                                     <ColumnDefinition Width="Auto"/>
@@ -98,34 +172,14 @@
                                         <ColumnDefinition Width="*"/>
                                         <ColumnDefinition Width="*"/>
                                         <ColumnDefinition Width="*"/>
-                                        <ColumnDefinition Width="Auto"/>
-                                        <ColumnDefinition Width="Auto"/>
-                                        <ColumnDefinition Width="Auto"/>
+
                                     </Grid.ColumnDefinitions>
-                                    
+                                    <Button x:Name="addProducto" Content="Añadir Producto" Grid.Column="0" Width="130" HorizontalAlignment="Center" Height="20"/>
+                                    <Button Content="Modificar" Grid.Column="1" Width="130" HorizontalAlignment="Center" Height="20"/>
+                                    <Button Content="Eliminar" Grid.Column="2" Width="130" HorizontalAlignment="Center" Height="20"/>
 
                                 </Grid>
 
-                                <Grid x:Name="gridDatos" Grid.Column="1" Grid.Row="1">
-
-                                    <Grid.RowDefinitions>
-                                        <RowDefinition Height="*"/>
-                                        <RowDefinition Height="*"/>
-                                        <RowDefinition Height="*"/>
-                                        <RowDefinition Height="*"/>
-
-                                    </Grid.RowDefinitions>
-
-                                    <Label Content="Código Proyecto:" Margin="-5,0,0,0"/>
-                                    <TextBox x:Name="txtId" Height="18" Margin="0,29,0,11"/>
-                                    <Label Content="Nombre:" Grid.Row="1" Margin="-5,0,0,0"/>
-                                    <TextBox x:Name="txtNombre" Height="18" Grid.Row="1" Margin="0,29,0,11"/>
-                                    <Label Content="Fecha Inicio:" Grid.Row="2" Margin="-5,0,0,0"/>
-                                    <TextBox x:Name="txtFechaInicio" Height="18" Grid.Row="2" Margin="0,29,0,11"/>
-                                    <Label Content="Fecha Fin:" Grid.Row="3" Margin="-5,0,0,0"/>
-                                    <TextBox x:Name="txtFechaFin" Height="18" Grid.Row="3" Margin="0,29,0,11"/>
-
-                                </Grid>
                                 <Grid>
                                     <Grid.ColumnDefinitions>
                                         <ColumnDefinition Width="Auto"/>
@@ -133,8 +187,9 @@
                                         <ColumnDefinition Width="Auto"/>
                                         <ColumnDefinition Width="Auto"/>
                                     </Grid.ColumnDefinitions>
-                                    <Label Content="Proyectos" FontSize="20" Grid.Column="0" FontWeight="Bold" Margin="0,0,0,1" />
-                                    <TextBox x:Name="txtBuscar" Text="Buscar" Grid.Column="1" Margin="10,10,10,8"/>
+                                    <Button x:Name="btnSearch" Content="Buscar" Grid.Column="2" Height="21" Width="90"/>
+                                    <Label Content="Productos" FontSize="20" Grid.Column="0" FontWeight="Bold" Margin="0,0,0,1" />
+                                    <TextBox x:Name="txtBuscar" Text="Buscar producto" Grid.Column="1" Margin="10,10,10,8"/>
                                    
                                 </Grid>
 
@@ -142,25 +197,110 @@
                             </Grid>
                         </TabItem>
                         
-                        <TabItem Header="Camareros" Margin="-2,62,0,-57">
+                        <TabItem Header="Ventas" Margin="-2,62,0,-57">
                             <StackPanel>
-                                <Label Content="Camareros" FontSize="20" FontWeight="Bold"/>
-                                <Label Content="Datos de los camareros" FontSize="16"/>
+                                <Label Content="Ventas e Ingresos" FontSize="20" FontWeight="Bold"/>
+                                <Label Content="Ventas e ingresos" FontSize="16"/>
                             </StackPanel>
                         </TabItem>
                         
-                        <TabItem Header="Proveedores" Margin="-3,67,0,-65">
+                        <TabItem Header="Configuración" Margin="-3,67,0,-65">
                             <StackPanel>
-                                <Label Content="Proveedores" FontSize="20" FontWeight="Bold"/>
-                                <Label Content="Lista proveedores" FontSize="16"/>
+                                <Label Content="Configuración" FontSize="20" FontWeight="Bold"/>
+                                <TabControl>
+                                    <TabItem Header="General" >
+                                        <StackPanel>
+                                            <Label Content="General" FontSize="20" FontWeight="Bold"/>
+                                            <Label Content="Configuracion general" FontSize="16"/>
+                                        </StackPanel>
+                                    </TabItem>
+
+                                    <TabItem Header="Avanzado" >
+                                        <StackPanel>
+                                            <Label Content="Avanzado" FontSize="20" FontWeight="Bold"/>
+                                            <Label Content="Configuración avanzada" FontSize="16"/>
+                                        </StackPanel>
+                                    </TabItem>
+
+                                    <TabItem Header="Acerca de" >
+                                        <StackPanel>
+                                            <Label Content="Acerca de" FontSize="20" FontWeight="Bold"/>
+                                            <Label Content="TPV Alejandro" FontSize="16"/>
+                                        </StackPanel>
+                                    </TabItem>
+
+                                </TabControl>
                             </StackPanel>
                         </TabItem>
                     </TabControl>
                 </Grid>
             </Grid>
         </Grid>
-        
+
         <Grid x:Name="izquierda" Grid.Column="0">
+
+            <Grid.Resources>
+                <!-- Estilo para los botones dentro de este Grid -->
+                <Style TargetType="Button">
+                    <Setter Property="Background">
+                        <Setter.Value>
+                            <LinearGradientBrush StartPoint="0,0" EndPoint="0,1">
+                                <GradientStop Color="#6B8E23" Offset="0.0" />
+                                <!-- Verde oliva -->
+                                <GradientStop Color="#98FB98" Offset="1.0" />
+                                <!-- Verde claro -->
+                            </LinearGradientBrush>
+                        </Setter.Value>
+                    </Setter>
+                    <Setter Property="Foreground" Value="White" />
+                    <Setter Property="FontFamily" Value="Segoe UI" />
+                    <Setter Property="FontSize" Value="16" />
+                    <Setter Property="FontWeight" Value="Bold" />
+                    <Setter Property="Padding" Value="10,5" />
+                    <Setter Property="BorderBrush" Value="#4CAF50" />
+                    <Setter Property="BorderThickness" Value="1" />
+                    <Setter Property="HorizontalAlignment" Value="Center" />
+                    <Setter Property="VerticalAlignment" Value="Center" />
+                    <Setter Property="Template">
+                        <Setter.Value>
+                            <ControlTemplate TargetType="Button">
+                                <Grid>
+                                    <!-- Fondo redondeado con sombra -->
+                                    <Border x:Name="border" CornerRadius="20" Background="{TemplateBinding Background}" 
+                                        BorderBrush="{TemplateBinding BorderBrush}" 
+                                        BorderThickness="{TemplateBinding BorderThickness}">
+                                        <Border.Effect>
+                                            <DropShadowEffect Color="Gray" BlurRadius="10" ShadowDepth="3" />
+                                        </Border.Effect>
+                                        <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                    </Border>
+                                </Grid>
+                                <ControlTemplate.Triggers>
+                                    <!-- Cambio de fondo al pasar el mouse -->
+                                    <Trigger Property="IsMouseOver" Value="True">
+                                        <Setter Property="Background" TargetName="border">
+                                            <Setter.Value>
+                                                <LinearGradientBrush StartPoint="0,0" EndPoint="0,1">
+                                                    <GradientStop Color="#98FB98" Offset="0.0" />
+                                                    <GradientStop Color="#6B8E23" Offset="1.0" />
+                                                </LinearGradientBrush>
+                                            </Setter.Value>
+                                        </Setter>
+                                        <Setter Property="BorderBrush" Value="#76D275" />
+                                        <Setter Property="Cursor" Value="Hand" />
+                                    </Trigger>
+                                    <!-- Cambio de fondo al presionar -->
+                                    <Trigger Property="IsPressed" Value="True">
+                                        <Setter Property="Background" TargetName="border" Value="#4CAF50" />
+                                        <Setter Property="BorderBrush" Value="#388E3C" />
+                                    </Trigger>
+                                </ControlTemplate.Triggers>
+                            </ControlTemplate>
+                        </Setter.Value>
+                    </Setter>
+                </Style>
+            </Grid.Resources>
+
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="Auto"/>
             </Grid.ColumnDefinitions>
@@ -173,15 +313,12 @@
 
             <Grid x:Name="clienteTodo" Grid.Row="0" Grid.Column="0">
                 <Grid.RowDefinitions>
-
                     <RowDefinition Height="Auto"/>
                     <RowDefinition Height="*"/>
                     <RowDefinition Height="Auto"/>
-
                 </Grid.RowDefinitions>
 
-                <Grid x:Name="cliente" >
-
+                <Grid x:Name="cliente">
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="Auto"/>
                         <ColumnDefinition Width="Auto"/>
@@ -203,9 +340,7 @@
                         <TextBox Name="txtCodCliente" Grid.Row="5"/>
                     </Grid>
                     <Image Source="/resources/usuario.png" Width="65"/>
-
                 </Grid>
-
             </Grid>
 
             <Grid x:Name="clientesGrid" Grid.Row="1" Margin="0,10,0,0">
@@ -215,9 +350,9 @@
                     <RowDefinition Height="Auto"/>
                 </Grid.RowDefinitions>
 
-                <DataGrid x:Name="rowClientes" Grid.Row="0" Margin="7,0,0,0" AutoGenerateColumns="True" IsReadOnly="True"/>
+                <DataGrid x:Name="rowClientes" Grid.Row="0" Margin="7,0,0,0" AutoGenerateColumns="True" IsReadOnly="True" SelectionChanged="rowClientes_SelectionChanged"/>
 
-                <TextBox x:Name="txtSaldo" Grid.Row="1" Text="7.00" BorderBrush="Transparent" TextAlignment="Right" Margin="16,10,0,0"  Padding="10,10,0,0" FontSize="18" Height="50" Width="148"/>
+                <TextBox x:Name="txtSaldo" IsReadOnly="True" Grid.Row="1" Text="0.00" BorderBrush="Transparent" TextAlignment="Right" Margin="16,10,0,0"  Padding="10,10,0,0" FontSize="18" Height="50" Width="148"/>
 
                 <Grid x:Name="teclado" Grid.Row="2" Margin="15,0,0,20">
                     <Grid.ColumnDefinitions>
@@ -245,15 +380,13 @@
                     <Button x:Name="btn0" Content="0" Grid.Row="3" Grid.Column="1" Width="50" Height="50" FontSize="18"/>
                     <Button x:Name="btnBorrar" Content="C" Grid.Row="3" Grid.Column="2" Width="50" Height="50" FontSize="18"/>
                     <Button x:Name="btnPunto" Content="," Grid.Row="3" Grid.Column="0" Width="50" Height="50" FontSize="18"/>
-
                 </Grid>
-
             </Grid>
 
             <Grid x:Name="barra" Grid.Row="2" Margin="0,0,0,0">
-               
+                <Button Content="TICKET" Width="100" Height="30" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="10"/>
             </Grid>
-
         </Grid>
+
     </Grid>
 </Window>
