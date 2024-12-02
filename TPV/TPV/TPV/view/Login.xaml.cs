@@ -40,10 +40,6 @@ namespace TPV.view
                     mainWindow.Show();
                     this.Close();
                 }
-                else
-                {
-                    MessageBox.Show("Usuario incorrecto!", "Información", MessageBoxButton.OK, MessageBoxImage.Information);
-                }
             }
         }
     }
