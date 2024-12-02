@@ -1,17 +1,25 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Windows;
 using System.Windows.Threading;
+using TPV.domain;
+using TPV.persistence.manages;
 
 namespace TPV
 {
     public partial class MainWindow : Window
     {
         private DispatcherTimer timer;
+        private List<Clientes> listaClientes;
+        private ClientesManage clientesManage;
 
         public MainWindow()
         {
             InitializeComponent();
             InitializeTimer();
+            clientesManage = new ClientesManage();
+            listaClientes = clientesManage.LeerClientes();
+            dataClientes.ItemsSource = listaClientes;
         }
 
         private void InitializeTimer()
@@ -20,7 +28,6 @@ namespace TPV
             timer.Interval = TimeSpan.FromSeconds(1);
             timer.Tick += Timer_Tick;
             timer.Start();
-
         }
 
         private void Timer_Tick(object sender, EventArgs e)
@@ -28,8 +35,17 @@ namespace TPV
             Hora.Text = DateTime.Now.ToString("hh:mm:ss tt");
         }
 
-        private void rowClientes_SelectionChanged(object sender, System.Windows.Controls.SelectionChangedEventArgs e)
+        private void btnAñadir_Click(object sender, RoutedEventArgs e)
         {
+            string nombre = txtNombre.Text;
+            string email = txtCorreo.Text;
+            Clientes cliente = new Clientes(email, nombre);
+            clientesManage.InsertarCliente(cliente);
+
+            listaClientes.Clear();
+            listaClientes = clientesManage.LeerClientes();
+            dataClientes.ItemsSource = null;
+            dataClientes.ItemsSource = listaClientes;
 
         }
     }
