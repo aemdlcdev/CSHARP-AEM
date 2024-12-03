@@ -47,8 +47,7 @@ namespace TPV
             }
 
             Clientes cliente = new Clientes(email, nombre);
-
-
+            
             clientesManage.InsertarCliente(cliente);
 
             listaClientes.Clear();
