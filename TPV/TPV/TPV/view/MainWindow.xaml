@@ -81,8 +81,8 @@
                                             <Grid>
                                                 <!-- Fondo redondeado con sombra -->
                                                 <Border x:Name="border" CornerRadius="20" Background="{TemplateBinding Background}" 
-                                    BorderBrush="{TemplateBinding BorderBrush}" 
-                                    BorderThickness="{TemplateBinding BorderThickness}">
+                                                BorderBrush="{TemplateBinding BorderBrush}" 
+                                                BorderThickness="{TemplateBinding BorderThickness}">
                                                     <Border.Effect>
                                                         <DropShadowEffect Color="Gray" BlurRadius="10" ShadowDepth="3" />
                                                     </Border.Effect>
@@ -167,7 +167,7 @@
                                     <RowDefinition Height="Auto"/>
                                 </Grid.RowDefinitions>
 
-                                <Grid Name="botones"  Grid.Row="2">
+                                <Grid Name="botones"  Grid.Row="2" Margin="0,10,0,0">
                                     <Grid.ColumnDefinitions>
                                         <ColumnDefinition Width="*"/>
                                         <ColumnDefinition Width="*"/>
@@ -175,8 +175,8 @@
 
                                     </Grid.ColumnDefinitions>
                                     <Button x:Name="addProducto" Content="Añadir Producto" Grid.Column="0" Width="155" HorizontalAlignment="Center" Height="25"/>
-                                    <Button Content="Modificar" Grid.Column="1" Width="155" HorizontalAlignment="Center" Height="25"/>
-                                    <Button Content="Eliminar" Grid.Column="2" Width="155" HorizontalAlignment="Center" Height="25"/>
+                                    <Button x:Name="modProducto" Content="Modificar" Grid.Column="1" Width="155" HorizontalAlignment="Center" Height="25" Click="modProducto_Click"/>
+                                    <Button x:Name="delProducto" Content="Eliminar" Grid.Column="2" Width="155" HorizontalAlignment="Center" Height="25" Click="delProducto_Click"/>
 
                                 </Grid>
 
@@ -193,18 +193,56 @@
                                    
                                 </Grid>
 
-                                <DataGrid x:Name="dataGridView1" Grid.Row="1" Margin="10" AutoGenerateColumns="True" IsReadOnly="True"/>
+                                <DataGrid x:Name="dataInventario" Grid.Row="1" AutoGenerateColumns="False" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" 
+                                    CanUserResizeColumns="False" CanUserResizeRows="True" ColumnWidth="*" MinColumnWidth="20" IsReadOnly="True" SelectionChanged="dataInventario_SelectionChanged">
+                                    <DataGrid.Columns>
+                                        <DataGridTextColumn Header="Codigo Producto" Binding="{Binding idProducto}" Width="100"/>
+                                        <DataGridTextColumn Header="Nombre Producto" Binding="{Binding nombre}" Width="108"/>
+                                        <DataGridTextColumn Header="Alergias" Binding="{Binding alergias}" Width="108"/>
+                                        <DataGridTextColumn Header="Precio" Binding="{Binding precio}" Width="55"/>
+                                        <DataGridTextColumn Header="Cantidad disponible" Binding="{Binding cantidad}" Width="123"/>
+                                    </DataGrid.Columns>
+                                </DataGrid>
+
+                                <Grid Name="Datos" Grid.Column="1" Grid.Row="1" Margin="10,0,0,0">
+
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="Auto"/>
+                                        <RowDefinition Height="Auto"/>
+                                        <RowDefinition Height="Auto"/>
+                                        <RowDefinition Height="Auto"/>
+                                        <RowDefinition Height="Auto"/>
+                                        <RowDefinition Height="Auto"/>
+                                        <RowDefinition Height="Auto"/>
+                                        <RowDefinition Height="Auto"/>
+                                    </Grid.RowDefinitions>
+
+                                    <Label Content="Nombre:" Grid.Row="0" />
+                                    <TextBox Name="txtNombreProducto" Grid.Row="1" Width="100"/>
+                                    <Label Content="Alergias:" Grid.Row="2"  />
+                                    <TextBox Name="txtAlergias" Grid.Row="3" Width="100"/>
+                                    <Label Content="Precio:" Grid.Row="4"  />
+                                    <TextBox Name="txtPrecio" Grid.Row="5" Width="100"/>
+                                    <Label Content="Cantidad:" Grid.Row="6"/>
+                                    <TextBox Name="txtCantidad" Grid.Row="7" Width="100"/>
+                                    <TextBlock Name="txtIdProducto" Visibility="Hidden"/>
+
+                                </Grid>
+
                             </Grid>
+
+                            
+                            
                         </TabItem>
-                        
-                        <TabItem Header="Ventas" Margin="-2,62,0,-57">
+
+                        <TabItem Name="tabVentas" Header ="Ventas" Margin="-2,62,0,-57">
                             <StackPanel>
                                 <Label Content="Ventas e Ingresos" FontSize="20" FontWeight="Bold"/>
                                 <Label Content="Ventas e ingresos" FontSize="16"/>
                             </StackPanel>
                         </TabItem>
                         
-                        <TabItem Header="Configuración" Margin="-3,67,0,-65">
+                        <TabItem Name="tabConfiguracion" Header="Configuración" Margin="-3,67,0,-65">
                             <StackPanel>
                                 <Label Content="Configuración" FontSize="20" FontWeight="Bold"/>
                                 <TabControl>

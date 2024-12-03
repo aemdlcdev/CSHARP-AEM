@@ -22,26 +22,30 @@ namespace TPV.view
     public partial class Login : Window
     {
         private List<Usuario> listaUsuarios;
-
+        private Usuario usuario;
         public Login()
         {
             InitializeComponent();
-            UsuarioManage usuarioManage = new UsuarioManage();
-            listaUsuarios = usuarioManage.LeerUsuarios();
+            usuario = new Usuario();
+            listaUsuarios = usuario.LeerUsuarios();
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            for (int i = 0; i < listaUsuarios.Count; i++)
+            var usuarioEncontrado = listaUsuarios.FirstOrDefault(u => u.nombre == txtUsername.Text && u.password == txtPassword.Password);
+
+            if (usuarioEncontrado != null)
             {
-                if (listaUsuarios[i].nombre == txtUsername.Text && listaUsuarios[i].password == txtPassword.Password)
-                {
-                    MessageBox.Show("Usuario correcto!" , "Información", MessageBoxButton.OK, MessageBoxImage.Information);
-                    MainWindow mainWindow = new MainWindow();
-                    mainWindow.Show();
-                    this.Close();
-                }
+                MessageBox.Show("Usuario correcto!", "Información", MessageBoxButton.OK, MessageBoxImage.Information);
+                MainWindow mainWindow = new MainWindow(usuarioEncontrado.idRol == 1 ? "admin" : "user"); // Si el idRol es 1, es admin, sino, es user
+                mainWindow.Show();
+                this.Close();
+            }
+            else
+            {
+                MessageBox.Show("Usuario o contraseña incorrectos", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
             }
         }
     }
 }
+
