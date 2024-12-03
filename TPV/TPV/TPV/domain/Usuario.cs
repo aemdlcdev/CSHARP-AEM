@@ -9,7 +9,7 @@ namespace TPV.domain
 {
     internal class Usuario
     {
-        private int idUsuario { get; set; } 
+        public int idUsuario { get; set; } 
         public String nombre { get; set; }
         public String password { get; set; }
 

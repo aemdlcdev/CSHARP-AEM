@@ -174,7 +174,7 @@
                                         <ColumnDefinition Width="*"/>
 
                                     </Grid.ColumnDefinitions>
-                                    <Button x:Name="addProducto" Content="Añadir Producto" Grid.Column="0" Width="155" HorizontalAlignment="Center" Height="25"/>
+                                    <Button x:Name="addProducto" Content="Añadir Producto" Grid.Column="0" Width="155" HorizontalAlignment="Center" Height="25" Click="addProducto_Click"/>
                                     <Button x:Name="modProducto" Content="Modificar" Grid.Column="1" Width="155" HorizontalAlignment="Center" Height="25" Click="modProducto_Click"/>
                                     <Button x:Name="delProducto" Content="Eliminar" Grid.Column="2" Width="155" HorizontalAlignment="Center" Height="25" Click="delProducto_Click"/>
 
@@ -246,11 +246,81 @@
                             <StackPanel>
                                 <Label Content="Configuración" FontSize="20" FontWeight="Bold"/>
                                 <TabControl>
-                                    <TabItem Header="General" >
-                                        <StackPanel>
-                                            <Label Content="General" FontSize="20" FontWeight="Bold"/>
-                                            <Label Content="Configuracion general" FontSize="16"/>
-                                        </StackPanel>
+                                    <TabItem Header="Personal" >
+                                        <Grid x:Name="contenedorUsers">
+                                            <Grid.ColumnDefinitions>
+                                                <ColumnDefinition Width="*"/>
+                                                <ColumnDefinition Width="Auto"/>
+                                            </Grid.ColumnDefinitions>
+                                            <Grid.RowDefinitions>
+                                                <RowDefinition Height="Auto"/>
+                                                <RowDefinition Height="*"/>
+                                                <RowDefinition Height="Auto"/>
+                                            </Grid.RowDefinitions>
+
+                                            <Grid Name="botonesUsers"  Grid.Row="2" Margin="0,10,0,0">
+                                                <Grid.ColumnDefinitions>
+                                                    <ColumnDefinition Width="*"/>
+                                                    <ColumnDefinition Width="*"/>
+                                                    <ColumnDefinition Width="*"/>
+
+                                                </Grid.ColumnDefinitions>
+                                                <Button x:Name="addUser" Content="Añadir Usuario" Grid.Column="0" Width="155" HorizontalAlignment="Center" Height="25" />
+                                                <Button x:Name="modUser" Content="Modificar" Grid.Column="1" Width="155" HorizontalAlignment="Center" Height="25" />
+                                                <Button x:Name="delUser" Content="Eliminar" Grid.Column="2" Width="155" HorizontalAlignment="Center" Height="25" />
+
+                                            </Grid>
+
+                                            <Grid>
+                                                <Grid.ColumnDefinitions>
+                                                    <ColumnDefinition Width="Auto"/>
+                                                    <ColumnDefinition Width="*"/>
+                                                    <ColumnDefinition Width="Auto"/>
+                                                    <ColumnDefinition Width="Auto"/>
+                                                </Grid.ColumnDefinitions>
+                                               
+                                            </Grid>
+
+                                            <DataGrid x:Name="dataUsers" Grid.Row="1" AutoGenerateColumns="False" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" 
+        CanUserResizeColumns="False" CanUserResizeRows="True" ColumnWidth="*" MinColumnWidth="20" IsReadOnly="True" SelectionChanged="dataInventario_SelectionChanged">
+                                                <DataGrid.Columns>
+                                                    <DataGridTextColumn Header="Codigo Usuario" Binding="{Binding idUsuario}" Width="100"/>
+                                                    <DataGridTextColumn Header="Nombre Usuario" Binding="{Binding nombre}" Width="108"/>
+                                                    <DataGridTextColumn Header="Contraseña Usuario" Binding="{Binding password}" Width="118"/>
+                                                    <DataGridTextColumn Header="ID Rol (1 admin, 2 user)" Binding="{Binding idRol}" Width="135"/>
+                                                </DataGrid.Columns>
+                                            </DataGrid>
+
+                                            <Grid Name="DatosUser" Grid.Column="1" Grid.Row="1" Margin="10,0,0,0">
+
+                                                <Grid.RowDefinitions>
+                                                    <RowDefinition Height="Auto"/>
+                                                    <RowDefinition Height="Auto"/>
+                                                    <RowDefinition Height="Auto"/>
+                                                    <RowDefinition Height="Auto"/>
+                                                    <RowDefinition Height="Auto"/>
+                                                    <RowDefinition Height="Auto"/>
+                                                    <RowDefinition Height="Auto"/>
+                                                    <RowDefinition Height="Auto"/>
+                                                </Grid.RowDefinitions>
+
+                                                <Label Content="Id Usuario:" Grid.Row="0" />
+                                                <TextBox Name="txtIdUser" Grid.Row="1" Width="100"/>
+                                                <Label Content="Nombre:" Grid.Row="2"  />
+                                                <TextBox Name="txtNombreUser" Grid.Row="3" Width="100"/>
+                                                <Label Content="ID Rol:" Grid.Row="6"  />
+                                                <TextBox Name="idRol" Grid.Row="7" Width="100"/>
+                                                <Label Content="Contraseña:" Grid.Row="4"  />
+                                                <TextBox Name="txtPassword" Grid.Row="5" Width="100"/>
+
+
+                                            </Grid>
+
+                                        </Grid>
+
+
+
+
                                     </TabItem>
 
                                     <TabItem Header="Avanzado" >

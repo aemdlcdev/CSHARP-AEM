@@ -45,6 +45,11 @@ namespace TPV.domain
             return productosManage.LeerProductos();
         }
 
+        public void InsertarProducto(Productos producto)
+        {
+            productosManage = new ProductosManage();
+            productosManage.InsertarProducto(producto);
+        }
         public void ModificarProducto(Productos producto)
         {
             productosManage = new ProductosManage();

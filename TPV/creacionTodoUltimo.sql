@@ -1,1 +1,1 @@
-select * from tpv.productos
+select * from tpv.usuario

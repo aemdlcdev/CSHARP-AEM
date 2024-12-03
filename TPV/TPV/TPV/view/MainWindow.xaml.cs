@@ -14,6 +14,9 @@ namespace TPV
         private Clientes clienteInstance;
         private Productos producto;
         private List<Productos> listaProductos;
+        private Usuario usuario;
+        private List<Usuario> listaUsuarios;
+
         private string userType;
 
         public MainWindow(string userType)
@@ -25,6 +28,9 @@ namespace TPV
             producto = new Productos();
             listaClientes = clienteInstance.LeerClientes();
             listaProductos = producto.LeerProductos();
+            usuario = new Usuario();
+            listaUsuarios = usuario.LeerUsuarios();
+            dataUsers.ItemsSource = listaUsuarios;
             dataClientes.ItemsSource = listaClientes;
             dataInventario.ItemsSource = listaProductos;
 
@@ -69,7 +75,7 @@ namespace TPV
             }
 
             Clientes clienteNuevo = new Clientes(email, nombre);
-
+            clienteNuevo.InsertarCliente(clienteNuevo);
             listaClientes.Clear();
             listaClientes = clienteNuevo.LeerClientes();
             dataClientes.ItemsSource = null;
@@ -129,6 +135,16 @@ namespace TPV
                 dataInventario.ItemsSource = null;
                 dataInventario.ItemsSource = listaProductos;
             }
+        }
+
+        private void addProducto_Click(object sender, RoutedEventArgs e)
+        {
+            producto = new Productos(txtNombreProducto.Text, txtAlergias.Text, double.Parse(txtPrecio.Text), int.Parse(txtCantidad.Text));
+            producto.InsertarProducto(producto);
+            listaProductos.Clear();
+            listaProductos = producto.LeerProductos();
+            dataInventario.ItemsSource = null;
+            dataInventario.ItemsSource = listaProductos;
         }
     }
 }
