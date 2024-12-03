@@ -39,7 +39,16 @@ namespace TPV
         {
             string nombre = txtNombre.Text;
             string email = txtCorreo.Text;
+
+            if(String.IsNullOrEmpty(nombre) || String.IsNullOrEmpty(email))
+            {
+                MessageBox.Show("Por favor, rellene todos los campos!", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                return;
+            }
+
             Clientes cliente = new Clientes(email, nombre);
+
+
             clientesManage.InsertarCliente(cliente);
 
             listaClientes.Clear();

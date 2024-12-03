@@ -174,9 +174,9 @@
                                         <ColumnDefinition Width="*"/>
 
                                     </Grid.ColumnDefinitions>
-                                    <Button x:Name="addProducto" Content="Añadir Producto" Grid.Column="0" Width="130" HorizontalAlignment="Center" Height="20"/>
-                                    <Button Content="Modificar" Grid.Column="1" Width="130" HorizontalAlignment="Center" Height="20"/>
-                                    <Button Content="Eliminar" Grid.Column="2" Width="130" HorizontalAlignment="Center" Height="20"/>
+                                    <Button x:Name="addProducto" Content="Añadir Producto" Grid.Column="0" Width="155" HorizontalAlignment="Center" Height="25"/>
+                                    <Button Content="Modificar" Grid.Column="1" Width="155" HorizontalAlignment="Center" Height="25"/>
+                                    <Button Content="Eliminar" Grid.Column="2" Width="155" HorizontalAlignment="Center" Height="25"/>
 
                                 </Grid>
 
