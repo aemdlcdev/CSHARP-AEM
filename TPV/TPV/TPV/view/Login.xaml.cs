@@ -37,7 +37,7 @@ namespace TPV.view
             if (usuarioEncontrado != null)
             {
                 MessageBox.Show("Usuario correcto!", "Información", MessageBoxButton.OK, MessageBoxImage.Information);
-                MainWindow mainWindow = new MainWindow(usuarioEncontrado.idRol == 1 ? "admin" : "user"); // Si el idRol es 1, es admin, sino, es user
+                MainWindow mainWindow = new MainWindow(usuarioEncontrado.idRol == 1 ? "jefe" : "user"); // Si el idRol es 1, es admin, sino, es user
                 mainWindow.Show();
                 this.Close();
             }

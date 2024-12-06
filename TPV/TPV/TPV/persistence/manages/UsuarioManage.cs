@@ -37,5 +37,11 @@ namespace TPV.persistence.manages
             return listaUsuarios;
         }
 
+        public void InsertarUsuario(Usuario usuario)
+        {
+            int rol = 2;
+            dbBroker.modificar("INSERT INTO tpv.usuario (nusuario, password, idRol) VALUES ('" + usuario.nombre + "', '" + usuario.password + "', " + rol + ")");
+        }
+
     }
 }

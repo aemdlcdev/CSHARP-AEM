@@ -9,7 +9,7 @@ namespace TPV.domain
 {
     internal class Usuario
     {
-        public int idUsuario { get; set; } 
+        public int idUsuario { get; set; }
         public String nombre { get; set; }
         public String password { get; set; }
 
@@ -24,6 +24,12 @@ namespace TPV.domain
             this.idRol = idRol;
         }
 
+        public Usuario(string nombre, string password)
+        {
+            this.nombre = nombre;
+            this.password = password;
+        }
+
         public Usuario()
         {
         }
@@ -34,5 +40,11 @@ namespace TPV.domain
             return usuarioManage.LeerUsuarios();
         }
 
+        public void InsertarUsuario(Usuario usuario)
+        {
+            usuarioManage = new UsuarioManage();
+            usuarioManage.InsertarUsuario(usuario);
+
+        }
     }
 }

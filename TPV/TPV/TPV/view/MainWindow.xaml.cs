@@ -111,6 +111,7 @@ namespace TPV
             listaProductos = producto.LeerProductos();
             dataInventario.ItemsSource = null;
             dataInventario.ItemsSource = listaProductos;
+            MessageBox.Show("Producto modificado correctamente!", "Información", MessageBoxButton.OK, MessageBoxImage.Information);
         }
 
         private void delProducto_Click(object sender, RoutedEventArgs e)
@@ -141,6 +142,37 @@ namespace TPV
         {
             producto = new Productos(txtNombreProducto.Text, txtAlergias.Text, double.Parse(txtPrecio.Text), int.Parse(txtCantidad.Text));
             producto.InsertarProducto(producto);
+            listaProductos.Clear();
+            listaProductos = producto.LeerProductos();
+            dataInventario.ItemsSource = null;
+            dataInventario.ItemsSource = listaProductos;
+        }
+
+        private void btnSearch_Click(object sender, RoutedEventArgs e)
+        {
+            string nombre = txtBuscar.Text;
+            var productos = listaProductos.FindAll(p => p.nombre.Contains(nombre));
+            dataInventario.ItemsSource = null;
+            dataInventario.ItemsSource = productos;
+        }
+
+        private void addUser_Click(object sender, RoutedEventArgs e)
+        {
+            string nombre = txtNombreUser.Text;
+            string password = txtPassword.Text;
+
+            Usuario usuario = new Usuario(nombre, password);
+            usuario.InsertarUsuario(usuario);
+
+            listaUsuarios.Clear();
+            listaUsuarios = usuario.LeerUsuarios();
+            dataUsers.ItemsSource = null;
+            dataUsers.ItemsSource = listaUsuarios;
+
+        }
+
+        private void btnMostrarTodos_Click(object sender, RoutedEventArgs e)
+        {
             listaProductos.Clear();
             listaProductos = producto.LeerProductos();
             dataInventario.ItemsSource = null;
