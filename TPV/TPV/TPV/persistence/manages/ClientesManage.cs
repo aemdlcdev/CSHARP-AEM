@@ -26,11 +26,11 @@ namespace TPV.persistence.manages
 
             Clientes cliente = null;
 
-            List<Object> aux = DBBroker.obtenerAgente().leer("SELECT codcliente, cnombre FROM tpv.clientes");
+            List<Object> aux = DBBroker.obtenerAgente().leer("SELECT codcliente, cnombre, activo FROM tpv.clientes WHERE activo = 1");
 
             foreach (List<Object> c in aux)
             {
-                cliente = new Clientes(int.Parse(c[0].ToString()), c[1].ToString());
+                cliente = new Clientes(int.Parse(c[0].ToString()), c[1].ToString(), int.Parse(c[0].ToString()));
 
                 this.listaClientes.Add(cliente);
             }
@@ -43,6 +43,12 @@ namespace TPV.persistence.manages
             DBBroker.obtenerAgente().modificar(sql);
         }
 
+        public void ModificarCliente(Clientes cliente)
+        {
+            int noActivo = 0;
+            string sql = "UPDATE tpv.clientes SET activo = " + noActivo + " WHERE codcliente = " + cliente.codCliente;
+            DBBroker.obtenerAgente().modificar(sql);
+        }
 
     }
 }

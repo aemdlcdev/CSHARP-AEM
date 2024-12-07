@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Data;
+using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -14,11 +15,13 @@ namespace TPV.persistence.manages
         private List<Ticket> listaTickets { get; set; }
 
         private DBBroker dbBroker = DBBroker.obtenerAgente();
+        private NumberFormatInfo nfi = new NumberFormatInfo();
 
         public TicketsManage()
         {
             dataTable = new DataTable();
             listaTickets = new List<Ticket>();
+            nfi.NumberDecimalSeparator = ".";
         }
 
         public List<Ticket> LeerTickets()
@@ -39,7 +42,7 @@ namespace TPV.persistence.manages
 
         public void InsertarTicket(Ticket ticket)
         {
-            DBBroker.obtenerAgente().modificar("INSERT INTO tpv.ticket (idticket, cosuminiciones, codcliente) VALUES (" + ticket.idTicket + ", '" + ticket.cosumiciones + "', '" + ticket.importe +")");
+            DBBroker.obtenerAgente().modificar("INSERT INTO tpv.ticket (consumiciones, importe, codcliente) VALUES ('" + ticket.cosumiciones + "', " + ticket.importe.ToString(nfi) + ", " + ticket.codCliente + ")");
         }
 
     }

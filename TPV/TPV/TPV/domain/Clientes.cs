@@ -14,6 +14,8 @@ namespace TPV.domain
         public string email { get; set; }
         public string cnombre { get; set; }
         public int idTicket { get; set; }
+        
+        public int activo { get; set; }
 
         private ClientesManage clientesManage;
         public Clientes(int codCliente, string email, string cnombre, int idTicket)
@@ -24,16 +26,17 @@ namespace TPV.domain
             this.idTicket = idTicket;
         }
 
-        public Clientes(int codCliente, string nombre)
+        public Clientes(int codCliente, string nombre, int activo)
         { 
             this.codCliente = codCliente;
             this.cnombre = nombre;
+            this.activo = activo;
         }
 
-        public Clientes(string nombre, string email)
+        public Clientes(string email, string nombre)
         {
-            this.cnombre = nombre;
             this.email = email;
+            this.cnombre = nombre;
         }
 
         public Clientes() 
@@ -51,6 +54,12 @@ namespace TPV.domain
         {
             clientesManage = new ClientesManage();
             clientesManage.InsertarCliente(cliente);
+        }
+
+        public void ModificarCliente(Clientes cliente)
+        {
+            clientesManage = new ClientesManage();
+            clientesManage.ModificarCliente(cliente);
         }
 
     }

@@ -31,7 +31,7 @@ namespace TPV.persistence.manages
             List<Object> aux = DBBroker.obtenerAgente().leer("SELECT * FROM tpv.productos");
             foreach (List<Object> c in aux)
             {
-                producto = new Productos(int.Parse(c[0].ToString()), c[1].ToString(), c[2].ToString(), double.Parse(c[3].ToString()), int.Parse(c[4].ToString()));
+                producto = new Productos(int.Parse(c[0].ToString()), c[1].ToString(), c[2].ToString(), double.Parse(c[3].ToString()), int.Parse(c[4].ToString()), c[5].ToString());
                 this.listaProductos.Add(producto);
             }
             return listaProductos;

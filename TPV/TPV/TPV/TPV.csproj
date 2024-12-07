@@ -108,6 +108,7 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="domain\Clientes.cs" />
+    <Compile Include="domain\CuentaCliente.cs" />
     <Compile Include="domain\Productos.cs" />
     <Compile Include="domain\Ticket.cs" />
     <Compile Include="domain\Usuario.cs" />
@@ -126,6 +127,10 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="themes\DarkTheme.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="view\Login.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>

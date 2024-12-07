@@ -17,6 +17,27 @@ namespace TPV.domain
 
         private ProductosManage productosManage;
 
+        public string Imagen { get; set; }
+
+        public Productos(int idProducto, string nombre, string alergias, double precio, int cantidad, string imagen)
+        {
+            this.idProducto = idProducto;
+            this.nombre = nombre;
+            this.alergias = alergias;
+            this.precio = precio;
+            this.cantidad = cantidad;
+            this.Imagen = imagen;
+        }
+
+        public Productos(string nombre, string alergias, double precio, int cantidad, string imagen)
+        {
+            this.nombre = nombre;
+            this.alergias = alergias;
+            this.precio = precio;
+            this.cantidad = cantidad;
+            this.Imagen = imagen;
+        }
+
         public Productos(int idProducto, String nombre, String alergias, double precio, int cantidad)
         {
             this.idProducto = idProducto;

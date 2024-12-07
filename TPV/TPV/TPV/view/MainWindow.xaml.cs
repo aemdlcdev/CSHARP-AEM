@@ -1,6 +1,11 @@
-﻿using System;
+﻿using Google.Protobuf.WellKnownTypes;
+using System;
 using System.Collections.Generic;
+using System.Linq;
+using System.Text;
 using System.Windows;
+using System.Windows.Controls;
+using System.Windows.Input;
 using System.Windows.Threading;
 using TPV.domain;
 using TPV.persistence.manages;
@@ -16,6 +21,8 @@ namespace TPV
         private List<Productos> listaProductos;
         private Usuario usuario;
         private List<Usuario> listaUsuarios;
+        private CuentaCliente cuentaCliente;
+        private Dictionary<int, CuentaCliente> cuentasClientes; // Diccionario para almacenar las cuentas de los clientes
 
         private string userType;
 
@@ -24,18 +31,27 @@ namespace TPV
             InitializeComponent();
             this.userType = userType;
             InitializeTimer();
+
             clienteInstance = new Clientes();
             producto = new Productos();
+
             listaClientes = clienteInstance.LeerClientes();
+
+            dataClientes.ItemsSource = listaClientes;
+
             listaProductos = producto.LeerProductos();
+
             usuario = new Usuario();
             listaUsuarios = usuario.LeerUsuarios();
+
             dataUsers.ItemsSource = listaUsuarios;
-            dataClientes.ItemsSource = listaClientes;
             dataInventario.ItemsSource = listaProductos;
+
+            cuentasClientes = new Dictionary<int, CuentaCliente>();
 
             ConfigureUIBasedOnUserType(); // Depende del tipo de usuario, se mostrarán unas opciones u otras
         }
+
 
         private void InitializeTimer()
         {
@@ -74,15 +90,13 @@ namespace TPV
                 return;
             }
 
-            Clientes clienteNuevo = new Clientes(email, nombre);
+            Clientes clienteNuevo = new Clientes(email, nombre); // Asegúrate de que los parámetros estén en el orden correcto
             clienteNuevo.InsertarCliente(clienteNuevo);
-            listaClientes.Clear();
-            listaClientes = clienteNuevo.LeerClientes();
-            dataClientes.ItemsSource = null;
-            dataClientes.ItemsSource = listaClientes;
+
+            RefreshDataClientes();
         }
 
-        private void dataInventario_SelectionChanged(object sender, System.Windows.Controls.SelectionChangedEventArgs e)
+        private void dataInventario_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             Productos producto = (Productos)dataInventario.SelectedItem;
 
@@ -168,7 +182,6 @@ namespace TPV
             listaUsuarios = usuario.LeerUsuarios();
             dataUsers.ItemsSource = null;
             dataUsers.ItemsSource = listaUsuarios;
-
         }
 
         private void btnMostrarTodos_Click(object sender, RoutedEventArgs e)
@@ -178,6 +191,140 @@ namespace TPV
             dataInventario.ItemsSource = null;
             dataInventario.ItemsSource = listaProductos;
         }
+
+        private void dataClientes_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            Clientes clienteSeleccionado = (Clientes)dataClientes.SelectedItem;
+
+            if (clienteSeleccionado != null)
+            {
+                // Guardar la cuenta actual en el diccionario
+                if (cuentaCliente != null)
+                {
+                    cuentasClientes[cuentaCliente.cliente.codCliente] = cuentaCliente;
+                }
+
+                // Recuperar la cuenta del cliente seleccionado o crear una nueva si no existe
+                if (cuentasClientes.TryGetValue(clienteSeleccionado.codCliente, out CuentaCliente cuenta))
+                {
+                    cuentaCliente = cuenta;
+                }
+                else
+                {
+                    cuentaCliente = new CuentaCliente(clienteSeleccionado);
+                }
+
+                txtSaldo.Text = cuentaCliente.Total.ToString("C");
+            }
+        }
+
+        private void Image_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
+        {
+            if (cuentaCliente == null)
+            {
+                MessageBox.Show("Por favor, seleccione un cliente primero.", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                return;
+            }
+
+            Image image = sender as Image;
+
+            if (image != null)
+            {
+                // Obtener la ruta de la imagen
+                string productoNombre = System.IO.Path.GetFileName(image.Source.ToString());
+
+                // Buscar el producto correspondiente
+                Productos productoSeleccionado = listaProductos.FirstOrDefault(p => System.IO.Path.GetFileName(p.Imagen) == productoNombre);
+
+                if (productoSeleccionado != null)
+                {
+                    cuentaCliente.AgregarProducto(productoSeleccionado);
+                    MessageBox.Show($"Producto {productoSeleccionado.nombre} agregado a la cuenta del cliente {cuentaCliente.cliente.cnombre}.", "Información", MessageBoxButton.OK, MessageBoxImage.Information);
+
+                    // Actualizar el saldo en txtSaldo
+                    txtSaldo.Text = cuentaCliente.Total.ToString("C");
+                }
+                else
+                {
+                    MessageBox.Show("Producto no encontrado.", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                }
+            }
+        }
+
+        private void chkDark_Checked(object sender, RoutedEventArgs e)
+        {
+            ChangeTheme("Dark");
+        }
+
+        private void chkDark_Unchecked(object sender, RoutedEventArgs e)
+        {
+            ChangeTheme("Dark");
+        }
+
+        private void ChangeTheme(string theme)
+        {
+            ResourceDictionary newTheme = new ResourceDictionary();
+            switch (theme)
+            {
+                case "Dark":
+                    newTheme.Source = new Uri("/themes/DarkTheme.xaml", UriKind.Relative);
+                    break;
+                case "Light":
+                    newTheme.Source = new Uri("LightTheme.xaml", UriKind.Relative);
+                    break;
+            }
+
+            Application.Current.Resources.MergedDictionaries.Clear();
+            Application.Current.Resources.MergedDictionaries.Add(newTheme);
+        }
+
+        private void txtNombre_TextChanged(object sender, TextChangedEventArgs e)
+        {
+
+        }
+
+        private void btnTicket_Click(object sender, RoutedEventArgs e)
+        {
+            if (cuentaCliente == null)
+            {
+                MessageBox.Show("Por favor, seleccione un cliente primero.", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                return;
+            }
+
+            StringBuilder sb = new StringBuilder();
+
+            List<string> consumiciones = cuentaCliente.consumiciones();
+
+            foreach (string c in consumiciones)
+            {
+                sb.Append(c + "\n");
+            }
+
+            int idCliente = cuentaCliente.cliente.codCliente;
+
+            Ticket ticket = new Ticket(sb.ToString(), cuentaCliente.Total, idCliente);
+            ticket.InsertarTicket(ticket);
+
+            txtSaldo.Text = "";
+
+            cuentaCliente.cliente.ModificarCliente(cuentaCliente.cliente);
+
+            // Refrescar la lista de clientes
+            RefreshDataClientes();
+
+            MessageBox.Show("Ticket generado correctamente.", "Información", MessageBoxButton.OK, MessageBoxImage.Information);
+        }
+
+
+
+        private void RefreshDataClientes()
+        {
+            listaClientes.Clear();
+            listaClientes = clienteInstance.LeerClientes();
+            dataClientes.ItemsSource = null;
+            dataClientes.ItemsSource = listaClientes;
+        }
+
     }
 }
 
