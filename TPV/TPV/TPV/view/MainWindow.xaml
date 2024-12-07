@@ -512,7 +512,7 @@
                         <Label Name="lblCorreo" Content="Correo:" Grid.Row="2"  />
                         <TextBox Name="txtCorreo" Grid.Row="3" Width="100"/>
 
-                        <Button Name="btnAñadir" Content="Añadir" Grid.Row="4" Width="100" Click="btnAñadir_Click" VerticalAlignment="Bottom"/>
+                        <Button Name="btnAñadir" Content="Añadir" Grid.Row="4" Width="100" Click="btnAñadir_Click" VerticalAlignment="Bottom" Margin="0,10,0,0"/>
                     </Grid>
                     <Image Source="/resources/usuario.png" Width="65"/>
                 </Grid>
@@ -533,7 +533,7 @@
                     </DataGrid.Columns>
                 </DataGrid>
 
-                <TextBox x:Name="txtSaldo" IsReadOnly="True" Grid.Row="1" BorderBrush="Transparent" TextAlignment="Right" Margin="16,10,0,0"  Padding="10,10,0,0" FontSize="18" Height="50" Width="148"/>
+                <TextBox x:Name="txtSaldo" IsReadOnly="True" Grid.Row="1" BorderBrush="Transparent" TextAlignment="Right" Margin="16,10,0,10"  Padding="10,10,0,0" FontSize="18" Height="50" Width="148"/>
 
                 <Grid x:Name="teclado" Grid.Row="2" Margin="15,0,0,20">
                     <Grid.ColumnDefinitions>
@@ -547,20 +547,28 @@
                         <RowDefinition Height="Auto"/>
                         <RowDefinition Height="Auto"/>
                         <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
                     </Grid.RowDefinitions>
 
-                    <Button x:Name="btn1" Content="1" Grid.Row="0" Grid.Column="0" Width="50" Height="50" FontSize="18"/>
-                    <Button x:Name="btn2" Content="2" Grid.Row="0" Grid.Column="1" Width="50" Height="50" FontSize="18"/>
-                    <Button x:Name="btn3" Content="3" Grid.Row="0" Grid.Column="2" Width="50" Height="50" FontSize="18"/>
-                    <Button x:Name="btn4" Content="4" Grid.Row="1" Grid.Column="0" Width="50" Height="50" FontSize="18"/>
-                    <Button x:Name="btn5" Content="5" Grid.Row="1" Grid.Column="1" Width="50" Height="50" FontSize="18"/>
-                    <Button x:Name="btn6" Content="6" Grid.Row="1" Grid.Column="2" Width="50" Height="50" FontSize="18"/>
-                    <Button x:Name="btn7" Content="7" Grid.Row="2" Grid.Column="0" Width="50" Height="50" FontSize="18"/>
-                    <Button x:Name="btn8" Content="8" Grid.Row="2" Grid.Column="1" Width="50" Height="50" FontSize="18"/>
-                    <Button x:Name="btn9" Content="9" Grid.Row="2" Grid.Column="2" Width="50" Height="50" FontSize="18"/>
-                    <Button x:Name="btn0" Content="0" Grid.Row="3" Grid.Column="1" Width="50" Height="50" FontSize="18"/>
-                    <Button x:Name="btnBorrar" Content="C" Grid.Row="3" Grid.Column="2" Width="50" Height="50" FontSize="18"/>
-                    <Button x:Name="btnPunto" Content="," Grid.Row="3" Grid.Column="0" Width="50" Height="50" FontSize="18"/>
+                    <Button Content="7" Grid.Row="1" Grid.Column="0" Click="Button_Click" Width="50" Height="50" FontSize="18"/>
+                    <Button Content="8" Grid.Row="1" Grid.Column="1" Click="Button_Click" Width="50" Height="50" FontSize="18"/>
+                    <Button Content="9" Grid.Row="1" Grid.Column="2" Click="Button_Click" Width="50" Height="50" FontSize="18"/>
+                    <Button Content="/" Grid.Row="1" Grid.Column="3" Click="Button_Click" Width="50" Height="50" FontSize="18"/>
+
+                    <Button Content="4" Grid.Row="2" Grid.Column="0" Click="Button_Click" Width="50" Height="50" FontSize="18"/>
+                    <Button Content="5" Grid.Row="2" Grid.Column="1" Click="Button_Click" Width="50" Height="50" FontSize="18"/>
+                    <Button Content="6" Grid.Row="2" Grid.Column="2" Click="Button_Click" Width="50" Height="50" FontSize="18"/>
+                    <Button Content="*" Grid.Row="2" Grid.Column="3" Click="Button_Click" Width="50" Height="50" FontSize="18"/>
+
+                    <Button Content="1" Grid.Row="3" Grid.Column="0" Click="Button_Click" Width="50" Height="50" FontSize="18"/>
+                    <Button Content="2" Grid.Row="3" Grid.Column="1" Click="Button_Click" Width="50" Height="50" FontSize="18"/>
+                    <Button Content="3" Grid.Row="3" Grid.Column="2" Click="Button_Click" Width="50" Height="50" FontSize="18"/>
+                    <Button Content="-" Grid.Row="3" Grid.Column="3" Click="Button_Click" Width="50" Height="50" FontSize="18"/>
+
+                    <Button Content="0" Grid.Row="4" Grid.Column="0" Click="Button_Click" Width="50" Height="50" FontSize="18"/>
+                    <Button Content="." Grid.Row="4" Grid.Column="1" Click="Button_Click" Width="50" Height="50" FontSize="18"/>
+                    <Button Content="=" Grid.Row="4" Grid.Column="2" Click="Button_Click" Width="50" Height="50" FontSize="18"/>
+                    <Button Content="+" Grid.Row="4" Grid.Column="3" Click="Button_Click" Width="50" Height="50" FontSize="18"/>
                 </Grid>
             </Grid>
 

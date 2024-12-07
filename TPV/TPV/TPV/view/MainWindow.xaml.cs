@@ -1,4 +1,5 @@
 ﻿using Google.Protobuf.WellKnownTypes;
+using MySqlX.XDevAPI.Common;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -23,6 +24,14 @@ namespace TPV
         private List<Usuario> listaUsuarios;
         private CuentaCliente cuentaCliente;
         private Dictionary<int, CuentaCliente> cuentasClientes; // Diccionario para almacenar las cuentas de los clientes
+
+        // Calculadora
+
+        private string input = string.Empty;
+        private string operand1 = string.Empty;
+        private string operand2 = string.Empty;
+        private char operation;
+        private double result = 0.0;
 
         private string userType;
 
@@ -51,7 +60,6 @@ namespace TPV
 
             ConfigureUIBasedOnUserType(); // Depende del tipo de usuario, se mostrarán unas opciones u otras
         }
-
 
         private void InitializeTimer()
         {
@@ -92,6 +100,9 @@ namespace TPV
 
             Clientes clienteNuevo = new Clientes(email, nombre); // Asegúrate de que los parámetros estén en el orden correcto
             clienteNuevo.InsertarCliente(clienteNuevo);
+
+            txtNombre.Text = "";
+            txtCorreo.Text = "";
 
             RefreshDataClientes();
         }
@@ -202,6 +213,7 @@ namespace TPV
                 if (cuentaCliente != null)
                 {
                     cuentasClientes[cuentaCliente.cliente.codCliente] = cuentaCliente;
+                    cuentaCliente.OnProductosChanged -= CuentaCliente_OnProductosChanged;
                 }
 
                 // Recuperar la cuenta del cliente seleccionado o crear una nueva si no existe
@@ -214,8 +226,14 @@ namespace TPV
                     cuentaCliente = new CuentaCliente(clienteSeleccionado);
                 }
 
+                cuentaCliente.OnProductosChanged += CuentaCliente_OnProductosChanged;
                 txtSaldo.Text = cuentaCliente.Total.ToString("C");
             }
+        }
+
+        private void CuentaCliente_OnProductosChanged(object sender, EventArgs e)
+        {
+            txtSaldo.Text = cuentaCliente.Total.ToString("C");
         }
 
         private void Image_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
@@ -309,13 +327,10 @@ namespace TPV
 
             cuentaCliente.cliente.ModificarCliente(cuentaCliente.cliente);
 
-            // Refrescar la lista de clientes
             RefreshDataClientes();
 
             MessageBox.Show("Ticket generado correctamente.", "Información", MessageBoxButton.OK, MessageBoxImage.Information);
         }
-
-
 
         private void RefreshDataClientes()
         {
@@ -325,6 +340,68 @@ namespace TPV
             dataClientes.ItemsSource = listaClientes;
         }
 
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            Button button = sender as Button;
+            string buttonContent = button.Content.ToString();
+
+            if (buttonContent == "C")
+            {
+                txtSaldo.Text = string.Empty;
+                input = string.Empty;
+                operand1 = string.Empty;
+                operand2 = string.Empty;
+                result = 0.0;
+            }
+            else if (buttonContent == "=")
+            {
+                operand2 = input;
+                double num1, num2;
+                double.TryParse(operand1, out num1);
+                double.TryParse(operand2, out num2);
+
+                switch (operation)
+                {
+                    case '+':
+                        result = num1 + num2;
+                        break;
+                    case '-':
+                        result = num1 - num2;
+                        break;
+                    case '*':
+                        result = num1 * num2;
+                        break;
+                    case '/':
+                        if (num2 != 0)
+                        {
+                            result = num1 / num2;
+                        }
+                        else
+                        {
+                            MessageBox.Show("No se puede dividir por cero", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                        }
+                        break;
+                }
+                txtSaldo.Text = result.ToString();
+                input = result.ToString();
+
+                // Actualizar la cuenta del cliente
+                if (cuentaCliente != null)
+                {
+                    cuentaCliente.Total = result;
+                }
+            }
+            else if (buttonContent == "+" || buttonContent == "-" || buttonContent == "*" || buttonContent == "/")
+            {
+                operand1 = input;
+                operation = buttonContent[0];
+                input = string.Empty;
+            }
+            else
+            {
+                input += buttonContent;
+                txtSaldo.Text = input;
+            }
+        }
     }
 }
-

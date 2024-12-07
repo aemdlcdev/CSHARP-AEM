@@ -1,21 +1,25 @@
-﻿using MySqlX.XDevAPI;
-using System;
+﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace TPV.domain
 {
     internal class CuentaCliente
     {
         public Clientes cliente { get; set; }
-        public List<Productos> productos { get; set; }
+        public ObservableCollection<Productos> productos { get; set; }
 
         public CuentaCliente(Clientes cliente)
         {
             this.cliente = cliente;
-            productos = new List<Productos>();
+            this.productos = new ObservableCollection<Productos>();
+            this.productos.CollectionChanged += Productos_CollectionChanged;
+        }
+
+        private void Productos_CollectionChanged(object sender, System.Collections.Specialized.NotifyCollectionChangedEventArgs e)
+        {
+            OnProductosChanged?.Invoke(this, EventArgs.Empty);
         }
 
         public void AgregarProducto(Productos producto)
@@ -23,16 +27,10 @@ namespace TPV.domain
             productos.Add(producto);
         }
 
-        public List<String> consumiciones()
+        public List<string> consumiciones()
         {
-            List<String> consumiciones = new List<string>();
-            foreach (Productos p in productos)
-            {
-                consumiciones.Add(p.nombre);
-            }
-            return consumiciones;
+            return productos.Select(p => p.nombre).ToList();
         }
-
 
         public double Total
         {
@@ -40,6 +38,12 @@ namespace TPV.domain
             {
                 return productos.Sum(p => p.precio);
             }
+            set
+            {
+                OnProductosChanged?.Invoke(this, EventArgs.Empty);
+            }
         }
+
+        public event EventHandler OnProductosChanged;
     }
 }
