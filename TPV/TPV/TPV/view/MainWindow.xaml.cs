@@ -531,7 +531,7 @@ namespace TPV
             {
                 sb.Append(c + "\n");
             }
-
+            
             int idCliente = cuentaCliente.cliente.codCliente;
 
             Ticket ticket = new Ticket(sb.ToString(), cuentaCliente.Total, idCliente);
