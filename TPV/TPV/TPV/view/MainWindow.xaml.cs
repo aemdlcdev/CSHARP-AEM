@@ -35,11 +35,8 @@ namespace TPV
 
         // Calculadora
 
-        private string input = string.Empty;
-        private string operand1 = string.Empty;
-        private string operand2 = string.Empty;
-        private char operation;
-        private double result = 0.0;
+        private string currentOperator = string.Empty;
+        private double currentValue = 0.0;
 
         private string userType;
 
@@ -48,6 +45,8 @@ namespace TPV
             InitializeComponent();
             this.userType = userType;
             InitializeTimer();
+
+            
 
             clienteInstance = new Clientes();
             producto = new Productos();
@@ -226,7 +225,19 @@ namespace TPV
 
         private void addProducto_Click(object sender, RoutedEventArgs e)
         {
-            producto = new Productos(txtNombreProducto.Text, txtAlergias.Text, double.Parse(txtPrecio.Text), int.Parse(txtCantidad.Text), txtRuta.Text);
+            string nombre = txtNombreProducto.Text;
+            string alergias = txtAlergias.Text;
+            double precio = double.Parse(txtPrecio.Text);
+            int cantidad = int.Parse(txtCantidad.Text);
+            string ruta = txtRuta.Text;
+
+            if(String.IsNullOrEmpty(nombre) || String.IsNullOrEmpty(alergias) || String.IsNullOrEmpty(precio.ToString()) || String.IsNullOrEmpty(cantidad.ToString()) || String.IsNullOrEmpty(ruta))
+            {
+                MessageBox.Show("Por favor, rellene todos los campos!", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                return;
+            }
+
+            producto = new Productos(nombre,alergias,precio,cantidad,ruta);
             producto.InsertarProducto(producto);
             listaProductos.Clear();
             listaProductos = producto.LeerProductos();
@@ -292,20 +303,15 @@ namespace TPV
             dataInventario.ItemsSource = listaProductos;
         }
 
+        #region CLIENTES
+
         private void dataClientes_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             Clientes clienteSeleccionado = (Clientes)dataClientes.SelectedItem;
 
             if (clienteSeleccionado != null)
             {
-                // Me guardo la cuenta actual en el diccionario
-                if (cuentaCliente != null)
-                {
-                    cuentasClientes[cuentaCliente.cliente.codCliente] = cuentaCliente;
-                    cuentaCliente.OnProductosChanged -= CuentaCliente_OnProductosChanged;
-                }
-
-                // Recupero la cuenta del cliente actual y si no existe la creo
+                // Recupero la cuenta del cliente actual
                 if (cuentasClientes.TryGetValue(clienteSeleccionado.codCliente, out CuentaCliente cuenta))
                 {
                     cuentaCliente = cuenta;
@@ -315,15 +321,23 @@ namespace TPV
                     cuentaCliente = new CuentaCliente(clienteSeleccionado);
                 }
 
-                cuentaCliente.OnProductosChanged += CuentaCliente_OnProductosChanged;
-                txtSaldo.Text = cuentaCliente.Total.ToString("C");
+                // Establecer el saldo inicial del cliente (incluyendo operaciones previas)
+                currentValue = cuentaCliente.Total;
+                txtSaldo.Text = currentValue.ToString("C");
             }
         }
 
+
         private void CuentaCliente_OnProductosChanged(object sender, EventArgs e)
         {
-            txtSaldo.Text = cuentaCliente.Total.ToString("C");
+            
+            if (cuentaCliente != null)
+            {
+                currentValue = cuentaCliente.Total;
+                txtSaldo.Text = currentValue.ToString("C");
+            }
         }
+
 
         private void Image_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
         {
@@ -349,7 +363,8 @@ namespace TPV
                     MessageBox.Show($"Producto {productoSeleccionado.nombre} agregado a la cuenta del cliente {cuentaCliente.cliente.cnombre}.", "Información", MessageBoxButton.OK, MessageBoxImage.Information);
 
                     // Actualizar el saldo en txtSaldo
-                    txtSaldo.Text = cuentaCliente.Total.ToString("C");
+                    currentValue = cuentaCliente.Total;
+                    txtSaldo.Text = currentValue.ToString("C");
                 }
                 else
                 {
@@ -357,6 +372,116 @@ namespace TPV
                 }
             }
         }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            Button button = sender as Button;
+            if (button != null)
+            {
+                string content = button.Content.ToString();
+
+                if (double.TryParse(content, out double number))
+                {
+                    // Si el contenidoe es un numero lo pongo en pantalla
+                    txtSaldo.Text += content;
+                }
+                else if (content == "=")
+                {
+                    // Al presionar el operador "=" realizamos la operación
+                    if (double.TryParse(txtSaldo.Text, out double newValue))
+                    {
+                        switch (currentOperator)
+                        {
+                            case "+":
+                                currentValue += newValue;  // Sumo el valor al total
+                                break;
+                            case "-":
+                                currentValue -= newValue;  // Resto el valor al total
+                                break;
+                            case "*":
+                                currentValue *= newValue;  // Multiplico el valor al total
+                                break;
+                            case "/":
+                                if (newValue != 0)
+                                {
+                                    currentValue /= newValue;  // Divido el valor al total
+                                }
+                                else
+                                {
+                                    MessageBox.Show("No se puede dividir por cero", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                                }
+                                break;
+                        }
+
+                        // Actualizo en pantalla
+                        txtSaldo.Text = currentValue.ToString("C");
+
+                        // Actualizo en la cuenta del cliente
+                        if (cuentaCliente != null)
+                        {
+                            cuentaCliente.Total = currentValue;
+                            cuentasClientes[cuentaCliente.cliente.codCliente] = cuentaCliente;
+                        }
+                    }
+                    currentOperator = string.Empty;
+                }
+                else
+                {
+                    // Cuando preisono un operador
+                    if (double.TryParse(txtSaldo.Text, out double newValue))
+                    {
+                        switch (currentOperator)
+                        {
+                            case "+":
+                                currentValue += newValue;
+                                break;
+                            case "-":
+                                currentValue -= newValue;
+                                break;
+                            case "*":
+                                currentValue *= newValue;
+                                break;
+                            case "/":
+                                if (newValue != 0)
+                                {
+                                    currentValue /= newValue;
+                                }
+                                else
+                                {
+                                    MessageBox.Show("No se puede dividir por cero", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                                }
+                                break;
+                            default:
+                                currentValue = newValue;
+                                break;
+                        }
+
+                        // Actualizo en pantalla
+                        txtSaldo.Text = currentValue.ToString("C");
+
+                        // Actualizo en la cuenta del cliente
+                        if (cuentaCliente != null)
+                        {
+                            cuentaCliente.Total = currentValue;
+                            cuentasClientes[cuentaCliente.cliente.codCliente] = cuentaCliente;
+                        }
+                    }
+                    currentOperator = content;
+                    txtSaldo.Clear();
+                }
+            }
+        }
+
+        private void RefreshDataClientes()
+        {
+            listaClientes.Clear();
+            listaClientes = clienteInstance.LeerClientes();
+            dataClientes.ItemsSource = null;
+            dataClientes.ItemsSource = listaClientes;
+        }
+
+
+        #endregion
 
         private void chkDark_Checked(object sender, RoutedEventArgs e)
         {
@@ -412,10 +537,10 @@ namespace TPV
             Ticket ticket = new Ticket(sb.ToString(), cuentaCliente.Total, idCliente);
             ticket.InsertarTicket(ticket);
 
-            // Actualizar las cantidades de los productos en la base de datos
+            // Actualizo las cantidades de los productos en la base de datos
             foreach (var producto in cuentaCliente.productos)
             {
-                producto.cantidad -= 1; // Asumiendo que se resta una unidad por cada producto
+                producto.cantidad -= 1; 
                 producto.ModificarProducto(producto);
             }
 
@@ -428,79 +553,7 @@ namespace TPV
             MessageBox.Show("Ticket generado correctamente.", "Información", MessageBoxButton.OK, MessageBoxImage.Information);
         }
 
-
-        private void RefreshDataClientes()
-        {
-            listaClientes.Clear();
-            listaClientes = clienteInstance.LeerClientes();
-            dataClientes.ItemsSource = null;
-            dataClientes.ItemsSource = listaClientes;
-        }
-
-        private void Button_Click(object sender, RoutedEventArgs e)
-        {
-            Button button = sender as Button;
-            string buttonContent = button.Content.ToString();
-
-            if (buttonContent == "C")
-            {
-                txtSaldo.Text = string.Empty;
-                input = string.Empty;
-                operand1 = string.Empty;
-                operand2 = string.Empty;
-                result = 0.0;
-            }
-            else if (buttonContent == "=")
-            {
-                operand2 = input;
-                double num1, num2;
-                double.TryParse(operand1, out num1);
-                double.TryParse(operand2, out num2);
-
-                switch (operation)
-                {
-                    case '+':
-                        result = num1 + num2;
-                        break;
-                    case '-':
-                        result = num1 - num2;
-                        break;
-                    case '*':
-                        result = num1 * num2;
-                        break;
-                    case '/':
-                        if (num2 != 0)
-                        {
-                            result = num1 / num2;
-                        }
-                        else
-                        {
-                            MessageBox.Show("No se puede dividir por cero", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
-                        }
-                        break;
-                }
-                txtSaldo.Text = result.ToString();
-                input = result.ToString();
-
-                // Actualizar la cuenta del cliente
-                if (cuentaCliente != null)
-                {
-                    cuentaCliente.Total = result;
-                }
-            }
-            else if (buttonContent == "+" || buttonContent == "-" || buttonContent == "*" || buttonContent == "/")
-            {
-                operand1 = input;
-                operation = buttonContent[0];
-                input = string.Empty;
-            }
-            else
-            {
-                input += buttonContent;
-                txtSaldo.Text = input;
-            }
-        }
-
+        
         private double CalcularGananciasTotales()
         {
             Ticket ticket = new Ticket();
