@@ -30,6 +30,13 @@ namespace TPV.domain
             this.password = password;
         }
 
+        public Usuario(string nombre, string password, int idRol)
+        {
+            this.nombre = nombre;
+            this.password = password;
+            this.idRol = idRol;
+        }
+
         public Usuario()
         {
         }
@@ -38,6 +45,12 @@ namespace TPV.domain
         {
             usuarioManage = new UsuarioManage();
             return usuarioManage.LeerUsuarios();
+        }
+
+        public List<Usuario> LeerUsuariosGestion()
+        {
+            usuarioManage = new UsuarioManage();
+            return usuarioManage.LeerUsuariosGestion();
         }
 
         public void InsertarUsuario(Usuario usuario)

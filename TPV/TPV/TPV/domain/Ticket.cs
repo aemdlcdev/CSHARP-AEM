@@ -17,6 +17,15 @@ namespace TPV.domain
 
         private TicketsManage ticketsManage;
 
+        public Ticket(int idTicket, string cosumiciones, double importe, int codCliente)
+        {
+            this.idTicket = idTicket;
+            this.cosumiciones = cosumiciones;
+            this.importe = importe;
+            this.codCliente = codCliente;
+            
+        }
+
         public Ticket(int idTicket, string cosumiciones, double importe)
         {
             this.idTicket = idTicket;
@@ -31,8 +40,16 @@ namespace TPV.domain
             this.codCliente = codCliente;
         }
 
+
+
         public Ticket()
         {
+        }
+
+        public List<Ticket> LeerTickets()
+        { 
+            ticketsManage = new TicketsManage();
+            return ticketsManage.LeerTickets();
         }
 
         public void InsertarTicket(Ticket ticket)

@@ -223,6 +223,8 @@
                                         <RowDefinition Height="Auto"/>
                                         <RowDefinition Height="Auto"/>
                                         <RowDefinition Height="Auto"/>
+                                        <RowDefinition Height="Auto"/>
+                                        <RowDefinition Height="Auto"/>
                                     </Grid.RowDefinitions>
 
                                     <Label Content="Nombre:" Grid.Row="0" />
@@ -235,19 +237,44 @@
                                     <TextBox Name="txtCantidad" Grid.Row="7" Width="100"/>
                                     <TextBlock Name="txtIdProducto" Visibility="Hidden"/>
 
+                                    <Label Name="lblRuta" Content="Ruta imagen:" Grid.Row="8"/>
+                                    <TextBox Name="txtRuta" Grid.Row="9" Width="100"/>
+
                                 </Grid>
 
                             </Grid>
 
-
-
                         </TabItem>
 
                         <TabItem Name="tabVentas" Header ="Ventas" Margin="-2,62,0,-57">
-                            <StackPanel>
-                                <Label Content="Ventas e Ingresos" FontSize="20" FontWeight="Bold"/>
-                                <Label Content="Ventas e ingresos" FontSize="16"/>
-                            </StackPanel>
+
+                            <Grid x:Name="ventasTab">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="*"/>
+                                    <ColumnDefinition Width="Auto"/>
+                                </Grid.ColumnDefinitions>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="Auto"/>
+                                    <RowDefinition Height="Auto"/>
+                                    <RowDefinition Height="*"/>
+                                    <RowDefinition Height="Auto"/>
+                                </Grid.RowDefinitions>
+                                <Label Content="Ventas y ganancias totales del restaurante" Grid.Row="1" FontSize="20" FontFamily="Bahnschrift SemiLight SemiCondensed"/>
+                                <Button x:Name="btnRefrescar" Content="Refrescar" Grid.Column="0" Grid.Row="1" Width="100" HorizontalAlignment="Left" Margin="496,0,0,6" VerticalAlignment="Bottom" Click="btnRefrescar_Click"/>
+                                <Label Content="Ventas y ganancias" FontSize="20" FontWeight="Bold"/>
+                                <DataGrid x:Name="dataVentas" Grid.Row="2" AutoGenerateColumns="False" 
+                                    CanUserResizeColumns="False" CanUserResizeRows="True" ColumnWidth="*" MinColumnWidth="20" IsReadOnly="True" SelectionChanged="dataInventario_SelectionChanged" Margin="0,10,0,54">
+                                    <DataGrid.Columns>
+                                        <DataGridTextColumn Header="ID Ticket" Binding="{Binding idTicket}" Width="100"/>
+                                        <DataGridTextColumn Header="Cosumiciones" Binding="{Binding cosumiciones}" Width="108"/>
+                                        <DataGridTextColumn Header="Importe (€)" Binding="{Binding importe}" Width="118"/>
+                                        <DataGridTextColumn Header="Código Cliente" Binding="{Binding codCliente}" Width="135"/>
+                                    </DataGrid.Columns>
+                                </DataGrid>
+                                <Label Content="Ganancias totales: "  Grid.Row="3" Width="110" HorizontalAlignment="Right" Margin="0,2,110,0" FontFamily="Bahnschrift SemiLight"/>
+                                <TextBox Name="txtGanancias" Padding="5"  Grid.Row="4" Width="100" IsReadOnly="True" HorizontalAlignment="Right" Margin="115,0,0,0"/>
+                            </Grid>
+
                         </TabItem>
 
                         <TabItem Name="tabConfiguracion" Header="Configuración" Margin="-3,67,0,-65">
@@ -316,6 +343,9 @@
                                                 <TextBox Name="txtNombreUser" Grid.Row="1" Width="100"/>
                                                 <Label Content="Contraseña:" Grid.Row="2"  />
                                                 <TextBox Name="txtPassword" Grid.Row="3" Width="100"/>
+
+                                                <Label Name="lblIdRolC" Content="ID Rol:" Grid.Row="4"  />
+                                                <TextBox Name="txtIdRol" Grid.Row="5" Width="100"/>
 
 
                                             </Grid>

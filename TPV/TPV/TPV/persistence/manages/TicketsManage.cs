@@ -33,7 +33,7 @@ namespace TPV.persistence.manages
 
             foreach (List<Object> c in aux)
             {
-                ticket = new Ticket(int.Parse(c[0].ToString()), c[1].ToString(), double.Parse(c[2].ToString()));
+                ticket = new Ticket(int.Parse(c[0].ToString()), c[1].ToString(), double.Parse(c[2].ToString()), int.Parse(c[3].ToString()));
 
                 this.listaTickets.Add(ticket);
             }

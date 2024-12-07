@@ -37,10 +37,25 @@ namespace TPV.persistence.manages
             return listaUsuarios;
         }
 
+        public List<Usuario> LeerUsuariosGestion()
+        {
+
+            Usuario usuario = null;
+
+            List<Object> aux = DBBroker.obtenerAgente().leer("SELECT * FROM tpv.usuario WHERE idrol = 2");
+
+            foreach (List<Object> c in aux)
+            {
+                usuario = new Usuario(int.Parse(c[0].ToString()), c[1].ToString(), c[2].ToString(), int.Parse(c[3].ToString()));
+
+                this.listaUsuarios.Add(usuario);
+            }
+            return listaUsuarios;
+        }
+
         public void InsertarUsuario(Usuario usuario)
         {
-            int rol = 2;
-            dbBroker.modificar("INSERT INTO tpv.usuario (nusuario, password, idRol) VALUES ('" + usuario.nombre + "', '" + usuario.password + "', " + rol + ")");
+            dbBroker.modificar("INSERT INTO tpv.usuario (nusuario, password, idrol) VALUES ('" + usuario.nombre + "', '" + usuario.password + "', " + usuario.idRol + ")");
         }
 
     }

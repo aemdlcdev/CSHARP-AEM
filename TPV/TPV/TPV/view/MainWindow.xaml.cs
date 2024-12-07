@@ -16,13 +16,21 @@ namespace TPV
     public partial class MainWindow : Window
     {
         private DispatcherTimer timer;
+
         private List<Clientes> listaClientes;
         private Clientes clienteInstance;
+
         private Productos producto;
         private List<Productos> listaProductos;
+
         private Usuario usuario;
         private List<Usuario> listaUsuarios;
+
+        private Ticket ticket;
+        private List<Ticket> listaTickets;
+
         private CuentaCliente cuentaCliente;
+
         private Dictionary<int, CuentaCliente> cuentasClientes; // Diccionario para almacenar las cuentas de los clientes
 
         // Calculadora
@@ -51,12 +59,19 @@ namespace TPV
             listaProductos = producto.LeerProductos();
 
             usuario = new Usuario();
-            listaUsuarios = usuario.LeerUsuarios();
+            listaUsuarios = usuario.LeerUsuariosGestion();
 
             dataUsers.ItemsSource = listaUsuarios;
             dataInventario.ItemsSource = listaProductos;
 
+            ticket = new Ticket();
+            listaTickets = ticket.LeerTickets();
+            dataVentas.ItemsSource = listaTickets;
+
             cuentasClientes = new Dictionary<int, CuentaCliente>();
+
+            double totalGanancias = CalcularGananciasTotales();
+            txtGanancias.Text = $"{totalGanancias:C}";
 
             ConfigureUIBasedOnUserType(); // Depende del tipo de usuario, se mostrarán unas opciones u otras
         }
@@ -84,6 +99,52 @@ namespace TPV
                 delProducto.IsEnabled = false;
                 addProducto.Visibility = Visibility.Hidden;
                 delProducto.Visibility = Visibility.Hidden;
+                lblRuta.Visibility = Visibility.Hidden;
+                txtRuta.Visibility = Visibility.Hidden;
+                lblRuta.IsEnabled = false;
+                txtRuta.IsEnabled = false;
+
+                lblIdRolC.Visibility = Visibility.Hidden;
+                txtIdRol.Visibility = Visibility.Hidden;
+                lblIdRolC.IsEnabled = false;
+                txtIdRol.IsEnabled = false;
+            }
+
+            if (userType == "jefe")
+            {
+                addProducto.IsEnabled = false;
+                addProducto.Visibility = Visibility.Hidden;
+                lblRuta.Visibility = Visibility.Hidden;
+                txtRuta.Visibility = Visibility.Hidden;
+                lblRuta.IsEnabled = false;
+                txtRuta.IsEnabled = false;
+
+                lblIdRolC.Visibility = Visibility.Hidden;
+                txtIdRol.Visibility = Visibility.Hidden;
+                lblIdRolC.IsEnabled = false;
+                txtIdRol.IsEnabled = false;
+            }
+
+            if (userType == "admin")
+            {
+                tabVentas.Visibility = Visibility.Visible;
+                tabConfiguracion.Visibility = Visibility.Visible;
+                addProducto.IsEnabled = true;
+                delProducto.IsEnabled = true;
+                addProducto.Visibility = Visibility.Visible;
+                delProducto.Visibility = Visibility.Visible;
+                listaUsuarios = usuario.LeerUsuarios();
+                dataUsers.ItemsSource = null;
+                dataUsers.ItemsSource = listaUsuarios;
+                lblRuta.Visibility = Visibility.Visible;
+                txtRuta.Visibility = Visibility.Visible;
+                lblRuta.IsEnabled = true;
+                txtRuta.IsEnabled = true;
+                lblIdRolC.Visibility = Visibility.Visible;
+                txtIdRol.Visibility = Visibility.Visible;
+                lblIdRolC.IsEnabled = true;
+                txtIdRol.IsEnabled = true;
+
             }
         }
 
@@ -165,7 +226,7 @@ namespace TPV
 
         private void addProducto_Click(object sender, RoutedEventArgs e)
         {
-            producto = new Productos(txtNombreProducto.Text, txtAlergias.Text, double.Parse(txtPrecio.Text), int.Parse(txtCantidad.Text));
+            producto = new Productos(txtNombreProducto.Text, txtAlergias.Text, double.Parse(txtPrecio.Text), int.Parse(txtCantidad.Text), txtRuta.Text);
             producto.InsertarProducto(producto);
             listaProductos.Clear();
             listaProductos = producto.LeerProductos();
@@ -186,11 +247,39 @@ namespace TPV
             string nombre = txtNombreUser.Text;
             string password = txtPassword.Text;
 
-            Usuario usuario = new Usuario(nombre, password);
+            string idRolString = txtIdRol.Text;
+            int idRol = 2;
+            if (String.IsNullOrEmpty(idRolString))
+            {
+                idRol = 2;
+            }
+            else 
+            { 
+                idRol = int.Parse(idRolString);
+            }
+            
+
+            if (String.IsNullOrEmpty(nombre) || String.IsNullOrEmpty(password))
+            {
+                MessageBox.Show("Por favor, rellene todos los campos!", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                return;
+            }
+
+            Usuario usuario = new Usuario(nombre, password, idRol);
             usuario.InsertarUsuario(usuario);
 
+
+
             listaUsuarios.Clear();
-            listaUsuarios = usuario.LeerUsuarios();
+
+            if(userType == "admin")
+            {
+                listaUsuarios = usuario.LeerUsuarios();
+            }
+            else
+            {
+                listaUsuarios = usuario.LeerUsuariosGestion();
+            }
             dataUsers.ItemsSource = null;
             dataUsers.ItemsSource = listaUsuarios;
         }
@@ -209,14 +298,14 @@ namespace TPV
 
             if (clienteSeleccionado != null)
             {
-                // Guardar la cuenta actual en el diccionario
+                // Me guardo la cuenta actual en el diccionario
                 if (cuentaCliente != null)
                 {
                     cuentasClientes[cuentaCliente.cliente.codCliente] = cuentaCliente;
                     cuentaCliente.OnProductosChanged -= CuentaCliente_OnProductosChanged;
                 }
 
-                // Recuperar la cuenta del cliente seleccionado o crear una nueva si no existe
+                // Recupero la cuenta del cliente actual y si no existe la creo
                 if (cuentasClientes.TryGetValue(clienteSeleccionado.codCliente, out CuentaCliente cuenta))
                 {
                     cuentaCliente = cuenta;
@@ -323,6 +412,13 @@ namespace TPV
             Ticket ticket = new Ticket(sb.ToString(), cuentaCliente.Total, idCliente);
             ticket.InsertarTicket(ticket);
 
+            // Actualizar las cantidades de los productos en la base de datos
+            foreach (var producto in cuentaCliente.productos)
+            {
+                producto.cantidad -= 1; // Asumiendo que se resta una unidad por cada producto
+                producto.ModificarProducto(producto);
+            }
+
             txtSaldo.Text = "";
 
             cuentaCliente.cliente.ModificarCliente(cuentaCliente.cliente);
@@ -331,6 +427,7 @@ namespace TPV
 
             MessageBox.Show("Ticket generado correctamente.", "Información", MessageBoxButton.OK, MessageBoxImage.Information);
         }
+
 
         private void RefreshDataClientes()
         {
@@ -402,6 +499,22 @@ namespace TPV
                 input += buttonContent;
                 txtSaldo.Text = input;
             }
+        }
+
+        private double CalcularGananciasTotales()
+        {
+            Ticket ticket = new Ticket();
+            List<Ticket> listaTickets = ticket.LeerTickets();
+            double totalGanancias = listaTickets.Sum(t => t.importe);
+            return totalGanancias;
+        }
+
+        private void btnRefrescar_Click(object sender, RoutedEventArgs e)
+        {
+            listaTickets.Clear();
+            listaTickets = ticket.LeerTickets();
+            dataVentas.ItemsSource = null;
+            dataVentas.ItemsSource = listaTickets;
         }
     }
 }
