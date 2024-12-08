@@ -5,12 +5,108 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:TPV"
         mc:Ignorable="d"
-        Title="TPV Alejandro" Height="900" Width="975" MinHeight="900" MinWidth="975" WindowStartupLocation="CenterScreen" Icon="../resources/icon.ico">
+        Title="TPV Alejandro" Height="900" Width="1000" MinHeight="900" MinWidth="1000" WindowStartupLocation="CenterScreen" Icon="../resources/icon.ico">
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="Auto"/>
             <ColumnDefinition Width="*"/>
         </Grid.ColumnDefinitions>
+
+        <Grid.Resources>
+
+            <!-- Estilo global de fuente para toda la aplicación -->
+            <Style TargetType="Control">
+                <Setter Property="FontFamily" Value="Segoe UI"/>
+                <Setter Property="FontSize" Value="14"/>
+                <Setter Property="Foreground" Value="#333333"/>
+            </Style>
+
+            <!-- Estilo de encabezados de controles -->
+            <Style TargetType="Label">
+                <Setter Property="FontFamily" Value="Segoe UI"/>
+                <Setter Property="FontWeight" Value="Bold"/>
+                <Setter Property="FontSize" Value="16"/>
+                <Setter Property="Foreground" Value="#2E7D32"/>
+            </Style>
+
+            <!-- Estilo del DataGrid -->
+            <Style TargetType="DataGrid">
+                <Setter Property="Background" Value="#F2FFF2"/>
+                <Setter Property="Foreground" Value="#2E7D32"/>
+                <Setter Property="BorderBrush" Value="#81C784"/>
+                <Setter Property="BorderThickness" Value="1"/>
+                <Setter Property="RowBackground" Value="#E8F5E9"/>
+                <Setter Property="AlternatingRowBackground" Value="#C8E6C9"/>
+                <Setter Property="HorizontalGridLinesBrush" Value="#A5D6A7"/>
+                <Setter Property="VerticalGridLinesBrush" Value="#A5D6A7"/>
+                <Setter Property="FontSize" Value="14"/>
+                <Setter Property="FontFamily" Value="Segoe UI"/>
+                <Setter Property="Padding" Value="5"/>
+                <Setter Property="SelectionMode" Value="Extended"/>
+                <Setter Property="SelectionUnit" Value="FullRow"/>
+                <Setter Property="SnapsToDevicePixels" Value="True"/>
+                <Setter Property="RowDetailsVisibilityMode" Value="VisibleWhenSelected"/>
+
+                <!-- Estilo para encabezados -->
+                <Setter Property="ColumnHeaderStyle">
+                    <Setter.Value>
+                        <Style TargetType="DataGridColumnHeader">
+                            <Setter Property="Background" Value="#C8E6C9"/>
+                            <Setter Property="Foreground" Value="#2E7D32"/>
+                            <Setter Property="HorizontalContentAlignment" Value="Left"/>
+                            <Setter Property="VerticalContentAlignment" Value="Center"/>
+                            <Setter Property="Padding" Value="5"/>
+                            <Setter Property="BorderBrush" Value="#81C784"/>
+                            <Setter Property="BorderThickness" Value="1"/>
+                            <Setter Property="FontWeight" Value="Bold"/>
+
+                            <!-- Efecto al pasar el ratón -->
+                            <Setter Property="Template">
+                                <Setter.Value>
+                                    <ControlTemplate TargetType="DataGridColumnHeader">
+                                        <Border 
+                                Background="{TemplateBinding Background}" 
+                                BorderBrush="{TemplateBinding BorderBrush}" 
+                                BorderThickness="{TemplateBinding BorderThickness}">
+                                            <ContentPresenter 
+                                    HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" 
+                                    VerticalAlignment="{TemplateBinding VerticalContentAlignment}" 
+                                    SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" />
+                                        </Border>
+                                    </ControlTemplate>
+                                </Setter.Value>
+                            </Setter>
+
+                            <!-- Efecto visual cuando el mouse pasa sobre el encabezado -->
+                            <Style.Triggers>
+                                <Trigger Property="IsMouseOver" Value="True">
+                                    <Setter Property="Background" Value="#A5D6A7"/>
+                                    <Setter Property="Foreground" Value="White"/>
+                                </Trigger>
+                            </Style.Triggers>
+                        </Style>
+                    </Setter.Value>
+                </Setter>
+            </Style>
+
+
+            <!-- Estilo de las filas del DataGrid -->
+            <Style TargetType="DataGridRow">
+                <Setter Property="Background" Value="{Binding Background, RelativeSource={RelativeSource AncestorType=DataGrid}}" />
+                <Setter Property="BorderBrush" Value="#A5D6A7"/>
+                <Setter Property="BorderThickness" Value="0,0,0,1"/>
+                <Style.Triggers>
+                    <!-- Cambia el color al seleccionar -->
+                    <Trigger Property="IsSelected" Value="True">
+                        <Setter Property="Background" Value="#81C784"/>
+                        <!-- Fondo seleccionado -->
+                        <Setter Property="Foreground" Value="White"/>
+                        <!-- Texto seleccionado -->
+                    </Trigger>
+                </Style.Triggers>
+            </Style>
+
+        </Grid.Resources>
 
         <Grid x:Name="derecha" Grid.Column="1" Margin="10,0,0,0">
             <!--Grid Principal -->
@@ -29,6 +125,8 @@
             </StackPanel>
 
             <!-- Grid Contenedor -->
+
+            
 
             <Grid x:Name="contenedor" Grid.Column="0" Grid.Row="1">
                 <Grid.RowDefinitions>
@@ -52,8 +150,13 @@
                                 <Setter Property="Background" Value="Transparent"/>
                                 <Setter Property="BorderThickness" Value="0"/>
                                 <Setter Property="BorderBrush" Value="Transparent"/>
+                                <Setter Property="FontFamily" Value="Segoe UI"/>
+                                <Setter Property="FontWeight" Value="SemiBold"/>
+                                <Setter Property="FontSize" Value="12"/>
+                                <Setter Property="Foreground" Value="Black"/>
 
                             </Style>
+                            
                             <!-- Estilo para los botones dentro de este Grid -->
                             <Style TargetType="Button">
                                 <Setter Property="Background">
@@ -284,11 +387,11 @@
                                 <DataGrid x:Name="dataInventario" Grid.Row="1" AutoGenerateColumns="False" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" 
                                     CanUserResizeColumns="False" CanUserResizeRows="True" ColumnWidth="*" MinColumnWidth="20" IsReadOnly="True" SelectionChanged="dataInventario_SelectionChanged">
                                     <DataGrid.Columns>
-                                        <DataGridTextColumn Header="Codigo Producto" Binding="{Binding idProducto}" Width="100"/>
-                                        <DataGridTextColumn Header="Nombre Producto" Binding="{Binding nombre}" Width="108"/>
+                                        <DataGridTextColumn Header="Codigo Producto" Binding="{Binding idProducto}" Width="115"/>
+                                        <DataGridTextColumn Header="Nombre Producto" Binding="{Binding nombre}" Width="125"/>
                                         <DataGridTextColumn Header="Alergias" Binding="{Binding alergias}" Width="108"/>
                                         <DataGridTextColumn Header="Precio" Binding="{Binding precio}" Width="55"/>
-                                        <DataGridTextColumn Header="Cantidad disponible" Binding="{Binding cantidad}" Width="123"/>
+                                        <DataGridTextColumn Header="Cantidad disponible" Binding="{Binding cantidad}" Width="150"/>
                                     </DataGrid.Columns>
                                 </DataGrid>
 
@@ -339,8 +442,8 @@
                                     <RowDefinition Height="*"/>
                                     <RowDefinition Height="Auto"/>
                                 </Grid.RowDefinitions>
-                                <Label Content="Ventas y ganancias totales del restaurante" Grid.Row="1" FontSize="20" FontFamily="Bahnschrift SemiLight SemiCondensed"/>
-                                <Button x:Name="btnRefrescar" Content="Refrescar" Grid.Column="0" Grid.Row="1" Width="100" HorizontalAlignment="Left" Margin="496,0,0,6" VerticalAlignment="Bottom" Click="btnRefrescar_Click"/>
+                                <Label Foreground="Black" Content="Ventas y ganancias totales del restaurante" Grid.Row="1" FontSize="20" FontFamily="Bahnschrift SemiLight SemiCondensed"/>
+                                <Button x:Name="btnRefrescar" Content="Refrescar" Grid.Column="0" Grid.Row="1" Width="100" HorizontalAlignment="Right" Margin="496,0,0,6" VerticalAlignment="Bottom" Click="btnRefrescar_Click"/>
                                 <Label Content="Ventas y ganancias" FontSize="20" FontWeight="Bold"/>
                                 <DataGrid x:Name="dataVentas" Grid.Row="2" AutoGenerateColumns="False" 
                                     CanUserResizeColumns="False" CanUserResizeRows="True" ColumnWidth="*" MinColumnWidth="20" IsReadOnly="True" SelectionChanged="dataInventario_SelectionChanged" Margin="0,10,0,54">
@@ -402,10 +505,10 @@
                                             <DataGrid x:Name="dataUsers" Grid.Row="1" AutoGenerateColumns="False" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" 
         CanUserResizeColumns="False" CanUserResizeRows="True" ColumnWidth="*" Height="600" MinColumnWidth="20" IsReadOnly="True" SelectionChanged="dataUsers_SelectionChanged">
                                                 <DataGrid.Columns>
-                                                    <DataGridTextColumn Header="Codigo Usuario" Binding="{Binding idUsuario}" Width="100"/>
-                                                    <DataGridTextColumn Header="Nombre Usuario" Binding="{Binding nombre}" Width="108"/>
-                                                    <DataGridTextColumn Header="Contraseña Usuario" Binding="{Binding password}" Width="118"/>
-                                                    <DataGridTextColumn Header="ID Rol (1 jefe, 2 user)" Binding="{Binding idRol}" Width="135"/>
+                                                    <DataGridTextColumn Header="Codigo Usuario" Binding="{Binding idUsuario}" Width="107"/>
+                                                    <DataGridTextColumn Header="Nombre Usuario" Binding="{Binding nombre}" Width="112"/>
+                                                    <DataGridTextColumn Header="Contraseña Usuario" Binding="{Binding password}" Width="132"/>
+                                                    <DataGridTextColumn Header="ID Rol (1 jefe, 2 user)" Binding="{Binding idRol}" Width="142"/>
                                                 </DataGrid.Columns>
                                             </DataGrid>
 
@@ -444,7 +547,7 @@
                                     <TabItem Header="Avanzado" >
                                         <StackPanel>
                                             <Label Content="Avanzado" FontSize="20" FontWeight="Bold"/>
-                                            <Label Content="Configuración avanzada" FontSize="16"/>
+                                            <Label Foreground="Black" Content="Configuración avanzada" FontSize="16"/>
                                         </StackPanel>
                                     </TabItem>
 
@@ -453,8 +556,8 @@
                                             <Label Content="Acerca de" FontSize="20" FontWeight="Bold"/>
                                             <Grid HorizontalAlignment="Left">
                                                 <TextBlock FontSize="16" TextWrapping="Wrap" Width="Auto">
-Bienvenido al sistema de Terminal de Punto de Venta (TPV), una solución diseñada para simplificar y optimizar la gestión de ventas, inventario y operaciones en tu negocio.
-Este software ha sido desarrollado con un enfoque en la facilidad de uso, la seguridad y la eficiencia, para que puedas centrarte en lo que realmente importa: hacer crecer tu negocio.
+                                                Bienvenido al sistema de Terminal de Punto de Venta (TPV), una solución diseñada para simplificar y optimizar la gestión de ventas, inventario y operaciones en tu negocio.
+                                                Este software ha sido desarrollado con un enfoque en la facilidad de uso, la seguridad y la eficiencia, para que puedas centrarte en lo que realmente importa: hacer crecer tu negocio.
                                                 </TextBlock>
                                             </Grid>
                                         </StackPanel>
