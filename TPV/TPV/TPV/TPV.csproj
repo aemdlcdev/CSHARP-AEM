@@ -171,7 +171,7 @@
     <Resource Include="resources\nuggets.png" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="resources\pescado.png" />
+    <Resource Include="resources\pescadoFrito.png" />
   </ItemGroup>
   <ItemGroup>
     <Resource Include="resources\ensalada.png" />
@@ -219,7 +219,7 @@
     <Resource Include="resources\agua.png" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="resources\salmon.png" />
+    <Resource Include="resources\pescado.png" />
   </ItemGroup>
   <ItemGroup>
     <Resource Include="resources\icon.ico" />
