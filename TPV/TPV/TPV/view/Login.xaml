@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:TPV.view"
         xmlns:helper="clr-namespace:TPV"
         mc:Ignorable="d"
-        Title="Login" Height="450" Width="800" WindowStartupLocation="CenterScreen">
+        Title="Login" Height="450" Width="800" WindowStartupLocation="CenterScreen" Icon="../resources/icon.ico">
     <Grid Background="White">
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"/>

@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:TPV"
         mc:Ignorable="d"
-        Title="TPV" Height="900" Width="970" MinHeight="900" MinWidth="970" WindowStartupLocation="CenterScreen">
+        Title="TPV Alejandro" Height="900" Width="975" MinHeight="900" MinWidth="975" WindowStartupLocation="CenterScreen" Icon="../resources/icon.ico">
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="Auto"/>
@@ -266,7 +266,10 @@
                                         <DataGridTextColumn Header="ID Ticket" Binding="{Binding idTicket}" Width="100"/>
                                         <DataGridTextColumn Header="Cosumiciones" Binding="{Binding cosumiciones}" Width="108"/>
                                         <DataGridTextColumn Header="Importe (€)" Binding="{Binding importe}" Width="118"/>
+                                        <DataGridTextColumn Header="Nombre Cliente" Binding="{Binding name}" Width="135"/>
+                                        <DataGridTextColumn Header="Email Cliente" Binding="{Binding email}" Width="135"/>
                                         <DataGridTextColumn Header="Código Cliente" Binding="{Binding codCliente}" Width="135"/>
+                                        
                                     </DataGrid.Columns>
                                 </DataGrid>
                                 <Label Content="Ganancias totales: "  Grid.Row="3" Width="110" HorizontalAlignment="Right" Margin="0,2,110,0" FontFamily="Bahnschrift SemiLight"/>
@@ -550,19 +553,20 @@
                     <Image Source="/resources/usuario.png" Width="65"/>
                 </Grid>
             </Grid>
-
+        
             <Grid x:Name="clientesGrid" Grid.Row="1" Margin="0,10,0,0">
                 <Grid.RowDefinitions>
                     <RowDefinition Height="*"/>
                     <RowDefinition Height="Auto"/>
                     <RowDefinition Height="Auto"/>
                 </Grid.RowDefinitions>
-
+                
                 <DataGrid x:Name="dataClientes" AutoGenerateColumns="False" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" 
-          CanUserResizeColumns="False" CanUserResizeRows="True" ColumnWidth="*" MinColumnWidth="20" IsReadOnly="True" SelectionChanged="dataClientes_SelectionChanged">
+                CanUserResizeColumns="False" CanUserResizeRows="False" ColumnWidth="Auto" MinColumnWidth="20" IsReadOnly="True" ScrollViewer.HorizontalScrollBarVisibility="Visible" SelectionChanged="dataClientes_SelectionChanged">
                     <DataGrid.Columns>
                         <DataGridTextColumn Header="COD" Binding="{Binding codCliente}" Width="40"/>
-                        <DataGridTextColumn Header="Nombre" Binding="{Binding cnombre}" Width="121"/>
+                        <DataGridTextColumn Header="Nombre" Binding="{Binding email}" Width="175"/>
+                        <DataGridTextColumn Header="Email" Binding="{Binding cnombre}" Width="20" Visibility="Hidden"/>
                     </DataGrid.Columns>
                 </DataGrid>
 
@@ -610,7 +614,7 @@
                 </Grid>
             </Grid>
 
-            <Grid x:Name="barra" Grid.Row="2" Margin="0,0,0,0">
+            <Grid x:Name="barra" Grid.Row="2" Margin="5,0,0,0">
                 <Button Name="btnTicket" Content="TICKET" Width="100" Height="30" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="10" Click="btnTicket_Click"/>
             </Grid>
         </Grid>

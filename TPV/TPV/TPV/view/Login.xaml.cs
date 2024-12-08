@@ -32,12 +32,13 @@ namespace TPV.view
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            // Encriptar la contraseña ingresada por el usuario
+            // Encriptar la contraseña ingresada por el usuario desde el PasswordBox
             string contraseñaEncriptada = Seguridad.EncriptarContraseña(txtPassword.Password);
 
-            Seguridad.GetPassword("admin"); // Una vez creado admin en la BBDD quitar esta linea o comentarla
+            // Si necesitas crear el admin, puedes dejar la siguiente línea solo una vez. Luego, quitala o comentala.
+            Seguridad.GetPassword("admin"); // Solo para crear el admin en la base de datos
 
-            // Buscar el usuario con la contraseña encriptada
+            // Busco el usuario con la contraseña encriptada
             var usuarioEncontrado = listaUsuarios.FirstOrDefault(u => u.nombre == txtUsername.Text && u.password == contraseñaEncriptada);
 
             if (usuarioEncontrado != null)
@@ -73,19 +74,20 @@ namespace TPV.view
         {
             if (chkMostrarPassword.IsChecked == true)
             {
-                // Muestro el textbox con la contraseña
+                // Muestro el texto de la contraseña en el TextBox
                 txtPasswordVisible.Text = txtPassword.Password;
                 txtPasswordVisible.Visibility = Visibility.Visible;
                 txtPassword.Visibility = Visibility.Collapsed;
             }
             else
             {
-                // Oculto el textbox con la contraseña
+                // Resto de la contraseña al PasswordBox
                 txtPassword.Password = txtPasswordVisible.Text;
                 txtPasswordVisible.Visibility = Visibility.Collapsed;
                 txtPassword.Visibility = Visibility.Visible;
             }
         }
+
 
     }
 }

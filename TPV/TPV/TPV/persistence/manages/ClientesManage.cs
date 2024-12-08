@@ -26,11 +26,11 @@ namespace TPV.persistence.manages
 
             Clientes cliente = null;
 
-            List<Object> aux = DBBroker.obtenerAgente().leer("SELECT codcliente, cnombre, activo FROM tpv.clientes WHERE activo = 1");
+            List<Object> aux = DBBroker.obtenerAgente().leer("SELECT codcliente, cnombre, email, activo FROM tpv.clientes WHERE activo = 1");
 
             foreach (List<Object> c in aux)
             {
-                cliente = new Clientes(int.Parse(c[0].ToString()), c[1].ToString(), int.Parse(c[0].ToString()));
+                cliente = new Clientes(int.Parse(c[0].ToString()), c[1].ToString(), c[2].ToString(), int.Parse(c[3].ToString()));
 
                 this.listaClientes.Add(cliente);
             }

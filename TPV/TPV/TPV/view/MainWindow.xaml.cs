@@ -566,7 +566,7 @@ namespace TPV
         #endregion
 
 
-        #region TICKET Y VETNAS
+        #region TICKET Y VENTAS
         private void btnTicket_Click(object sender, RoutedEventArgs e)
         {
             if (cuentaCliente == null)
@@ -585,8 +585,10 @@ namespace TPV
             }
             
             int idCliente = cuentaCliente.cliente.codCliente;
+            string name = cuentaCliente.cliente.cnombre;
+            string email = cuentaCliente.cliente.email;
 
-            Ticket ticket = new Ticket(sb.ToString(), cuentaCliente.Total, idCliente);
+            Ticket ticket = new Ticket(sb.ToString(), cuentaCliente.Total,name,email, idCliente);
             ticket.InsertarTicket(ticket);
 
             // Actualizo las cantidades de los productos en la base de datos
@@ -618,12 +620,43 @@ namespace TPV
 
         private void btnRefrescar_Click(object sender, RoutedEventArgs e)
         {
+            double ganancias = CalcularGananciasTotales();
+            txtGanancias.Text = $"{ganancias:C}";
             listaTickets.Clear();
             listaTickets = ticket.LeerTickets();
             dataVentas.ItemsSource = null;
             dataVentas.ItemsSource = listaTickets;
         }
 
-        
+        // Método para poner la ventana en pantalla completa al presionar F11
+        protected override void OnKeyDown(KeyEventArgs e)
+        {
+            base.OnKeyDown(e);
+
+            if (e.Key == Key.F11) // Si presiono F11
+            {
+                if (this.WindowState != WindowState.Maximized)
+                {
+                    // Pongo en pantalla completa
+                    this.WindowState = WindowState.Maximized;
+                    this.WindowStyle = WindowStyle.None; // Quito el estilo de window por lo que desaparecen los bordes y la barra de título
+                    this.Topmost = true; // La ventana estará siempre por encima de otras
+
+                    // Ocultola ventana en la barra de tareas
+                    this.ShowInTaskbar = false;
+                }
+                else
+                {
+                    // Volvemos al tamaño normal
+                    this.WindowState = WindowState.Normal;
+                    this.WindowStyle = WindowStyle.SingleBorderWindow; // Restauro el estilo de window
+                    this.Topmost = false; // La ventana ya no estará por encima de otras
+
+                    // Muestro otra vez la barra de tareas
+                    this.ShowInTaskbar = true;
+                }
+            }
+        }
+
     }
 }
