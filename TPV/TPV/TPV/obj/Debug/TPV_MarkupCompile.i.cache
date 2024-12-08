@@ -10,11 +10,11 @@ none
 false
 DEBUG;TRACE
 C:\Users\Alejandro\Documents\GitHub\DI-AEM\TPV\TPV\TPV\App.xaml
-31294133527
+21188054562
 
 18-1277044099
 33-828881538
-themes\DarkTheme.xaml;view\Login.xaml;view\MainWindow.xaml;
+view\Login.xaml;view\MainWindow.xaml;
 
-True
+False
 
