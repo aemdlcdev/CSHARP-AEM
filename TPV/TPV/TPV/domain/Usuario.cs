@@ -59,5 +59,17 @@ namespace TPV.domain
             usuarioManage.InsertarUsuario(usuario);
 
         }
+
+        public void ModificarUsuario(Usuario usuario)
+        {
+            usuarioManage = new UsuarioManage();
+            usuarioManage.ModificarUsuario(usuario);
+        }
+
+        public void EliminarUsuario(Usuario usuario)
+        {
+            usuarioManage = new UsuarioManage();
+            usuarioManage.EliminarUsuario(usuario);
+        }
     }
 }

@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:TPV"
         mc:Ignorable="d"
-        Title="TPV" Height="900" Width="910" MinHeight="900" MinWidth="910" WindowStartupLocation="CenterScreen">
+        Title="TPV" Height="900" Width="970" MinHeight="900" MinWidth="970" WindowStartupLocation="CenterScreen">
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="Auto"/>
@@ -116,7 +116,7 @@
 
                         </TabControl.Resources>
                         <TabItem Header="Productos" Margin="-1,51,1,-51">
-                            <Grid x:Name="gridTabProductos">
+                            <Grid x:Name="gridImagenes">
                                 <Grid.ColumnDefinitions>
                                     <ColumnDefinition Width="*"/>
                                     <ColumnDefinition Width="*"/>
@@ -129,22 +129,20 @@
                                     <RowDefinition Height="*"/>
                                     <RowDefinition Height="*"/>
                                     <RowDefinition Height="*"/>
+                                    
                                 </Grid.RowDefinitions>
 
-                                <!-- Comidas -->
-                                <Image Source="/resources/nuggets.png"/>
-                                <Image Grid.Column="1" Source="/resources/pescado.png"/>
-                                <Image Grid.Column="2" Source="/resources/ensalada.png"/>
-                                <Image Grid.Column="3" Source="/resources/patatas.png"/>
-                                <Image Grid.Column="4" Source="/resources/ibericos.png"/>
-
+                                
+                                
                                 <!-- Comidas -->
                                 <Image Source="/resources/nuggets.png" MouseLeftButtonUp="Image_MouseLeftButtonUp"/>
                                 <Image Grid.Column="1" Source="/resources/pescado.png" MouseLeftButtonUp="Image_MouseLeftButtonUp"/>
                                 <Image Grid.Column="2" Source="/resources/ensalada.png" MouseLeftButtonUp="Image_MouseLeftButtonUp"/>
                                 <Image Grid.Column="3" Source="/resources/patatas.png" MouseLeftButtonUp="Image_MouseLeftButtonUp"/>
                                 <Image Grid.Column="4" Source="/resources/ibericos.png" MouseLeftButtonUp="Image_MouseLeftButtonUp"/>
-
+                                
+                                <!-- <Image Grid.Row="3" Source="/resources/salmon.png" MouseLeftButtonUp="Image_MouseLeftButtonUp"/> -->
+                                    
                                 <!-- Postres -->
                                 <Image Grid.Row="1" Source="/resources/tartaqueso.png" MouseLeftButtonUp="Image_MouseLeftButtonUp"/>
                                 <Image Grid.Row="1" Grid.Column="1" Source="/resources/flan.png" MouseLeftButtonUp="Image_MouseLeftButtonUp"/>
@@ -301,8 +299,8 @@
 
                                                 </Grid.ColumnDefinitions>
                                                 <Button x:Name="addUser" Content="Añadir Usuario" Width="156" Height="25" VerticalAlignment="Bottom" Click="addUser_Click" />
-                                                <Button x:Name="modUser" Content="Modificar" Grid.Column="1" Width="155" HorizontalAlignment="Center" Height="25" />
-                                                <Button x:Name="delUser" Content="Eliminar" Grid.Column="2" Width="155" HorizontalAlignment="Center" Height="25" />
+                                                <Button x:Name="modUser" Content="Modificar" Grid.Column="1" Width="155" HorizontalAlignment="Center" Height="25" Click="modUser_Click" />
+                                                <Button x:Name="delUser" Content="Eliminar" Grid.Column="2" Width="155" HorizontalAlignment="Center" Height="25" Click="delUser_Click" />
 
                                             </Grid>
 
@@ -317,7 +315,7 @@
                                             </Grid>
 
                                             <DataGrid x:Name="dataUsers" Grid.Row="1" AutoGenerateColumns="False" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" 
-        CanUserResizeColumns="False" CanUserResizeRows="True" ColumnWidth="*" Height="600" MinColumnWidth="20" IsReadOnly="True" SelectionChanged="dataInventario_SelectionChanged">
+        CanUserResizeColumns="False" CanUserResizeRows="True" ColumnWidth="*" Height="600" MinColumnWidth="20" IsReadOnly="True" SelectionChanged="dataUsers_SelectionChanged">
                                                 <DataGrid.Columns>
                                                     <DataGridTextColumn Header="Codigo Usuario" Binding="{Binding idUsuario}" Width="100"/>
                                                     <DataGridTextColumn Header="Nombre Usuario" Binding="{Binding nombre}" Width="108"/>
@@ -347,6 +345,7 @@
                                                 <Label Name="lblIdRolC" Content="ID Rol:" Grid.Row="4"  />
                                                 <TextBox Name="txtIdRol" Grid.Row="5" Width="100"/>
 
+                                                <TextBlock Name="txtIdUser" Visibility="Hidden"/>
 
                                             </Grid>
 
@@ -364,10 +363,14 @@
                                         </StackPanel>
                                     </TabItem>
 
-                                    <TabItem Header="Personalización" >
+                                    <TabItem Header="Acerca de" >
                                         <StackPanel>
-                                            <Label Content="Elige un tema" FontSize="20" FontWeight="Bold"/>
-                                            <CheckBox Name="chkDark" Content="Tema oscuro" Checked="chkDark_Checked" Unchecked="chkDark_Unchecked"/>
+                                            <Label Content="Acerca de" FontSize="20" FontWeight="Bold"/>
+                                            <TextBlock FontSize="16" TextWrapping="Wrap" Width="600" HorizontalAlignment="Center">
+                                            Bienvenido al sistema de Terminal de Punto de Venta (TPV), una solución diseñada para simplificar y optimizar la gestión de ventas, inventario y operaciones en tu negocio.
+                                            Este software ha sido desarrollado con un enfoque en la facilidad de uso, la seguridad y la eficiencia, para que puedas centrarte en lo que realmente importa: hacer crecer tu negocio.
+                                            </TextBlock>
+
                                         </StackPanel>
                                     </TabItem>
 
@@ -538,7 +541,7 @@
                         </Grid.Resources>
 
                         <Label Name="lblNombre" Content="Nombre:" Grid.Row="0" />
-                        <TextBox Name="txtNombre" Grid.Row="1" Grid.Column="1" Width="150" TextChanged="txtNombre_TextChanged"/>
+                        <TextBox Name="txtNombre" Grid.Row="1" Grid.Column="1" Width="150"/>
                         <Label Name="lblCorreo" Content="Correo:" Grid.Row="2"  />
                         <TextBox Name="txtCorreo" Grid.Row="3" Width="150"/>
 

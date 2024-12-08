@@ -110,6 +110,7 @@
     <Compile Include="domain\Clientes.cs" />
     <Compile Include="domain\CuentaCliente.cs" />
     <Compile Include="domain\Productos.cs" />
+    <Compile Include="domain\Seguridad.cs" />
     <Compile Include="domain\Ticket.cs" />
     <Compile Include="domain\Usuario.cs" />
     <Compile Include="persistence\DBBroker.cs" />
@@ -221,6 +222,8 @@
   <ItemGroup>
     <Resource Include="resources\agua.png" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Resource Include="resources\salmon.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

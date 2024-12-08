@@ -58,5 +58,15 @@ namespace TPV.persistence.manages
             dbBroker.modificar("INSERT INTO tpv.usuario (nusuario, password, idrol) VALUES ('" + usuario.nombre + "', '" + usuario.password + "', " + usuario.idRol + ")");
         }
 
+        public void ModificarUsuario(Usuario usuario)
+        {
+            dbBroker.modificar("UPDATE tpv.usuario SET nusuario = '" + usuario.nombre + "', password = '" + usuario.password + "'  WHERE idusuario = " + usuario.idUsuario);
+        }
+
+        public void EliminarUsuario(Usuario usuario)
+        {
+            dbBroker.modificar("DELETE FROM tpv.usuario WHERE idusuario = " + usuario.idUsuario);
+
+        }
     }
 }

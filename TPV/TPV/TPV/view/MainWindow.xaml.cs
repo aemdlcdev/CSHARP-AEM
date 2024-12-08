@@ -11,6 +11,7 @@ using System.Windows.Threading;
 using TPV.domain;
 using TPV.persistence.manages;
 
+
 namespace TPV
 {
     public partial class MainWindow : Window
@@ -75,7 +76,8 @@ namespace TPV
             ConfigureUIBasedOnUserType(); // Depende del tipo de usuario, se mostrarán unas opciones u otras
         }
 
-        private void InitializeTimer()
+        #region HORA
+        private void InitializeTimer() // Metodo para mostrar la hora en la ventana
         {
             timer = new DispatcherTimer();
             timer.Interval = TimeSpan.FromSeconds(1);
@@ -87,7 +89,10 @@ namespace TPV
         {
             Hora.Text = DateTime.Now.ToString("hh:mm:ss tt");
         }
+        #endregion
 
+
+        #region CONFIGURACION USUARIOS
         private void ConfigureUIBasedOnUserType()
         {
             if (userType == "user")
@@ -102,6 +107,9 @@ namespace TPV
                 txtRuta.Visibility = Visibility.Hidden;
                 lblRuta.IsEnabled = false;
                 txtRuta.IsEnabled = false;
+
+                txtNombreProducto.IsEnabled = false;
+                txtPrecio.IsEnabled = false;
 
                 lblIdRolC.Visibility = Visibility.Hidden;
                 txtIdRol.Visibility = Visibility.Hidden;
@@ -147,24 +155,25 @@ namespace TPV
             }
         }
 
-        private void btnAñadir_Click(object sender, RoutedEventArgs e)
+        #endregion
+
+
+        #region PRODUCTOS
+
+        private void btnSearch_Click(object sender, RoutedEventArgs e)
         {
-            string nombre = txtNombre.Text;
-            string email = txtCorreo.Text;
+            string nombre = txtBuscar.Text;
+            var productos = listaProductos.FindAll(p => p.nombre.Contains(nombre));
+            dataInventario.ItemsSource = null;
+            dataInventario.ItemsSource = productos;
+        }
 
-            if (String.IsNullOrEmpty(nombre) || String.IsNullOrEmpty(email))
-            {
-                MessageBox.Show("Por favor, rellene todos los campos!", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
-                return;
-            }
-
-            Clientes clienteNuevo = new Clientes(email, nombre); // Asegúrate de que los parámetros estén en el orden correcto
-            clienteNuevo.InsertarCliente(clienteNuevo);
-
-            txtNombre.Text = "";
-            txtCorreo.Text = "";
-
-            RefreshDataClientes();
+        private void btnMostrarTodos_Click(object sender, RoutedEventArgs e)
+        {
+            listaProductos.Clear();
+            listaProductos = producto.LeerProductos();
+            dataInventario.ItemsSource = null;
+            dataInventario.ItemsSource = listaProductos;
         }
 
         private void dataInventario_SelectionChanged(object sender, SelectionChangedEventArgs e)
@@ -244,46 +253,99 @@ namespace TPV
             dataInventario.ItemsSource = null;
             dataInventario.ItemsSource = listaProductos;
         }
+        #endregion
 
-        private void btnSearch_Click(object sender, RoutedEventArgs e)
-        {
-            string nombre = txtBuscar.Text;
-            var productos = listaProductos.FindAll(p => p.nombre.Contains(nombre));
-            dataInventario.ItemsSource = null;
-            dataInventario.ItemsSource = productos;
-        }
+
+        #region USUARIOS
+
+        
 
         private void addUser_Click(object sender, RoutedEventArgs e)
         {
             string nombre = txtNombreUser.Text;
-            string password = txtPassword.Text;
+            string contraseña = txtPassword.Text;
+            int idRol = int.Parse(txtIdRol.Text);
 
-            string idRolString = txtIdRol.Text;
-            int idRol = 2;
-            if (String.IsNullOrEmpty(idRolString))
-            {
-                idRol = 2;
-            }
-            else 
-            { 
-                idRol = int.Parse(idRolString);
-            }
-            
-
-            if (String.IsNullOrEmpty(nombre) || String.IsNullOrEmpty(password))
+            if (String.IsNullOrEmpty(nombre) || String.IsNullOrEmpty(contraseña) || String.IsNullOrEmpty(idRol.ToString()))
             {
                 MessageBox.Show("Por favor, rellene todos los campos!", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
                 return;
             }
 
-            Usuario usuario = new Usuario(nombre, password, idRol);
+            // Encriptar la contraseña
+            string contraseñaEncriptada = Seguridad.EncriptarContraseña(contraseña);
+
+            Usuario usuario = new Usuario(nombre, contraseñaEncriptada, idRol);
             usuario.InsertarUsuario(usuario);
-
-
-
             listaUsuarios.Clear();
+            listaUsuarios = usuario.LeerUsuarios();
+            dataUsers.ItemsSource = null;
+            dataUsers.ItemsSource = listaUsuarios;
+        }
 
-            if(userType == "admin")
+
+        private void modUser_Click(object sender, RoutedEventArgs e)
+        {
+            int id = int.Parse(txtIdUser.Text);
+            string nombre = txtNombreUser.Text;
+            string contraseña = txtPassword.Text;
+            int idRol = int.Parse(txtIdRol.Text);
+
+            if (String.IsNullOrEmpty(nombre) || String.IsNullOrEmpty(contraseña) || String.IsNullOrEmpty(idRol.ToString()))
+            {
+                MessageBox.Show("Por favor, rellene todos los campos!", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                return;
+            }
+
+            // Encriptar la contraseña
+            string contraseñaEncriptada = Seguridad.EncriptarContraseña(contraseña);
+
+            Usuario usuario = new Usuario(id, nombre, contraseñaEncriptada, idRol);
+            usuario.ModificarUsuario(usuario);
+            listaUsuarios.Clear();
+            listaUsuarios = usuario.LeerUsuarios();
+            dataUsers.ItemsSource = null;
+            dataUsers.ItemsSource = listaUsuarios;
+        }
+
+
+        private void delUser_Click(object sender, RoutedEventArgs e)
+        {
+            MessageBoxResult result = MessageBox.Show("¿Estás seguro de que quieres eliminar este usuario?", "Eliminar usuario", MessageBoxButton.YesNo, MessageBoxImage.Question);
+            if (result == MessageBoxResult.No)
+            {
+                return;
+            }
+            else if (result == MessageBoxResult.Yes)
+            {
+                int idUsuario = int.Parse(txtIdUser.Text);
+                string nombre = txtNombreUser.Text;
+                string password = txtPassword.Text;
+                int idRol = txtIdRol.Text == "" ? 2 : int.Parse(txtIdRol.Text);
+                Usuario usuario = new Usuario(idUsuario, nombre, password, idRol);
+                usuario.EliminarUsuario(usuario);
+
+                RefrescarUsuarios();
+            }
+        }
+
+        private void dataUsers_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            Usuario usuarioSeleccionado = (Usuario)dataUsers.SelectedItem;
+
+            if (usuarioSeleccionado != null)
+            {
+                txtIdUser.Text = usuarioSeleccionado.idUsuario.ToString();
+                txtNombreUser.Text = usuarioSeleccionado.nombre;
+                txtPassword.Text = usuarioSeleccionado.password;
+            }
+
+        }
+
+        private void RefrescarUsuarios()
+        {
+            listaUsuarios.Clear();
+            if (userType == "admin")
             {
                 listaUsuarios = usuario.LeerUsuarios();
             }
@@ -295,16 +357,30 @@ namespace TPV
             dataUsers.ItemsSource = listaUsuarios;
         }
 
-        private void btnMostrarTodos_Click(object sender, RoutedEventArgs e)
-        {
-            listaProductos.Clear();
-            listaProductos = producto.LeerProductos();
-            dataInventario.ItemsSource = null;
-            dataInventario.ItemsSource = listaProductos;
-        }
+        #endregion
+
 
         #region CLIENTES
 
+        private void btnAñadir_Click(object sender, RoutedEventArgs e)
+        {
+            string nombre = txtNombre.Text;
+            string email = txtCorreo.Text;
+
+            if (String.IsNullOrEmpty(nombre) || String.IsNullOrEmpty(email))
+            {
+                MessageBox.Show("Por favor, rellene todos los campos!", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                return;
+            }
+
+            Clientes clienteNuevo = new Clientes(email, nombre);
+            clienteNuevo.InsertarCliente(clienteNuevo);
+
+            txtNombre.Text = "";
+            txtCorreo.Text = "";
+
+            RefreshDataClientes();
+        }
         private void dataClientes_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             Clientes clienteSeleccionado = (Clientes)dataClientes.SelectedItem;
@@ -483,38 +559,8 @@ namespace TPV
 
         #endregion
 
-        private void chkDark_Checked(object sender, RoutedEventArgs e)
-        {
-            ChangeTheme("Dark");
-        }
 
-        private void chkDark_Unchecked(object sender, RoutedEventArgs e)
-        {
-            ChangeTheme("Dark");
-        }
-
-        private void ChangeTheme(string theme)
-        {
-            ResourceDictionary newTheme = new ResourceDictionary();
-            switch (theme)
-            {
-                case "Dark":
-                    newTheme.Source = new Uri("/themes/DarkTheme.xaml", UriKind.Relative);
-                    break;
-                case "Light":
-                    newTheme.Source = new Uri("LightTheme.xaml", UriKind.Relative);
-                    break;
-            }
-
-            Application.Current.Resources.MergedDictionaries.Clear();
-            Application.Current.Resources.MergedDictionaries.Add(newTheme);
-        }
-
-        private void txtNombre_TextChanged(object sender, TextChangedEventArgs e)
-        {
-
-        }
-
+        #region TICKET Y VETNAS
         private void btnTicket_Click(object sender, RoutedEventArgs e)
         {
             if (cuentaCliente == null)
@@ -561,6 +607,8 @@ namespace TPV
             double totalGanancias = listaTickets.Sum(t => t.importe);
             return totalGanancias;
         }
+        #endregion
+
 
         private void btnRefrescar_Click(object sender, RoutedEventArgs e)
         {
@@ -569,5 +617,7 @@ namespace TPV
             dataVentas.ItemsSource = null;
             dataVentas.ItemsSource = listaTickets;
         }
+
+        
     }
 }

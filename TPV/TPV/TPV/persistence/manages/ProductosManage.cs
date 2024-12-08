@@ -39,7 +39,7 @@ namespace TPV.persistence.manages
 
         public void InsertarProducto(Productos producto)
         {
-            string sql = "INSERT INTO tpv.productos (pnombre, palergias, precio, cantidad) VALUES ('" + producto.nombre + "', '" + producto.alergias + "', " + producto.precio.ToString(nfi) + ", " + producto.cantidad + ")";
+            string sql = "INSERT INTO tpv.productos (pnombre, palergias, precio, cantidad, rutaimg) VALUES ('" + producto.nombre + "', '" + producto.alergias + "', " + producto.precio.ToString(nfi) + ", " + producto.cantidad + ", '" + producto.Imagen + "')";
             DBBroker.obtenerAgente().modificar(sql);
         }
         public void ModificarProducto(Productos producto)

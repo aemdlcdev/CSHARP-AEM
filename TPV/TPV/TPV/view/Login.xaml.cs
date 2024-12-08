@@ -32,7 +32,11 @@ namespace TPV.view
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            var usuarioEncontrado = listaUsuarios.FirstOrDefault(u => u.nombre == txtUsername.Text && u.password == txtPassword.Password);
+            // Encriptar la contraseña ingresada por el usuario
+            string contraseñaEncriptada = Seguridad.EncriptarContraseña(txtPassword.Password);
+
+            // Buscar el usuario con la contraseña encriptada
+            var usuarioEncontrado = listaUsuarios.FirstOrDefault(u => u.nombre == txtUsername.Text && u.password == contraseñaEncriptada);
 
             if (usuarioEncontrado != null)
             {
@@ -64,4 +68,3 @@ namespace TPV.view
         }
     }
 }
-
