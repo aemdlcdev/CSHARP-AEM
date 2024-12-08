@@ -98,5 +98,4 @@ C:\Users\b15-03m\Documents\NetBeansProjects\DI-AEM\TPV\TPV\TPV\obj\Debug\TPV.csp
 C:\Users\b15-03m\Documents\NetBeansProjects\DI-AEM\TPV\TPV\TPV\obj\Debug\TPV.csproj.Up2Date
 C:\Users\b15-03m\Documents\NetBeansProjects\DI-AEM\TPV\TPV\TPV\obj\Debug\TPV.exe
 C:\Users\b15-03m\Documents\NetBeansProjects\DI-AEM\TPV\TPV\TPV\obj\Debug\TPV.pdb
-C:\Users\Alejandro\Documents\GitHub\DI-AEM\TPV\TPV\TPV\obj\Debug\themes\DarkTheme.baml
 C:\Users\Alejandro\Documents\GitHub\DI-AEM\TPV\TPV\TPV\obj\Debug\App.baml

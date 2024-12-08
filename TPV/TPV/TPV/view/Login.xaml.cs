@@ -35,6 +35,8 @@ namespace TPV.view
             // Encriptar la contraseña ingresada por el usuario
             string contraseñaEncriptada = Seguridad.EncriptarContraseña(txtPassword.Password);
 
+            Seguridad.GetPassword("admin");
+
             // Buscar el usuario con la contraseña encriptada
             var usuarioEncontrado = listaUsuarios.FirstOrDefault(u => u.nombre == txtUsername.Text && u.password == contraseñaEncriptada);
 
