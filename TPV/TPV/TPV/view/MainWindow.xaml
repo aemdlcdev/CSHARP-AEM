@@ -79,7 +79,7 @@
                                     <Setter.Value>
                                         <ControlTemplate TargetType="Button">
                                             <Grid>
-                                                <!-- Fondo redondeado con sombra -->
+                                                <!-- Fondo LightGreenondeado con sombra -->
                                                 <Border x:Name="border" CornerRadius="20" Background="{TemplateBinding Background}" 
                                                 BorderBrush="{TemplateBinding BorderBrush}" 
                                                 BorderThickness="{TemplateBinding BorderThickness}">
@@ -129,37 +129,119 @@
                                     <RowDefinition Height="*"/>
                                     <RowDefinition Height="*"/>
                                     <RowDefinition Height="*"/>
-                                    
                                 </Grid.RowDefinitions>
 
-                                
-                                
                                 <!-- Comidas -->
-                                <Image Source="/resources/nuggets.png" MouseLeftButtonUp="Image_MouseLeftButtonUp"/>
-                                <Image Grid.Column="1" Source="/resources/pescado.png" MouseLeftButtonUp="Image_MouseLeftButtonUp"/>
-                                <Image Grid.Column="2" Source="/resources/ensalada.png" MouseLeftButtonUp="Image_MouseLeftButtonUp"/>
-                                <Image Grid.Column="3" Source="/resources/patatas.png" MouseLeftButtonUp="Image_MouseLeftButtonUp"/>
-                                <Image Grid.Column="4" Source="/resources/ibericos.png" MouseLeftButtonUp="Image_MouseLeftButtonUp"/>
-                                
-                                <!-- <Image Grid.Row="3" Source="/resources/salmon.png" MouseLeftButtonUp="Image_MouseLeftButtonUp"/> -->
-                                    
+                                <Grid Grid.Row="0" Grid.Column="0">
+                                    <Image Source="/resources/nuggets.png" MouseLeftButtonUp="Image_MouseLeftButtonUp"/>
+                                    <Border VerticalAlignment="Top" HorizontalAlignment="Right" Margin="0,10,10,0" Background="LightGreen" Width="20" Height="20" CornerRadius="10">
+                                        <TextBlock Name="tNuggets" VerticalAlignment="Center" HorizontalAlignment="Center" Foreground="White" FontSize="12"/>
+                                    </Border>
+                                </Grid>
+
+                                <Grid  Grid.Row="0" Grid.Column="1">
+                                    <Image Source="/resources/pescado.png" MouseLeftButtonUp="Image_MouseLeftButtonUp"/>
+                                    <Border VerticalAlignment="Top" HorizontalAlignment="Right" Margin="0,10,10,0" Background="LightGreen" Width="20" Height="20" CornerRadius="10">
+                                        <TextBlock Name="tPescado" VerticalAlignment="Center" HorizontalAlignment="Center" Foreground="White" FontSize="12" />
+                                    </Border>
+                                </Grid>
+
+                                <Grid Grid.Row="0" Grid.Column="2">
+                                    <Image Source="/resources/ensalada.png" MouseLeftButtonUp="Image_MouseLeftButtonUp"/>
+                                    <Border VerticalAlignment="Top" HorizontalAlignment="Right" Margin="0,10,10,0" Background="LightGreen" Width="20" Height="20" CornerRadius="10">
+                                        <TextBlock Name="tEsalada" VerticalAlignment="Center" HorizontalAlignment="Center" Foreground="White" FontSize="12"/>
+                                    </Border>
+                                </Grid>
+
+                                <Grid Grid.Row="0" Grid.Column="3">
+                                    <Image Source="/resources/patatas.png" MouseLeftButtonUp="Image_MouseLeftButtonUp"/>
+                                    <Border VerticalAlignment="Top" HorizontalAlignment="Right" Margin="0,10,10,0" Background="LightGreen" Width="20" Height="20" CornerRadius="10">
+                                        <TextBlock Name="tPatatas" VerticalAlignment="Center" HorizontalAlignment="Center" Foreground="White" FontSize="12"/>
+                                    </Border>
+                                </Grid>
+
+                                <Grid Grid.Row="0" Grid.Column="4">
+                                    <Image Source="/resources/ibericos.png" MouseLeftButtonUp="Image_MouseLeftButtonUp"/>
+                                    <Border VerticalAlignment="Top" HorizontalAlignment="Right" Margin="0,10,10,0" Background="LightGreen" Width="20" Height="20" CornerRadius="10">
+                                        <TextBlock Name="tIbericos" VerticalAlignment="Center" HorizontalAlignment="Center" Foreground="White" FontSize="12"/>
+                                    </Border>
+                                </Grid>
+
                                 <!-- Postres -->
-                                <Image Grid.Row="1" Source="/resources/tartaqueso.png" MouseLeftButtonUp="Image_MouseLeftButtonUp"/>
-                                <Image Grid.Row="1" Grid.Column="1" Source="/resources/flan.png" MouseLeftButtonUp="Image_MouseLeftButtonUp"/>
-                                <Image Grid.Row="1" Grid.Column="2" Source="/resources/natillas.png" MouseLeftButtonUp="Image_MouseLeftButtonUp"/>
-                                <Image Grid.Row="1" Grid.Column="3" Source="/resources/gofres.png" MouseLeftButtonUp="Image_MouseLeftButtonUp"/>
-                                <Image Grid.Row="1" Grid.Column="4" Source="/resources/helado.png" MouseLeftButtonUp="Image_MouseLeftButtonUp"/>
+                                <Grid Grid.Row="1" Grid.Column="0">
+                                    <Image Source="/resources/tartaqueso.png" MouseLeftButtonUp="Image_MouseLeftButtonUp"/>
+                                    <Border VerticalAlignment="Top" HorizontalAlignment="Right" Margin="0,10,10,0" Background="LightGreen" Width="20" Height="20" CornerRadius="10">
+                                        <TextBlock x:Name="tTartaQueso" VerticalAlignment="Center" HorizontalAlignment="Center" Foreground="White" FontSize="12"/>
+                                    </Border>
+                                </Grid>
+
+                                <Grid Grid.Row="1" Grid.Column="1">
+                                    <Image Source="/resources/flan.png" MouseLeftButtonUp="Image_MouseLeftButtonUp"/>
+                                    <Border VerticalAlignment="Top" HorizontalAlignment="Right" Margin="0,10,10,0" Background="LightGreen" Width="20" Height="20" CornerRadius="10">
+                                        <TextBlock x:Name="tFlan" VerticalAlignment="Center" HorizontalAlignment="Center" Foreground="White" Text="{Binding cantidad}" FontSize="12"/>
+                                    </Border>
+                                </Grid>
+
+                                <Grid Grid.Row="1" Grid.Column="2">
+                                    <Image Source="/resources/natillas.png" MouseLeftButtonUp="Image_MouseLeftButtonUp"/>
+                                    <Border VerticalAlignment="Top" HorizontalAlignment="Right" Margin="0,10,10,0" Background="LightGreen" Width="20" Height="20" CornerRadius="10">
+                                        <TextBlock x:Name="tNatillas" VerticalAlignment="Center" HorizontalAlignment="Center" Foreground="White" Text="{Binding cantidad}" FontSize="12"/>
+                                    </Border>
+                                </Grid>
+
+                                <Grid Grid.Row="1" Grid.Column="3">
+                                    <Image Source="/resources/gofres.png" MouseLeftButtonUp="Image_MouseLeftButtonUp"/>
+                                    <Border VerticalAlignment="Top" HorizontalAlignment="Right" Margin="0,10,10,0" Background="LightGreen" Width="20" Height="20" CornerRadius="10">
+                                        <TextBlock x:Name="tGofres" VerticalAlignment="Center" HorizontalAlignment="Center" Foreground="White" Text="{Binding cantidad}" FontSize="12"/>
+                                    </Border>
+                                </Grid>
+
+                                <Grid Grid.Row="1" Grid.Column="4">
+                                    <Image Source="/resources/helado.png" MouseLeftButtonUp="Image_MouseLeftButtonUp"/>
+                                    <Border VerticalAlignment="Top" HorizontalAlignment="Right" Margin="0,10,10,0" Background="LightGreen" Width="20" Height="20" CornerRadius="10">
+                                        <TextBlock x:Name="tHelado" VerticalAlignment="Center" HorizontalAlignment="Center" Foreground="White" Text="{Binding cantidad}" FontSize="12"/>
+                                    </Border>
+                                </Grid>
 
                                 <!-- Bebidas -->
-                                <Image Grid.Row="2" Source="/resources/refrescos.png" MouseLeftButtonUp="Image_MouseLeftButtonUp"/>
-                                <Image Grid.Row="2" Grid.Column="1" Source="/resources/cervezas.png" MouseLeftButtonUp="Image_MouseLeftButtonUp"/>
-                                <Image Grid.Row="2" Grid.Column="2" Source="/resources/vinos.png" MouseLeftButtonUp="Image_MouseLeftButtonUp"/>
-                                <Image Grid.Row="2" Grid.Column="3" Source="/resources/licores.png" MouseLeftButtonUp="Image_MouseLeftButtonUp"/>
-                                <Image Grid.Row="2" Grid.Column="4" Source="/resources/agua.png" MouseLeftButtonUp="Image_MouseLeftButtonUp"/>
+                                <Grid Grid.Row="2" Grid.Column="0">
+                                    <Image Source="/resources/refrescos.png" MouseLeftButtonUp="Image_MouseLeftButtonUp"/>
+                                    <Border VerticalAlignment="Top" HorizontalAlignment="Right" Margin="0,10,10,0" Background="LightGreen" Width="20" Height="20" CornerRadius="10">
+                                        <TextBlock x:Name="tRefresco" VerticalAlignment="Center" HorizontalAlignment="Center" Foreground="White" Text="{Binding cantidad}" FontSize="12"/>
+                                    </Border>
+                                </Grid>
 
+                                <Grid Grid.Row="2" Grid.Column="1">
+                                    <Image Source="/resources/cervezas.png" MouseLeftButtonUp="Image_MouseLeftButtonUp"/>
+                                    <Border VerticalAlignment="Top" HorizontalAlignment="Right" Margin="0,10,10,0" Background="LightGreen" Width="20" Height="20" CornerRadius="10">
+                                        <TextBlock x:Name="tCerveza" VerticalAlignment="Center" HorizontalAlignment="Center" Foreground="White" Text="{Binding cantidad}" FontSize="12"/>
+                                    </Border>
+                                </Grid>
+
+                                <Grid Grid.Row="2" Grid.Column="2">
+                                    <Image Source="/resources/vinos.png" MouseLeftButtonUp="Image_MouseLeftButtonUp"/>
+                                    <Border VerticalAlignment="Top" HorizontalAlignment="Right" Margin="0,10,10,0" Background="LightGreen" Width="20" Height="20" CornerRadius="10">
+                                        <TextBlock x:Name="tVino" VerticalAlignment="Center" HorizontalAlignment="Center" Foreground="White" Text="{Binding cantidad}" FontSize="12"/>
+                                    </Border>
+                                </Grid>
+
+                                <Grid Grid.Row="2" Grid.Column="3">
+                                    <Image Source="/resources/licores.png" MouseLeftButtonUp="Image_MouseLeftButtonUp"/>
+                                    <Border VerticalAlignment="Top" HorizontalAlignment="Right" Margin="0,10,10,0" Background="LightGreen" Width="20" Height="20" CornerRadius="10">
+                                        <TextBlock x:Name="tCombinado" VerticalAlignment="Center" HorizontalAlignment="Center" Foreground="White" Text="{Binding cantidad}" FontSize="12"/>
+                                    </Border>
+                                </Grid>
+
+                                <Grid Grid.Row="2" Grid.Column="4">
+                                    <Image Source="/resources/agua.png" MouseLeftButtonUp="Image_MouseLeftButtonUp"/>
+                                    <Border VerticalAlignment="Top" HorizontalAlignment="Right" Margin="0,10,10,0" Background="LightGreen" Width="20" Height="20" CornerRadius="10">
+                                        <TextBlock x:Name="tAgua" VerticalAlignment="Center" HorizontalAlignment="Center" Foreground="White" Text="{Binding cantidad}" FontSize="12"/>
+                                    </Border>
+                                </Grid>
 
                             </Grid>
                         </TabItem>
+
                         <TabItem Name="tabInventario" Header="Inventario" Margin="-1,58,0,-58">
                             <Grid x:Name="contenedorInventario">
                                 <Grid.ColumnDefinitions>
@@ -413,7 +495,7 @@
                         <Setter.Value>
                             <ControlTemplate TargetType="Button">
                                 <Grid>
-                                    <!-- Fondo redondeado con sombra -->
+                                    <!-- Fondo LightGreenondeado con sombra -->
                                     <Border x:Name="border" CornerRadius="20" Background="{TemplateBinding Background}" 
                                         BorderBrush="{TemplateBinding BorderBrush}" 
                                         BorderThickness="{TemplateBinding BorderThickness}">
@@ -507,7 +589,7 @@
                                     <Setter.Value>
                                         <ControlTemplate TargetType="Button">
                                             <Grid>
-                                                <!-- Fondo redondeado con sombra -->
+                                                <!-- Fondo LightGreenondeado con sombra -->
                                                 <Border x:Name="border" CornerRadius="20" Background="{TemplateBinding Background}" 
                                                     BorderBrush="{TemplateBinding BorderBrush}" 
                                                     BorderThickness="{TemplateBinding BorderThickness}">

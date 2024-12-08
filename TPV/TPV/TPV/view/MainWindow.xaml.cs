@@ -39,6 +39,9 @@ namespace TPV
         private string currentOperator = string.Empty;
         private double currentValue = 0.0;
 
+         // Asegúrate de que listaProductos contiene los objetos Productos
+
+
         private string userType;
 
         public MainWindow(string userType)
@@ -72,6 +75,8 @@ namespace TPV
 
             double totalGanancias = CalcularGananciasTotales();
             txtGanancias.Text = $"{totalGanancias:C}";
+
+            EstablecesCantidadProductos();
 
             ConfigureUIBasedOnUserType(); // Depende del tipo de usuario, se mostrarán unas opciones u otras
         }
@@ -205,6 +210,7 @@ namespace TPV
             listaProductos = producto.LeerProductos();
             dataInventario.ItemsSource = null;
             dataInventario.ItemsSource = listaProductos;
+            EstablecesCantidadProductos();
             MessageBox.Show("Producto modificado correctamente!", "Información", MessageBoxButton.OK, MessageBoxImage.Information);
         }
 
@@ -253,12 +259,49 @@ namespace TPV
             dataInventario.ItemsSource = null;
             dataInventario.ItemsSource = listaProductos;
         }
+
+        private void Image_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
+        {
+            if (cuentaCliente == null)
+            {
+                MessageBox.Show("Por favor, seleccione un cliente primero.", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                return;
+            }
+
+            Image image = sender as Image;
+
+            if (image != null)
+            {
+                // Obtengo la ruta de la imagen
+                string productoNombre = System.IO.Path.GetFileName(image.Source.ToString());
+
+                // Busco el producto correspondiente
+                Productos productoSeleccionado = listaProductos.FirstOrDefault(p => System.IO.Path.GetFileName(p.Imagen) == productoNombre);
+
+                if (productoSeleccionado != null)
+                {
+                    cuentaCliente.AgregarProducto(productoSeleccionado);
+                    MessageBox.Show($"Producto {productoSeleccionado.nombre} agregado a la cuenta del cliente {cuentaCliente.cliente.cnombre}.", "Información", MessageBoxButton.OK, MessageBoxImage.Information);
+
+                    // Actualizo el saldo en txtSaldo
+                    currentValue = cuentaCliente.Total;
+                    txtSaldo.Text = currentValue.ToString("C");
+                    
+                }
+                else
+                {
+                    MessageBox.Show("Producto no encontrado.", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                }
+            }
+        }
+
+
         #endregion
 
 
         #region USUARIOS
 
-        
+
 
         private void addUser_Click(object sender, RoutedEventArgs e)
         {
@@ -420,41 +463,6 @@ namespace TPV
             }
         }
 
-
-        private void Image_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
-        {
-            if (cuentaCliente == null)
-            {
-                MessageBox.Show("Por favor, seleccione un cliente primero.", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
-                return;
-            }
-
-            Image image = sender as Image;
-
-            if (image != null)
-            {
-                // Obtener la ruta de la imagen
-                string productoNombre = System.IO.Path.GetFileName(image.Source.ToString());
-
-                // Buscar el producto correspondiente
-                Productos productoSeleccionado = listaProductos.FirstOrDefault(p => System.IO.Path.GetFileName(p.Imagen) == productoNombre);
-
-                if (productoSeleccionado != null)
-                {
-                    cuentaCliente.AgregarProducto(productoSeleccionado);
-                    MessageBox.Show($"Producto {productoSeleccionado.nombre} agregado a la cuenta del cliente {cuentaCliente.cliente.cnombre}.", "Información", MessageBoxButton.OK, MessageBoxImage.Information);
-
-                    // Actualizar el saldo en txtSaldo
-                    currentValue = cuentaCliente.Total;
-                    txtSaldo.Text = currentValue.ToString("C");
-                }
-                else
-                {
-                    MessageBox.Show("Producto no encontrado.", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
-                }
-            }
-        }
-
         private void Button_Click(object sender, RoutedEventArgs e)
         {
             Button button = sender as Button;
@@ -588,7 +596,7 @@ namespace TPV
             string name = cuentaCliente.cliente.cnombre;
             string email = cuentaCliente.cliente.email;
 
-            Ticket ticket = new Ticket(sb.ToString(), cuentaCliente.Total,name,email, idCliente);
+            Ticket ticket = new Ticket(sb.ToString(), cuentaCliente.Total, name, email, idCliente);
             ticket.InsertarTicket(ticket);
 
             // Actualizo las cantidades de los productos en la base de datos
@@ -603,6 +611,8 @@ namespace TPV
             cuentaCliente.cliente.ModificarCliente(cuentaCliente.cliente);
 
             RefreshDataClientes();
+
+            EstablecesCantidadProductos();
 
             MessageBox.Show("Ticket generado correctamente.", "Información", MessageBoxButton.OK, MessageBoxImage.Information);
         }
@@ -658,5 +668,23 @@ namespace TPV
             }
         }
 
+        private void EstablecesCantidadProductos()
+        {
+            tNuggets.Text = listaProductos[0].cantidad.ToString();
+            tPescado.Text = listaProductos[1].cantidad.ToString();
+            tEsalada.Text = listaProductos[2].cantidad.ToString();
+            tPatatas.Text = listaProductos[3].cantidad.ToString();
+            tIbericos.Text = listaProductos[4].cantidad.ToString();
+            tTartaQueso.Text = listaProductos[5].cantidad.ToString();
+            tFlan.Text = listaProductos[6].cantidad.ToString();
+            tNatillas.Text = listaProductos[7].cantidad.ToString();
+            tGofres.Text = listaProductos[8].cantidad.ToString();
+            tHelado.Text = listaProductos[9].cantidad.ToString();
+            tRefresco.Text = listaProductos[10].cantidad.ToString();
+            tCerveza.Text = listaProductos[11].cantidad.ToString();
+            tVino.Text = listaProductos[12].cantidad.ToString();
+            tCombinado.Text = listaProductos[13].cantidad.ToString();
+            tAgua.Text = listaProductos[14].cantidad.ToString();
+        } 
     }
 }
