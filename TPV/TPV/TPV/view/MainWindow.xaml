@@ -451,11 +451,12 @@
                                     <TabItem Header="Acerca de" >
                                         <StackPanel>
                                             <Label Content="Acerca de" FontSize="20" FontWeight="Bold"/>
-                                            <TextBlock FontSize="16" TextWrapping="Wrap" Width="600" HorizontalAlignment="Center">
-                                            Bienvenido al sistema de Terminal de Punto de Venta (TPV), una solución diseñada para simplificar y optimizar la gestión de ventas, inventario y operaciones en tu negocio.
-                                            Este software ha sido desarrollado con un enfoque en la facilidad de uso, la seguridad y la eficiencia, para que puedas centrarte en lo que realmente importa: hacer crecer tu negocio.
-                                            </TextBlock>
-
+                                            <Grid HorizontalAlignment="Left">
+                                                <TextBlock FontSize="16" TextWrapping="Wrap" Width="Auto">
+Bienvenido al sistema de Terminal de Punto de Venta (TPV), una solución diseñada para simplificar y optimizar la gestión de ventas, inventario y operaciones en tu negocio.
+Este software ha sido desarrollado con un enfoque en la facilidad de uso, la seguridad y la eficiencia, para que puedas centrarte en lo que realmente importa: hacer crecer tu negocio.
+                                                </TextBlock>
+                                            </Grid>
                                         </StackPanel>
                                     </TabItem>
 
