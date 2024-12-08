@@ -35,7 +35,7 @@ namespace TPV.view
             // Encriptar la contraseña ingresada por el usuario
             string contraseñaEncriptada = Seguridad.EncriptarContraseña(txtPassword.Password);
 
-            Seguridad.GetPassword("admin");
+            Seguridad.GetPassword("admin"); // Una vez creado admin en la BBDD quitar esta linea o comentarla
 
             // Buscar el usuario con la contraseña encriptada
             var usuarioEncontrado = listaUsuarios.FirstOrDefault(u => u.nombre == txtUsername.Text && u.password == contraseñaEncriptada);
@@ -68,5 +68,24 @@ namespace TPV.view
                 MessageBox.Show("Usuario o contraseña incorrectos", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
             }
         }
+
+        private void chkMostrarPassword_Checked(object sender, RoutedEventArgs e)
+        {
+            if (chkMostrarPassword.IsChecked == true)
+            {
+                // Muestro el textbox con la contraseña
+                txtPasswordVisible.Text = txtPassword.Password;
+                txtPasswordVisible.Visibility = Visibility.Visible;
+                txtPassword.Visibility = Visibility.Collapsed;
+            }
+            else
+            {
+                // Oculto el textbox con la contraseña
+                txtPassword.Password = txtPasswordVisible.Text;
+                txtPasswordVisible.Visibility = Visibility.Collapsed;
+                txtPassword.Visibility = Visibility.Visible;
+            }
+        }
+
     }
 }

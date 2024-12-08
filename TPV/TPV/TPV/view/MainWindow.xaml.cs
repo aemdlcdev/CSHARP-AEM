@@ -264,7 +264,12 @@ namespace TPV
         {
             string nombre = txtNombreUser.Text;
             string contraseña = txtPassword.Text;
-            int idRol = int.Parse(txtIdRol.Text);
+            int idRol = 2;
+
+            if(txtIdRol.Text != "")
+            {
+                idRol = int.Parse(txtIdRol.Text);
+            }
 
             if (String.IsNullOrEmpty(nombre) || String.IsNullOrEmpty(contraseña) || String.IsNullOrEmpty(idRol.ToString()))
             {
@@ -272,15 +277,13 @@ namespace TPV
                 return;
             }
 
-            // Encriptar la contraseña
+            // Encripto la contraseña
             string contraseñaEncriptada = Seguridad.EncriptarContraseña(contraseña);
 
             Usuario usuario = new Usuario(nombre, contraseñaEncriptada, idRol);
             usuario.InsertarUsuario(usuario);
-            listaUsuarios.Clear();
-            listaUsuarios = usuario.LeerUsuarios();
-            dataUsers.ItemsSource = null;
-            dataUsers.ItemsSource = listaUsuarios;
+
+            RefrescarUsuarios();
         }
 
 
@@ -289,7 +292,12 @@ namespace TPV
             int id = int.Parse(txtIdUser.Text);
             string nombre = txtNombreUser.Text;
             string contraseña = txtPassword.Text;
-            int idRol = int.Parse(txtIdRol.Text);
+            int idRol = 2;
+
+            if (txtIdRol.Text != "")
+            {
+                idRol = int.Parse(txtIdRol.Text);
+            }
 
             if (String.IsNullOrEmpty(nombre) || String.IsNullOrEmpty(contraseña) || String.IsNullOrEmpty(idRol.ToString()))
             {
@@ -297,15 +305,13 @@ namespace TPV
                 return;
             }
 
-            // Encriptar la contraseña
+            // Encripto la contraseña
             string contraseñaEncriptada = Seguridad.EncriptarContraseña(contraseña);
 
             Usuario usuario = new Usuario(id, nombre, contraseñaEncriptada, idRol);
             usuario.ModificarUsuario(usuario);
-            listaUsuarios.Clear();
-            listaUsuarios = usuario.LeerUsuarios();
-            dataUsers.ItemsSource = null;
-            dataUsers.ItemsSource = listaUsuarios;
+
+            RefrescarUsuarios();
         }
 
 
