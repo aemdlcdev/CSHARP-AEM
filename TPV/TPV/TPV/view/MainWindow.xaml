@@ -457,8 +457,8 @@
                                         
                                     </DataGrid.Columns>
                                 </DataGrid>
-                                <Label Content="Ganancias totales: "  Grid.Row="3" Width="110" HorizontalAlignment="Right" Margin="0,2,110,0" FontFamily="Bahnschrift SemiLight"/>
-                                <TextBox Name="txtGanancias" Padding="5"  Grid.Row="4" Width="100" IsReadOnly="True" HorizontalAlignment="Right" Margin="115,0,0,0"/>
+                                <Label Content="Ganancias totales: " Grid.Row="3"  HorizontalAlignment="Right" Margin="0,2,105,0" FontFamily="Bahnschrift SemiLight"/>
+                                <TextBox Name="txtGanancias" Padding="5" Grid.Row="4" Width="100" IsReadOnly="True" HorizontalAlignment="Right" Margin="115,0,0,0"/>
                             </Grid>
 
                         </TabItem>
