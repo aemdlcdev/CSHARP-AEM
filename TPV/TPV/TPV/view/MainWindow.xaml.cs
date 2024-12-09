@@ -485,7 +485,6 @@ namespace TPV
                         {
                             case "+":
                                 currentValue += newValue;  // Sumo el valor al total
-                                cuentaCliente.Total = currentValue;
 
                                 break;
                             case "-":
