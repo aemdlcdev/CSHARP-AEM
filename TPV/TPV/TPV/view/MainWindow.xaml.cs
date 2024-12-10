@@ -485,6 +485,7 @@ namespace TPV
                         {
                             case "+":
                                 currentValue += newValue;  // Sumo el valor al total
+
                                 break;
                             case "-":
                                 currentValue -= newValue;  // Resto el valor al total
@@ -629,6 +630,7 @@ namespace TPV
         #endregion
 
 
+        #region METODOS AUXILIARES
         private void btnRefrescar_Click(object sender, RoutedEventArgs e)
         {
             double ganancias = CalcularGananciasTotales();
@@ -686,6 +688,7 @@ namespace TPV
             tVino.Text = listaProductos[12].cantidad.ToString();
             tCombinado.Text = listaProductos[13].cantidad.ToString();
             tAgua.Text = listaProductos[14].cantidad.ToString();
-        } 
+        }
+        #endregion
     }
 }
