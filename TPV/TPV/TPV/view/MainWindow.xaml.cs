@@ -135,8 +135,6 @@ namespace TPV
                 txtIdRol.Visibility = Visibility.Hidden;
                 lblIdRolC.IsEnabled = false;
                 txtIdRol.IsEnabled = false;
-                delProducto.IsEnabled = false;
-                delProducto.Visibility = Visibility.Hidden;
             }
 
             if (userType == "admin")

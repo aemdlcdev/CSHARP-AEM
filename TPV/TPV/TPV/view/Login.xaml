@@ -36,8 +36,8 @@
 
             <!-- Estilo para TextBox -->
             <Style TargetType="TextBox">
-                <Setter Property="FontSize" Value="16"/>
-                <Setter Property="Padding" Value="7"/>
+                <Setter Property="FontSize" Value="14"/>
+                <Setter Property="Padding" Value="10"/>
                 <Setter Property="Margin" Value="0,5"/>
                 <Setter Property="Background" Value="#F0F0F0"/>
                 <Setter Property="BorderBrush" Value="#81C784"/>
@@ -47,8 +47,8 @@
 
             <!-- Estilo para PasswordBox -->
             <Style TargetType="PasswordBox">
-                <Setter Property="FontSize" Value="16"/>
-                <Setter Property="Padding" Value="7"/>
+                <Setter Property="FontSize" Value="14"/>
+                <Setter Property="Padding" Value="10"/>
                 <Setter Property="Margin" Value="0,5"/>
                 <Setter Property="Background" Value="#F0F0F0"/>
                 <Setter Property="BorderBrush" Value="#81C784"/>
