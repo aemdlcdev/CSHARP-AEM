@@ -466,6 +466,7 @@ namespace TPV
         private void Button_Click(object sender, RoutedEventArgs e)
         {
             Button button = sender as Button;
+            Productos productos = null;
             if (button != null)
             {
                 string content = button.Content.ToString();
@@ -480,7 +481,7 @@ namespace TPV
                     // Al presionar el operador "=" realizamos la operación
                     if (double.TryParse(txtSaldo.Text, out double newValue))
                     {
-                        Productos productos = null;
+                        
                         switch (currentOperator)
                         {
                             case "+":
@@ -558,6 +559,8 @@ namespace TPV
                         {
                             cuentaCliente.Total = currentValue;
                             cuentasClientes[cuentaCliente.cliente.codCliente] = cuentaCliente;
+                            productos = new Productos("extra", currentValue);
+                            cuentaCliente.AgregarProducto(productos);
                         }
                     }
                     currentOperator = content;
