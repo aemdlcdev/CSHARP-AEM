@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:TPV.view"
         xmlns:helper="clr-namespace:TPV"
         mc:Ignorable="d"
-        Title="Login" Height="450" Width="800" MinHeight="450" MinWidth="800" WindowStartupLocation="CenterScreen" Icon="../resources/icon.ico">
+        Title="Login" Height="450" Width="800" WindowStartupLocation="CenterScreen" Icon="../resources/icon.ico">
     <Grid Background="White">
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"/>
@@ -17,87 +17,6 @@
             <ColumnDefinition Width="*"/>
         </Grid.ColumnDefinitions>
 
-        <Grid.Resources>
-            
-            <!--Estilo para los labels-->
-
-            <Style TargetType="Label">
-                <Setter Property="FontSize" Value="16"/>
-                <Setter Property="FontFamily" Value="Segoe UI"/>
-                <Setter Property="Foreground" Value="#2E7D32"/>
-            </Style>
-
-            <!-- Estilo para CheckBox -->
-            <Style TargetType="CheckBox">
-                <Setter Property="FontSize" Value="16"/>
-                <Setter Property="Margin" Value="0,10"/>
-                <Setter Property="Foreground" Value="#2E7D32"/>
-            </Style>
-
-            <!-- Estilo para TextBox -->
-            <Style TargetType="TextBox">
-                <Setter Property="FontSize" Value="14"/>
-                <Setter Property="Padding" Value="10"/>
-                <Setter Property="Margin" Value="0,5"/>
-                <Setter Property="Background" Value="#F0F0F0"/>
-                <Setter Property="BorderBrush" Value="#81C784"/>
-                <Setter Property="BorderThickness" Value="2"/>
-                <Setter Property="Height" Value="40"/>
-            </Style>
-
-            <!-- Estilo para PasswordBox -->
-            <Style TargetType="PasswordBox">
-                <Setter Property="FontSize" Value="14"/>
-                <Setter Property="Padding" Value="10"/>
-                <Setter Property="Margin" Value="0,5"/>
-                <Setter Property="Background" Value="#F0F0F0"/>
-                <Setter Property="BorderBrush" Value="#81C784"/>
-                <Setter Property="BorderThickness" Value="2"/>
-                <Setter Property="Height" Value="40"/>
-                
-            </Style>
-
-            <!-- Estilo para Button -->
-            <Style TargetType="Button">
-                <Setter Property="Background" Value="ForestGreen"/>
-                <Setter Property="Foreground" Value="AliceBlue"/>
-                <Setter Property="FontSize" Value="16"/>
-                <Setter Property="Height" Value="40"/>
-                <Setter Property="Width" Value="100"/>
-                <Setter Property="Margin" Value="0,20"/>
-                <Setter Property="BorderBrush" Value="LightGreen"/>
-                <Setter Property="BorderThickness" Value="2"/>
-                <Setter Property="Padding" Value="5,0"/>
-                <Setter Property="Cursor" Value="Hand"/>
-                <Setter Property="Template">
-                    <Setter.Value>
-                        <ControlTemplate TargetType="Button">
-                            <Border x:Name="border" 
-                        Background="{TemplateBinding Background}"
-                        BorderBrush="{TemplateBinding BorderBrush}"
-                        BorderThickness="{TemplateBinding BorderThickness}"
-                        CornerRadius="20">
-                                <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
-                            </Border>
-                            <ControlTemplate.Triggers>
-                                <!-- Trigger para cuando el ratón está sobre el botón -->
-                                <Trigger Property="IsMouseOver" Value="True">
-                                    <Setter TargetName="border" Property="Background" Value="DarkGreen"/>
-                                    <Setter TargetName="border" Property="BorderBrush" Value="LightGreen"/>
-                                </Trigger>
-                                <!-- Trigger para cuando el botón está presionado -->
-                                <Trigger Property="IsPressed" Value="True">
-                                    <Setter TargetName="border" Property="Background" Value="Green"/>
-                                    <Setter TargetName="border" Property="BorderBrush" Value="LightGreen"/>
-                                </Trigger>
-                            </ControlTemplate.Triggers>
-                        </ControlTemplate>
-                    </Setter.Value>
-                </Setter>
-            </Style>
-
-        </Grid.Resources>
-
         <!-- Encabezado -->
         <StackPanel VerticalAlignment="Top" Background="ForestGreen" Grid.Row="0">
             <Label Content="TPV ALEJANDRO" Foreground="AliceBlue" HorizontalAlignment="Center" FontSize="20" Margin="10"/>
@@ -107,15 +26,15 @@
         <StackPanel Grid.Row="1" VerticalAlignment="Center" HorizontalAlignment="Center" Width="300">
             <StackPanel Margin="0,10">
                 <Label Content="Usuario" FontSize="16"/>
-                <TextBox Name="txtUsername"/>
+                <TextBox Name="txtUsername" Padding="10" FontSize="16"/>
             </StackPanel>
             <StackPanel Margin="0,10">
                 <Label Content="Contraseña" FontSize="16"/>
-                <PasswordBox Name="txtPassword"/>
-                <TextBox Name="txtPasswordVisible" Visibility="Collapsed"/>
+                <PasswordBox Name="txtPassword" Padding="10" FontSize="16"/>
+                <TextBox Name="txtPasswordVisible" Padding="10" FontSize="16" Visibility="Collapsed"/>
             </StackPanel>
             <CheckBox Name="chkMostrarPassword" Content="Mostrar Contraseña" FontSize="12" Margin="0,10" Checked="chkMostrarPassword_Checked" Unchecked="chkMostrarPassword_Checked"/>
-            <Button Content="Login" Width="100" Height="30" Click="Button_Click"/>
+            <Button Content="Login" Width="100" Height="30" Background="ForestGreen" Foreground="White" FontSize="16" Margin="0,20" Cursor="Hand" Click="Button_Click"/>
         </StackPanel>
 
         <!-- Pie -->

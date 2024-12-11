@@ -353,7 +353,7 @@ namespace TPV
 
             Usuario usuario = new Usuario(id, nombre, contraseñaEncriptada, idRol);
             usuario.ModificarUsuario(usuario);
-            MessageBox.Show("Usuario modificado correctamente!", "Información", MessageBoxButton.OK, MessageBoxImage.Information);
+
             RefrescarUsuarios();
         }
 
@@ -436,14 +436,15 @@ namespace TPV
 
             if (clienteSeleccionado != null)
             {
-                // Recupero la cuenta del cliente actual o creo una nueva
-                if (!cuentasClientes.TryGetValue(clienteSeleccionado.codCliente, out CuentaCliente cuenta))
+                // Recupero la cuenta del cliente actual
+                if (cuentasClientes.TryGetValue(clienteSeleccionado.codCliente, out CuentaCliente cuenta))
                 {
-                    cuenta = new CuentaCliente(clienteSeleccionado);
-                    cuentasClientes[clienteSeleccionado.codCliente] = cuenta; // Agregar al diccionario
+                    cuentaCliente = cuenta;
                 }
-
-                cuentaCliente = cuenta;
+                else
+                {
+                    cuentaCliente = new CuentaCliente(clienteSeleccionado);
+                }
 
                 // Establecer el saldo inicial del cliente (incluyendo operaciones previas)
                 currentValue = cuentaCliente.Total;
