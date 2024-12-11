@@ -12,7 +12,7 @@
             <ColumnDefinition Width="*"/>
         </Grid.ColumnDefinitions>
 
-<<<<<<< HEAD
+
         <Grid.Resources>
 
             <!-- Estilo global de fuente para toda la aplicación -->
@@ -109,8 +109,7 @@
 
         </Grid.Resources>
 
-        
-=======
+
         <Grid x:Name="derecha" Grid.Column="1" Margin="10,0,0,0">
             <!--Grid Principal -->
             <Grid.ColumnDefinitions>
@@ -450,7 +449,7 @@
                                         <DataGridTextColumn Header="Nombre Cliente" Binding="{Binding name}" Width="135"/>
                                         <DataGridTextColumn Header="Email Cliente" Binding="{Binding email}" Width="135"/>
                                         <DataGridTextColumn Header="Código Cliente" Binding="{Binding codCliente}" Width="135"/>
-                                        
+
                                     </DataGrid.Columns>
                                 </DataGrid>
                                 <Label Content="Ganancias totales: "  Grid.Row="3" Width="110" HorizontalAlignment="Right" Margin="0,2,110,0" FontFamily="Bahnschrift SemiLight"/>
@@ -566,7 +565,6 @@ Este software ha sido desarrollado con un enfoque en la facilidad de uso, la seg
                 </Grid>
             </Grid>
         </Grid>
->>>>>>> parent of 48c84a9 (terminado)
 
         <Grid x:Name="izquierda" Grid.Column="0">
 
