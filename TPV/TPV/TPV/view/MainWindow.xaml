@@ -57,6 +57,7 @@
                             <Setter Property="HorizontalContentAlignment" Value="Left"/>
                             <Setter Property="VerticalContentAlignment" Value="Center"/>
                             <Setter Property="Padding" Value="5"/>
+                            
                             <Setter Property="BorderBrush" Value="#81C784"/>
                             <Setter Property="BorderThickness" Value="1"/>
                             <Setter Property="FontWeight" Value="Bold"/>
@@ -158,9 +159,9 @@
                                     <Setter.Value>
                                         <LinearGradientBrush StartPoint="0,0" EndPoint="0,1">
                                             <GradientStop Color="#6B8E23" Offset="0.0" />
-                                            <!-- Verde oliva -->
+                                            
                                             <GradientStop Color="#98FB98" Offset="1.0" />
-                                            <!-- Verde claro -->
+                                            
                                         </LinearGradientBrush>
                                     </Setter.Value>
                                 </Setter>
@@ -382,11 +383,11 @@
                                 <DataGrid x:Name="dataInventario" Grid.Row="1" AutoGenerateColumns="False" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" 
                                     CanUserResizeColumns="False" CanUserResizeRows="True" ColumnWidth="*" MinColumnWidth="20" IsReadOnly="True" SelectionChanged="dataInventario_SelectionChanged">
                                     <DataGrid.Columns>
-                                        <DataGridTextColumn Header="Codigo Producto" Binding="{Binding idProducto}" Width="100"/>
-                                        <DataGridTextColumn Header="Nombre Producto" Binding="{Binding nombre}" Width="108"/>
-                                        <DataGridTextColumn Header="Alergias" Binding="{Binding alergias}" Width="108"/>
+                                        <DataGridTextColumn Header="Codigo Producto" Binding="{Binding idProducto}" Width="125"/>
+                                        <DataGridTextColumn Header="Nombre Producto" Binding="{Binding nombre}" Width="130"/>
+                                        <DataGridTextColumn Header="Alergias" Binding="{Binding alergias}" Width="70"/>
                                         <DataGridTextColumn Header="Precio" Binding="{Binding precio}" Width="55"/>
-                                        <DataGridTextColumn Header="Cantidad disponible" Binding="{Binding cantidad}" Width="123"/>
+                                        <DataGridTextColumn Header="Cantidad disponible" Binding="{Binding cantidad}" Width="145"/>
                                     </DataGrid.Columns>
                                 </DataGrid>
 
@@ -447,7 +448,7 @@
                                         <DataGridTextColumn Header="Cosumiciones" Binding="{Binding cosumiciones}" Width="108"/>
                                         <DataGridTextColumn Header="Importe (€)" Binding="{Binding importe}" Width="118"/>
                                         <DataGridTextColumn Header="Nombre Cliente" Binding="{Binding name}" Width="135"/>
-                                        <DataGridTextColumn Header="Email Cliente" Binding="{Binding email}" Width="135"/>
+                                        <DataGridTextColumn Header="Email Cliente" Binding="{Binding email}" Width="155"/>
                                         <DataGridTextColumn Header="Código Cliente" Binding="{Binding codCliente}" Width="135"/>
 
                                     </DataGrid.Columns>
@@ -500,10 +501,10 @@
                                             <DataGrid x:Name="dataUsers" Grid.Row="1" AutoGenerateColumns="False" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" 
         CanUserResizeColumns="False" CanUserResizeRows="True" ColumnWidth="*" Height="600" MinColumnWidth="20" IsReadOnly="True" SelectionChanged="dataUsers_SelectionChanged">
                                                 <DataGrid.Columns>
-                                                    <DataGridTextColumn Header="Codigo Usuario" Binding="{Binding idUsuario}" Width="100"/>
-                                                    <DataGridTextColumn Header="Nombre Usuario" Binding="{Binding nombre}" Width="108"/>
-                                                    <DataGridTextColumn Header="Contraseña Usuario" Binding="{Binding password}" Width="118"/>
-                                                    <DataGridTextColumn Header="ID Rol (1 jefe, 2 user)" Binding="{Binding idRol}" Width="135"/>
+                                                    <DataGridTextColumn Header="Codigo Usuario" Binding="{Binding idUsuario}" Width="118"/>
+                                                    <DataGridTextColumn Header="Nombre Usuario" Binding="{Binding nombre}" Width="122"/>
+                                                    <DataGridTextColumn Header="Contraseña" Binding="{Binding password}" Width="90"/>
+                                                    <DataGridTextColumn Header="ID Rol (1 jefe, 2 user)" Binding="{Binding idRol}" Width="155"/>
                                                 </DataGrid.Columns>
                                             </DataGrid>
 
