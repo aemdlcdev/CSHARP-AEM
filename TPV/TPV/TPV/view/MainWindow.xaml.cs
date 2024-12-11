@@ -481,6 +481,7 @@ namespace TPV
                     // Al presionar el operador "=" realizamos la operación
                     if (double.TryParse(txtSaldo.Text, out double newValue))
                     {
+                        Productos productos = null;
                         switch (currentOperator)
                         {
                             case "+":
@@ -513,6 +514,8 @@ namespace TPV
                         {
                             cuentaCliente.Total = currentValue;
                             cuentasClientes[cuentaCliente.cliente.codCliente] = cuentaCliente;
+                            productos = new Productos("extra", currentValue);
+                            cuentaCliente.AgregarProducto(productos);
                         }
                     }
                     currentOperator = string.Empty;

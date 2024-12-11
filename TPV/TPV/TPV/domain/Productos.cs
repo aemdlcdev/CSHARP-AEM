@@ -55,6 +55,12 @@ namespace TPV.domain
             this.cantidad = cantidad;
         }
 
+        public Productos(string nombre, double precio)
+        {
+            this.nombre = nombre;
+            this.precio = precio;
+        }
+
         public Productos()
         {
 
