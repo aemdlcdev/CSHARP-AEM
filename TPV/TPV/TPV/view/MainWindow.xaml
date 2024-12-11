@@ -109,10 +109,7 @@
 
         </Grid.Resources>
 
-<<<<<<< HEAD
 
-=======
->>>>>>> parent of f840672 (.)
         <Grid x:Name="derecha" Grid.Column="1" Margin="10,0,0,0">
             <!--Grid Principal -->
             <Grid.ColumnDefinitions>
@@ -131,11 +128,6 @@
 
             <!-- Grid Contenedor -->
 
-<<<<<<< HEAD
-=======
-            
-
->>>>>>> parent of f840672 (.)
             <Grid x:Name="contenedor" Grid.Column="0" Grid.Row="1">
                 <Grid.RowDefinitions>
                     <RowDefinition Height="20"/>
@@ -158,18 +150,8 @@
                                 <Setter Property="Background" Value="Transparent"/>
                                 <Setter Property="BorderThickness" Value="0"/>
                                 <Setter Property="BorderBrush" Value="Transparent"/>
-<<<<<<< HEAD
 
                             </Style>
-=======
-                                <Setter Property="FontFamily" Value="Segoe UI"/>
-                                <Setter Property="FontWeight" Value="SemiBold"/>
-                                <Setter Property="FontSize" Value="12"/>
-                                <Setter Property="Foreground" Value="Black"/>
-
-                            </Style>
-                            
->>>>>>> parent of f840672 (.)
                             <!-- Estilo para los botones dentro de este Grid -->
                             <Style TargetType="Button">
                                 <Setter Property="Background">
@@ -400,19 +382,11 @@
                                 <DataGrid x:Name="dataInventario" Grid.Row="1" AutoGenerateColumns="False" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" 
                                     CanUserResizeColumns="False" CanUserResizeRows="True" ColumnWidth="*" MinColumnWidth="20" IsReadOnly="True" SelectionChanged="dataInventario_SelectionChanged">
                                     <DataGrid.Columns>
-<<<<<<< HEAD
                                         <DataGridTextColumn Header="Codigo Producto" Binding="{Binding idProducto}" Width="100"/>
                                         <DataGridTextColumn Header="Nombre Producto" Binding="{Binding nombre}" Width="108"/>
                                         <DataGridTextColumn Header="Alergias" Binding="{Binding alergias}" Width="108"/>
                                         <DataGridTextColumn Header="Precio" Binding="{Binding precio}" Width="55"/>
                                         <DataGridTextColumn Header="Cantidad disponible" Binding="{Binding cantidad}" Width="123"/>
-=======
-                                        <DataGridTextColumn Header="Codigo Producto" Binding="{Binding idProducto}" Width="115"/>
-                                        <DataGridTextColumn Header="Nombre Producto" Binding="{Binding nombre}" Width="125"/>
-                                        <DataGridTextColumn Header="Alergias" Binding="{Binding alergias}" Width="108"/>
-                                        <DataGridTextColumn Header="Precio" Binding="{Binding precio}" Width="55"/>
-                                        <DataGridTextColumn Header="Cantidad disponible" Binding="{Binding cantidad}" Width="150"/>
->>>>>>> parent of f840672 (.)
                                     </DataGrid.Columns>
                                 </DataGrid>
 
@@ -463,13 +437,8 @@
                                     <RowDefinition Height="*"/>
                                     <RowDefinition Height="Auto"/>
                                 </Grid.RowDefinitions>
-<<<<<<< HEAD
                                 <Label Content="Ventas y ganancias totales del restaurante" Grid.Row="1" FontSize="20" FontFamily="Bahnschrift SemiLight SemiCondensed"/>
                                 <Button x:Name="btnRefrescar" Content="Refrescar" Grid.Column="0" Grid.Row="1" Width="100" HorizontalAlignment="Left" Margin="496,0,0,6" VerticalAlignment="Bottom" Click="btnRefrescar_Click"/>
-=======
-                                <Label Foreground="Black" Content="Ventas y ganancias totales del restaurante" Grid.Row="1" FontSize="20" FontFamily="Bahnschrift SemiLight SemiCondensed"/>
-                                <Button x:Name="btnRefrescar" Content="Refrescar" Grid.Column="0" Grid.Row="1" Width="100" HorizontalAlignment="Right" Margin="496,0,0,6" VerticalAlignment="Bottom" Click="btnRefrescar_Click"/>
->>>>>>> parent of f840672 (.)
                                 <Label Content="Ventas y ganancias" FontSize="20" FontWeight="Bold"/>
                                 <DataGrid x:Name="dataVentas" Grid.Row="2" AutoGenerateColumns="False" 
                                     CanUserResizeColumns="False" CanUserResizeRows="True" ColumnWidth="*" MinColumnWidth="20" IsReadOnly="True" SelectionChanged="dataInventario_SelectionChanged" Margin="0,10,0,54">
@@ -480,11 +449,7 @@
                                         <DataGridTextColumn Header="Nombre Cliente" Binding="{Binding name}" Width="135"/>
                                         <DataGridTextColumn Header="Email Cliente" Binding="{Binding email}" Width="135"/>
                                         <DataGridTextColumn Header="Código Cliente" Binding="{Binding codCliente}" Width="135"/>
-<<<<<<< HEAD
 
-=======
-                                        
->>>>>>> parent of f840672 (.)
                                     </DataGrid.Columns>
                                 </DataGrid>
                                 <Label Content="Ganancias totales: "  Grid.Row="3" Width="110" HorizontalAlignment="Right" Margin="0,2,110,0" FontFamily="Bahnschrift SemiLight"/>
@@ -535,17 +500,10 @@
                                             <DataGrid x:Name="dataUsers" Grid.Row="1" AutoGenerateColumns="False" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" 
         CanUserResizeColumns="False" CanUserResizeRows="True" ColumnWidth="*" Height="600" MinColumnWidth="20" IsReadOnly="True" SelectionChanged="dataUsers_SelectionChanged">
                                                 <DataGrid.Columns>
-<<<<<<< HEAD
                                                     <DataGridTextColumn Header="Codigo Usuario" Binding="{Binding idUsuario}" Width="100"/>
                                                     <DataGridTextColumn Header="Nombre Usuario" Binding="{Binding nombre}" Width="108"/>
                                                     <DataGridTextColumn Header="Contraseña Usuario" Binding="{Binding password}" Width="118"/>
                                                     <DataGridTextColumn Header="ID Rol (1 jefe, 2 user)" Binding="{Binding idRol}" Width="135"/>
-=======
-                                                    <DataGridTextColumn Header="Codigo Usuario" Binding="{Binding idUsuario}" Width="107"/>
-                                                    <DataGridTextColumn Header="Nombre Usuario" Binding="{Binding nombre}" Width="112"/>
-                                                    <DataGridTextColumn Header="Contraseña Usuario" Binding="{Binding password}" Width="132"/>
-                                                    <DataGridTextColumn Header="ID Rol (1 jefe, 2 user)" Binding="{Binding idRol}" Width="142"/>
->>>>>>> parent of f840672 (.)
                                                 </DataGrid.Columns>
                                             </DataGrid>
 
@@ -584,11 +542,7 @@
                                     <TabItem Header="Avanzado" >
                                         <StackPanel>
                                             <Label Content="Avanzado" FontSize="20" FontWeight="Bold"/>
-<<<<<<< HEAD
                                             <Label Content="Configuración avanzada" FontSize="16"/>
-=======
-                                            <Label Foreground="Black" Content="Configuración avanzada" FontSize="16"/>
->>>>>>> parent of f840672 (.)
                                         </StackPanel>
                                     </TabItem>
 
@@ -597,13 +551,8 @@
                                             <Label Content="Acerca de" FontSize="20" FontWeight="Bold"/>
                                             <Grid HorizontalAlignment="Left">
                                                 <TextBlock FontSize="16" TextWrapping="Wrap" Width="Auto">
-<<<<<<< HEAD
 Bienvenido al sistema de Terminal de Punto de Venta (TPV), una solución diseñada para simplificar y optimizar la gestión de ventas, inventario y operaciones en tu negocio.
 Este software ha sido desarrollado con un enfoque en la facilidad de uso, la seguridad y la eficiencia, para que puedas centrarte en lo que realmente importa: hacer crecer tu negocio.
-=======
-                                                Bienvenido al sistema de Terminal de Punto de Venta (TPV), una solución diseñada para simplificar y optimizar la gestión de ventas, inventario y operaciones en tu negocio.
-                                                Este software ha sido desarrollado con un enfoque en la facilidad de uso, la seguridad y la eficiencia, para que puedas centrarte en lo que realmente importa: hacer crecer tu negocio.
->>>>>>> parent of f840672 (.)
                                                 </TextBlock>
                                             </Grid>
                                         </StackPanel>
@@ -785,14 +734,14 @@ Este software ha sido desarrollado con un enfoque en la facilidad de uso, la seg
                     <Image Source="/resources/usuario.png" Width="65"/>
                 </Grid>
             </Grid>
-        
+
             <Grid x:Name="clientesGrid" Grid.Row="1" Margin="0,10,0,0">
                 <Grid.RowDefinitions>
                     <RowDefinition Height="*"/>
                     <RowDefinition Height="Auto"/>
                     <RowDefinition Height="Auto"/>
                 </Grid.RowDefinitions>
-                
+
                 <DataGrid x:Name="dataClientes" AutoGenerateColumns="False" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" 
                 CanUserResizeColumns="False" CanUserResizeRows="False" ColumnWidth="Auto" MinColumnWidth="20" IsReadOnly="True" ScrollViewer.HorizontalScrollBarVisibility="Visible" SelectionChanged="dataClientes_SelectionChanged">
                     <DataGrid.Columns>

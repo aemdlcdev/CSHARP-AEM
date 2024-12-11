@@ -432,11 +432,17 @@ namespace TPV
         }
         private void dataClientes_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
+            if (cuentaCliente != null && cuentaCliente.cliente != null)
+            {
+                cuentasClientes[cuentaCliente.cliente.codCliente] = cuentaCliente;
+            }
+
+            
             Clientes clienteSeleccionado = (Clientes)dataClientes.SelectedItem;
 
             if (clienteSeleccionado != null)
             {
-                // Recupero la cuenta del cliente actual
+                // Recuperar o crear la cuenta del cliente seleccionado
                 if (cuentasClientes.TryGetValue(clienteSeleccionado.codCliente, out CuentaCliente cuenta))
                 {
                     cuentaCliente = cuenta;
@@ -444,6 +450,7 @@ namespace TPV
                 else
                 {
                     cuentaCliente = new CuentaCliente(clienteSeleccionado);
+                    cuentasClientes[clienteSeleccionado.codCliente] = cuentaCliente;
                 }
 
                 // Establecer el saldo inicial del cliente (incluyendo operaciones previas)
@@ -451,6 +458,7 @@ namespace TPV
                 txtSaldo.Text = currentValue.ToString("C");
             }
         }
+
 
 
         private void CuentaCliente_OnProductosChanged(object sender, EventArgs e)
@@ -467,37 +475,36 @@ namespace TPV
         {
             Button button = sender as Button;
             Productos productos = null;
+
             if (button != null)
             {
                 string content = button.Content.ToString();
 
                 if (double.TryParse(content, out double number))
                 {
-                    // Si el contenidoe es un numero lo pongo en pantalla
+                    // Si el contenido es un número, lo añado a la pantalla
                     txtSaldo.Text += content;
                 }
                 else if (content == "=")
                 {
-                    // Al presionar el operador "=" realizamos la operación
+                    // Al presionar el operador "=" realizamos la operación pendiente
                     if (double.TryParse(txtSaldo.Text, out double newValue))
                     {
-                        
                         switch (currentOperator)
                         {
                             case "+":
-                                currentValue += newValue;  // Sumo el valor al total
-
+                                currentValue += newValue;
                                 break;
                             case "-":
-                                currentValue -= newValue;  // Resto el valor al total
+                                currentValue -= newValue;
                                 break;
                             case "*":
-                                currentValue *= newValue;  // Multiplico el valor al total
+                                currentValue *= newValue;
                                 break;
                             case "/":
                                 if (newValue != 0)
                                 {
-                                    currentValue /= newValue;  // Divido el valor al total
+                                    currentValue /= newValue;
                                 }
                                 else
                                 {
@@ -514,15 +521,15 @@ namespace TPV
                         {
                             cuentaCliente.Total = currentValue;
                             cuentasClientes[cuentaCliente.cliente.codCliente] = cuentaCliente;
-                            productos = new Productos("extra", currentValue);
+                            productos = new Productos("extra", newValue); // Agregar solo el valor ingresado
                             cuentaCliente.AgregarProducto(productos);
                         }
                     }
-                    currentOperator = string.Empty;
+                    currentOperator = string.Empty; // Reseteo el operador actual
                 }
                 else
                 {
-                    // Cuando preisono un operador
+                    // Cuando presiono un operador
                     if (double.TryParse(txtSaldo.Text, out double newValue))
                     {
                         switch (currentOperator)
@@ -547,7 +554,7 @@ namespace TPV
                                 }
                                 break;
                             default:
-                                currentValue = newValue;
+                                currentValue = newValue; // Establecer el valor inicial
                                 break;
                         }
 
@@ -559,15 +566,14 @@ namespace TPV
                         {
                             cuentaCliente.Total = currentValue;
                             cuentasClientes[cuentaCliente.cliente.codCliente] = cuentaCliente;
-                            productos = new Productos("extra", currentValue);
-                            cuentaCliente.AgregarProducto(productos);
                         }
                     }
-                    currentOperator = content;
-                    txtSaldo.Clear();
+                    currentOperator = content; // Almaceno el operador actual
+                    txtSaldo.Clear(); // Limpio la pantalla para el siguiente valor
                 }
             }
         }
+
 
         private void RefreshDataClientes()
         {
