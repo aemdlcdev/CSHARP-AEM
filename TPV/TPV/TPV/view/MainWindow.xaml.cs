@@ -1,6 +1,4 @@
-﻿using Google.Protobuf.WellKnownTypes;
-using MySqlX.XDevAPI.Common;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -9,7 +7,6 @@ using System.Windows.Controls;
 using System.Windows.Input;
 using System.Windows.Threading;
 using TPV.domain;
-using TPV.persistence.manages;
 
 
 namespace TPV
@@ -32,31 +29,26 @@ namespace TPV
 
         private CuentaCliente cuentaCliente;
 
-        private Dictionary<int, CuentaCliente> cuentasClientes; // Diccionario para almacenar las cuentas de los clientes
+        private Dictionary<int, CuentaCliente> cuentasClientes; 
 
         // Calculadora
 
         private string currentOperator = string.Empty;
         private double currentValue = 0.0;
 
-         // Asegúrate de que listaProductos contiene los objetos Productos
-
-
+        // Usuario
         private string userType;
 
         public MainWindow(string userType)
         {
             InitializeComponent();
             this.userType = userType;
-            InitializeTimer();
-
-            
+            ArrancarReloj();
 
             clienteInstance = new Clientes();
             producto = new Productos();
 
             listaClientes = clienteInstance.LeerClientes();
-
             dataClientes.ItemsSource = listaClientes;
 
             listaProductos = producto.LeerProductos();
@@ -76,13 +68,13 @@ namespace TPV
             double totalGanancias = CalcularGananciasTotales();
             txtGanancias.Text = $"{totalGanancias:C}";
 
-            EstablecesCantidadProductos();
+            EstablecerCantidadProductos();
 
-            ConfigureUIBasedOnUserType(); // Depende del tipo de usuario, se mostrarán unas opciones u otras
+            ConfiguracionParaUsuario();
         }
 
         #region HORA
-        private void InitializeTimer() // Metodo para mostrar la hora en la ventana
+        private void ArrancarReloj() 
         {
             timer = new DispatcherTimer();
             timer.Interval = TimeSpan.FromSeconds(1);
@@ -98,7 +90,7 @@ namespace TPV
 
 
         #region CONFIGURACION USUARIOS
-        private void ConfigureUIBasedOnUserType()
+        private void ConfiguracionParaUsuario()
         {
             if (userType == "user")
             {
@@ -210,7 +202,7 @@ namespace TPV
             listaProductos = producto.LeerProductos();
             dataInventario.ItemsSource = null;
             dataInventario.ItemsSource = listaProductos;
-            EstablecesCantidadProductos();
+            EstablecerCantidadProductos();
             MessageBox.Show("Producto modificado correctamente!", "Información", MessageBoxButton.OK, MessageBoxImage.Information);
         }
 
@@ -293,6 +285,7 @@ namespace TPV
                     MessageBox.Show("Producto no encontrado.", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
                 }
             }
+            
         }
 
 
@@ -453,7 +446,7 @@ namespace TPV
                     cuentasClientes[clienteSeleccionado.codCliente] = cuentaCliente;
                 }
 
-                // Establecer el saldo inicial del cliente (incluyendo operaciones previas)
+                // Pongo el saldo inicial del cliente (incluyendo operaciones previas)
                 currentValue = cuentaCliente.Total;
                 txtSaldo.Text = currentValue.ToString("C");
             }
@@ -482,12 +475,10 @@ namespace TPV
 
                 if (double.TryParse(content, out double number))
                 {
-                    // Si el contenido es un número, lo añado a la pantalla
                     txtSaldo.Text += content;
                 }
                 else if (content == "=")
                 {
-                    // Al presionar el operador "=" realizamos la operación pendiente
                     if (double.TryParse(txtSaldo.Text, out double newValue))
                     {
                         switch (currentOperator)
@@ -512,16 +503,14 @@ namespace TPV
                                 }
                                 break;
                         }
-
-                        // Actualizo en pantalla
+                       
                         txtSaldo.Text = currentValue.ToString("C");
 
-                        // Actualizo en la cuenta del cliente
                         if (cuentaCliente != null)
                         {
                             cuentaCliente.Total = currentValue;
                             cuentasClientes[cuentaCliente.cliente.codCliente] = cuentaCliente;
-                            productos = new Productos("extra", newValue); // Agregar solo el valor ingresado
+                            productos = new Productos("extra", newValue); 
                             cuentaCliente.AgregarProducto(productos);
                         }
                     }
@@ -558,31 +547,19 @@ namespace TPV
                                 break;
                         }
 
-                        // Actualizo en pantalla
                         txtSaldo.Text = currentValue.ToString("C");
 
-                        // Actualizo en la cuenta del cliente
                         if (cuentaCliente != null)
                         {
                             cuentaCliente.Total = currentValue;
                             cuentasClientes[cuentaCliente.cliente.codCliente] = cuentaCliente;
                         }
                     }
-                    currentOperator = content; // Almaceno el operador actual
-                    txtSaldo.Clear(); // Limpio la pantalla para el siguiente valor
+                    currentOperator = content; 
+                    txtSaldo.Clear(); 
                 }
             }
         }
-
-
-        private void RefreshDataClientes()
-        {
-            listaClientes.Clear();
-            listaClientes = clienteInstance.LeerClientes();
-            dataClientes.ItemsSource = null;
-            dataClientes.ItemsSource = listaClientes;
-        }
-
 
         #endregion
 
@@ -625,7 +602,9 @@ namespace TPV
 
             RefreshDataClientes();
 
-            EstablecesCantidadProductos();
+            EstablecerCantidadProductos();
+
+            dataClientes.SelectedItem = null;
 
             MessageBox.Show("Ticket generado correctamente.", "Información", MessageBoxButton.OK, MessageBoxImage.Information);
         }
@@ -642,6 +621,15 @@ namespace TPV
 
 
         #region METODOS AUXILIARES
+
+        private void RefreshDataClientes()
+        {
+            listaClientes.Clear();
+            listaClientes = clienteInstance.LeerClientes();
+            dataClientes.ItemsSource = null;
+            dataClientes.ItemsSource = listaClientes;
+        }
+
         private void btnRefrescar_Click(object sender, RoutedEventArgs e)
         {
             double ganancias = CalcularGananciasTotales();
@@ -652,37 +640,37 @@ namespace TPV
             dataVentas.ItemsSource = listaTickets;
         }
 
-        // Método para poner la ventana en pantalla completa al presionar F11
+        // Meodo para poner la ventana en pantalla completa al presionar F11
         protected override void OnKeyDown(KeyEventArgs e)
         {
             base.OnKeyDown(e);
 
-            if (e.Key == Key.F11) // Si presiono F11
+            if (e.Key == Key.F11) 
             {
                 if (this.WindowState != WindowState.Maximized)
                 {
                     // Pongo en pantalla completa
                     this.WindowState = WindowState.Maximized;
-                    this.WindowStyle = WindowStyle.None; // Quito el estilo de window por lo que desaparecen los bordes y la barra de título
-                    this.Topmost = true; // La ventana estará siempre por encima de otras
+                    this.WindowStyle = WindowStyle.None; 
+                    this.Topmost = true; 
 
                     // Ocultola ventana en la barra de tareas
                     this.ShowInTaskbar = false;
                 }
                 else
                 {
-                    // Volvemos al tamaño normal
+                    // Pongo el tamaño normal
                     this.WindowState = WindowState.Normal;
-                    this.WindowStyle = WindowStyle.SingleBorderWindow; // Restauro el estilo de window
-                    this.Topmost = false; // La ventana ya no estará por encima de otras
+                    this.WindowStyle = WindowStyle.SingleBorderWindow; 
+                    this.Topmost = false; 
 
-                    // Muestro otra vez la barra de tareas
+                    // Pongo otra vez la barra de tareas
                     this.ShowInTaskbar = true;
                 }
             }
         }
 
-        private void EstablecesCantidadProductos()
+        private void EstablecerCantidadProductos()
         {
             tNuggets.Text = listaProductos[0].cantidad.ToString();
             tPescado.Text = listaProductos[1].cantidad.ToString();
@@ -701,5 +689,7 @@ namespace TPV
             tAgua.Text = listaProductos[14].cantidad.ToString();
         }
         #endregion
+
+
     }
 }

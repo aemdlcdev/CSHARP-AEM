@@ -17,6 +17,7 @@ namespace TPV.domain
             this.productos.CollectionChanged += Productos_CollectionChanged;
         }
 
+        // Para añadir un producto a la cuenta
         private void Productos_CollectionChanged(object sender, System.Collections.Specialized.NotifyCollectionChangedEventArgs e)
         {
             OnProductosChanged?.Invoke(this, EventArgs.Empty);
@@ -43,7 +44,8 @@ namespace TPV.domain
                 OnProductosChanged?.Invoke(this, EventArgs.Empty);
             }
         }
+        // Notifico los cambios en la lista de productos
+        public event EventHandler OnProductosChanged; 
 
-        public event EventHandler OnProductosChanged;
     }
 }
