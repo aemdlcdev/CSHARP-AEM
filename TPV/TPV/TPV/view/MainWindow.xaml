@@ -6,12 +6,12 @@
         xmlns:local="clr-namespace:TPV"
         mc:Ignorable="d"
         Title="TPV Alejandro" Height="900" Width="975" MinHeight="900" MinWidth="975" WindowStartupLocation="CenterScreen" Icon="../resources/icon.ico">
+    
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="Auto"/>
             <ColumnDefinition Width="*"/>
         </Grid.ColumnDefinitions>
-
 
         <Grid.Resources>
 
@@ -110,7 +110,6 @@
 
         </Grid.Resources>
 
-
         <Grid x:Name="derecha" Grid.Column="1" Margin="10,0,0,0">
             <!--Grid Principal -->
             <Grid.ColumnDefinitions>
@@ -153,7 +152,7 @@
                                 <Setter Property="BorderBrush" Value="Transparent"/>
 
                             </Style>
-                            <!-- Estilo para los botones dentro de este Grid -->
+                            <!-- Estilo para los botones del Grid -->
                             <Style TargetType="Button">
                                 <Setter Property="Background">
                                     <Setter.Value>
@@ -178,7 +177,6 @@
                                     <Setter.Value>
                                         <ControlTemplate TargetType="Button">
                                             <Grid>
-                                                <!-- Fondo LightGreenondeado con sombra -->
                                                 <Border x:Name="border" CornerRadius="20" Background="{TemplateBinding Background}" 
                                                 BorderBrush="{TemplateBinding BorderBrush}" 
                                                 BorderThickness="{TemplateBinding BorderThickness}">
@@ -189,7 +187,6 @@
                                                 </Border>
                                             </Grid>
                                             <ControlTemplate.Triggers>
-                                                <!-- Cambio de fondo al pasar el mouse -->
                                                 <Trigger Property="IsMouseOver" Value="True">
                                                     <Setter Property="Background" TargetName="border">
                                                         <Setter.Value>
@@ -201,7 +198,6 @@
                                                     </Setter>
                                                     <Setter Property="BorderBrush" Value="#76D275" />
                                                 </Trigger>
-                                                <!-- Cambio de fondo al presionar -->
                                                 <Trigger Property="IsPressed" Value="True">
                                                     <Setter Property="Background" TargetName="border" Value="#4CAF50" />
                                                     <Setter Property="BorderBrush" Value="#388E3C" />
@@ -453,7 +449,7 @@
 
                                     </DataGrid.Columns>
                                 </DataGrid>
-                                <Label Content="Ganancias totales: "  Grid.Row="3" Width="110" HorizontalAlignment="Right" Margin="0,2,110,0" FontFamily="Bahnschrift SemiLight"/>
+                                <Label Content="Ganancias totales: "  Grid.Row="3" Width="140" HorizontalAlignment="Right" Margin="0,2,105,0" FontFamily="Bahnschrift SemiLight"/>
                                 <TextBox Name="txtGanancias" Padding="5"  Grid.Row="4" Width="100" IsReadOnly="True" HorizontalAlignment="Right" Margin="115,0,0,0"/>
                             </Grid>
 
@@ -802,4 +798,5 @@ Este software ha sido desarrollado con un enfoque en la facilidad de uso, la seg
         </Grid>
 
     </Grid>
+    
 </Window>

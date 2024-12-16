@@ -36,7 +36,7 @@ namespace TPV.view
             string contraseñaEncriptada = Seguridad.EncriptarContraseña(txtPassword.Password);
 
             // Si necesitas crear el admin, puedes dejar la siguiente línea solo una vez. Luego, quitala o comentala.
-            Seguridad.GetPassword("admin"); // Solo para crear el admin en la base de datos
+            // Seguridad.GetPassword("admin"); // Solo para crear el admin en la base de datos
 
             // Busco el usuario con la contraseña encriptada
             var usuarioEncontrado = listaUsuarios.FirstOrDefault(u => u.nombre == txtUsername.Text && u.password == contraseñaEncriptada);
