@@ -51,14 +51,14 @@
                             <Button Style="{StaticResource menuButton}">
                                 <StackPanel Orientation="Horizontal">
                                     <Icon:PackIconMaterial Kind="HomeVariant" Style="{StaticResource menuButtonIcon}"/>
-                                    <TextBlock Text="Eventos"/>
+                                    <TextBlock Text="Inicio"/>
                                 </StackPanel>
                             </Button>
 
                             <Button Style="{StaticResource menuButton}">
                                 <StackPanel Orientation="Horizontal">
                                     <Icon:PackIconMaterial Kind="CalendarClock" Style="{StaticResource menuButtonIcon}"/>
-                                    <TextBlock Text="Events"/>
+                                    <TextBlock Text="Eventos"/>
                                 </StackPanel>
                             </Button>
 
@@ -72,14 +72,14 @@
                             <Button Style="{StaticResource menuButton}">
                                 <StackPanel Orientation="Horizontal">
                                     <Icon:PackIconMaterial Kind="CashMultiple" Style="{StaticResource menuButtonIcon}"/>
-                                    <TextBlock Text="Wallet"/>
+                                    <TextBlock Text="Cartera"/>
                                 </StackPanel>
                             </Button>
 
                             <Button Style="{StaticResource menuButton}">
                                 <StackPanel Orientation="Horizontal">
                                     <Icon:PackIconMaterial Kind="ForumOutline" Style="{StaticResource menuButtonIcon}"/>
-                                    <TextBlock Text="Messages"/>
+                                    <TextBlock Text="Mensajes"/>
                                 </StackPanel>
                             </Button>
 
