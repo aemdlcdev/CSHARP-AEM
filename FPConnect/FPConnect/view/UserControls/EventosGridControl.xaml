@@ -31,7 +31,7 @@
                 <ColumnDefinition Width="*"/>
             </Grid.ColumnDefinitions>
             
-            <!--Seleccion para el año-->
+            <!--Seleccion para el año -->
             <StackPanel>
                 <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="0 50 0 30">
                     <Button>
@@ -39,6 +39,10 @@
                     </Button>
 
                     <Button Content="2020" Style="{StaticResource calendarioButton}"/>
+                    <Button Content="2021" Style="{StaticResource calendarioButton}"/>
+                    <Button Content="2022" Style="{StaticResource calendarioButton}" FontSize="24" Foreground="#c76f69"/>
+                    <Button Content="2023" Style="{StaticResource calendarioButton}"/>
+                    <Button Content="2024" Style="{StaticResource calendarioButton}"/>
 
                     <Button>
                         <fa:ImageAwesome Icon="AngleRight" Style="{StaticResource angulo}"/>
@@ -46,6 +50,8 @@
 
                 </StackPanel>
             </StackPanel>
+            
+            <!--Seleccion para el mes -->
             
         </Grid>
         
