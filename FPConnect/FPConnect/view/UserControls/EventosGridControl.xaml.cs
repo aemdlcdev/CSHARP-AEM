@@ -23,6 +23,7 @@ namespace FPConnect.view.UserControls
         public EventosGridControl()
         {
             InitializeComponent();
+            GetMesActualConLetras();
         }
 
         private void Border_MouseDown(object sender, MouseButtonEventArgs e)
@@ -63,5 +64,26 @@ namespace FPConnect.view.UserControls
                 lblTime.Visibility = Visibility.Visible;
             }
         }
+
+        private void GetMesActualConLetras()
+        {
+            string mes = DateTime.Now.ToString("MMMM", new System.Globalization.CultureInfo("es-ES"));
+            mes = System.Globalization.CultureInfo.CurrentCulture.TextInfo.ToTitleCase(mes.ToLower());
+
+            string[] meses = new string[] { "Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre" };
+
+            for (int i = 0; i < meses.Length; i++)
+            {
+                if (meses[i] == mes)
+                {
+                    mes = meses[i];
+                    break;
+                }
+            }
+
+            lblMes.Text = mes;
+        }
+
+
     }
 }

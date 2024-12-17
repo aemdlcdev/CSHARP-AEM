@@ -66,7 +66,7 @@
                 </StackPanel>
 
                 <Separator Height="0.8" Background="#cacaca" Margin="30 10"/>
-                <TextBlock Text="Diciembre" Foreground="#c73f69" FontSize="24" TextAlignment="Center" FontWeight="SemiBold" Margin="0 15 0 20"/>
+                <TextBlock x:Name="lblMes" Text="" Foreground="#c73f69" FontSize="24" TextAlignment="Center" FontWeight="SemiBold" Margin="0 15 0 20"/>
 
                 <Calendar CalendarItemStyle="{DynamicResource CalendarCalendarItemStyle1}" CalendarDayButtonStyle="{DynamicResource CalendarCalendarDayButtonStyle1}" Style="{DynamicResource CalendarStyle1}"/>
             </StackPanel>
