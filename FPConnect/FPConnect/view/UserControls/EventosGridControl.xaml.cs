@@ -24,5 +24,10 @@ namespace FPConnect.view.UserControls
         {
             InitializeComponent();
         }
+
+        private void Border_MouseDown(object sender, MouseButtonEventArgs e)
+        {
+            
+        }
     }
 }

@@ -3,14 +3,51 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-             xmlns:local="clr-namespace:FPConnect.view.UserControls"
+             xmlns:local="clr-namespace:FPConnect.view.UserControls" 
+             xmlns:Icon="http://metro.mahapps.com/winfx/xaml/iconpacks"
+             xmlns:fa="http://schemas.fontawesome.io/icons/"
              mc:Ignorable="d" 
-             Height="720" Width="860">
+             Height="620" Width="760" FontFamily="Trebuchet MS" Background="Transparent">
     <Grid>
-        <Calendar x:Name="MiCalendario" Margin="0,25,0,0" Style="{DynamicResource CalendarStyle1}" CalendarButtonStyle="{DynamicResource CalendarButtonStyle1}" CalendarDayButtonStyle="{DynamicResource CalendarDayButtonStyle1}" CalendarItemStyle="{DynamicResource CalendarItemStyle1}" >
-            <Calendar.LayoutTransform>
-                <ScaleTransform ScaleX="2" ScaleY="2"/>
-            </Calendar.LayoutTransform>
-        </Calendar>
+        <Grid.Resources>
+            
+        </Grid.Resources>
+        <!--Grid Fondo-->
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="1.2*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+
+            <Border CornerRadius="20 0 0 20" Background="#fefefe"/>
+            <Border CornerRadius="0 20 20 0" MouseDown="Border_MouseDown" Background="#c73f69" Grid.Column="1"/>
+        </Grid>
+        
+        <!--Grid Controles-->
+
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="1.2*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            
+            <!--Seleccion para el año-->
+            <StackPanel>
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="0 50 0 30">
+                    <Button>
+                        <fa:ImageAwesome Icon="AngleLeft" Style="{StaticResource angulo}"/>
+                    </Button>
+
+                    <Button Content="2020" Style="{StaticResource calendarioButton}"/>
+
+                    <Button>
+                        <fa:ImageAwesome Icon="AngleRight" Style="{StaticResource angulo}"/>
+                    </Button>
+
+                </StackPanel>
+            </StackPanel>
+            
+        </Grid>
+        
     </Grid>
 </UserControl>
