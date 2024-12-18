@@ -5,8 +5,16 @@
              xmlns:Icon="http://metro.mahapps.com/winfx/xaml/iconpacks"
              xmlns:theme="clr-namespace:Microsoft.Windows.Themes;assembly=PresentationFramework.Aero2"
              xmlns:fa="http://schemas.fontawesome.io/icons/"
+             xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
              StartupUri="view/MainWindow.xaml">
     <Application.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <materialDesign:BundledTheme BaseTheme="Light" PrimaryColor="DeepPurple" SecondaryColor="Lime" />
+                <ResourceDictionary Source="pack://application:,,,/MaterialDesignThemes.Wpf;component/Themes/MaterialDesignTheme.Light.xaml" />
+                <ResourceDictionary Source="pack://application:,,,/MaterialDesignColors;component/Themes/Recommended/Primary/MaterialDesignColor.DeepPurple.xaml" />
+                <ResourceDictionary Source="pack://application:,,,/MaterialDesignThemes.Wpf;component/Themes/MaterialDesign2.Defaults.xaml" />
+            </ResourceDictionary.MergedDictionaries>
 
         <!--#region Calendario-->
         <Style x:Key="calendarioButton" TargetType="Button">
@@ -306,7 +314,8 @@
         </Style>
         
         
-    <!--#enregion-->
+    <!--#endregion-->
+        
         <!--#region Botones Style-->
         <Style x:Key="topButton" TargetType="Button">
             <Setter Property="Background" Value="Transparent" />
@@ -839,6 +848,7 @@
             </Setter>
         </Style>
         <!--#endregion-->
-
+            
+        </ResourceDictionary>
     </Application.Resources>
 </Application>
