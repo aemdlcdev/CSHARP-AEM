@@ -28,7 +28,7 @@
                     <Icon:PackIconMaterial Kind="Menu" Width="15" Height="15" />
                 </Button>
 
-                <Border Grid.Row="1" Background="#623ED0" CornerRadius="0 50 0 30">
+                <Border Grid.Row="1" Background="#2090ff" CornerRadius="0 50 0 30">
                     <DockPanel>
                         <!--Menu Logo-->
                         <Border Width="80" Height="80" Padding="3" Background="White" CornerRadius="100" DockPanel.Dock="Top" HorizontalAlignment="Left" Margin="20 -30 0 0">
@@ -41,10 +41,10 @@
 
                         <!--Menu Titles-->
                         <TextBlock Text="FPConnect" Foreground="White" FontSize="22" FontWeight="SemiBold" DockPanel.Dock="Top" Margin="0 25 0 10" TextAlignment="Center"/>
-                        <TextBlock Text="Alejandro, España" Foreground="#D0BFFF" FontSize="14" FontWeight="SemiBold" DockPanel.Dock="Top" Margin="5,0,0,0" TextAlignment="Center"/>
+                        <TextBlock Text="Alejandro, España" Foreground="White" FontSize="14" FontWeight="SemiBold" DockPanel.Dock="Top" Margin="5,0,0,0" TextAlignment="Center"/>
 
                         <!--Menu Seprator-->
-                        <Separator Margin="25" Background="#7E5FDC" DockPanel.Dock="Top" Height="0.8"/>
+                        <Separator Margin="25" Background="#ffffff" DockPanel.Dock="Top" Height="0.8"/>
 
                         <!--Menu Buttons-->
                         <StackPanel DockPanel.Dock="Top" >

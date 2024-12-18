@@ -58,7 +58,7 @@
 
         <!--Tab buttons-->
         <StackPanel Grid.Row="2" Orientation="Horizontal" Margin="0 10 0 0">
-            <Button Style="{StaticResource tabButton}" Content="Alumnos" BorderBrush="#784FF2"/>
+            <Button Style="{StaticResource tabButton}" Content="Alumnos" BorderBrush="#2090ff"/>
             <Button Style="{StaticResource tabButton}" Content="Empresas"/>
             <Button Style="{StaticResource tabButton}" Content="Archivados" Margin="5,0,0,0"/>
         </StackPanel>
@@ -130,7 +130,7 @@
                 <Rectangle Width="1" Fill="#DEE4EC" Margin="3 7"/>
 
                 <Button Style="{StaticResource pagingButton}" Content="1"/>
-                <Button Style="{StaticResource pagingButton}" Content="2" Background="#7950F2" Foreground="#ffffff"/>
+                <Button Style="{StaticResource pagingButton}" Content="2" Background="#2090ff" Foreground="#ffffff"/>
                 <Button Style="{StaticResource pagingButton}" Content="3"/>
 
                 <TextBlock Text="..." Foreground="#6C7682" VerticalAlignment="Center" Margin="10 0" FontSize="15"/>
