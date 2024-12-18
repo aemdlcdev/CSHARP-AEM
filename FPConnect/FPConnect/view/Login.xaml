@@ -10,11 +10,11 @@
     <Grid MouseDown="Border_MouseDown">
         <Grid.Background>
             <LinearGradientBrush StartPoint="0.1,0" EndPoint="0.9,1">
-                <GradientStop Color="Purple" Offset="1" />
-                <GradientStop Color="Violet" Offset="0" />
+                <GradientStop Color="#2090ff" Offset="1" />
+                <GradientStop Color="#a0d0fc" Offset="0" />
             </LinearGradientBrush>
         </Grid.Background>
-        <Border Height="390" VerticalAlignment="Top" CornerRadius="0 0 180 0" Background="#100E17" MouseDown="Border_MouseDown">
+        <Border Height="390" VerticalAlignment="Top" CornerRadius="0 0 180 0" Background="#001932" MouseDown="Border_MouseDown">
         </Border>
         <StackPanel Orientation="Horizontal">
             <StackPanel Width="350">
@@ -33,8 +33,8 @@
                     </StackPanel>
                     <StackPanel Margin="10" HorizontalAlignment="Center">
                         <Button Width="100" Height="40" Style="{StaticResource MaterialDesignRaisedButton}" 
-                         materialDesign:ButtonAssist.CornerRadius="10" BorderThickness="2" BorderBrush="#D94448"
-                         Background="#D94448" Foreground="White" ToolTip="Login" x:Name="btnLogin" Content="Login">
+                         materialDesign:ButtonAssist.CornerRadius="10" BorderThickness="2" BorderBrush="AliceBlue"
+                         Background="#2090ff" Foreground="White" ToolTip="Login" x:Name="btnLogin" Content="Login">
                         </Button>
                     </StackPanel>
                 </StackPanel>
