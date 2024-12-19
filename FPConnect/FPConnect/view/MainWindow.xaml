@@ -71,8 +71,8 @@
 
                             <Button Style="{StaticResource menuButton}">
                                 <StackPanel Orientation="Horizontal">
-                                    <Icon:PackIconMaterial Kind="CashMultiple" Style="{StaticResource menuButtonIcon}"/>
-                                    <TextBlock Text="Cartera"/>
+                                    <Icon:PackIconMaterial Kind="CardAccountDetails" Style="{StaticResource menuButtonIcon}"/>
+                                    <TextBlock Text="Empresas"/>
                                 </StackPanel>
                             </Button>
 
