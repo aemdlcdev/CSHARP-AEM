@@ -1,0 +1,22 @@
+{
+  "people": [
+    {
+      "id": 1,
+      "Nombre": "Jose",
+      "Apellidos": "Perez",
+      "Edad": 25
+    },
+    {
+      "id": 2,
+      "Nombre": "Rosa",
+      "Apellidos": "Zapata",
+      "Edad": 22
+    },
+    {
+      "id": 3,
+      "Nombre": "Alejandro",
+      "Apellidos": "Esteban",
+      "Edad": 21
+    }
+  ]
+}

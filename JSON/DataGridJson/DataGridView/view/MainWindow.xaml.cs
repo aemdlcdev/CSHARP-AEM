@@ -17,7 +17,14 @@ namespace DataGridView
         {
             InitializeComponent();
             personasManage = new PersonasManage();
-            listaPersonas = personasManage.LeerPersonas();
+            try
+            {
+                listaPersonas = personasManage.LeerPersonas();
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Error al deserializar el JSON: {ex.Message}");
+            }
 
             dataGridPersonas.ItemsSource = listaPersonas;
 
@@ -62,8 +69,8 @@ namespace DataGridView
                     }
                     else
                     {
-                        personasManage.InsertarPersona(nuevaPersona); 
-                        RefreshDataGrid(); 
+                        personasManage.InsertarPersona(nuevaPersona);
+                        RefreshDataGrid();
                         start();
                     }
                 }
@@ -84,11 +91,11 @@ namespace DataGridView
                     personaSeleccionada.Apellidos = txtApellidos.Text;
                     personaSeleccionada.Edad = edad;
 
-                    personasManage.ModificarPersona(personaSeleccionada); 
+                    personasManage.ModificarPersona(personaSeleccionada);
 
                     MessageBox.Show("Cambios guardados", "Cambios guardados", MessageBoxButton.OK, MessageBoxImage.Information);
 
-                    RefreshDataGrid(); 
+                    RefreshDataGrid();
                     start();
                 }
             }
@@ -125,8 +132,8 @@ namespace DataGridView
             if (dataGridPersonas.SelectedItem != null && MessageBox.Show("¿Está seguro que quiere eliminar esta persona?", "Eliminar", MessageBoxButton.YesNo, MessageBoxImage.Warning) == MessageBoxResult.Yes && dataGridPersonas.SelectedItem is Persona personaSeleccionada)
             {
                 listaPersonas.Remove(personaSeleccionada);
-                personasManage.EliminarPersona(personaSeleccionada); 
-                RefreshDataGrid(); 
+                personasManage.EliminarPersona(personaSeleccionada);
+                RefreshDataGrid();
                 start();
             }
         }
@@ -195,8 +202,7 @@ namespace DataGridView
 
         private void RefreshDataGrid()
         {
-            listaPersonas.Clear(); 
-            listaPersonas = personasManage.LeerPersonas(); 
+            listaPersonas = personasManage.LeerPersonas();
             dataGridPersonas.ItemsSource = null;
             dataGridPersonas.ItemsSource = listaPersonas;
             dataGridPersonas.Items.Refresh();
@@ -207,7 +213,7 @@ namespace DataGridView
         #region Evento de clic en el Grid principal
 
         private void MainGrid_MouseDown(object sender, MouseButtonEventArgs e)
-        {   
+        {
             if (!dataGridPersonas.IsMouseOver && !btnAgregarPersona.Content.Equals("Guardar cambios"))
             {
                 btnAgregarPersona.IsEnabled = true;
@@ -226,3 +232,4 @@ namespace DataGridView
         #endregion
     }
 }
+

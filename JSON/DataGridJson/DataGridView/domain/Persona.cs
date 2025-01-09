@@ -22,6 +22,11 @@ namespace DataGridView
             this.Edad = edad;
         }
 
+        public Persona()
+        {
+            pm = new PersonasManage();
+        }
+
         public List<Persona> GetPersonas()
         {
             listaPersonas = pm.LeerPersonas();
@@ -47,5 +52,6 @@ namespace DataGridView
         {
             return pm.LastId();
         }
+
     }
 }

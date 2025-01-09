@@ -1,81 +1,88 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
-using System.Data;
+using System.IO;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
 
 namespace DataGridView.persistence
 {
     internal class PersonasManage
     {
-        private DataTable dataTable { get; set; }
         private List<Persona> listaPersonas { get; set; }
 
-        private DBBroker dbBroker = DBBroker.obtenerAgente();
+        private string jsonPath; // Path del JSON
+
         public PersonasManage()
         {
-            dataTable = new DataTable();
             listaPersonas = new List<Persona>();
-
+            jsonPath = "example.json"; // Asegúrate de que la ruta sea correcta
         }
-        
-        public List<Persona> LeerPersonas() 
+
+        public List<Persona> LeerPersonas()
         {
-
-            Persona persona = null;
-
-            List<Object> aux = DBBroker.obtenerAgente().leer("SELECT * FROM mydb.persona");
-
-            foreach (List<Object> c in aux) 
+            try
             {
-                persona = new Persona(int.Parse(c[0].ToString()) ,c[1].ToString(), c[2].ToString(), Convert.ToInt32(c[3]));
-                this.listaPersonas.Add(persona);
+                if (string.IsNullOrWhiteSpace(jsonPath) || !File.Exists(jsonPath))
+                {
+                    throw new ArgumentException("Hay un error en la ruta o el archivo no existe.");
+                }
+
+                // Leo el contenido del JSON
+                string jsonContent = File.ReadAllText(jsonPath);
+
+                // Deserializo el JSON
+                var rootObject = JsonConvert.DeserializeObject<RootObject>(jsonContent);
+                listaPersonas = rootObject.people;
+
+                // Asignar la lista de personas ordenadas por ID con LINQ
+                listaPersonas = listaPersonas.OrderBy(p => p.id).ToList();
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Error al deserializar el JSON: {ex.Message}");
             }
 
             return listaPersonas;
-
         }
 
         public void InsertarPersona(Persona persona)
         {
-            string sql = $"INSERT INTO persona (idpersona, nombre, apellido, edad) VALUES ({persona.id}, '{persona.Nombre}', '{persona.Apellidos}', {persona.Edad})";
-            dbBroker.modificar(sql);
             listaPersonas.Add(persona);
+            GuardarPersonas();
         }
 
         public void ModificarPersona(Persona persona)
         {
-            string sql = $"UPDATE mydb.persona SET nombre = '{persona.Nombre}', apellido = '{persona.Apellidos}', edad = {persona.Edad} WHERE idpersona = {persona.id}";
-            dbBroker.modificar(sql);
-
             var personaExistente = listaPersonas.Find(p => p.id == persona.id);
             if (personaExistente != null)
             {
                 personaExistente.Nombre = persona.Nombre;
                 personaExistente.Apellidos = persona.Apellidos;
                 personaExistente.Edad = persona.Edad;
+                GuardarPersonas();
             }
         }
 
         public void EliminarPersona(Persona persona)
         {
-            string sql = $"DELETE FROM persona WHERE idpersona = {persona.id}";
-            dbBroker.modificar(sql);
             listaPersonas.RemoveAll(p => p.id == persona.id);
+            GuardarPersonas();
         }
 
         public int LastId()
         {
-            int lastID = 0;
-            List<Object> aux = DBBroker.obtenerAgente().leer("SELECT MAX(idpersona) FROM mydb.persona");
-
-            foreach (List<Object> c in aux)
-            {
-                lastID = int.Parse(c[0].ToString());
-            }
-            return lastID;
+            return listaPersonas.Any() ? listaPersonas.Max(p => p.id) : 0;
         }
+
+        private void GuardarPersonas()
+        {
+            var rootObject = new RootObject { people = listaPersonas };
+            string jsonContent = JsonConvert.SerializeObject(rootObject, Formatting.Indented);
+            File.WriteAllText(jsonPath, jsonContent);
+        }
+    }
+    public class RootObject
+    {
+        public List<Persona> people { get; set; } // Se tiene que llamar igual que en mi JSON
     }
 }
