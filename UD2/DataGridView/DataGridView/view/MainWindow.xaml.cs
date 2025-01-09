@@ -35,7 +35,6 @@ namespace DataGridView
                 string nombre = txtNombre.Text;
                 string apellidos = txtApellidos.Text;
 
-                // Validar que la edad sea un número
                 if (!int.TryParse(txtEdad.Text, out int edad))
                 {
                     MessageBox.Show("Por favor, ingrese una edad válida.", "Edad inválida", MessageBoxButton.OK, MessageBoxImage.Warning);
@@ -46,7 +45,7 @@ namespace DataGridView
 
                 if (error == false)
                 {
-                    // Verificar si los campos estan vacios
+
                     if (string.IsNullOrWhiteSpace(nombre) || string.IsNullOrWhiteSpace(apellidos) || edad == 0)
                     {
                         MessageBox.Show("Por favor, complete todos los campos.", "Campos vacíos", MessageBoxButton.OK, MessageBoxImage.Warning);
@@ -63,8 +62,8 @@ namespace DataGridView
                     }
                     else
                     {
-                        personasManage.InsertarPersona(nuevaPersona); // Insertar en la base de datos
-                        RefreshDataGrid(); // Refrescar el DataGrid
+                        personasManage.InsertarPersona(nuevaPersona); 
+                        RefreshDataGrid(); 
                         start();
                     }
                 }
@@ -74,7 +73,7 @@ namespace DataGridView
                 error = ValidarCampos();
                 if (dataGridPersonas.SelectedItem is Persona personaSeleccionada && error == false)
                 {
-                    // Validar que la edad sea un número
+
                     if (!int.TryParse(txtEdad.Text, out int edad))
                     {
                         MessageBox.Show("Por favor, ingrese una edad válida.", "Edad inválida", MessageBoxButton.OK, MessageBoxImage.Warning);
@@ -85,11 +84,11 @@ namespace DataGridView
                     personaSeleccionada.Apellidos = txtApellidos.Text;
                     personaSeleccionada.Edad = edad;
 
-                    personasManage.ModificarPersona(personaSeleccionada); // Modificar en la base de datos
+                    personasManage.ModificarPersona(personaSeleccionada); 
 
                     MessageBox.Show("Cambios guardados", "Cambios guardados", MessageBoxButton.OK, MessageBoxImage.Information);
 
-                    RefreshDataGrid(); // Refrescar el DataGrid
+                    RefreshDataGrid(); 
                     start();
                 }
             }
@@ -104,7 +103,6 @@ namespace DataGridView
                 txtEdad.Text = personaSeleccionada.Edad.ToString();
                 btnAgregarPersona.IsEnabled = false;
 
-                // Establezco los TextBox como solo lectura para que no puedan hacer cosas raras
                 txtNombre.IsReadOnly = true;
                 txtApellidos.IsReadOnly = true;
                 txtEdad.IsReadOnly = true;
@@ -116,7 +114,6 @@ namespace DataGridView
                 txtEdad.Text = "";
                 btnAgregarPersona.IsEnabled = true;
 
-                // Habilito los TextBox para que se puedan editar
                 txtNombre.IsReadOnly = false;
                 txtApellidos.IsReadOnly = false;
                 txtEdad.IsReadOnly = false;
@@ -128,8 +125,8 @@ namespace DataGridView
             if (dataGridPersonas.SelectedItem != null && MessageBox.Show("¿Está seguro que quiere eliminar esta persona?", "Eliminar", MessageBoxButton.YesNo, MessageBoxImage.Warning) == MessageBoxResult.Yes && dataGridPersonas.SelectedItem is Persona personaSeleccionada)
             {
                 listaPersonas.Remove(personaSeleccionada);
-                personasManage.EliminarPersona(personaSeleccionada); // Eliminar de la base de datos
-                RefreshDataGrid(); // Refrescar el DataGrid
+                personasManage.EliminarPersona(personaSeleccionada); 
+                RefreshDataGrid(); 
                 start();
             }
         }
@@ -146,7 +143,6 @@ namespace DataGridView
                 btnModificar.IsEnabled = false;
                 btnAgregarPersona.IsEnabled = true;
 
-                // Habilito los TextBox para que se puedan editar
                 txtNombre.IsReadOnly = false;
                 txtApellidos.IsReadOnly = false;
                 txtEdad.IsReadOnly = false;
@@ -192,7 +188,6 @@ namespace DataGridView
             btnEliminar.IsEnabled = true;
             btnModificar.IsEnabled = true;
 
-            // Habilito los TextBox para que se puedan editar
             txtNombre.IsReadOnly = false;
             txtApellidos.IsReadOnly = false;
             txtEdad.IsReadOnly = false;
@@ -200,8 +195,8 @@ namespace DataGridView
 
         private void RefreshDataGrid()
         {
-            listaPersonas.Clear(); // Limpio la lista antes de cargarla para que no me aparezca duplicada
-            listaPersonas = personasManage.LeerPersonas(); // Recargo la lista desde la bbdd
+            listaPersonas.Clear(); 
+            listaPersonas = personasManage.LeerPersonas(); 
             dataGridPersonas.ItemsSource = null;
             dataGridPersonas.ItemsSource = listaPersonas;
             dataGridPersonas.Items.Refresh();
@@ -212,8 +207,7 @@ namespace DataGridView
         #region Evento de clic en el Grid principal
 
         private void MainGrid_MouseDown(object sender, MouseButtonEventArgs e)
-        {
-            // Verificar si el clic se ha hecho fuera del datagrid y del boton de guardar cambios
+        {   
             if (!dataGridPersonas.IsMouseOver && !btnAgregarPersona.Content.Equals("Guardar cambios"))
             {
                 btnAgregarPersona.IsEnabled = true;
