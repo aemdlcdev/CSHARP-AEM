@@ -15,8 +15,11 @@ namespace DataGridView.persistence
         public PersonasManage()
         {
             listaPersonas = new List<Persona>();
-            jsonPath = "example.json"; // Asegúrate de que la ruta sea correcta
+            jsonPath = "example.json"; 
         }
+
+
+        // TODOS LOS ATRIBUTOS DE LA CLASE SE TIENEN QUE LLAMAR IGUAL QUE EN EL JSON!!!!
 
         public List<Persona> LeerPersonas()
         {
