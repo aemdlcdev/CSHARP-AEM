@@ -10,16 +10,16 @@ namespace DataGridView
     public partial class MainWindow : Window
     {
         private List<Persona> listaPersonas;
-        private PersonasManage personasManage;
+        private Persona personaM;
         private string btnAgregarPersonaContent;
 
         public MainWindow()
         {
             InitializeComponent();
-            personasManage = new PersonasManage();
+            personaM = new Persona();
             try
             {
-                listaPersonas = personasManage.LeerPersonas();
+                listaPersonas = personaM.GetPersonas();
             }
             catch (Exception ex)
             {
@@ -53,13 +53,13 @@ namespace DataGridView
                 if (error == false)
                 {
 
-                    if (string.IsNullOrWhiteSpace(nombre) || string.IsNullOrWhiteSpace(apellidos) || edad == 0)
+                    if (string.IsNullOrWhiteSpace(nombre) || string.IsNullOrWhiteSpace(apellidos) || edad < 0)
                     {
                         MessageBox.Show("Por favor, complete todos los campos.", "Campos vacíos", MessageBoxButton.OK, MessageBoxImage.Warning);
                         return;
                     }
 
-                    int lastId = personasManage.LastId() + 1;
+                    int lastId = personaM.LastId() + 1;
                     Persona nuevaPersona = new Persona(lastId, nombre, apellidos, edad);
 
                     if (VerificarExistencia(nuevaPersona))
@@ -69,7 +69,7 @@ namespace DataGridView
                     }
                     else
                     {
-                        personasManage.InsertarPersona(nuevaPersona);
+                        personaM.InsertarPersona(nuevaPersona);
                         RefreshDataGrid();
                         start();
                     }
@@ -91,7 +91,7 @@ namespace DataGridView
                     personaSeleccionada.Apellidos = txtApellidos.Text;
                     personaSeleccionada.Edad = edad;
 
-                    personasManage.ModificarPersona(personaSeleccionada);
+                    personaM.ModificarPersona(personaSeleccionada);
 
                     MessageBox.Show("Cambios guardados", "Cambios guardados", MessageBoxButton.OK, MessageBoxImage.Information);
 
@@ -132,7 +132,7 @@ namespace DataGridView
             if (dataGridPersonas.SelectedItem != null && MessageBox.Show("¿Está seguro que quiere eliminar esta persona?", "Eliminar", MessageBoxButton.YesNo, MessageBoxImage.Warning) == MessageBoxResult.Yes && dataGridPersonas.SelectedItem is Persona personaSeleccionada)
             {
                 listaPersonas.Remove(personaSeleccionada);
-                personasManage.EliminarPersona(personaSeleccionada);
+                personaM.EliminarPersona(personaSeleccionada);
                 RefreshDataGrid();
                 start();
             }
@@ -202,7 +202,7 @@ namespace DataGridView
 
         private void RefreshDataGrid()
         {
-            listaPersonas = personasManage.LeerPersonas();
+            listaPersonas = personaM.GetPersonas();
             dataGridPersonas.ItemsSource = null;
             dataGridPersonas.ItemsSource = listaPersonas;
             dataGridPersonas.Items.Refresh();

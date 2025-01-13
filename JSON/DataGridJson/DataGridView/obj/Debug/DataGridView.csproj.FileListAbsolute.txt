@@ -96,3 +96,4 @@ C:\Users\b15-03m\Documents\NetBeansProjects\DI-AEM\JSON\DataGridJson\DataGridVie
 C:\Users\b15-03m\Documents\NetBeansProjects\DI-AEM\JSON\DataGridJson\DataGridView\obj\Debug\DataGridView.csproj.GenerateResource.cache
 C:\Users\b15-03m\Documents\NetBeansProjects\DI-AEM\JSON\DataGridJson\DataGridView\obj\Debug\DataGridView.csproj.CoreCompileInputs.cache
 C:\Users\b15-03m\Documents\NetBeansProjects\DI-AEM\JSON\DataGridJson\DataGridView\obj\Debug\DataGrid.F18C7EE1.Up2Date
+C:\Users\b15-03m\Documents\NetBeansProjects\DI-AEM\JSON\DataGridJson\DataGridView\obj\Debug\App.baml

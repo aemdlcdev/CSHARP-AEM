@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:DataGridView"
         mc:Ignorable="d"
         Title="DataGrid" Height="450" Width="800" MinHeight="450" MinWidth="800"
-        MouseDown="MainGrid_MouseDown" Background="OldLace">
+        MouseDown="MainGrid_MouseDown" Background="CadetBlue">
     <!-- El MouseDown lo voy a usar para ver si se hace click fuera del datagrid -->
 
     <Grid>
@@ -47,7 +47,7 @@
                 <Label Content="Edad:" Grid.Row="4" Grid.Column="0" Margin="0,4,8,4" />
                 <TextBox x:Name="txtEdad" Grid.Row="5" Grid.Column="0" Margin="4" Grid.ColumnSpan="2" />
 
-                <Button x:Name="btnAgregarPersona" Content="Agregar Persona" Grid.Row="6" Grid.Column="0" Margin="4,4,4,0" Grid.ColumnSpan="2" Height="20" VerticalAlignment="Top" Click="btnAgregarPersona_Click" />
+                <Button x:Name="btnAgregarPersona" Content="Agregar Persona" Grid.Row="6" Grid.Column="0" Margin="4,4,4,0" Grid.ColumnSpan="2" Height="20" Width="125" VerticalAlignment="Top" Click="btnAgregarPersona_Click" />
             </Grid>
         </StackPanel>
 

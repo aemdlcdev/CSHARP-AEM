@@ -15,9 +15,8 @@ namespace DataGridView.persistence
         public PersonasManage()
         {
             listaPersonas = new List<Persona>();
-            jsonPath = "example.json"; 
+            jsonPath = "example.json";
         }
-
 
         // TODOS LOS ATRIBUTOS DE LA CLASE SE TIENEN QUE LLAMAR IGUAL QUE EN EL JSON!!!!
 
@@ -79,13 +78,23 @@ namespace DataGridView.persistence
 
         private void GuardarPersonas()
         {
-            var rootObject = new RootObject { people = listaPersonas };
-            string jsonContent = JsonConvert.SerializeObject(rootObject, Formatting.Indented);
-            File.WriteAllText(jsonPath, jsonContent);
+            try
+            {
+                var rootObject = new RootObject { people = listaPersonas };
+                string jsonContent = JsonConvert.SerializeObject(rootObject, Formatting.Indented);
+                File.WriteAllText(jsonPath, jsonContent);
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Error al guardar el JSON: {ex.Message}");
+            }
         }
     }
+
     public class RootObject
     {
-        public List<Persona> people { get; set; } // Se tiene que llamar igual que en mi JSON
+        public List<Persona> people { get; set; } // Se tiene que llamar igual que en mi JSON (array que contiene las personas)
     }
 }
+
+
