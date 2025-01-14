@@ -1,0 +1,28 @@
+﻿<Window x:Class="ApiRestMoviles.AddObject"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:ApiRestMoviles"
+        mc:Ignorable="d"
+        Title="AddObject" Height="550" Width="270" ResizeMode="NoResize" WindowStartupLocation="CenterScreen">
+    <Grid>
+        <Label Content=" Add phone " FontSize="24" FontWeight="Bold" Height="40" Width="150" Margin="43,33,57,361"/>
+        <TextBlock Text="Name:" Height="20" Width="50" Margin="18,46,132,268"/>
+        <TextBox x:Name="txtName" Margin="83,46,27,268" Height="20" Width="90"/>
+        <TextBlock Text="Data" Height="20" Width="50" Margin="18,86,132,228"/>
+        <TextBlock Text="Year:" Height="20" Width="50" Margin="18,111,132,203"/>
+        <TextBox x:Name="txtYear" Margin="83,111,27,203" Height="20" Width="90"/>
+        <TextBlock Text="Color:" Height="20" Width="50" Margin="18,136,132,178"/>
+        <TextBox x:Name="txtColor" Margin="83,136,27,178" Height="20" Width="90"/>
+        <TextBlock Text="Price:" Height="20" Width="50" Margin="18,161,132,153"/>
+        <TextBox x:Name="txtPrice" Margin="83,161,27,153" Height="20" Width="90"/>
+        <TextBlock Text="Capacity:" Height="20" Width="70" Margin="18,186,112,128"/>
+        <TextBox x:Name="txtCapacity" Margin="83,186,27,128" Height="20" Width="90"/>
+        <TextBlock Text="CPU Model:" Height="20" Width="70" Margin="18,211,112,103"/>
+        <TextBox x:Name="txtCpuModel" Margin="83,211,27,103" Height="20" Width="90"/>
+        <TextBlock Text="Hard Disk:" Height="20" Width="70" Margin="18,236,112,78"/>
+        <TextBox x:Name="txtHardDisk" Margin="83,236,27,78" Height="20" Width="90"/>
+        <Button x:Name="btnAdd" Content="Add" Width="90" Height="30" Margin="80,351,80,53" Click="btnAdd_Click"/>
+    </Grid>
+</Window>
