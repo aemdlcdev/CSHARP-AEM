@@ -43,7 +43,7 @@
 
         <!--Page Title-->
         <TextBlock Grid.Row="1" FontSize="32" FontWeight="SemiBold" Margin="0 20 0 0" Foreground="#121518" 
-   HorizontalAlignment="Left" Text="Alumnos"/>
+   HorizontalAlignment="Left" Text="Nombre"/>
 
         <!--Add Button-->
         <Button Style="{StaticResource addButton}">
