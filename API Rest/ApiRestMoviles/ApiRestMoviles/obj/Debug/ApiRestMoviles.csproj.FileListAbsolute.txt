@@ -3,15 +3,9 @@ C:\Users\b15-03m\Documents\NetBeansProjects\DI-AEM\API Rest\ApiRestMoviles\ApiRe
 C:\Users\b15-03m\Documents\NetBeansProjects\DI-AEM\API Rest\ApiRestMoviles\ApiRestMoviles\bin\Debug\Newtonsoft.Json.dll
 C:\Users\b15-03m\Documents\NetBeansProjects\DI-AEM\API Rest\ApiRestMoviles\ApiRestMoviles\bin\Debug\Newtonsoft.Json.xml
 C:\Users\b15-03m\Documents\NetBeansProjects\DI-AEM\API Rest\ApiRestMoviles\ApiRestMoviles\obj\Debug\ApiRestMoviles.csproj.AssemblyReference.cache
-C:\Users\b15-03m\Documents\NetBeansProjects\DI-AEM\API Rest\ApiRestMoviles\ApiRestMoviles\obj\Debug\AddObject.g.cs
-C:\Users\b15-03m\Documents\NetBeansProjects\DI-AEM\API Rest\ApiRestMoviles\ApiRestMoviles\obj\Debug\ListById.g.cs
-C:\Users\b15-03m\Documents\NetBeansProjects\DI-AEM\API Rest\ApiRestMoviles\ApiRestMoviles\obj\Debug\MainWindow.g.cs
 C:\Users\b15-03m\Documents\NetBeansProjects\DI-AEM\API Rest\ApiRestMoviles\ApiRestMoviles\obj\Debug\App.g.cs
 C:\Users\b15-03m\Documents\NetBeansProjects\DI-AEM\API Rest\ApiRestMoviles\ApiRestMoviles\obj\Debug\ApiRestMoviles_MarkupCompile.cache
 C:\Users\b15-03m\Documents\NetBeansProjects\DI-AEM\API Rest\ApiRestMoviles\ApiRestMoviles\obj\Debug\ApiRestMoviles_MarkupCompile.lref
-C:\Users\b15-03m\Documents\NetBeansProjects\DI-AEM\API Rest\ApiRestMoviles\ApiRestMoviles\obj\Debug\AddObject.baml
-C:\Users\b15-03m\Documents\NetBeansProjects\DI-AEM\API Rest\ApiRestMoviles\ApiRestMoviles\obj\Debug\ListById.baml
-C:\Users\b15-03m\Documents\NetBeansProjects\DI-AEM\API Rest\ApiRestMoviles\ApiRestMoviles\obj\Debug\MainWindow.baml
 C:\Users\b15-03m\Documents\NetBeansProjects\DI-AEM\API Rest\ApiRestMoviles\ApiRestMoviles\obj\Debug\ApiRestMoviles.g.resources
 C:\Users\b15-03m\Documents\NetBeansProjects\DI-AEM\API Rest\ApiRestMoviles\ApiRestMoviles\obj\Debug\ApiRestMoviles.Properties.Resources.resources
 C:\Users\b15-03m\Documents\NetBeansProjects\DI-AEM\API Rest\ApiRestMoviles\ApiRestMoviles\obj\Debug\ApiRestMoviles.csproj.GenerateResource.cache
@@ -20,3 +14,9 @@ C:\Users\b15-03m\Documents\NetBeansProjects\DI-AEM\API Rest\ApiRestMoviles\ApiRe
 C:\Users\b15-03m\Documents\NetBeansProjects\DI-AEM\API Rest\ApiRestMoviles\ApiRestMoviles\obj\Debug\ApiRestMoviles.exe
 C:\Users\b15-03m\Documents\NetBeansProjects\DI-AEM\API Rest\ApiRestMoviles\ApiRestMoviles\obj\Debug\ApiRestMoviles.pdb
 C:\Users\b15-03m\Documents\NetBeansProjects\DI-AEM\API Rest\ApiRestMoviles\ApiRestMoviles\bin\Debug\ApiRestMoviles.pdb
+C:\Users\b15-03m\Documents\NetBeansProjects\DI-AEM\API Rest\ApiRestMoviles\ApiRestMoviles\obj\Debug\view\AddObject.g.cs
+C:\Users\b15-03m\Documents\NetBeansProjects\DI-AEM\API Rest\ApiRestMoviles\ApiRestMoviles\obj\Debug\view\ListById.g.cs
+C:\Users\b15-03m\Documents\NetBeansProjects\DI-AEM\API Rest\ApiRestMoviles\ApiRestMoviles\obj\Debug\view\MainWindow.g.cs
+C:\Users\b15-03m\Documents\NetBeansProjects\DI-AEM\API Rest\ApiRestMoviles\ApiRestMoviles\obj\Debug\view\AddObject.baml
+C:\Users\b15-03m\Documents\NetBeansProjects\DI-AEM\API Rest\ApiRestMoviles\ApiRestMoviles\obj\Debug\view\ListById.baml
+C:\Users\b15-03m\Documents\NetBeansProjects\DI-AEM\API Rest\ApiRestMoviles\ApiRestMoviles\obj\Debug\view\MainWindow.baml
