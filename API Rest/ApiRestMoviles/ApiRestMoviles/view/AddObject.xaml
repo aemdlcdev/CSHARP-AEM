@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ApiRestMoviles"
         mc:Ignorable="d"
-        Title="AddObject" Height="550" Width="270" ResizeMode="NoResize" WindowStartupLocation="CenterScreen">
+        Title="AddObject" Height="550" Width="270" ResizeMode="NoResize" WindowStartupLocation="CenterScreen"  Background="AliceBlue">
     <Grid>
         <Label Content=" Add phone " FontSize="24" FontWeight="Bold" Height="40" Width="150" Margin="43,33,57,361"/>
         <TextBlock Text="Name:" Height="20" Width="50" Margin="18,46,132,268"/>

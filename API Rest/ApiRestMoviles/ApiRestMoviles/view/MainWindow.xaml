@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ApiRestMoviles"
         mc:Ignorable="d"
-        Title="Lista moviles" Height="450" Width="500" WindowStartupLocation="CenterScreen">
+        Title="Lista moviles" Height="450" Width="500" WindowStartupLocation="CenterScreen" Background="AliceBlue">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"/>
@@ -14,10 +14,10 @@
         </Grid.RowDefinitions>
 
         <StackPanel Orientation="Horizontal" Margin="10">
-            <Button x:Name="btnCargar" Content="Cargar datos" Margin="20" Click="btnCargar_Click"/>
-            <Button x:Name="btnAdd" Content="Añadir obajetos" Margin="20 20 20 20" Click="btnAdd_Click"/>
-            <Button x:Name="btnCargarId" Content="Cargar por id" Margin=" 20 20 20 20" Click="btnCargarId_Click"/>
-            <Button x:Name="btnDelet" Content="Borrar objeto" Margin="20 20 20 20" Click="btnDelet_Click"/>
+            <Button x:Name="btnCargar" Content="Cargar datos" Width="90" Margin="10 20 20 20" Click="btnCargar_Click"/>
+            <Button x:Name="btnAdd" Content="Añadir obajetos"  Width="90" Margin="10 20 20 20" Click="btnAdd_Click"/>
+            <Button x:Name="btnCargarId" Content="Cargar por id"  Width="90" Margin=" 10 20 20 20" Click="btnCargarId_Click"/>
+            <Button x:Name="btnDelet" Content="Borrar objeto"  Width="90" Margin="10 20 20 20" Click="btnDelet_Click"/>
         </StackPanel>
 
         <ListBox x:Name="listDatos" Grid.Row="1" Margin="20"/>

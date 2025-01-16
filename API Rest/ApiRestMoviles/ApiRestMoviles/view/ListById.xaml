@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ApiRestMoviles"
         mc:Ignorable="d"
-        Title="ListById" Height="200" Width="400" WindowStartupLocation="CenterScreen" ResizeMode="NoResize">
+        Title="ListById" Height="200" Width="400" WindowStartupLocation="CenterScreen" ResizeMode="NoResize"  Background="AliceBlue">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"/>
