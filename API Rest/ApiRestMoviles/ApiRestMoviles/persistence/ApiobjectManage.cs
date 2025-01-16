@@ -86,6 +86,7 @@ namespace ApiRestMoviles.persistence
                     var addedObject = Newtonsoft.Json.JsonConvert.DeserializeObject<ApiObject>(jsonResponse);
 
                     mainWindow.txtPost.Text = "Objeto añadido correctamente: " + jsonResponse;
+
                     ab.Close();
                 }
                 else
@@ -123,12 +124,12 @@ namespace ApiRestMoviles.persistence
                     if (objeto.data != null)
                     {
                         mainWindow.listDatos.Items.Add($"ID: {objeto.id}, Name: {objeto.name}, Color: {objeto.data.color}, Capacity: {objeto.data.capacity}, CPU Model: {objeto.data.cpuModel}, Hard Disk: {objeto.data.hardDiskSize}, Year: {objeto.data.year}, Price: {objeto.data.price}");
-                        lb.Close();
                     }
                     else
                     {
                         mainWindow.listDatos.Items.Add($"ID: {objeto.id}, Name: {objeto.name}, Data: no data");
                     }
+                    lb.Close();
                 }
                 else
                 {
@@ -144,6 +145,7 @@ namespace ApiRestMoviles.persistence
         }
 
 
+
         public async void deleteObject(MainWindow mainWindow)
         {
             if (mainWindow.listDatos.SelectedItem == null)
@@ -154,8 +156,10 @@ namespace ApiRestMoviles.persistence
 
             try
             {
-                // Borrar por id, seleccionando del list box
-                string id = mainWindow.listDatos.SelectedItem.ToString().Split(',')[0].Split(':')[1].Trim();
+                string selectedItem = mainWindow.listDatos.SelectedItem.ToString();
+                string id = selectedItem.Split(',')[0].Split(':')[1].Trim();
+
+                // URL de la api
                 string urlApi = "https://api.restful-api.dev/objects/" + id;
                 HttpClient cliente = new HttpClient();
                 HttpResponseMessage response = await cliente.DeleteAsync(urlApi);
@@ -176,6 +180,8 @@ namespace ApiRestMoviles.persistence
                 MessageBox.Show($"Error: {ex.Message}");
             }
         }
+
+
     }
 }
 
