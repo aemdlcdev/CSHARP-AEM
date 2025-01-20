@@ -33,7 +33,7 @@ namespace FPConnect
                 else
                 {
                     this.WindowState = WindowState.Maximized;
-
+                    
                     IsMaximize = true;
                 }
             }

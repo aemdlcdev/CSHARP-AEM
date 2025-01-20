@@ -15,7 +15,7 @@
                 <ColumnDefinition Width="200"/>
                 <ColumnDefinition Width="*"/>
             </Grid.ColumnDefinitions>
-
+            
             <!--Izquierda Menu-->
             <Grid>
                 <Grid.RowDefinitions>
