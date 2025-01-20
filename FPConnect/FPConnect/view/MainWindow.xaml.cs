@@ -119,7 +119,7 @@ namespace FPConnect
         private void btnLogout_Click(object sender, RoutedEventArgs e)
         {
             Login login = new Login();
-            login.Show(); // Cambiar Show() por ShowDialog()
+            // login.Show(); 
             this.Close();
         }
 
