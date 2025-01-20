@@ -27,5 +27,19 @@ namespace FPConnect.view
         {
             Application.Current.Shutdown();
         }
+
+        private void btnLogin_Click(object sender, RoutedEventArgs e)
+        {
+            if (txtUsername.Text == "admin" && txtPassword.Password == "admin")
+            {
+                MainWindow mainWindow = new MainWindow();
+                mainWindow.Show();
+                this.Close();
+            }
+            else
+            {
+                MessageBox.Show("Invalid username or password", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
+        }
     }
 }
