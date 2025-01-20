@@ -12,6 +12,7 @@ namespace FPConnect.view
         public Login()
         {
             InitializeComponent();
+            
         }
 
         private void Border_MouseDown(object sender, MouseButtonEventArgs e)
