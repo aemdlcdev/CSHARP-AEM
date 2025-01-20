@@ -16,7 +16,7 @@ namespace DataGrid.view
     /// <summary>
     /// Lógica de interacción para InicioGridControl.xaml
     /// </summary>
-    public partial class InicioGridControl : UserControl
+    public partial class InicioGridControl : Page
     {
         public InicioGridControl()
         {

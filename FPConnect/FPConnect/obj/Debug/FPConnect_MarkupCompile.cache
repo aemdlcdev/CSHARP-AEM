@@ -10,11 +10,11 @@ none
 false
 DEBUG;TRACE
 C:\Users\b15-03m\Documents\NetBeansProjects\DI-AEM\FPConnect\FPConnect\App.xaml
-51358493009
+5-1662565798
 
-9-448029519
+9-1143188924
 632036205363
-view\Login.xaml;view\MainWindow.xaml;view\UserControls\AlumnosGridControl.xaml;view\UserControls\EventosGridControl.xaml;view\UserControls\InicioGridControl.xaml;
+view\Login.xaml;view\MainWindow.xaml;view\Pages\AlumnosGridControl.xaml;view\Pages\EventosGridControl.xaml;view\Pages\InicioGridControl.xaml;
 
 False
 

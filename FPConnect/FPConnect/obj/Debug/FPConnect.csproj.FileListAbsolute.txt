@@ -335,17 +335,11 @@ C:\Users\b15-03m\Documents\NetBeansProjects\DI-AEM\FPConnect\FPConnect\obj\Debug
 C:\Users\b15-03m\Documents\NetBeansProjects\DI-AEM\FPConnect\FPConnect\obj\Debug\view\MainWindow.baml
 C:\Users\b15-03m\Documents\NetBeansProjects\DI-AEM\FPConnect\FPConnect\obj\Debug\view\Login.g.cs
 C:\Users\b15-03m\Documents\NetBeansProjects\DI-AEM\FPConnect\FPConnect\obj\Debug\view\MainWindow.g.cs
-C:\Users\b15-03m\Documents\NetBeansProjects\DI-AEM\FPConnect\FPConnect\obj\Debug\view\UserControls\AlumnosGridControl.g.cs
-C:\Users\b15-03m\Documents\NetBeansProjects\DI-AEM\FPConnect\FPConnect\obj\Debug\view\UserControls\EventosGridControl.g.cs
-C:\Users\b15-03m\Documents\NetBeansProjects\DI-AEM\FPConnect\FPConnect\obj\Debug\view\UserControls\InicioGridControl.g.cs
 C:\Users\b15-03m\Documents\NetBeansProjects\DI-AEM\FPConnect\FPConnect\obj\Debug\App.g.cs
 C:\Users\b15-03m\Documents\NetBeansProjects\DI-AEM\FPConnect\FPConnect\obj\Debug\FPConnect_MarkupCompile.cache
 C:\Users\b15-03m\Documents\NetBeansProjects\DI-AEM\FPConnect\FPConnect\obj\Debug\FPConnect_MarkupCompile.lref
 C:\Users\b15-03m\Documents\NetBeansProjects\DI-AEM\FPConnect\FPConnect\obj\Debug\App.baml
 C:\Users\b15-03m\Documents\NetBeansProjects\DI-AEM\FPConnect\FPConnect\obj\Debug\view\Login.baml
-C:\Users\b15-03m\Documents\NetBeansProjects\DI-AEM\FPConnect\FPConnect\obj\Debug\view\UserControls\AlumnosGridControl.baml
-C:\Users\b15-03m\Documents\NetBeansProjects\DI-AEM\FPConnect\FPConnect\obj\Debug\view\UserControls\EventosGridControl.baml
-C:\Users\b15-03m\Documents\NetBeansProjects\DI-AEM\FPConnect\FPConnect\obj\Debug\view\UserControls\InicioGridControl.baml
 C:\Users\b15-03m\Documents\NetBeansProjects\DI-AEM\FPConnect\FPConnect\obj\Debug\FPConnect.g.resources
 C:\Users\b15-03m\Documents\NetBeansProjects\DI-AEM\FPConnect\FPConnect\obj\Debug\FPConnect.Properties.Resources.resources
 C:\Users\b15-03m\Documents\NetBeansProjects\DI-AEM\FPConnect\FPConnect\obj\Debug\FPConnect.csproj.GenerateResource.cache
@@ -353,3 +347,9 @@ C:\Users\b15-03m\Documents\NetBeansProjects\DI-AEM\FPConnect\FPConnect\obj\Debug
 C:\Users\b15-03m\Documents\NetBeansProjects\DI-AEM\FPConnect\FPConnect\obj\Debug\FPConnect.csproj.Up2Date
 C:\Users\b15-03m\Documents\NetBeansProjects\DI-AEM\FPConnect\FPConnect\obj\Debug\FPConnect.exe
 C:\Users\b15-03m\Documents\NetBeansProjects\DI-AEM\FPConnect\FPConnect\obj\Debug\FPConnect.pdb
+C:\Users\b15-03m\Documents\NetBeansProjects\DI-AEM\FPConnect\FPConnect\obj\Debug\view\Pages\AlumnosGridControl.g.cs
+C:\Users\b15-03m\Documents\NetBeansProjects\DI-AEM\FPConnect\FPConnect\obj\Debug\view\Pages\EventosGridControl.g.cs
+C:\Users\b15-03m\Documents\NetBeansProjects\DI-AEM\FPConnect\FPConnect\obj\Debug\view\Pages\InicioGridControl.g.cs
+C:\Users\b15-03m\Documents\NetBeansProjects\DI-AEM\FPConnect\FPConnect\obj\Debug\view\Pages\AlumnosGridControl.baml
+C:\Users\b15-03m\Documents\NetBeansProjects\DI-AEM\FPConnect\FPConnect\obj\Debug\view\Pages\EventosGridControl.baml
+C:\Users\b15-03m\Documents\NetBeansProjects\DI-AEM\FPConnect\FPConnect\obj\Debug\view\Pages\InicioGridControl.baml

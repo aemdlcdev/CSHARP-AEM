@@ -1,25 +1,11 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Web.UI.WebControls;
 using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
 using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
-using Style = System.Windows.Style;
+using FPConnect.view;
+using FPConnect.view.UserControls; // Asegúrate de que este espacio de nombres esté importado
 
 namespace FPConnect
 {
-    /// <summary>
-    /// Lógica de interacción para MainWindow.xaml
-    /// </summary>
     public partial class MainWindow : Window
     {
         public bool IsInicioButtonPressed { get; set; }
@@ -69,7 +55,7 @@ namespace FPConnect
 
             // Mostrar el Frame de Alumnos
             alumnosFrame.Visibility = Visibility.Visible;
-            alumnosFrame.Source = new Uri("UserControls/AlumnosGridControl.xaml", UriKind.Relative);
+            alumnosFrame.Source = new Uri("pages/AlumnosGridControl.xaml", UriKind.Relative);
 
             IsInicioButtonPressed = false;
             IsAlumnosButtonPressed = true;
@@ -85,7 +71,7 @@ namespace FPConnect
 
             // Mostrar el Frame de Inicio
             inicioFrame.Visibility = Visibility.Visible;
-            inicioFrame.Source = new Uri("UserControls/InicioGridControl.xaml", UriKind.Relative);
+            inicioFrame.Source = new Uri("pages/InicioGridControl.xaml", UriKind.Relative);
 
             IsInicioButtonPressed = true;
             IsAlumnosButtonPressed = false;
@@ -101,7 +87,7 @@ namespace FPConnect
 
             // Mostrar el Frame de Eventos
             eventosFrame.Visibility = Visibility.Visible;
-            eventosFrame.Source = new Uri("UserControls/EventosGridControl.xaml", UriKind.Relative);
+            eventosFrame.Source = new Uri("pages/EventosGridControl.xaml", UriKind.Relative);
 
             IsInicioButtonPressed = false;
             IsAlumnosButtonPressed = false;
@@ -119,10 +105,8 @@ namespace FPConnect
         private void btnLogout_Click(object sender, RoutedEventArgs e)
         {
             Login login = new Login();
-            // login.Show(); 
+            login.Show();
             this.Close();
         }
-
-
     }
 }

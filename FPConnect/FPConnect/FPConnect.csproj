@@ -197,13 +197,13 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="view\UserControls\AlumnosGridControl.xaml.cs">
+    <Compile Include="view\Pages\AlumnosGridControl.xaml.cs">
       <DependentUpon>AlumnosGridControl.xaml</DependentUpon>
     </Compile>
-    <Compile Include="view\UserControls\EventosGridControl.xaml.cs">
+    <Compile Include="view\Pages\EventosGridControl.xaml.cs">
       <DependentUpon>EventosGridControl.xaml</DependentUpon>
     </Compile>
-    <Compile Include="view\UserControls\InicioGridControl.xaml.cs">
+    <Compile Include="view\Pages\InicioGridControl.xaml.cs">
       <DependentUpon>InicioGridControl.xaml</DependentUpon>
     </Compile>
     <Page Include="view\Login.xaml">
@@ -225,15 +225,15 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Page Include="view\UserControls\AlumnosGridControl.xaml">
+    <Page Include="view\Pages\AlumnosGridControl.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="view\UserControls\EventosGridControl.xaml">
+    <Page Include="view\Pages\EventosGridControl.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="view\UserControls\InicioGridControl.xaml">
+    <Page Include="view\Pages\InicioGridControl.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>

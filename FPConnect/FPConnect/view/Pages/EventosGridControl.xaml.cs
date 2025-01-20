@@ -18,7 +18,7 @@ namespace FPConnect.view.UserControls
     /// <summary>
     /// Lógica de interacción para EventosGridControl.xaml
     /// </summary>
-    public partial class EventosGridControl : UserControl
+    public partial class EventosGridControl : Page
     {
         public EventosGridControl()
         {

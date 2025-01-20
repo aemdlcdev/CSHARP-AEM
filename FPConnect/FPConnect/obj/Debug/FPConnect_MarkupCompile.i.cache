@@ -4,17 +4,17 @@
 winexe
 C#
 .cs
-C:\Users\Alejandro\Documents\GitHub\DI-AEM\FPConnect\FPConnect\obj\Debug\
+C:\Users\b15-03m\Documents\NetBeansProjects\DI-AEM\FPConnect\FPConnect\obj\Debug\
 FPConnect
 none
 false
 DEBUG;TRACE
-C:\Users\Alejandro\Documents\GitHub\DI-AEM\FPConnect\FPConnect\App.xaml
-51358493009
+C:\Users\b15-03m\Documents\NetBeansProjects\DI-AEM\FPConnect\FPConnect\App.xaml
+5-1662565798
 
-101764849159
-631811874853
-view\Login.xaml;view\MainWindow.xaml;view\UserControls\AlumnosGridControl.xaml;view\UserControls\EventosGridControl.xaml;view\UserControls\InicioGridControl.xaml;
+101069689754
+632036205363
+view\Login.xaml;view\MainWindow.xaml;view\Pages\AlumnosGridControl.xaml;view\Pages\EventosGridControl.xaml;view\Pages\InicioGridControl.xaml;
 
-True
+False
 

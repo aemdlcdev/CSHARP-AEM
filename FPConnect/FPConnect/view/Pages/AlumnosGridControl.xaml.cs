@@ -16,7 +16,7 @@ namespace DataGrid
     /// <summary>
     /// Lógica de interacción para AlumnosGridControl.xaml
     /// </summary>
-    public partial class AlumnosGridControl : UserControl
+    public partial class AlumnosGridControl : Page
     {
         public AlumnosGridControl()
         {
