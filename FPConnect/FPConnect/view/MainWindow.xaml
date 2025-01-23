@@ -97,14 +97,18 @@
 
             </Grid>
 
-            <!--Frame alumnos-->
-            <Frame Name="alumnosFrame" Visibility="Collapsed" Grid.Column="1" Margin="10" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Source="/view/pages/AlumnosGridControl.xaml" NavigationUIVisibility="Hidden"/>
+            <Grid Grid.Column="1">
+                <!--Frame alumnos-->
+                <Frame Name="alumnosFrame" Visibility="Collapsed" Grid.Column="1" Margin="10" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Source="/view/pages/AlumnosGridControl.xaml" NavigationUIVisibility="Hidden"/>
 
-            <!--Frame inicio-->
-            <Frame Name="inicioFrame" Visibility="Collapsed" Grid.Column="1" Margin="10" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Source="/view/pages/InicioGridControl.xaml" NavigationUIVisibility="Hidden"/>
+                <!--Frame inicio-->
+                <Frame Name="inicioFrame" Visibility="Collapsed" Grid.Column="1" Margin="10" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Source="/view/pages/InicioGridControl.xaml" NavigationUIVisibility="Hidden"/>
 
-            <!--Frame eventos-->
-            <Frame Name="eventosFrame" Visibility="Collapsed" Grid.Column="1" Margin="10" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Source="/view/pages/EventosGridControl.xaml" NavigationUIVisibility="Hidden"/>
+                <!--Frame eventos-->
+                <Frame Name="eventosFrame" Visibility="Collapsed" Grid.Column="1" Margin="10" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Source="/view/pages/EventosGridControl.xaml" NavigationUIVisibility="Hidden"/>
+            </Grid>
+            
+            
         </Grid>
     </Border>
 </Window>

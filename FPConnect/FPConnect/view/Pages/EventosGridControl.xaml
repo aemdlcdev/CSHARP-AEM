@@ -38,10 +38,10 @@
                     </Button>
 
                     <Button Content="2023" Style="{StaticResource calendarioButton}"/>
-                    <Button Content="2022" Style="{StaticResource calendarioButton}"/>
-                    <Button Content="2024" Style="{StaticResource calendarioButton}" FontSize="24" Foreground="#c76f69"/>
-                    <Button Content="2025" Style="{StaticResource calendarioButton}"/>
+                    <Button Content="2024" Style="{StaticResource calendarioButton}"/>
+                    <Button Content="2025" Style="{StaticResource calendarioButton}" FontSize="24" Foreground="#c76f69"/>
                     <Button Content="2026" Style="{StaticResource calendarioButton}"/>
+                    <Button Content="2027" Style="{StaticResource calendarioButton}"/>
 
                     <Button Style="{StaticResource calendarioButton}">
                         <fa:ImageAwesome Icon="AngleRight" Style="{StaticResource angulo}"/>
@@ -74,10 +74,10 @@
             <StackPanel Grid.Column="1">
                 <!--Titulos-->
                 <StackPanel Margin="30 45 30 10" Orientation="Horizontal">
-                    <TextBlock Text="24" FontSize="50" Foreground="#ffffff"/>
+                    <TextBlock Text="23" FontSize="50" Foreground="#ffffff"/>
                     <StackPanel Margin="10 0 0 0 " VerticalAlignment="Center">
-                        <TextBlock Text="Diciembre" Foreground="#ffffff" FontSize="24"/>
-                        <TextBlock Text="Martes" Foreground="#eba5bb" FontSize="14"/>
+                        <TextBlock Text="Enero" Foreground="#ffffff" FontSize="24"/>
+                        <TextBlock Text="Jueves" Foreground="#eba5bb" FontSize="14"/>
                     </StackPanel>
 
                     <Button Style="{StaticResource bigButton}" Margin="50 0 5 0" >
