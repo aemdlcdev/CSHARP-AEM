@@ -171,10 +171,34 @@
                         </Grid>
                     </TabItem>
                     <TabItem Header="Empleados" Margin="-1,65,1,-65">
-                        <StackPanel>
+                        <Grid>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="20"/>
+                                <RowDefinition Height="*"/>
+                            </Grid.RowDefinitions>
                             <Label Content="Empleados" FontSize="20" FontWeight="Bold"/>
-                            <Label Content="Listado de Empleados" FontSize="16"/>
-                        </StackPanel>
+                            <Grid Grid.Row="2">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="200"/>
+                                    <ColumnDefinition Width="*"/>
+                                </Grid.ColumnDefinitions>
+                                <Border Background="Violet" CornerRadius="20" Grid.Column="0" Margin="5 10 10 10">
+                                    <StackPanel Margin="10">
+                                        <Label Content="Datos Empleado" FontWeight="Bold"/>
+                                        <Label Content="Nombre:"/>
+                                        <TextBox x:Name="txtNombreEmpleado" Margin="3"/>
+                                        <Label Content="Contraseña:"/>
+                                        <TextBox x:Name="txtApellidoEmpleado" Margin="3"/>
+                                        <Label Content="Fecha:"/>
+                                        <TextBox x:Name="txtFechaNacimientoEmpleado" Margin="3"/>
+                                        <Label Content="Horas trabajadas"/>
+                                        <TextBox x:Name="txtHorasTrabajadasEmpleado" Margin="3"/>
+                                        <Button Name="btnBuscarEmpleado" Foreground="#202023" Background="GhostWhite" Content="Buscar" Margin="2 10 5 5" Width="160" Cursor="Hand"/>
+                                    </StackPanel>
+                                </Border>
+                            </Grid>
+                        </Grid>
                     </TabItem>
                     <TabItem Header="Economia" Margin="-1,73,1,-73">
                         <StackPanel>
