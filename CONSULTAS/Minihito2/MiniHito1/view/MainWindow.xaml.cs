@@ -321,6 +321,7 @@ namespace MiniHito1
 
             Empleado empModificado = new Empleado(idEmpleado,username, apellidos, crs, idUsuario, idRol);
             empModificado.ModificarEmpleado(empModificado);
+            MessageBox.Show("Empleado actualizado correctamente.");
             RefrescarEmple();
         }
 
