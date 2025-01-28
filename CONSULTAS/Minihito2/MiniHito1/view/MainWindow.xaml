@@ -183,8 +183,8 @@
                                 <DataGrid x:Name="dataGridEmpleados" Grid.Row="0" Margin="10" AutoGenerateColumns="False" IsReadOnly="True" SelectionChanged="dataGridEmpleados_SelectionChanged">
                                     <DataGrid.Columns>
                                         <DataGridTextColumn Header="Id" Binding="{Binding idEmpleado}" Visibility="Hidden" Width="2"/>
-                                        <DataGridTextColumn Header="Nombre Empleado" Binding="{Binding nombre}" Width="130"/>
-                                        <DataGridTextColumn Header="Apellidos Empleado" Binding="{Binding apellidos}"/>
+                                        <DataGridTextColumn Header="Nombre Empleado" Binding="{Binding nombre}" Width="150"/>
+                                        <DataGridTextColumn Header="Apellidos Empleado" Binding="{Binding apellidos}" Width="150"/>
                                         <DataGridTextColumn Header="CSR Usuario" Binding="{Binding csr}"/>
                                         <DataGridTextColumn Header="CSR Usuario" Binding="{Binding idUsuario}" Visibility="Hidden"/>
                                         <DataGridTextColumn Header="ID Rol" Binding="{Binding idRol}"/>

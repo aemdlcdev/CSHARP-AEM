@@ -167,6 +167,7 @@ namespace MiniHito1
             nuevoUsuario.InsertarUsuario(nuevoUsuario);
             listaUsuarios.Add(nuevoUsuario);
             RefrescarUsers();
+            
         }
 
         private void RefrescarUsers() 
@@ -175,6 +176,11 @@ namespace MiniHito1
             listaUsuarios.Clear();
             listaUsuarios = usuario.LeerUsuarios();
             dataGridUsers.ItemsSource = listaUsuarios;
+            nameUsers.Clear();
+            foreach (Usuario usuario in listaUsuarios)
+            {
+                nameUsers.Add(usuario.nombre);
+            }
         }
 
         private void RefrescarEmple()
@@ -275,7 +281,7 @@ namespace MiniHito1
             
 
             string username = txtEmple.Text;
-            string apellidos = Seguridad.EncriptarContraseña(txtApellidos.Text);
+            string apellidos = txtApellidos.Text;
             float crs = float.Parse(txtCsr.Text);
             int idRol = int.Parse(txtRol.Text);
             int idUsuario = nuevoUsuario.getIdByName(usernameU);
@@ -299,7 +305,7 @@ namespace MiniHito1
                 return;
             }
             string username = txtEmple.Text;
-            string apellidos = Seguridad.EncriptarContraseña(txtApellidos.Text);
+            string apellidos = txtApellidos.Text;
             float crs = float.Parse(txtCsr.Text);
             int idRol = int.Parse(txtRol.Text);
             int idUsuario = usuarioEmpleado.idUsuario;
@@ -313,7 +319,7 @@ namespace MiniHito1
         private void btnUpdateEmple_Click(object sender, RoutedEventArgs e)
         {
             string username = txtEmple.Text;
-            string apellidos = Seguridad.EncriptarContraseña(txtApellidos.Text);
+            string apellidos = txtApellidos.Text;
             float crs = float.Parse(txtCsr.Text);
             int idRol = int.Parse(txtRol.Text);
             int idUsuario = usuarioEmpleado.idUsuario;
@@ -342,7 +348,7 @@ namespace MiniHito1
         private void btnDeleteEmple_Click(object sender, RoutedEventArgs e)
         {
             string username = txtEmple.Text;
-            string apellidos = Seguridad.EncriptarContraseña(txtApellidos.Text);
+            string apellidos = txtApellidos.Text;
             float crs = float.Parse(txtCsr.Text);
             int idRol = int.Parse(txtRol.Text);
             int idUsuario = usuarioEmpleado.idUsuario;
