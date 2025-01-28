@@ -178,13 +178,15 @@
                                     <ColumnDefinition Width="*"/>
                                     <ColumnDefinition Width="300"/>
                                 </Grid.ColumnDefinitions>
-
-                                <DataGrid x:Name="dataGridEmpleados" Grid.Row="0" Margin="10" AutoGenerateColumns="False" IsReadOnly="True" SelectionChanged="dataGridUsers_SelectionChanged">
+                                <TextBox x:Name="txtIdEmple" Visibility="Hidden"/>
+                                <TextBox x:Name="txtIdUsuEmple" Visibility="Hidden"/>
+                                <DataGrid x:Name="dataGridEmpleados" Grid.Row="0" Margin="10" AutoGenerateColumns="False" IsReadOnly="True" SelectionChanged="dataGridEmpleados_SelectionChanged">
                                     <DataGrid.Columns>
                                         <DataGridTextColumn Header="Id" Binding="{Binding idEmpleado}" Visibility="Hidden" Width="2"/>
                                         <DataGridTextColumn Header="Nombre Empleado" Binding="{Binding nombre}" Width="130"/>
                                         <DataGridTextColumn Header="Apellidos Empleado" Binding="{Binding apellidos}"/>
                                         <DataGridTextColumn Header="CSR Usuario" Binding="{Binding csr}"/>
+                                        <DataGridTextColumn Header="CSR Usuario" Binding="{Binding idUsuario}" Visibility="Hidden"/>
                                         <DataGridTextColumn Header="ID Rol" Binding="{Binding idRol}"/>
 
                                     </DataGrid.Columns>
@@ -244,7 +246,7 @@
                                     <Button x:Name="btnAddEmple" Content="Añadir" Grid.Column="1" Margin="20 0 0 0" Width="150" Height="40" Click="btnAddEmple_Click" />
                                     <Button x:Name="btnUpdateEmple" Content="Modificar" Grid.Column="2" Margin=" 20 0 0 0 " Width="150" Height="40" Click="btnUpdateEmple_Click" />
                                 </Grid>
-                                <Button x:Name="btnDeleteEmple" Content="Eliminar" Grid.Row="2" Grid.Column="1" Margin="30 0 0 0" Width="150" Height="40" />
+                                <Button x:Name="btnDeleteEmple" Content="Eliminar" Grid.Row="2" Grid.Column="1" Margin="30 0 0 0" Width="150" Height="40" Click="btnDeleteEmple_Click" />
                             </Grid>
                             <TextBox Name="txtIdUserr" Visibility="Hidden" Grid.Column="1"/>
                         </Grid>

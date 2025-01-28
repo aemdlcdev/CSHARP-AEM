@@ -65,5 +65,12 @@ namespace MiniHito1.persistence.manages
             }
         }
 
+        public void EliminarEmpleado(Empleado empleado)
+        {
+            string sql = $"DELETE FROM mydb.empleado WHERE idempleado = {empleado.idEmpleado}";
+            dbBroker.modificar(sql);
+            listaEmpleados.RemoveAll(p => p.idEmpleado == empleado.idEmpleado);
+        }
+
     }
 }

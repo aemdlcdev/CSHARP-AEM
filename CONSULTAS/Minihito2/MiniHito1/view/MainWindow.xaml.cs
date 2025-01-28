@@ -232,7 +232,8 @@ namespace MiniHito1
             btnAddUserEmple.IsEnabled = false;
             txtUserEmple.IsEnabled = false;
             txtPassEmple.IsEnabled = false;
-            
+            RefrescarUsers();
+
         }
 
         private void cbNoregistrado_Checked(object sender, RoutedEventArgs e)
@@ -305,6 +306,7 @@ namespace MiniHito1
             Empleado nuevoEmpleado = new Empleado(username, apellidos,crs,idUsuario,idRol);
             nuevoEmpleado.InsertarEmpleado(nuevoEmpleado);
             listaEmpleados.Add(nuevoEmpleado);
+            cbxUsuarios.ItemsSource = null;
             RefrescarEmple();
         }
 
@@ -315,9 +317,38 @@ namespace MiniHito1
             float crs = float.Parse(txtCsr.Text);
             int idRol = int.Parse(txtRol.Text);
             int idUsuario = usuarioEmpleado.idUsuario;
+            int idEmpleado = int.Parse(txtIdEmple.Text);
 
-            Empleado empModificado = new Empleado(username, apellidos, crs, idUsuario, idRol);
+            Empleado empModificado = new Empleado(idEmpleado,username, apellidos, crs, idUsuario, idRol);
             empModificado.ModificarEmpleado(empModificado);
+            RefrescarEmple();
+        }
+
+        private void dataGridEmpleados_SelectionChanged(object sender, System.Windows.Controls.SelectionChangedEventArgs e)
+        {
+            if (dataGridEmpleados.SelectedItem != null)
+            {
+                Empleado empleado = (Empleado)dataGridEmpleados.SelectedItem;
+                txtIdEmple.Text = empleado.idEmpleado.ToString();
+                txtEmple.Text = empleado.nombre;
+                txtApellidos.Text = empleado.apellidos;
+                txtCsr.Text = empleado.csr.ToString();
+                txtRol.Text = empleado.idRol.ToString();
+                txtIdUsuEmple.Text = empleado.idUsuario.ToString();
+            }
+        }
+
+        private void btnDeleteEmple_Click(object sender, RoutedEventArgs e)
+        {
+            string username = txtEmple.Text;
+            string apellidos = Seguridad.EncriptarContraseña(txtApellidos.Text);
+            float crs = float.Parse(txtCsr.Text);
+            int idRol = int.Parse(txtRol.Text);
+            int idUsuario = usuarioEmpleado.idUsuario;
+            int idEmpleado = int.Parse(txtIdEmple.Text);
+
+            Empleado empModificado = new Empleado(idEmpleado, username, apellidos, crs, idUsuario, idRol);
+            empModificado.EliminarEmpleado(empModificado);
             RefrescarEmple();
         }
     }

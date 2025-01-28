@@ -54,5 +54,10 @@ namespace MiniHito1.domain
             em.ModificarEmpleado(empleado);
         }
 
+        public void EliminarEmpleado(Empleado empleado)
+        {
+            em.EliminarEmpleado(empleado);
+        }
+
     }
 }
