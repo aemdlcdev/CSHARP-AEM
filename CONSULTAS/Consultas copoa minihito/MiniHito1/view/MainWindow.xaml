@@ -4,6 +4,7 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:MiniHito1"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
         mc:Ignorable="d"
         Title="GESTPRO" MinHeight="655" MinWidth="1110" Height="655" Width="1110"  WindowStartupLocation="CenterScreen">
     <Grid>
@@ -37,7 +38,7 @@
             <Grid Grid.Row="1" Background="Violet">
                 <TabControl x:Name="tabMenu" TabStripPlacement="Left" Margin="0,0,10,0" Padding="10">
                     <TabControl.Resources>
-                        
+
                     </TabControl.Resources>
                     <TabItem Header="Inicio" Margin="-1,51,1,-51">
                         <Grid x:Name="gridTabInicio" Background="#E6E6FA">
@@ -119,8 +120,8 @@
                                 <TextBox x:Name="txtFechaInicio" Height="25" Grid.Row="2" Margin="0,29,0,11"/>
                                 <Label Content="Fecha Fin:" Grid.Row="3" Margin="-5,0,0,0"/>
                                 <TextBox x:Name="txtFechaFin" Height="25" Grid.Row="3" Margin="0,29,0,11"/>
-                                
-                                
+
+
                             </Grid>
                             <Grid>
                                 <Grid.ColumnDefinitions>
@@ -181,11 +182,63 @@
                         </StackPanel>
                     </TabItem>
                     <TabItem Header="Usuarios" Margin="-2,84,2,-84">
-                        <StackPanel Background="#E6E6FA">
-                            <Label Content="Usuarios" FontSize="20" FontWeight="Bold"/>
-                            <Label Content="Listado de Usuarios" FontSize="16"/>
-                        </StackPanel>
+                        <Grid Background="#E6E6FA">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="*"/>
+                                <RowDefinition Height="80"/>
+                            </Grid.RowDefinitions>
+                            <Label Content="Gestión de Usuarios" HorizontalAlignment="Left" Margin="15 0 0 0" FontSize="20" FontWeight="Bold"/>
+
+                            <Grid Grid.Row="1">
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="*"/>
+                                    <RowDefinition Height="50"/>
+                                </Grid.RowDefinitions>
+
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="*"/>
+                                    <ColumnDefinition Width="300"/>
+                                </Grid.ColumnDefinitions>
+
+                                <DataGrid x:Name="dataGridUsers" Grid.Row="0" Margin="10" AutoGenerateColumns="True" IsReadOnly="True" SelectionChanged="dataGridUsers_SelectionChanged"/>
+
+                                <Grid Grid.Column="1" Margin="0 0 25 0">
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="110"/>
+                                        <RowDefinition Height="60"/>
+                                        <RowDefinition Height="40" x:Name="Separador"/>
+                                        <RowDefinition Height="60"/>
+                                        <RowDefinition Height="*"/>
+                                    </Grid.RowDefinitions>
+                                    <Label Content="Datos Usuario" FontWeight="Bold" FontSize="35"/>
+
+                                    <StackPanel Grid.Row="1" Orientation="Horizontal" Margin="10">
+                                        <materialDesign:PackIcon Kind="User" Width="25" Height="25" Margin="10" Foreground="Black"/>
+                                        <TextBox x:Name="txtUsername" Margin="10 0" materialDesign:HintAssist.Hint="Introduce el usuario" Foreground="Black" Width="250" BorderBrush="Black" CaretBrush="#FFD94448" SelectionBrush="#FFD94448" />
+                                    </StackPanel>
+
+                                    <StackPanel Grid.Row="3" Orientation="Horizontal" Margin="10">
+                                        <materialDesign:PackIcon Kind="Lock" Width="25" Height="25" Margin="10" Foreground="Black"/>
+                                        <PasswordBox x:Name="txtPassword" Margin="10 0" materialDesign:HintAssist.Hint="********" Foreground="Black" Width="250" BorderBrush="Black" CaretBrush="#FFD94448" SelectionBrush="#FFD94448" />
+                                    </StackPanel>
+
+                                </Grid>
+                                <Grid Grid.Row="2">
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="*"/>
+                                        <ColumnDefinition Width="*"/>
+                                        <ColumnDefinition Width="*"/>
+                                    </Grid.ColumnDefinitions>
+                                    <Button x:Name="btnAddUser" Content="Dar de alta" Grid.Column="0" Margin="20 0 0 0" Width="150" Height="40" Click="btnAddUser_Click"/>
+                                    <Button x:Name="btnModifyUser" Content="Modificar" Grid.Column="1" Margin="20 0 0 0" Width="150" Height="40" Click="btnModifyUser_Click"/>
+                                    <Button x:Name="btnDeleteUser" Content="Eliminar" Grid.Column="2" Margin=" 20 0 0 0 " Width="150" Height="40"/>
+                                </Grid>
+                                <Button x:Name="btnUpdatePassword" Content="Actualizar contraseña" Grid.Row="2" Grid.Column="1" Margin="30 0 0 0" Width="150" Height="40"/>
+                            </Grid>
+                        </Grid>
                     </TabItem>
+                    <!--
                     <TabItem Header="Consultas" Margin="-2,84,2,-84">
                         <Grid Background="#E6E6FA">
                             <Grid.RowDefinitions>
@@ -221,6 +274,7 @@
                             
                         </Grid>
                     </TabItem>
+                    -->
                 </TabControl>
             </Grid>
         </Grid>

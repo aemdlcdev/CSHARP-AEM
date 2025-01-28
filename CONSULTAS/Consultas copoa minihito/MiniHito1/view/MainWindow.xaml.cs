@@ -11,7 +11,8 @@ namespace MiniHito1
     {
         private Proyectos proyecto;
         private List<Proyectos> listaProyectos;
-      
+        private List<Usuario> listaUsuarios;
+        private Usuario usuario;
         public MainWindow()
         {
             
@@ -20,6 +21,11 @@ namespace MiniHito1
             // Cargo los proyectos de la bbdd en el data grid
             listaProyectos = proyecto.LeerProyectos();
             dataGridView1.ItemsSource = listaProyectos;
+
+            // Usuarios
+            usuario = new Usuario();
+            listaUsuarios = usuario.LeerUsuarios();
+            dataGridUsers.ItemsSource = listaUsuarios;
         }
 
 
@@ -114,9 +120,53 @@ namespace MiniHito1
 
         private void btnConsultaFiltrada_Click(object sender, RoutedEventArgs e)
         {
-            ResultsQuerys resultsQuerys = new ResultsQuerys(listaProyectos);
-            frameConsulta.Navigate(resultsQuerys);
+            //ResultsQuerys resultsQuerys = new ResultsQuerys(listaProyectos);
+            //frameConsulta.Navigate(resultsQuerys);
         }
 
+        private void dataGridUsers_SelectionChanged(object sender, System.Windows.Controls.SelectionChangedEventArgs e)
+        {
+            if(dataGridUsers.SelectedItem != null)
+            {
+                Usuario usuario = (Usuario)dataGridUsers.SelectedItem;
+                txtUsername.Text = usuario.nombre;
+            }
+        }
+
+        private void btnAddUser_Click(object sender, RoutedEventArgs e)
+        {
+            string username = txtUsername.Text;
+            string password = Seguridad.EncriptarContraseña(txtPassword.Password);
+            Console.WriteLine("Traza" + username, password);
+            Usuario nuevoUsuario = new Usuario(username,password);
+            nuevoUsuario.InsertarUsuario(nuevoUsuario);
+            listaUsuarios.Add(nuevoUsuario);
+            RefrescarUsers();
+        }
+
+        private void RefrescarUsers() 
+        {
+            dataGridUsers.ItemsSource = null;
+            listaUsuarios.Clear();
+            listaUsuarios = usuario.LeerUsuarios();
+            dataGridUsers.ItemsSource = listaUsuarios;
+        }
+
+        private void btnModifyUser_Click(object sender, RoutedEventArgs e)
+        {
+            string name = txtUsername.Text;
+            string password = txtPassword.Password;
+            Usuario usuarioModificado = new Usuario(0,name, password);
+
+            var usuarioModificadoConId = listaUsuarios.Find(u => u.nombre == usuarioModificado.nombre);
+
+            if (usuarioModificadoConId != null)
+            {
+                usuario.ModificarUsuario(usuarioModificadoConId);
+                RefrescarUsers();
+            }
+
+
+        }
     }
 }

@@ -246,7 +246,9 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="domain\Empleado.cs" />
+    <Compile Include="domain\Seguridad.cs" />
     <Compile Include="domain\Usuario.cs" />
+    <Compile Include="persistence\manages\UsuarioManage.cs" />
     <Compile Include="view\Login.xaml.cs">
       <DependentUpon>Login.xaml</DependentUpon>
     </Compile>

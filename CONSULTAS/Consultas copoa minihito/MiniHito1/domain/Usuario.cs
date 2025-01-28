@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MiniHito1.persistence.manages;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -8,8 +9,46 @@ namespace MiniHito1.domain
 {
     internal class Usuario
     {
-        int idUsuario { get; set; }
-        string nombre { get; set; }
-        string password { get; set; }
+        private int idUsuario { get; set; }
+        public string nombre { get; set; }
+        public string password { get; set; }
+
+        private UsuarioManage usuarioManage { get; set; } = new UsuarioManage();
+
+        public Usuario(int idUsuario, string nombre, string password)
+        {
+            this.idUsuario = idUsuario;
+            this.nombre = nombre;
+            this.password = password;
+        }
+
+        public Usuario(string nombre, string password)
+        {
+            this.nombre = nombre;
+            this.password = password;
+        }
+
+        public Usuario() { }
+
+        public List<Usuario> LeerUsuarios()
+        {
+            return usuarioManage.LeerUsuarios();
+        }
+
+        public void InsertarUsuario(Usuario usuario)
+        {
+            usuarioManage.InsertarUsuario(usuario);
+        }
+
+        public void ModificarUsuario(Usuario usuario)
+        {
+            usuarioManage.ModificarUsuario(usuario);
+        }
+
+        public int getIdUsuario()
+        {
+            return this.idUsuario;
+        }
+
     }
 }
