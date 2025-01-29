@@ -251,14 +251,15 @@ namespace MiniHito1
         private void cbRegistrado_Unchecked(object sender, RoutedEventArgs e)
         {
             cbNoregistrado.IsEnabled=true;
+            txtUserEmple.IsEnabled = true;
+            txtPassEmple.IsEnabled = true;
         }
 
         private void cbNoregistrado_Unchecked(object sender, RoutedEventArgs e)
         {
             cbRegistrado.IsEnabled=true;
             cbxUsuarios.IsEnabled=true;
-            txtUserEmple.IsEnabled = false;
-            txtPassEmple.IsEnabled = false;
+            
         }
 
         private void btnAddUserEmple_Click(object sender, RoutedEventArgs e)
@@ -313,6 +314,12 @@ namespace MiniHito1
             nuevoEmpleado.InsertarEmpleado(nuevoEmpleado);
             listaEmpleados.Add(nuevoEmpleado);
             cbxUsuarios.ItemsSource = null;
+
+            cbNoregistrado.IsEnabled = true;
+            btnAddUserEmple.IsEnabled = true;
+            txtUserEmple.IsEnabled = true;
+            txtPassEmple.IsEnabled = true;
+
             RefrescarEmple();
         }
 
