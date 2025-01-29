@@ -258,8 +258,7 @@ namespace MiniHito1
         private void cbNoregistrado_Unchecked(object sender, RoutedEventArgs e)
         {
             cbRegistrado.IsEnabled=true;
-            cbxUsuarios.IsEnabled=true;
-            
+            cbxUsuarios.IsEnabled=true;         
         }
 
         private void btnAddUserEmple_Click(object sender, RoutedEventArgs e)
@@ -305,6 +304,7 @@ namespace MiniHito1
                 MessageBox.Show("Por favor, marque la opción de usuario ya registrado.");
                 return;
             }
+
             string username = txtEmple.Text;
             string apellidos = txtApellidos.Text;
             float crs = float.Parse(txtCsr.Text);

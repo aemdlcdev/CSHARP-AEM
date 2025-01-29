@@ -188,7 +188,6 @@
                                         <DataGridTextColumn Header="CSR Usuario" Binding="{Binding csr}"/>
                                         <DataGridTextColumn Header="CSR Usuario" Binding="{Binding idUsuario}" Visibility="Hidden"/>
                                         <DataGridTextColumn Header="ID Rol" Binding="{Binding idRol}"/>
-
                                     </DataGrid.Columns>
                                 </DataGrid>
 

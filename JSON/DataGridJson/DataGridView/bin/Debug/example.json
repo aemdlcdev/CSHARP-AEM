@@ -8,8 +8,8 @@
     },
     {
       "id": 2,
-      "Nombre": "Rosaaaa",
-      "Apellidos": "Zapata",
+      "Nombre": "Rosa",
+      "Apellidos": "Zapataa",
       "Edad": 22
     },
     {
@@ -17,12 +17,6 @@
       "Nombre": "Alejandro",
       "Apellidos": "Esteban",
       "Edad": 21
-    },
-    {
-      "id": 4,
-      "Nombre": "asd",
-      "Apellidos": "asd",
-      "Edad": 2
     }
   ]
 }
