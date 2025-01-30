@@ -55,6 +55,11 @@ namespace REPORT
                 Console.WriteLine(row["Nombre"] + " " + row["Edad"] + " " + row["Sexo"] + " " + row["Pais"]);
             }
 
+
+            // Crear el reporte
+            
+
+
         }
     }
 }
