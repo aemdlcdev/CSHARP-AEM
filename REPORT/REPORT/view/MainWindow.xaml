@@ -8,8 +8,12 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
     <Grid>
-
-        <Viewer:CrystalReportsViewer Name="visor" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0,69,0,0"/>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <TextBlock Text="Reportes"/>
+        <Viewer:CrystalReportsViewer Grid.Row="1" Name="visor" HorizontalAlignment="Left" VerticalAlignment="Center"/>
 
     </Grid>
 </Window>

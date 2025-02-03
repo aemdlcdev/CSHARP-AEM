@@ -1,3 +1,8 @@
+C:\Users\b15-03m\Documents\NetBeansProjects\DI-AEM\REPORT\REPORT\obj\Debug\REPORT.csproj.AssemblyReference.cache
+C:\Users\b15-03m\Documents\NetBeansProjects\DI-AEM\REPORT\REPORT\obj\Debug\view\MainWindow.g.cs
+C:\Users\b15-03m\Documents\NetBeansProjects\DI-AEM\REPORT\REPORT\obj\Debug\App.g.cs
+C:\Users\b15-03m\Documents\NetBeansProjects\DI-AEM\REPORT\REPORT\obj\Debug\REPORT_MarkupCompile.cache
+C:\Users\b15-03m\Documents\NetBeansProjects\DI-AEM\REPORT\REPORT\obj\Debug\REPORT_MarkupCompile.lref
 C:\Users\b15-03m\Documents\NetBeansProjects\DI-AEM\REPORT\REPORT\bin\Debug\REPORT.exe.config
 C:\Users\b15-03m\Documents\NetBeansProjects\DI-AEM\REPORT\REPORT\bin\Debug\REPORT.exe
 C:\Users\b15-03m\Documents\NetBeansProjects\DI-AEM\REPORT\REPORT\bin\Debug\REPORT.pdb
@@ -5,9 +10,9 @@ C:\Users\b15-03m\Documents\NetBeansProjects\DI-AEM\REPORT\REPORT\bin\Debug\Cryst
 C:\Users\b15-03m\Documents\NetBeansProjects\DI-AEM\REPORT\REPORT\bin\Debug\CrystalDecisions.CrystalReports.Engine.dll
 C:\Users\b15-03m\Documents\NetBeansProjects\DI-AEM\REPORT\REPORT\bin\Debug\CrystalDecisions.Data.AdoDotNetInterop.dll
 C:\Users\b15-03m\Documents\NetBeansProjects\DI-AEM\REPORT\REPORT\bin\Debug\CrystalDecisions.ReportSource.dll
+C:\Users\b15-03m\Documents\NetBeansProjects\DI-AEM\REPORT\REPORT\bin\Debug\CrystalDecisions.Shared.dll
 C:\Users\b15-03m\Documents\NetBeansProjects\DI-AEM\REPORT\REPORT\bin\Debug\sapbusinessobjects.wpf.viewer.dll
 C:\Users\b15-03m\Documents\NetBeansProjects\DI-AEM\REPORT\REPORT\bin\Debug\SAPBusinessObjects.WPF.ViewerShared.dll
-C:\Users\b15-03m\Documents\NetBeansProjects\DI-AEM\REPORT\REPORT\bin\Debug\CrystalDecisions.Shared.dll
 C:\Users\b15-03m\Documents\NetBeansProjects\DI-AEM\REPORT\REPORT\bin\Debug\CrystalDecisions.Web.dll
 C:\Users\b15-03m\Documents\NetBeansProjects\DI-AEM\REPORT\REPORT\bin\Debug\CrystalDecisions.ReportAppServer.DataDefModel.dll
 C:\Users\b15-03m\Documents\NetBeansProjects\DI-AEM\REPORT\REPORT\bin\Debug\CrystalDecisions.ReportAppServer.ClientDoc.dll
@@ -21,10 +26,7 @@ C:\Users\b15-03m\Documents\NetBeansProjects\DI-AEM\REPORT\REPORT\bin\Debug\Cryst
 C:\Users\b15-03m\Documents\NetBeansProjects\DI-AEM\REPORT\REPORT\bin\Debug\CrystalDecisions.ReportAppServer.ObjectFactory.dll
 C:\Users\b15-03m\Documents\NetBeansProjects\DI-AEM\REPORT\REPORT\bin\Debug\CrystalDecisions.ReportAppServer.CommonControls.dll
 C:\Users\b15-03m\Documents\NetBeansProjects\DI-AEM\REPORT\REPORT\bin\Debug\stdole.dll
-C:\Users\b15-03m\Documents\NetBeansProjects\DI-AEM\REPORT\REPORT\obj\Debug\REPORT.csproj.AssemblyReference.cache
-C:\Users\b15-03m\Documents\NetBeansProjects\DI-AEM\REPORT\REPORT\obj\Debug\App.g.cs
-C:\Users\b15-03m\Documents\NetBeansProjects\DI-AEM\REPORT\REPORT\obj\Debug\REPORT_MarkupCompile.cache
-C:\Users\b15-03m\Documents\NetBeansProjects\DI-AEM\REPORT\REPORT\obj\Debug\REPORT_MarkupCompile.lref
+C:\Users\b15-03m\Documents\NetBeansProjects\DI-AEM\REPORT\REPORT\obj\Debug\view\MainWindow.baml
 C:\Users\b15-03m\Documents\NetBeansProjects\DI-AEM\REPORT\REPORT\obj\Debug\REPORT.g.resources
 C:\Users\b15-03m\Documents\NetBeansProjects\DI-AEM\REPORT\REPORT\obj\Debug\REPORT.Properties.Resources.resources
 C:\Users\b15-03m\Documents\NetBeansProjects\DI-AEM\REPORT\REPORT\obj\Debug\REPORT.csproj.GenerateResource.cache
@@ -32,5 +34,3 @@ C:\Users\b15-03m\Documents\NetBeansProjects\DI-AEM\REPORT\REPORT\obj\Debug\REPOR
 C:\Users\b15-03m\Documents\NetBeansProjects\DI-AEM\REPORT\REPORT\obj\Debug\REPORT.csproj.Up2Date
 C:\Users\b15-03m\Documents\NetBeansProjects\DI-AEM\REPORT\REPORT\obj\Debug\REPORT.exe
 C:\Users\b15-03m\Documents\NetBeansProjects\DI-AEM\REPORT\REPORT\obj\Debug\REPORT.pdb
-C:\Users\b15-03m\Documents\NetBeansProjects\DI-AEM\REPORT\REPORT\obj\Debug\view\MainWindow.g.cs
-C:\Users\b15-03m\Documents\NetBeansProjects\DI-AEM\REPORT\REPORT\obj\Debug\view\MainWindow.baml
