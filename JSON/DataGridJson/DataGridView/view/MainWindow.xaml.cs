@@ -1,5 +1,6 @@
 ﻿using DataGridView;
 using DataGridView.persistence;
+using DataGridView.view;
 using System;
 using System.Collections.Generic;
 using System.Windows;
@@ -9,7 +10,7 @@ namespace DataGridView
 {
     public partial class MainWindow : Window
     {
-        private List<Persona> listaPersonas;
+        public static List<Persona> listaPersonas;
         private Persona personaM;
         private string btnAgregarPersonaContent;
 
@@ -229,7 +230,15 @@ namespace DataGridView
             txtEdad.Text = "";
         }
 
+
         #endregion
+
+        private void btnMostrarInforme_Click(object sender, RoutedEventArgs e)
+        {
+            Contenedor contenedor = new Contenedor();
+            contenedor.Show();
+            this.Close();
+        }
     }
 }
 

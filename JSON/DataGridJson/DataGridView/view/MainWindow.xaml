@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:DataGridView"
         mc:Ignorable="d"
         Title="DataGrid" Height="450" Width="800" MinHeight="450" MinWidth="800"
-        MouseDown="MainGrid_MouseDown" Background="CadetBlue">
+        MouseDown="MainGrid_MouseDown" Background="CadetBlue" WindowStartupLocation="CenterScreen">
     <!-- El MouseDown lo voy a usar para ver si se hace click fuera del datagrid -->
 
     <Grid>
@@ -32,6 +32,7 @@
                     <RowDefinition Height="Auto" />
                     <RowDefinition Height="Auto" />
                     <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
                 </Grid.RowDefinitions>
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="Auto" />
@@ -48,6 +49,7 @@
                 <TextBox x:Name="txtEdad" Grid.Row="5" Grid.Column="0" Margin="4" Grid.ColumnSpan="2" />
 
                 <Button x:Name="btnAgregarPersona" Content="Agregar Persona" Grid.Row="6" Grid.Column="0" Margin="4,4,4,0" Grid.ColumnSpan="2" Height="20" Width="125" VerticalAlignment="Top" Click="btnAgregarPersona_Click" />
+                <Button x:Name="btnMostrarInforme" Content="Mostrar Informe" Grid.Row="7" Grid.Column="0" Margin="4,30,4,0" Grid.ColumnSpan="2" Height="20" Width="125" VerticalAlignment="Top" Click="btnMostrarInforme_Click"  />
             </Grid>
         </StackPanel>
 
@@ -57,12 +59,11 @@
                 <ColumnDefinition Width="*"/>
                 <ColumnDefinition Width="*"/>
             </Grid.ColumnDefinitions>
-            
+
             <Button x:Name="btnModificar" Content="Modificar" Grid.Column="0" Click="btnModificar_Click" Margin="10,5,227,15" Grid.ColumnSpan="2"/>
             <Button x:Name="btnEliminar" Content="Eliminar" Grid.Column="2" Click="btnEliminar_Click" Margin="0,5,10,15"/>
-            
-        </Grid>
 
+        </Grid>
         <DataGrid x:Name="dataGridPersonas" Grid.Column="2" Margin="10" AutoGenerateColumns="True" Grid.Row="0" SelectionChanged="dataGridPersonas_SelectionChanged" IsReadOnly="True" />
 
     </Grid>

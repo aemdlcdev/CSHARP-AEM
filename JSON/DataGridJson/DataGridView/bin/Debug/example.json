@@ -9,7 +9,7 @@
     {
       "id": 2,
       "Nombre": "Rosa",
-      "Apellidos": "Zapataa",
+      "Apellidos": "Zapata",
       "Edad": 22
     },
     {
@@ -17,6 +17,30 @@
       "Nombre": "Alejandro",
       "Apellidos": "Esteban",
       "Edad": 21
+    },
+    {
+      "id": 4,
+      "Nombre": "Alvaro",
+      "Apellidos": "Fernandez",
+      "Edad": 18
+    },
+    {
+      "id": 5,
+      "Nombre": "Laura",
+      "Apellidos": "Garcia",
+      "Edad": 22
+    },
+    {
+      "id": 6,
+      "Nombre": "Carlos",
+      "Apellidos": "Calzada",
+      "Edad": 29
+    },
+    {
+      "id": 7,
+      "Nombre": "Mariano",
+      "Apellidos": "Sanchez",
+      "Edad": 19
     }
   ]
 }
