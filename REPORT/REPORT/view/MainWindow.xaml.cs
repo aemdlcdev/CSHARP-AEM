@@ -21,6 +21,7 @@ namespace REPORT
     /// </summary>
     public partial class MainWindow : Window
     {
+        private static  Random random = new Random();
         DataTable tabla1;
         public MainWindow()
         {
@@ -35,10 +36,33 @@ namespace REPORT
             tabla1.Columns.Add("Phone");
 
             // Añadimos 100 registros para probar
-            
+            for (int i = 0; i < 100; i++)
+            {
+                DataRow row = tabla1.NewRow();
+                row["Name"] = "Alejandro";
+                row["Age"] = random.Next(20, 50);
+                row["Adress"] = "Calle falsa 123";
+                row["Phone"] = "123456789";
 
+                tabla1.Rows.Add(row);
+            }
 
+            // Verificar que la tabla tiene datos
+            if (tabla1.Rows.Count > 0)
+            {
+                // Crear una instancia de crystal report
+                CrystalReport1 reporte = new CrystalReport1();
 
+                // Asignar la tabla al reporte
+                reporte.Database.Tables["DataTable1"].SetDataSource((DataTable)tabla1);
+
+                // Asignar el reporte al visor de reportes
+                visor.ViewerCore.ReportSource = reporte;
+            }
+            else
+            {
+                MessageBox.Show("La tabla no tiene datos.");
+            }
         }
     }
 }

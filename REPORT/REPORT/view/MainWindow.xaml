@@ -9,7 +9,7 @@
         Title="MainWindow" Height="450" Width="800">
     <Grid>
 
-        <Viewer:CrystalReportsViewer HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0,69,0,0"/>
+        <Viewer:CrystalReportsViewer Name="visor" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0,69,0,0"/>
 
     </Grid>
 </Window>
