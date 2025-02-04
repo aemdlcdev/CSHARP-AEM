@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:DataGridView"
         mc:Ignorable="d"
-        Title="DataGrid" Height="450" Width="800" MinHeight="450" MinWidth="800"
+        Title="DataGrid" Width="1080" Height="720" MinHeight="450" MinWidth="800"
         MouseDown="MainGrid_MouseDown" Background="CadetBlue" WindowStartupLocation="CenterScreen">
     <!-- El MouseDown lo voy a usar para ver si se hace click fuera del datagrid -->
 
