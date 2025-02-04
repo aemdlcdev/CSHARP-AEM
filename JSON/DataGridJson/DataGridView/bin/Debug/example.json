@@ -4,13 +4,13 @@
       "id": 1,
       "Nombre": "Jose",
       "Apellidos": "Perez",
-      "Edad": 25
+      "Edad": 20
     },
     {
       "id": 2,
       "Nombre": "Rosa",
       "Apellidos": "Zapata",
-      "Edad": 22
+      "Edad": 32
     },
     {
       "id": 3,
@@ -28,19 +28,19 @@
       "id": 5,
       "Nombre": "Laura",
       "Apellidos": "Garcia",
-      "Edad": 22
+      "Edad": 20
     },
     {
       "id": 6,
       "Nombre": "Carlos",
       "Apellidos": "Calzada",
-      "Edad": 29
+      "Edad": 37
     },
     {
       "id": 7,
       "Nombre": "Mariano",
       "Apellidos": "Sanchez",
-      "Edad": 19
+      "Edad": 39
     }
   ]
 }

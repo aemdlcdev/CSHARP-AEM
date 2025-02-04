@@ -2,7 +2,8 @@
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:Icon="http://metro.mahapps.com/winfx/xaml/iconpacks"
-        Height="720" Width="1080" WindowStartupLocation="CenterScreen" AllowsTransparency="True"
+        Height="750" Width="1080" WindowStartupLocation="CenterScreen" AllowsTransparency="True"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
         Background="Transparent" WindowStyle="None">
 
     <Window.Resources>
@@ -15,7 +16,10 @@
                 <ColumnDefinition Width="200"/>
                 <ColumnDefinition Width="*"/>
             </Grid.ColumnDefinitions>
-            
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+
             <!--Izquierda Menu-->
             <Grid>
                 <Grid.RowDefinitions>
@@ -91,6 +95,7 @@
                                 <TextBlock Text="Logout"/>
                             </StackPanel>
                         </Button>
+                       
 
                     </DockPanel>
                 </Border>
@@ -98,17 +103,29 @@
             </Grid>
 
             <Grid Grid.Column="1">
+
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="*"/>
+                    
+                </Grid.RowDefinitions>
+
+                <StackPanel HorizontalAlignment="Right" Margin="10 17 10 10" Width="50" Height="45 ">
+                    <Button HorizontalAlignment="Center" Height="30" Width="30" Margin=" 10" Style="{StaticResource MaterialDesignFloatingActionButton}" Background="{x:Null}" ToolTip="Close" x:Name="btnExit" Click="btnExit_Click" BorderBrush="Black">
+                        <materialDesign:PackIcon Kind="Close" Foreground="Black" Width="25" Height="25" />
+                    </Button>
+                </StackPanel>
+
                 <!--Frame alumnos-->
-                <Frame Name="alumnosFrame" Visibility="Collapsed" Grid.Column="1" Margin="10" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Source="/view/pages/AlumnosGridControl.xaml" NavigationUIVisibility="Hidden"/>
+                <Frame Name="alumnosFrame" Visibility="Collapsed" Grid.Column="1" Grid.Row="1" Margin="10" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Source="/view/pages/AlumnosGridControl.xaml" NavigationUIVisibility="Hidden"/>
 
                 <!--Frame inicio-->
-                <Frame Name="inicioFrame" Visibility="Collapsed" Grid.Column="1" Margin="10" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Source="/view/pages/InicioGridControl.xaml" NavigationUIVisibility="Hidden"/>
+                <Frame Name="inicioFrame" Visibility="Collapsed" Grid.Column="1" Grid.Row="1" Margin="10" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Source="/view/pages/InicioGridControl.xaml" NavigationUIVisibility="Hidden"/>
 
                 <!--Frame eventos-->
-                <Frame Name="eventosFrame" Visibility="Collapsed" Grid.Column="1" Margin="10" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Source="/view/pages/EventosGridControl.xaml" NavigationUIVisibility="Hidden"/>
+                <Frame Name="eventosFrame" Visibility="Collapsed" Grid.Column="1" Grid.Row="1" Margin="10" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Source="/view/pages/EventosGridControl.xaml" NavigationUIVisibility="Hidden"/>
             </Grid>
-            
-            
+
         </Grid>
     </Border>
 </Window>

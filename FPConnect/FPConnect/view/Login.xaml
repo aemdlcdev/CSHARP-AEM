@@ -10,11 +10,11 @@
     <Grid MouseDown="Border_MouseDown">
         <Grid.Background>
             <LinearGradientBrush StartPoint="0.1,0" EndPoint="0.9,1">
-                <GradientStop Color="#2090ff" Offset="1" />
-                <GradientStop Color="#a0d0fc" Offset="0" />
+                <GradientStop Color="#A7C7E7" Offset="1"/>
+                <GradientStop Color="White" Offset="0"/>
             </LinearGradientBrush>
         </Grid.Background>
-        <Border Height="390" VerticalAlignment="Top" CornerRadius="0 0 180 0" Background="#001932" MouseDown="Border_MouseDown">
+        <Border Height="390" VerticalAlignment="Top" CornerRadius="0 0 180 0" Background="#F5F5F5" MouseDown="Border_MouseDown">
         </Border>
         <StackPanel Orientation="Horizontal">
             <StackPanel Width="350">
@@ -22,27 +22,27 @@
             </StackPanel>
             <StackPanel Width="350">
                 <StackPanel Margin="20 40">
-                    <TextBlock Text="Iniciar Sesión" Margin="20" Foreground="White" TextAlignment="Center" FontSize="38" FontFamily="Great Vibes"></TextBlock>
+                    <TextBlock Text="Iniciar Sesión" Margin="20" Foreground="Black" TextAlignment="Center" FontSize="38" FontFamily="Great Vibes"/>
                     <StackPanel Orientation="Horizontal" Margin="10">
-                        <materialDesign:PackIcon Kind="User" Width="25" Height="25" Foreground="White"/>
-                        <TextBox x:Name="txtUsername" Margin="10 0" materialDesign:HintAssist.Hint="Introduce el usuario o email" Foreground="White" Width="250" BorderBrush="White" CaretBrush="#FFD94448" SelectionBrush="#FFD94448" />
+                        <materialDesign:PackIcon Kind="User" Width="25" Height="25" Foreground="Black"/>
+                        <TextBox x:Name="txtUsername" Margin="10 0" materialDesign:HintAssist.Hint="Introduce el usuario o email" Foreground="Black" Width="250" BorderBrush="Black" CaretBrush="#FFD94448" SelectionBrush="#FFD94448" />
                     </StackPanel>
                     <StackPanel Orientation="Horizontal" Margin="10">
-                        <materialDesign:PackIcon Kind="Lock" Width="25" Height="25" Foreground="White"/>
-                        <PasswordBox x:Name="txtPassword" Margin="10 0" materialDesign:HintAssist.Hint="********" Foreground="White" Width="250" BorderBrush="White" CaretBrush="#FFD94448" SelectionBrush="#FFD94448" />
+                        <materialDesign:PackIcon Kind="Lock" Width="25" Height="25" Foreground="Black"/>
+                        <PasswordBox x:Name="txtPassword" Margin="10 0" materialDesign:HintAssist.Hint="********" Foreground="Black" Width="250" BorderBrush="Black" CaretBrush="#FFD94448" SelectionBrush="#FFD94448" />
                     </StackPanel>
                     <StackPanel Margin="10" HorizontalAlignment="Center">
                         <Button Width="100" Height="40" Style="{StaticResource MaterialDesignRaisedButton}" 
-                         materialDesign:ButtonAssist.CornerRadius="10" BorderThickness="2" BorderBrush="AliceBlue"
-                         Background="#2090ff" Foreground="White" ToolTip="Login" x:Name="btnLogin" Content="Login" Click="btnLogin_Click">
+                         materialDesign:ButtonAssist.CornerRadius="10" BorderThickness="2" BorderBrush="Black"
+                         Background="#F5F5F5" Foreground="Black" ToolTip="Login" x:Name="btnLogin" Content="Login" Click="btnLogin_Click">
                         </Button>
                     </StackPanel>
                 </StackPanel>
             </StackPanel>
             <StackPanel Width="100">
                 <Button Margin="10 20" Style="{StaticResource MaterialDesignFloatingActionButton}" Background="{x:Null}"
-                 ToolTip="Close" x:Name="btnExit" Click="btnExit_Click">
-                    <materialDesign:PackIcon Kind="Close" Foreground="White" Width="30" Height="30" />
+                 ToolTip="Close" x:Name="btnExit" Click="btnExit_Click" BorderBrush="Black">
+                    <materialDesign:PackIcon Kind="Close" Foreground="Black" Width="30" Height="30" />
                 </Button>
             </StackPanel>
         </StackPanel>

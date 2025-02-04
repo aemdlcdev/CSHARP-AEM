@@ -15,6 +15,18 @@ namespace FPConnect
         public MainWindow()
         {
             InitializeComponent();
+            alumnosFrame.Visibility = Visibility.Collapsed;
+            eventosFrame.Visibility = Visibility.Collapsed;
+
+            // Mostrar el Frame de Inicio
+            inicioFrame.Visibility = Visibility.Visible;
+            inicioFrame.Source = new Uri("pages/InicioGridControl.xaml", UriKind.Relative);
+
+            IsInicioButtonPressed = true;
+            IsAlumnosButtonPressed = false;
+            IsEventosButtonPressed = false;
+            UpdateButtonStyles();
+
         }
 
         private bool IsMaximize = false;
@@ -107,6 +119,11 @@ namespace FPConnect
             Login login = new Login();
             login.Show();
             this.Close();
+        }
+
+        private void btnExit_Click(object sender, RoutedEventArgs e)
+        {
+            Application.Current.Shutdown();
         }
     }
 }

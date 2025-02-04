@@ -117,3 +117,4 @@ C:\Users\b15-03m\Documents\NetBeansProjects\DI-AEM\JSON\DataGridJson\DataGridVie
 C:\Users\b15-03m\Documents\NetBeansProjects\DI-AEM\JSON\DataGridJson\DataGridView\bin\Debug\CrystalDecisions.ReportAppServer.CommonControls.dll
 C:\Users\b15-03m\Documents\NetBeansProjects\DI-AEM\JSON\DataGridJson\DataGridView\bin\Debug\stdole.dll
 C:\Users\b15-03m\Documents\NetBeansProjects\DI-AEM\JSON\DataGridJson\DataGridView\obj\Debug\view\Contenedor.baml
+C:\Users\b15-03m\Documents\NetBeansProjects\DI-AEM\JSON\DataGridJson\DataGridView\bin\Debug\CrystalDecisions.Data.AdoDotNetInterop.dll
