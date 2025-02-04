@@ -297,17 +297,13 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Images\p1.jpg" />
-  </ItemGroup>
-  <ItemGroup>
     <Resource Include="Images\ICON4801.png" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Images\female1.jpg" />
-    <Resource Include="Images\male1.jpg" />
+    <Resource Include="Images\male.png" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Images\33.png" />
+    <Resource Include="Images\female.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="..\packages\MaterialDesignThemes.5.1.0\build\MaterialDesignThemes.targets" Condition="Exists('..\packages\MaterialDesignThemes.5.1.0\build\MaterialDesignThemes.targets')" />
