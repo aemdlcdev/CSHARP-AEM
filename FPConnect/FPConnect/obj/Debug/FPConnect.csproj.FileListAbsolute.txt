@@ -373,3 +373,7 @@ C:\Users\b15-03m\Documents\NetBeansProjects\DI-AEM\FPConnect\FPConnect\obj\Debug
 C:\Users\b15-03m\Documents\NetBeansProjects\DI-AEM\FPConnect\FPConnect\obj\Debug\FPConnect.csproj.Up2Date
 C:\Users\b15-03m\Documents\NetBeansProjects\DI-AEM\FPConnect\FPConnect\obj\Debug\FPConnect.exe
 C:\Users\b15-03m\Documents\NetBeansProjects\DI-AEM\FPConnect\FPConnect\obj\Debug\FPConnect.pdb
+C:\Users\b15-03m\Documents\NetBeansProjects\DI-AEM\FPConnect\FPConnect\bin\Debug\FPConnect.exe.manifest
+C:\Users\b15-03m\Documents\NetBeansProjects\DI-AEM\FPConnect\FPConnect\bin\Debug\FPConnect.application
+C:\Users\b15-03m\Documents\NetBeansProjects\DI-AEM\FPConnect\FPConnect\obj\Debug\FPConnect.exe.manifest
+C:\Users\b15-03m\Documents\NetBeansProjects\DI-AEM\FPConnect\FPConnect\obj\Debug\FPConnect.application
