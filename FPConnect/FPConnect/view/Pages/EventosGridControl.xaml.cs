@@ -20,10 +20,85 @@ namespace FPConnect.view.UserControls
     /// </summary>
     public partial class EventosGridControl : Page
     {
+        private int currentYear;
         public EventosGridControl()
         {
             InitializeComponent();
+            currentYear = DateTime.Now.Year;
             GetMesActualConLetras();
+        }
+
+        private void MesButton_Click(object sender, RoutedEventArgs e)
+        {
+            if (sender is Button button)
+            {
+                // Obtener el mes seleccionado del contenido del botón
+                int mesSeleccionado = int.Parse(button.Content.ToString());
+
+                // Obtener la fecha actual
+                DateTime fechaActual = DateTime.Now;
+
+                // Verificar si el mes seleccionado es el mes actual
+                DateTime nuevaFecha;
+                if (mesSeleccionado == fechaActual.Month)
+                {
+                    // Si es el mes actual, establecer la fecha seleccionada en el día actual
+                    nuevaFecha = new DateTime(fechaActual.Year, mesSeleccionado, fechaActual.Day);
+                }
+                else
+                {
+                    // Si no es el mes actual, establecer la fecha seleccionada en el primer día del mes
+                    nuevaFecha = new DateTime(fechaActual.Year, mesSeleccionado, 1);
+                }
+
+                // Actualizar el calendario al mes seleccionado
+                calendario.DisplayDate = nuevaFecha;
+                calendario.SelectedDate = nuevaFecha;
+
+                // Actualizar el TextBlock lblMes con el nombre del mes correspondiente
+                lblMes.Text = nuevaFecha.ToString("MMMM");
+
+                // Actualizar el estilo de los botones para reflejar el mes seleccionado
+                foreach (var child in ((StackPanel)button.Parent).Children)
+                {
+                    if (child is Button mesButton)
+                    {
+                        mesButton.Foreground = mesButton == button ? new SolidColorBrush((Color)ColorConverter.ConvertFromString("#c73f69")) : new SolidColorBrush((Color)ColorConverter.ConvertFromString("#bababa"));
+                        mesButton.FontWeight = mesButton == button ? FontWeights.SemiBold : FontWeights.Normal;
+                    }
+                }
+            }
+        }
+
+        private void btnAnioAnterior_Click(object sender, RoutedEventArgs e)
+        {
+            currentYear--;
+            UpdateYearButtons();
+            UpdateCalendarYear();
+        }
+
+        private void btnAnioSiguiente_Click(object sender, RoutedEventArgs e)
+        {
+            currentYear++;
+            UpdateYearButtons();
+            UpdateCalendarYear();
+        }
+
+        private void UpdateYearButtons()
+        {
+            btnAnio1.Content = (currentYear - 2).ToString();
+            btnAnio2.Content = (currentYear - 1).ToString();
+            btnAnio3.Content = currentYear.ToString();
+            btnAnio4.Content = (currentYear + 1).ToString();
+            btnAnio5.Content = (currentYear + 2).ToString();
+        }
+
+        private void UpdateCalendarYear()
+        {
+            DateTime fechaActual = DateTime.Now;
+            DateTime nuevaFecha = new DateTime(currentYear, fechaActual.Month, 1);
+            calendario.DisplayDate = nuevaFecha;
+            calendario.SelectedDate = nuevaFecha;
         }
 
         private void Border_MouseDown(object sender, MouseButtonEventArgs e)
@@ -70,7 +145,7 @@ namespace FPConnect.view.UserControls
             string mes = DateTime.Now.ToString("MMMM", new System.Globalization.CultureInfo("es-ES"));
             mes = System.Globalization.CultureInfo.CurrentCulture.TextInfo.ToTitleCase(mes.ToLower());
 
-            string[] meses = new string[] { "Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre" };
+            string[] meses = new string[] { "enero", "febrero", "marzo", "abril", "mayo", "junio", "julio", "agosto", "septiembre", "octubre", "noviembre", "diciembre" };
 
             for (int i = 0; i < meses.Length; i++)
             {

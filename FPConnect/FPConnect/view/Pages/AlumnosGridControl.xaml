@@ -6,7 +6,7 @@
              xmlns:local="clr-namespace:DataGrid"
              xmlns:Icon="http://metro.mahapps.com/winfx/xaml/iconpacks"
              mc:Ignorable="d"
-             Height="700" Width="860">
+             Height="auto" Width="auto">
     <Page.Resources>
         <BooleanToVisibilityConverter x:Key="BoolToVis" />
     </Page.Resources>
@@ -23,13 +23,9 @@
 
         <!--Search Textbox-->
         <Grid Width="300" HorizontalAlignment="Left">
-            <TextBlock Margin="20 0" VerticalAlignment="Center" Foreground="#B0B9C6" IsHitTestVisible="False"
-   Panel.ZIndex="1"
-   Visibility="{Binding Text.IsEmpty, Converter={StaticResource BoolToVis}, ElementName=textBoxSearch}" ><Run Language="es-es" Text="Buscar alumno"/><Run Text=" ..."/></TextBlock>
 
-            <TextBox Name="textBoxSearch" Style="{StaticResource searchTextbox}"/>
+            <TextBlock Name="textBoxSearch" Text="Bienvenido Alejandro" Foreground="#121518" FontWeight="SemiBold" FontSize="20" Style="{StaticResource MaterialDesignBody1TextBlock}" />
 
-            <Icon:PackIconMaterial Kind="Magnify" Width="15" Height="15" VerticalAlignment="Center" Margin="0 0 15 0" Foreground="#B0B9C6" HorizontalAlignment="Right" />
         </Grid>
 
         <!--Top Buttons-->
@@ -46,7 +42,7 @@
    HorizontalAlignment="Left" Text="Información y gestión del alumnado"/>
 
         <!--Add Button-->
-        <Button Style="{StaticResource addButton}">
+        <Button Style="{StaticResource addButton}" Cursor="Hand">
             <StackPanel Orientation="Horizontal">
                 <Icon:PackIconMaterial Kind="Plus" VerticalAlignment="Center" Margin="0 1 8 0" Width="11" Height="11"/>
                 <TextBlock Text="Agregar nuevo alumno" FontSize="10"/>

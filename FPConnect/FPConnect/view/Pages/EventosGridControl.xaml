@@ -8,7 +8,7 @@
              xmlns:fa="http://schemas.fontawesome.io/icons/"
              
              mc:Ignorable="d" 
-             Height="620" Width="760" FontFamily="Trebuchet MS" Background="Transparent">
+             Height="auto" Width="auto" FontFamily="Trebuchet MS" Background="Transparent">
     <Grid>
         <!--Grid Fondo-->
         <Grid>
@@ -23,60 +23,61 @@
         
         <!--Grid Controles-->
 
-        <Grid>
+        <Grid Height="auto" Width="auto">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="1.2*"/>
                 <ColumnDefinition Width="*"/>
             </Grid.ColumnDefinitions>
             
             
-            <StackPanel>
+            <StackPanel Height="auto" Width="auto">
                 <!--Seleccion para el año -->
                 <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="0 50 0 30">
-                    <Button Style="{StaticResource calendarioButton}">
+                    <Button x:Name="btnAnioAnterior" Style="{StaticResource calendarioButton}" Click="btnAnioAnterior_Click">
                         <fa:ImageAwesome Icon="AngleLeft" Style="{StaticResource angulo}"/>
                     </Button>
 
-                    <Button Content="2023" Style="{StaticResource calendarioButton}"/>
-                    <Button Content="2024" Style="{StaticResource calendarioButton}"/>
-                    <Button Content="2025" Style="{StaticResource calendarioButton}" FontSize="24" Foreground="#c76f69"/>
-                    <Button Content="2026" Style="{StaticResource calendarioButton}"/>
-                    <Button Content="2027" Style="{StaticResource calendarioButton}"/>
+                    <Button x:Name="btnAnio1" Content="2023" Style="{StaticResource calendarioButton}"/>
+                    <Button x:Name="btnAnio2" Content="2024" Style="{StaticResource calendarioButton}"/>
+                    <Button x:Name="btnAnio3" Content="2025" Style="{StaticResource calendarioButton}" FontSize="24" Foreground="#c76f69"/>
+                    <Button x:Name="btnAnio4" Content="2026" Style="{StaticResource calendarioButton}"/>
+                    <Button x:Name="btnAnio5" Content="2027" Style="{StaticResource calendarioButton}"/>
 
-                    <Button Style="{StaticResource calendarioButton}">
+                    <Button x:Name="btnAnioSiguiente" Style="{StaticResource calendarioButton}" Click="btnAnioSiguiente_Click">
                         <fa:ImageAwesome Icon="AngleRight" Style="{StaticResource angulo}"/>
                     </Button>
-
                 </StackPanel>
+
 
                 <!--Seleccion para el mes -->
                 <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
-                    <Button Content="1" Style="{StaticResource mesButton}"/>
-                    <Button Content="2" Style="{StaticResource mesButton}"/>
-                    <Button Content="3" Style="{StaticResource mesButton}"/>
-                    <Button Content="4" Style="{StaticResource mesButton}"/>
-                    <Button Content="5" Style="{StaticResource mesButton}"/>
-                    <Button Content="6" Style="{StaticResource mesButton}"/>
-                    <Button Content="7" Style="{StaticResource mesButton}"/>
-                    <Button Content="8" Style="{StaticResource mesButton}"/>
-                    <Button Content="9" Style="{StaticResource mesButton}"/>
-                    <Button Content="10" Style="{StaticResource mesButton}"/>
-                    <Button Content="11" Style="{StaticResource mesButton}" Foreground="#c73f69" FontWeight="SemiBold" />
-                    <Button Content="12" Style="{StaticResource mesButton}"/>
+                    <Button Content="1" Style="{StaticResource mesButton}" Click="MesButton_Click"/>
+                    <Button Content="2" Style="{StaticResource mesButton}" Click="MesButton_Click" Foreground="#c73f69" FontWeight="SemiBold" />
+                    <Button Content="3" Style="{StaticResource mesButton}" Click="MesButton_Click"/>
+                    <Button Content="4" Style="{StaticResource mesButton}" Click="MesButton_Click"/>
+                    <Button Content="5" Style="{StaticResource mesButton}" Click="MesButton_Click"/>
+                    <Button Content="6" Style="{StaticResource mesButton}" Click="MesButton_Click"/>
+                    <Button Content="7" Style="{StaticResource mesButton}" Click="MesButton_Click"/>
+                    <Button Content="8" Style="{StaticResource mesButton}" Click="MesButton_Click"/>
+                    <Button Content="9" Style="{StaticResource mesButton}" Click="MesButton_Click"/>
+                    <Button Content="10" Style="{StaticResource mesButton}" Click="MesButton_Click"/>
+                    <Button Content="11" Style="{StaticResource mesButton}" Click="MesButton_Click"/>
+                    <Button Content="12" Style="{StaticResource mesButton}" Click="MesButton_Click"/>
                 </StackPanel>
+
 
                 <Separator Height="0.8" Background="#cacaca" Margin="30 10"/>
                 <TextBlock x:Name="lblMes" Text="" Foreground="#c73f69" FontSize="24" TextAlignment="Center" FontWeight="SemiBold" Margin="0 15 0 20"/>
 
-                <Calendar CalendarItemStyle="{DynamicResource CalendarCalendarItemStyle1}" CalendarDayButtonStyle="{DynamicResource CalendarCalendarDayButtonStyle1}" Style="{DynamicResource CalendarStyle1}"/>
+                <Calendar x:Name="calendario" CalendarItemStyle="{DynamicResource CalendarCalendarItemStyle1}" CalendarDayButtonStyle="{DynamicResource CalendarCalendarDayButtonStyle1}" Style="{DynamicResource CalendarStyle1}"/>
             </StackPanel>
 
             <StackPanel Grid.Column="1">
                 <!--Titulos-->
                 <StackPanel Margin="30 45 30 10" Orientation="Horizontal">
-                    <TextBlock Text="23" FontSize="50" Foreground="#ffffff"/>
+                    <TextBlock Text="06" FontSize="50" Foreground="#ffffff"/>
                     <StackPanel Margin="10 0 0 0 " VerticalAlignment="Center">
-                        <TextBlock Text="Enero" Foreground="#ffffff" FontSize="24"/>
+                        <TextBlock Text="Febrero" Foreground="#ffffff" FontSize="24"/>
                         <TextBlock Text="Jueves" Foreground="#eba5bb" FontSize="14"/>
                     </StackPanel>
 

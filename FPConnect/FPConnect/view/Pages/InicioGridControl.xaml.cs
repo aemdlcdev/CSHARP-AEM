@@ -30,13 +30,11 @@ namespace DataGrid.view
         public InicioGridControl()
         {
             InitializeComponent();
-
-           
         }
 
         public void LlamarApi() 
         {
-            
+            // IMplementar
         }
 
         

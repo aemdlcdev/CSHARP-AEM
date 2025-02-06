@@ -82,8 +82,8 @@
 
                             <Button Style="{StaticResource menuButton}">
                                 <StackPanel Orientation="Horizontal">
-                                    <Icon:PackIconMaterial Kind="ForumOutline" Style="{StaticResource menuButtonIcon}"/>
-                                    <TextBlock Text="Mensajes"/>
+                                    <Icon:PackIconMaterial Kind="CompareHorizontal" Style="{StaticResource menuButtonIcon}"/>
+                                    <TextBlock Text="Coordinación"/>
                                 </StackPanel>
                             </Button>
 
@@ -106,7 +106,7 @@
 
                 <Grid.RowDefinitions>
                     <RowDefinition Height="auto"/>
-                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="2*"/>
                     
                 </Grid.RowDefinitions>
 
@@ -115,7 +115,7 @@
                         <materialDesign:PackIcon Kind="Close" Foreground="Black" Width="25" Height="25" />
                     </Button>
                 </StackPanel>
-
+                
                 <!--Frame alumnos-->
                 <Frame Name="alumnosFrame" Visibility="Collapsed" Grid.Column="1" Grid.Row="1" Margin="10" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Source="/view/pages/AlumnosGridControl.xaml" NavigationUIVisibility="Hidden"/>
 
