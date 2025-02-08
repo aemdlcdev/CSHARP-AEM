@@ -87,6 +87,13 @@
                                 </StackPanel>
                             </Button>
 
+                            <Button Style="{StaticResource menuButton}">
+                                <StackPanel Orientation="Horizontal">
+                                    <Icon:PackIconMaterial Kind="AccountSettings" Style="{StaticResource menuButtonIcon}"/>
+                                    <TextBlock Text="Gestionar Usuarios"/>
+                                </StackPanel>
+                            </Button>
+
                         </StackPanel>
 
                         <Button Name="btnLogout" Style="{StaticResource menuButton}" VerticalAlignment="Bottom" DockPanel.Dock="Bottom" Margin="15 0 15 20" Click="btnLogout_Click">

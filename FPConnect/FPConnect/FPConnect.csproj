@@ -267,8 +267,17 @@
     <Compile Include="view\Pages\EventosGridControl.xaml.cs">
       <DependentUpon>EventosGridControl.xaml</DependentUpon>
     </Compile>
+    <Compile Include="view\Pages\GestionUsuarios.xaml.cs">
+      <DependentUpon>GestionUsuarios.xaml</DependentUpon>
+    </Compile>
     <Compile Include="view\Pages\InicioGridControl.xaml.cs">
       <DependentUpon>InicioGridControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="view\UserControls\Item.xaml.cs">
+      <DependentUpon>Item.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="view\UserControls\MenuButton.xaml.cs">
+      <DependentUpon>MenuButton.xaml</DependentUpon>
     </Compile>
     <Page Include="view\Login.xaml">
       <SubType>Designer</SubType>
@@ -297,7 +306,19 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="view\Pages\GestionUsuarios.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="view\Pages\InicioGridControl.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="view\UserControls\Item.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="view\UserControls\MenuButton.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>

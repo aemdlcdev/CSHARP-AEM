@@ -10,11 +10,11 @@ none
 false
 TRACE
 C:\Users\Alejandro\Documents\GitHub\DI-AEM\FPConnect\FPConnect\App.xaml
-5-1662565798
+8-1839780633
 
-9-1143188924
+12955317711
 74-563145205
-view\Login.xaml;view\MainWindow.xaml;view\Pages\AlumnosGridControl.xaml;view\Pages\EventosGridControl.xaml;view\Pages\InicioGridControl.xaml;
+view\Login.xaml;view\MainWindow.xaml;view\Pages\AlumnosGridControl.xaml;view\Pages\EventosGridControl.xaml;view\Pages\GestionUsuarios.xaml;view\Pages\InicioGridControl.xaml;view\UserControls\Item.xaml;view\UserControls\MenuButton.xaml;
 
 False
 

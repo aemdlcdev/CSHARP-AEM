@@ -280,3 +280,10 @@ C:\Users\Alejandro\Documents\GitHub\DI-AEM\FPConnect\FPConnect\obj\Release\FPCon
 C:\Users\Alejandro\Documents\GitHub\DI-AEM\FPConnect\FPConnect\obj\Release\FPConnect.csproj.Up2Date
 C:\Users\Alejandro\Documents\GitHub\DI-AEM\FPConnect\FPConnect\obj\Release\FPConnect.exe
 C:\Users\Alejandro\Documents\GitHub\DI-AEM\FPConnect\FPConnect\obj\Release\FPConnect.pdb
+C:\Users\Alejandro\Documents\GitHub\DI-AEM\FPConnect\FPConnect\obj\Release\view\UserControls\MenuButton.baml
+C:\Users\Alejandro\Documents\GitHub\DI-AEM\FPConnect\FPConnect\obj\Release\view\Pages\GestionUsuarios.g.cs
+C:\Users\Alejandro\Documents\GitHub\DI-AEM\FPConnect\FPConnect\obj\Release\view\UserControls\Item.g.cs
+C:\Users\Alejandro\Documents\GitHub\DI-AEM\FPConnect\FPConnect\obj\Release\view\UserControls\MenuButton.g.cs
+C:\Users\Alejandro\Documents\GitHub\DI-AEM\FPConnect\FPConnect\obj\Release\GeneratedInternalTypeHelper.g.cs
+C:\Users\Alejandro\Documents\GitHub\DI-AEM\FPConnect\FPConnect\obj\Release\view\Pages\GestionUsuarios.baml
+C:\Users\Alejandro\Documents\GitHub\DI-AEM\FPConnect\FPConnect\obj\Release\view\UserControls\Item.baml
