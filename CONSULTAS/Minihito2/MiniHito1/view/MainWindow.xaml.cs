@@ -1,9 +1,11 @@
 ﻿using MiniHito1.domain;
 using MiniHito1.persistence.manages;
+using MiniHito1.view;
 using MiniHito1.view.pages;
 using Org.BouncyCastle.Utilities;
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Windows;
 
 namespace MiniHito1
@@ -15,9 +17,12 @@ namespace MiniHito1
         private List<Usuario> listaUsuarios;
         private Usuario usuario;
         private List<String> nameUsers;
-        private Usuario usuarioEmpleado;
+        private Usuario usuarioEmpleado; 
         private List<Empleado> listaEmpleados;
         private Empleado empleado;
+
+        private DataTable dt;
+
         public MainWindow()
         {
             
@@ -49,6 +54,7 @@ namespace MiniHito1
             listaEmpleados = new List<Empleado>();
             listaEmpleados = empleado.LeerEmpleados();
             dataGridEmpleados.ItemsSource = listaEmpleados;
+
         }
 
 
@@ -364,6 +370,53 @@ namespace MiniHito1
             Empleado empModificado = new Empleado(idEmpleado, username, apellidos, crs, idUsuario, idRol);
             empModificado.EliminarEmpleado(empModificado);
             RefrescarEmple();
+        }
+
+        private void cargarInforme() 
+        {
+            // Inicializar tabla 
+            dt = new DataTable("DataTable1");
+
+
+            // Crear columnas
+
+            dt.Columns.Add("Nombre");
+            dt.Columns.Add("Apellidos");
+            dt.Columns.Add("CSR");
+
+            // Meter el contenido en la tabla
+
+            foreach(Empleado emple in listaEmpleados)
+            {
+
+                // Creo la fila
+
+                DataRow row = dt.NewRow();
+
+                row["Nombre"] = emple.nombre;
+                row["Apellidos"] = emple.apellidos;
+                row["CSR"] = emple.csr;
+
+
+                // Añadir la fila a la tabla
+
+                dt.Rows.Add(row);
+
+            }
+
+            CrystalReport1 cr = new CrystalReport1();
+
+            cr.Database.Tables["DataTable1"].SetDataSource((DataTable)dt);
+
+            // Mostrar los datos en el visor
+
+            visor.ViewerCore.ReportSource = cr;
+
+        }
+
+        private void btnReport_Click(object sender, RoutedEventArgs e)
+        {
+            cargarInforme();
         }
     }
 }

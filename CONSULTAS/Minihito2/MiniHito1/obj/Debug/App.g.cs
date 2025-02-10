@@ -17,6 +17,7 @@ using MaterialDesignThemes.Wpf.Converters;
 using MaterialDesignThemes.Wpf.Transitions;
 using Microsoft.Windows.Themes;
 using MiniHito1;
+using RootLibrary.WPF.Localization;
 using System;
 using System.Diagnostics;
 using System.Windows;

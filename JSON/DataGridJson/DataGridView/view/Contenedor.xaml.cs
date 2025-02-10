@@ -25,6 +25,7 @@ namespace DataGridView.view
         public Contenedor()
         {
             InitializeComponent();
+
             dt = new DataTable();
             dt.Columns.Add("Nombre");
             dt.Columns.Add("Apellidos");
