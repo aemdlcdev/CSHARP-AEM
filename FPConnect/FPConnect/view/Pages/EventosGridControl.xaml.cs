@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using Calender.UserControls;
 
 namespace FPConnect.view.UserControls
 {
@@ -143,20 +144,25 @@ namespace FPConnect.view.UserControls
         private void GetMesActualConLetras()
         {
             string mes = DateTime.Now.ToString("MMMM", new System.Globalization.CultureInfo("es-ES"));
-            mes = System.Globalization.CultureInfo.CurrentCulture.TextInfo.ToTitleCase(mes.ToLower());
-
-            string[] meses = new string[] { "enero", "febrero", "marzo", "abril", "mayo", "junio", "julio", "agosto", "septiembre", "octubre", "noviembre", "diciembre" };
-
-            for (int i = 0; i < meses.Length; i++)
-            {
-                if (meses[i] == mes)
-                {
-                    mes = meses[i];
-                    break;
-                }
-            }
-
+            mes = System.Globalization.CultureInfo.CurrentCulture.TextInfo.ToTitleCase(mes.ToLower()).ToLower();
+            
             lblMes.Text = mes;
+        }
+
+        private void btnAddNote_Click(object sender, RoutedEventArgs e)
+        {
+            // Crear un nuevo item
+            var newItem = new Item
+            {
+                Title = txtNota.Text,
+                Time = txtTime.Text,
+                Color = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#f1f1f1")),
+                Icon = FontAwesome.WPF.FontAwesomeIcon.CircleThin,
+                IconBell = FontAwesome.WPF.FontAwesomeIcon.Bell
+            };
+
+            // Agregar el nuevo item al StackPanel
+            derecha.Children.Add(newItem);
         }
 
 

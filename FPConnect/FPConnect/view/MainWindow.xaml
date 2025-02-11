@@ -32,7 +32,8 @@
                     <Icon:PackIconMaterial Kind="Menu" Width="15" Height="15" />
                 </Button>
 
-                <Border Grid.Row="1" Background="#2090ff" CornerRadius="0 50 0 30">
+                <Border Grid.Row="1" Background="#3090ff" CornerRadius="0 50 0 30">
+                    
                     <DockPanel>
                         <!--Menu Logo-->
                         <Border Width="80" Height="80" Padding="3" Background="White" CornerRadius="100" DockPanel.Dock="Top" HorizontalAlignment="Left" Margin="20 -30 0 0">
@@ -102,19 +103,14 @@
                                 <TextBlock Text="Logout"/>
                             </StackPanel>
                         </Button>
-                       
-
                     </DockPanel>
                 </Border>
-
             </Grid>
 
             <Grid Grid.Column="1">
-
                 <Grid.RowDefinitions>
                     <RowDefinition Height="auto"/>
                     <RowDefinition Height="2*"/>
-                    
                 </Grid.RowDefinitions>
 
                 <StackPanel HorizontalAlignment="Right" Margin="10 17 10 10" Width="50" Height="45 ">
@@ -122,7 +118,7 @@
                         <materialDesign:PackIcon Kind="Close" Foreground="Black" Width="25" Height="25" />
                     </Button>
                 </StackPanel>
-                
+
                 <!--Frame alumnos-->
                 <Frame Name="alumnosFrame" Visibility="Collapsed" Grid.Column="1" Grid.Row="1" Margin="10" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Source="/view/pages/AlumnosGridControl.xaml" NavigationUIVisibility="Hidden"/>
 
@@ -132,7 +128,6 @@
                 <!--Frame eventos-->
                 <Frame Name="eventosFrame" Visibility="Collapsed" Grid.Column="1" Grid.Row="1" Margin="10" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Source="/view/pages/EventosGridControl.xaml" NavigationUIVisibility="Hidden"/>
             </Grid>
-
         </Grid>
     </Border>
 </Window>

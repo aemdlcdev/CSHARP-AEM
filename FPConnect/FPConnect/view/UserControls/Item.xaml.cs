@@ -1,6 +1,7 @@
 ﻿using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Media;
+using FontAwesome.WPF;
 
 namespace Calender.UserControls
 {
@@ -11,7 +12,6 @@ namespace Calender.UserControls
             InitializeComponent();
         }
 
-
         public string Title
         {
             get { return (string)GetValue(TitleProperty); }
@@ -19,7 +19,6 @@ namespace Calender.UserControls
         }
 
         public static readonly DependencyProperty TitleProperty = DependencyProperty.Register("Title", typeof(string), typeof(Item));
-
 
         public string Time
         {
@@ -29,7 +28,6 @@ namespace Calender.UserControls
 
         public static readonly DependencyProperty TimeProperty = DependencyProperty.Register("Time", typeof(string), typeof(Item));
 
-
         public SolidColorBrush Color
         {
             get { return (SolidColorBrush)GetValue(ColorProperty); }
@@ -38,23 +36,20 @@ namespace Calender.UserControls
 
         public static readonly DependencyProperty ColorProperty = DependencyProperty.Register("Color", typeof(SolidColorBrush), typeof(Item));
 
-
-        public FontAwesome.WPF.FontAwesomeIcon Icon
+        public FontAwesomeIcon Icon
         {
-            get { return (FontAwesome.WPF.FontAwesomeIcon)GetValue(IconProperty); }
+            get { return (FontAwesomeIcon)GetValue(IconProperty); }
             set { SetValue(IconProperty, value); }
         }
 
-        public static readonly DependencyProperty IconProperty = DependencyProperty.Register("Icon", typeof(FontAwesome.WPF.FontAwesomeIcon), typeof(Item));
+        public static readonly DependencyProperty IconProperty = DependencyProperty.Register("Icon", typeof(FontAwesomeIcon), typeof(Item));
 
-
-        public FontAwesome.WPF.FontAwesomeIcon IconBell
+        public FontAwesomeIcon IconBell
         {
-            get { return (FontAwesome.WPF.FontAwesomeIcon)GetValue(IconBellProperty); }
+            get { return (FontAwesomeIcon)GetValue(IconBellProperty); }
             set { SetValue(IconBellProperty, value); }
         }
 
-        public static readonly DependencyProperty IconBellProperty = DependencyProperty.Register("IconBell", typeof(FontAwesome.WPF.FontAwesomeIcon), typeof(Item));
-
+        public static readonly DependencyProperty IconBellProperty = DependencyProperty.Register("IconBell", typeof(FontAwesomeIcon), typeof(Item));
     }
 }
