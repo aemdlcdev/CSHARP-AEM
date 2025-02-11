@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
+using System.Windows.Controls.Primitives;
 using System.Windows.Data;
 using System.Windows.Documents;
 using System.Windows.Input;
@@ -26,8 +27,12 @@ namespace FPConnect.view.UserControls
         {
             InitializeComponent();
             currentYear = DateTime.Now.Year;
+            tDayNumber.Text = DateTime.Now.Day.ToString();
+            tDay.Text = DateTime.Now.ToString("dddd", new System.Globalization.CultureInfo("es-ES"));
+            tMonth.Text = DateTime.Now.ToString("MMMM", new System.Globalization.CultureInfo("es-ES"));
             GetMesActualConLetras();
         }
+
 
         private void MesButton_Click(object sender, RoutedEventArgs e)
         {
@@ -41,10 +46,13 @@ namespace FPConnect.view.UserControls
 
                 // Verificar si el mes seleccionado es el mes actual
                 DateTime nuevaFecha;
+
+                nuevaFecha = new DateTime(fechaActual.Year, mesSeleccionado, fechaActual.Day);
+
                 if (mesSeleccionado == fechaActual.Month)
                 {
                     // Si es el mes actual, establecer la fecha seleccionada en el día actual
-                    nuevaFecha = new DateTime(fechaActual.Year, mesSeleccionado, fechaActual.Day);
+                    
                 }
                 else
                 {
@@ -57,7 +65,7 @@ namespace FPConnect.view.UserControls
                 calendario.SelectedDate = nuevaFecha;
 
                 // Actualizar el TextBlock lblMes con el nombre del mes correspondiente
-                lblMes.Text = nuevaFecha.ToString("MMMM");
+                lblMes.Text = nuevaFecha.ToString("MMMM", new System.Globalization.CultureInfo("es-ES"));
 
                 // Actualizar el estilo de los botones para reflejar el mes seleccionado
                 foreach (var child in ((StackPanel)button.Parent).Children)
@@ -68,8 +76,25 @@ namespace FPConnect.view.UserControls
                         mesButton.FontWeight = mesButton == button ? FontWeights.SemiBold : FontWeights.Normal;
                     }
                 }
+
+                // Actualizar las variables tDay y tMonth
+                tDayNumber.Text = nuevaFecha.Day.ToString();
+                tDay.Text = nuevaFecha.ToString("dddd", new System.Globalization.CultureInfo("es-ES"));
+                tMonth.Text = nuevaFecha.ToString("MMMM", new System.Globalization.CultureInfo("es-ES"));
             }
         }
+
+        private void calendario_SelectedDatesChanged(object sender, SelectionChangedEventArgs e)
+        {
+            if (calendario.SelectedDate.HasValue)
+            {
+                DateTime selectedDate = calendario.SelectedDate.Value;
+                tDayNumber.Text = selectedDate.Day.ToString();
+                tDay.Text = selectedDate.ToString("dddd", new System.Globalization.CultureInfo("es-ES"));
+                tMonth.Text = selectedDate.ToString("MMMM", new System.Globalization.CultureInfo("es-ES"));
+            }
+        }
+
 
         private void btnAnioAnterior_Click(object sender, RoutedEventArgs e)
         {
@@ -104,7 +129,7 @@ namespace FPConnect.view.UserControls
 
         private void Border_MouseDown(object sender, MouseButtonEventArgs e)
         {
-            
+
         }
 
         private void lblNota_MouseDown(object sender, MouseButtonEventArgs e)
@@ -114,7 +139,7 @@ namespace FPConnect.view.UserControls
 
         private void txtNota_TextChanged(object sender, TextChangedEventArgs e)
         {
-            if(!string.IsNullOrEmpty(txtNota.Text) && txtNota.Text.Length > 0)
+            if (!string.IsNullOrEmpty(txtNota.Text) && txtNota.Text.Length > 0)
             {
                 lblNota.Visibility = Visibility.Collapsed;
             }
@@ -145,7 +170,7 @@ namespace FPConnect.view.UserControls
         {
             string mes = DateTime.Now.ToString("MMMM", new System.Globalization.CultureInfo("es-ES"));
             mes = System.Globalization.CultureInfo.CurrentCulture.TextInfo.ToTitleCase(mes.ToLower()).ToLower();
-            
+
             lblMes.Text = mes;
         }
 
@@ -164,7 +189,5 @@ namespace FPConnect.view.UserControls
             // Agregar el nuevo item al StackPanel
             derecha.Children.Add(newItem);
         }
-
-
     }
 }
