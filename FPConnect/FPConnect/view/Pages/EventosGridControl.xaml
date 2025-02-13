@@ -10,7 +10,6 @@
              
              mc:Ignorable="d" 
              Height="auto" Width="auto" FontFamily="Trebuchet MS" Background="Transparent">
-
     <Grid>
         <!--Grid Fondo-->
         <Grid>
@@ -52,7 +51,7 @@
 
 
                 <!--Seleccion para el mes -->
-                <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Width="auto" Height="auto">
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
                     <Button Content="1" Style="{StaticResource mesButton}" Click="MesButton_Click"/>
                     <Button Content="2" Style="{StaticResource mesButton}" Click="MesButton_Click" Foreground="#c73f69" FontWeight="SemiBold" />
                     <Button Content="3" Style="{StaticResource mesButton}" Click="MesButton_Click"/>
@@ -71,25 +70,29 @@
                 <Separator Height="0.8" Background="#cacaca" Margin="30 10"/>
                 <TextBlock x:Name="lblMes" Text="" Foreground="#c73f69" FontSize="24" TextAlignment="Center" FontWeight="SemiBold" Margin="0 15 0 20"/>
 
-                <Calendar Width="auto" Height="auto" x:Name="calendario" 
-                          CalendarItemStyle="{DynamicResource CalendarCalendarItemStyle1}" 
-                          CalendarDayButtonStyle="{DynamicResource CalendarCalendarDayButtonStyle1}" 
-                          Style="{DynamicResource CalendarStyle1}" 
-                          SelectedDatesChanged="calendario_SelectedDatesChanged" 
-                          SelectionMode="SingleDate"/>
+                <Calendar x:Name="calendario" CalendarItemStyle="{DynamicResource CalendarCalendarItemStyle1}" CalendarDayButtonStyle="{DynamicResource CalendarCalendarDayButtonStyle1}" Style="{DynamicResource CalendarStyle1}"/>
             </StackPanel>
 
-            <StackPanel Name="derecha" Grid.Column="1">
+            <StackPanel Grid.Column="1">
                 <!--Titulos-->
                 <StackPanel Margin="30 45 30 10" Orientation="Horizontal">
-                    <TextBlock Name="tDayNumber" FontSize="50" Foreground="#ffffff"/>
+                    <TextBlock Text="06" FontSize="50" Foreground="#ffffff"/>
                     <StackPanel Margin="10 0 0 0 " VerticalAlignment="Center">
-                        <TextBlock x:Name="tMonth" Foreground="#ffffff" FontSize="24"/>
-                        <TextBlock x:Name="tDay" Foreground="#eba5bb" FontSize="14"/>
+                        <TextBlock Text="Febrero" Foreground="#ffffff" FontSize="24"/>
+                        <TextBlock Text="Jueves" Foreground="#eba5bb" FontSize="14"/>
                     </StackPanel>
+
+                    <Button Style="{StaticResource bigButton}" Margin="50 0 5 0" >
+                        <fa:ImageAwesome Icon="AngleLeft" Style="{StaticResource anguloGrande}"/>
+                    </Button>
+
+                    <Button Style="{StaticResource bigButton}" >
+                        <fa:ImageAwesome Icon="AngleRight" Style="{StaticResource anguloGrande}"/>
+                    </Button>
+
                 </StackPanel>
 
-                <TextBlock Text="Gestión de tareas para cada día" Foreground="#eba5bb" FontSize="16" Margin="35 0 20 0"/>
+                <TextBlock Text="5 tareas - 2 días restantes" Foreground="#eba5bb" FontSize="16" Margin="35 0 20 0"/>
 
                 <!--Añadir notas-->
                 <Border Background="#cd5278" CornerRadius="10" HorizontalAlignment="Center" Width="305" Margin="0 30 0 20" Padding="17 15 5 15">
@@ -121,14 +124,14 @@
                                 </Grid.ColumnDefinitions>
 
                                 <fa:ImageAwesome Icon="Bell" Width="15" Height="15" Foreground="#eba5bb"/>
-                                <TextBlock Text="Hora y minuto (00 : 00)" Name="lblTime" Style="{StaticResource textHintC}" MouseDown="lblTime_MouseDown"/>
+                                <TextBlock Text="__ : __ - __ : __" Name="lblTime" Style="{StaticResource textHintC}" MouseDown="lblTime_MouseDown"/>
                                 <TextBox x:Name="txtTime" Style="{StaticResource textBox}" TextChanged="txtTime_TextChanged"/>
 
                             </Grid>
 
                         </StackPanel>
 
-                        <Button Name="btnAddNote" Grid.Column="1" Style="{StaticResource calendarioButton}" Click="btnAddNote_Click">
+                        <Button Grid.Column="1" Style="{StaticResource calendarioButton}">
                             <fa:ImageAwesome Icon="PlusCircle" Width="28" Height="28" Foreground="#f9f9f9"/>
                         </Button>
 
@@ -136,7 +139,12 @@
                 </Border>
 
                 <!--Notas-->
-
+                <us:Item Title="Post on social networks" Time="09:45 - 10:30" Color="#EBA5BB" Icon="CheckCircle" IconBell="BellSlash"/>
+                <us:Item Title="Review the app design" Time="11:30 - 12:00" Color="#EBA5BB" Icon="CheckCircle" IconBell="BellSlash"/>
+                <us:Item Title="Build a demo of the app" Time="14:00 - 15:30" Color="#f1f1f1" Icon="CircleThin" IconBell="Bell"/>
+                <us:Item Title="Dinner with John Doe" Time="20:15 - 21:45" Color="#f1f1f1" Icon="CircleThin" IconBell="Bell"/>
+                <us:Item Title="Send email to Alex" Time="23:00 - 23:20" Color="#f1f1f1" Icon="CircleThin" IconBell="Bell"/>
+                
             </StackPanel>
             
         </Grid>
