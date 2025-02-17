@@ -34,7 +34,7 @@ namespace ProxyScraper
                 start.UseShellExecute = false;
                 start.RedirectStandardOutput = true;
                 start.RedirectStandardError = true;
-                start.WorkingDirectory = AppDomain.CurrentDomain.BaseDirectory; // Directorio de trabajo actual
+                start.WorkingDirectory = AppDomain.CurrentDomain.BaseDirectory; // Churchamos el directorio de trabajo
 
                 using (Process process = Process.Start(start))
                 {
