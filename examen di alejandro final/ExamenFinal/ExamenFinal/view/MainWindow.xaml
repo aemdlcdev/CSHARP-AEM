@@ -1,0 +1,119 @@
+﻿<Window x:Class="ExamenFinal.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:ExamenFinal"
+        xmlns:Icon="http://metro.mahapps.com/winfx/xaml/iconpacks"
+        AllowsTransparency="True"
+        Background="Transparent"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        mc:Ignorable="d"
+        Title="Club Lectura" Height="720" Width="1080" WindowStyle="None" WindowStartupLocation="CenterScreen">
+    <Grid Background="#EFF2F7">
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="70"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <Label Content="Bienvenido Alejandro!" FontWeight="Bold" FontSize="24" Margin="0 10 0 0"/>
+        <Border CornerRadius="30" Background="#EFF2F7" MouseDown="Border_MouseDown" MouseLeftButtonDown="Border_MouseLeftButtonDown" Grid.Row="1">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="200"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+
+                <!--Izquierda Menu-->
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="auto"/>
+                        <RowDefinition Height="*"/>
+                    </Grid.RowDefinitions>
+
+                    <Border Grid.Row="1" Background="BlueViolet" CornerRadius="0 30 30 0" >
+
+                        <DockPanel>
+                            <!--Menu Titulo-->
+                            <TextBlock Text="Club de Lectura" Foreground="White" FontSize="22" FontWeight="SemiBold" DockPanel.Dock="Top" Margin="0 25 0 10" TextAlignment="Center"/>
+                            
+                            <!--Menu Separador-->
+                            <Separator Margin="25" Background="#ffffff" DockPanel.Dock="Top" Height="0.8"/>
+
+                            <!--Menu Botones-->
+                            <StackPanel DockPanel.Dock="Top" >
+                                <Button Name="btnAltaSocio" Style="{StaticResource menuButton}" Click="btnAltaSocio_Click">
+                                    <StackPanel Orientation="Horizontal">
+                                        <Icon:PackIconMaterial Kind="AccountCard" Style="{StaticResource menuButtonIcon}"/>
+                                        <TextBlock Text="Gestión Socios"/>
+                                    </StackPanel>
+                                </Button>
+
+                                <Button Name="btnAltaLibro" Style="{StaticResource menuButton}" Click="btnAltaLibro_Click" >
+                                    <StackPanel Orientation="Horizontal">
+                                        <Icon:PackIconMaterial Kind="Book" Style="{StaticResource menuButtonIcon}"/>
+                                        <TextBlock Text="Gestión Libros"/>
+                                    </StackPanel>
+                                </Button>
+
+                                <Button Name="btnAltaPrestamo" Style="{StaticResource menuButton}" Click="btnAltaPrestamo_Click">
+                                    <StackPanel Orientation="Horizontal">
+                                        <Icon:PackIconMaterial Kind="AccountMultipleOutline" Style="{StaticResource menuButtonIcon}"/>
+                                        <TextBlock Text="Gestión prestamos"/>
+                                    </StackPanel>
+                                </Button>
+
+                                <Button Style="{StaticResource menuButton}" Name="btnInformes" Click="btnInformes_Click">
+                                    <StackPanel Orientation="Horizontal">
+                                        <Icon:PackIconMaterial Kind="InformationBox" Style="{StaticResource menuButtonIcon}"/>
+                                        <TextBlock Text="Informe Géneros"/>
+                                    </StackPanel>
+                                </Button>
+
+                                <Button Style="{StaticResource menuButton}" Name="btnInformesMensual" Click="btnInformesMensual_Click">
+                                    <StackPanel Orientation="Horizontal">
+                                        <Icon:PackIconMaterial Kind="InformationBox" Style="{StaticResource menuButtonIcon}"/>
+                                        <TextBlock Text="Informe Mensual"/>
+                                    </StackPanel>
+                                </Button>
+
+                            </StackPanel>
+                        </DockPanel>
+                    </Border>
+                </Grid>
+
+                <Grid Grid.Column="1">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="auto"/>
+                        <RowDefinition Height="2*"/>
+                    </Grid.RowDefinitions>
+
+                    
+
+                    <!--Frame alta socio-->
+                    <Frame Name="socioFrame" Visibility="Collapsed" Grid.Column="1" Grid.Row="1" Margin="10" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Source="/view/pages/AltaSocio.xaml" NavigationUIVisibility="Hidden"/>
+
+                    <!--Frame alta libro-->
+                    <Frame Name="libroFrame" Visibility="Collapsed" Grid.Column="1" Grid.Row="1" Margin="10" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"  NavigationUIVisibility="Hidden" Source="/view/pages/AltaLibro.xaml"/>
+
+                    <!--Frame alta prestamo-->
+                    <Frame Name="prestamoFrame" Visibility="Collapsed" Grid.Column="1" Grid.Row="1" Margin="10" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" NavigationUIVisibility="Hidden" Source="/view/pages/AltaPrestamo.xaml"/>
+                    
+                    <!--Frame informes-->
+                    <Frame Name="informesFrame" Visibility="Collapsed" Grid.Column="1" Grid.Row="1" Margin="10" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" NavigationUIVisibility="Hidden" Source="/view/pages/Informes.xaml"/>
+                    <!--Frame informe mensual-->
+                    <Frame Name="informesMensualFrame" Visibility="Collapsed" Grid.Column="1" Grid.Row="1" Margin="10" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" NavigationUIVisibility="Hidden" Source="/view/pages/InformesMensual.xaml"/>
+                </Grid>
+            </Grid>
+        </Border>
+        
+        <StackPanel HorizontalAlignment="Right" Margin="10 12 10 10" Width="50" Height="45 " Grid.Row="0">
+            <Button HorizontalAlignment="Center" Height="30" Width="30" Margin=" 10" Style="{StaticResource MaterialDesignFloatingActionButton}" Background="{x:Null}" ToolTip="Close" x:Name="btnExit" Click="btnExit_Click" BorderBrush="Black">
+                <materialDesign:PackIcon Kind="Close" Foreground="Black" Width="25" Height="25" />
+            </Button>
+        </StackPanel>
+    </Grid>
+</Window>
