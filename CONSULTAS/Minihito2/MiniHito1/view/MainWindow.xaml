@@ -245,11 +245,36 @@
                             <TextBox x:Name="txtIdUserr" Visibility="Hidden" Grid.Column="1"/>
                         </Grid>
                     </TabItem>
-                    <TabItem Header="Economia" Margin="-1,73,1,-73">
-                        <StackPanel Background="#E6E6FA">
-                            <Label Content="Economía" FontSize="20" FontWeight="Bold"/>
-                            <Label Content="Economía de la empresas" FontSize="16"/>
-                        </StackPanel>
+                    <TabItem Header="Gestión horas" Margin="-1,73,1,-73">
+                        <Grid Background="#E6E6FA">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="*"/>
+                            </Grid.RowDefinitions>
+                            <Label Content="Gestión horas de empleados" HorizontalAlignment="Left" Margin="15 0 0 0" FontSize="40" FontWeight="Bold"/>
+
+                            <Border Background="Violet" Grid.Row="1" Width="300" Height="350" Margin="10 10 0 10" HorizontalAlignment="Left" CornerRadius=" 20 ">
+                                <Grid Margin="27">
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="25"/>
+                                        <RowDefinition Height="50"/>
+                                        <RowDefinition Height="25"/>
+                                        <RowDefinition Height="50"/>
+                                        <RowDefinition Height="25"/>
+                                        <RowDefinition Height="50"/>
+                                        <RowDefinition Height="70"/>
+                                    </Grid.RowDefinitions>
+                                    <TextBlock Text="Nombre empleado" FontSize="20"/>
+                                    <ComboBox x:Name="cbxEmpleados" Grid.Row="1" Margin="0 10 0 0"/>
+                                    <TextBlock Text="Horas trabajadas" Grid.Row="2" FontSize="20"/>
+                                    <TextBox x:Name="txtHoras" Grid.Row="3" Margin="0 10 0 0" FontSize="15"/>
+                                    <TextBlock Text="Día trabajado (dd/mm/yyyy)" FontSize="20" Grid.Row="4"/>
+                                    <TextBox x:Name="txtDia" Grid.Row="5" Margin="0 10 0 0" FontSize="15"/>
+                                    <Button x:Name="btnAddHoras" Content="Añadir" Grid.Row="6" Margin="20 10 0 0" Height="50" Width="200"/>
+                                </Grid>
+                            </Border>
+                        
+                        </Grid>
                     </TabItem>
                     <TabItem x:Name="tabReport" Header="Report" Margin="-2,79,2,-79">
                         <Grid Background="#E6E6FA">
