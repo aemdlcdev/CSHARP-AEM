@@ -257,6 +257,7 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="domain\Empleado.cs" />
+    <Compile Include="domain\ProyectoEmpleado.cs" />
     <Compile Include="domain\Seguridad.cs" />
     <Compile Include="domain\Usuario.cs" />
     <Compile Include="persistence\DataSet1.cs">
@@ -268,6 +269,7 @@
       <DependentUpon>DataSet1.xsd</DependentUpon>
     </Compile>
     <Compile Include="persistence\manages\EmpleadoManage.cs" />
+    <Compile Include="persistence\manages\ProyectoEmpleadoManage.cs" />
     <Compile Include="persistence\manages\UsuarioManage.cs" />
     <Compile Include="view\CrystalReport1.cs">
       <AutoGen>True</AutoGen>

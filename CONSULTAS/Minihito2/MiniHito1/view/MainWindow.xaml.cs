@@ -1,8 +1,5 @@
 ﻿using MiniHito1.domain;
-using MiniHito1.persistence.manages;
 using MiniHito1.view;
-using MiniHito1.view.pages;
-using Org.BouncyCastle.Utilities;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -16,11 +13,13 @@ namespace MiniHito1
         private List<Proyectos> listaProyectos;
         private List<Usuario> listaUsuarios;
         private Usuario usuario;
-        private List<String> nameUsers;
         private Usuario usuarioEmpleado; 
         private List<Empleado> listaEmpleados;
         private Empleado empleado;
-
+        private Empleado empleadoHorasSelected;
+        private Proyectos proyectoSelected;
+        private ProyectoEmpleado proyectoEmpleado;
+        private List<ProyectoEmpleado> listaProyectoEmpleado;
         private DataTable dt;
 
         public MainWindow()
@@ -39,21 +38,36 @@ namespace MiniHito1
 
             btnModifyUser.IsEnabled = false;
 
-            nameUsers = new List<String>();
+            /*
+             * =============================
+                Selecciones de los combox
+             * =============================
+             */
+
             usuarioEmpleado = new Usuario();
-
-            foreach(Usuario usuario in listaUsuarios)
-            {
-                nameUsers.Add(usuario.nombre);
-            }
-
-            cbxUsuarios.ItemsSource = nameUsers;
+            empleadoHorasSelected = new Empleado();
+            proyectoSelected = new Proyectos();
 
             //Empleados
             empleado = new Empleado();
             listaEmpleados = new List<Empleado>();
             listaEmpleados = empleado.LeerEmpleados();
             dataGridEmpleados.ItemsSource = listaEmpleados;
+
+            //ProyectoEmpleado
+
+            proyectoEmpleado = new ProyectoEmpleado();
+            listaProyectoEmpleado = proyectoEmpleado.LeerProyectoEmpleado();
+
+            /*
+             ================================
+             Cargar los datos en los combobox
+             ================================
+             */
+
+            cbxProyectos.ItemsSource = listaProyectos;
+            cbxUsuarios.ItemsSource = listaUsuarios;
+            cbxEmpleados.ItemsSource = listaEmpleados;
 
         }
 
@@ -182,11 +196,7 @@ namespace MiniHito1
             listaUsuarios.Clear();
             listaUsuarios = usuario.LeerUsuarios();
             dataGridUsers.ItemsSource = listaUsuarios;
-            nameUsers.Clear();
-            foreach (Usuario usuario in listaUsuarios)
-            {
-                nameUsers.Add(usuario.nombre);
-            }
+
         }
 
         private void RefrescarEmple()
@@ -227,10 +237,10 @@ namespace MiniHito1
         {
             if (cbxUsuarios.SelectedItem != null)
             {
-                string nombre = (String)cbxUsuarios.SelectedItem;
+                Usuario usuario = (Usuario)cbxUsuarios.SelectedItem;
                 foreach(Usuario user in listaUsuarios)
                 {
-                    if (user.nombre.Equals(nombre))
+                    if (user.nombre.Equals(usuario.nombre))
                     {
                         usuarioEmpleado = user;
                     }
@@ -417,6 +427,43 @@ namespace MiniHito1
         private void btnReport_Click(object sender, RoutedEventArgs e)
         {
             cargarInforme();
+        }
+
+        private void cbxEmpleados_SelectionChanged(object sender, System.Windows.Controls.SelectionChangedEventArgs e)
+        {
+            if (cbxEmpleados.SelectedItem != null)
+            {
+                Empleado empleado = (Empleado)cbxEmpleados.SelectedItem;
+                foreach (Empleado emple in listaEmpleados)
+                {
+                    if (emple.nombre.Equals(empleado.nombre))
+                    {
+                        empleadoHorasSelected = emple;
+                    }
+                }
+            }
+
+
+        }
+
+        private void cbxProyectos_SelectionChanged(object sender, System.Windows.Controls.SelectionChangedEventArgs e)
+        {
+            if (cbxUsuarios.SelectedItem != null)
+            {
+                Proyectos proyecto = (Proyectos)cbxUsuarios.SelectedItem;
+                foreach (Proyectos proy in listaProyectos)
+                {
+                    if (proy.Codigopy.Equals(proyecto.Codigopy))
+                    {
+                        proyectoSelected = proy;
+                    }
+                }
+            }
+        }
+
+        private void btnAddHoras_Click(object sender, RoutedEventArgs e)
+        {
+
         }
     }
 }

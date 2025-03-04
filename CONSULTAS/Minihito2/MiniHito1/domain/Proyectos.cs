@@ -104,6 +104,10 @@ namespace MiniHito1.domain
 
         }
 
+        public override string ToString()
+        {
+            return this.Codigopy;
+        }
 
     }
 }

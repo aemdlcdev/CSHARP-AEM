@@ -59,5 +59,10 @@ namespace MiniHito1.domain
             em.EliminarEmpleado(empleado);
         }
 
+        override public string ToString()
+        {
+            return this.nombre + " " + this.apellidos;
+        }
+
     }
 }

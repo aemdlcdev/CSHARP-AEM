@@ -55,5 +55,10 @@ namespace MiniHito1.domain
             return usuarioManage.GetIdByName(nombre);
         }
 
+        public override string ToString()
+        {
+            return this.nombre;
+        }
+
     }
 }

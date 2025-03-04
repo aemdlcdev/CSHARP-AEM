@@ -7,7 +7,7 @@
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
         xmlns:Viewer="clr-namespace:SAPBusinessObjects.WPF.Viewer;assembly=SAPBusinessObjects.WPF.Viewer" x:Class="MiniHito1.MainWindow"
         mc:Ignorable="d"
-        Title="GESTPRO" MinHeight="655" MinWidth="1110" Height="655" Width="1110"  WindowStartupLocation="CenterScreen">
+        Title="GESTPRO" MinHeight="700" MinWidth="1110" Height="700" Width="1110"  WindowStartupLocation="CenterScreen">
     <Grid>
         <!--Grid Principal -->
         <Grid.ColumnDefinitions>
@@ -251,29 +251,69 @@
                                 <RowDefinition Height="Auto"/>
                                 <RowDefinition Height="*"/>
                             </Grid.RowDefinitions>
-                            <Label Content="Gestión horas de empleados" HorizontalAlignment="Left" Margin="15 0 0 0" FontSize="40" FontWeight="Bold"/>
 
-                            <Border Background="Violet" Grid.Row="1" Width="300" Height="350" Margin="10 10 0 10" HorizontalAlignment="Left" CornerRadius=" 20 ">
-                                <Grid Margin="27">
-                                    <Grid.RowDefinitions>
-                                        <RowDefinition Height="25"/>
-                                        <RowDefinition Height="50"/>
-                                        <RowDefinition Height="25"/>
-                                        <RowDefinition Height="50"/>
-                                        <RowDefinition Height="25"/>
-                                        <RowDefinition Height="50"/>
-                                        <RowDefinition Height="70"/>
-                                    </Grid.RowDefinitions>
-                                    <TextBlock Text="Nombre empleado" FontSize="20"/>
-                                    <ComboBox x:Name="cbxEmpleados" Grid.Row="1" Margin="0 10 0 0"/>
-                                    <TextBlock Text="Horas trabajadas" Grid.Row="2" FontSize="20"/>
-                                    <TextBox x:Name="txtHoras" Grid.Row="3" Margin="0 10 0 0" FontSize="15"/>
-                                    <TextBlock Text="Día trabajado (dd/mm/yyyy)" FontSize="20" Grid.Row="4"/>
-                                    <TextBox x:Name="txtDia" Grid.Row="5" Margin="0 10 0 0" FontSize="15"/>
-                                    <Button x:Name="btnAddHoras" Content="Añadir" Grid.Row="6" Margin="20 10 0 0" Height="50" Width="200"/>
+
+                            <Grid>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="70"/>
+                                    <RowDefinition Height="*"/>
+                                </Grid.RowDefinitions>
+
+
+                                <Label Content="Gestión empleados por proyecto" HorizontalAlignment="Left" Margin="15 0 0 0" FontSize="40" FontWeight="Bold"/>
+                                <Grid Grid.Row="1">
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="Auto"/>
+                                        <ColumnDefinition Width="*"/>
+                                    </Grid.ColumnDefinitions>
+                                    <Grid Margin="27" Grid.Column="0">
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="Auto"/>
+                                            <ColumnDefinition Width="*"/>
+                                        </Grid.ColumnDefinitions>
+                                        <Grid.RowDefinitions>
+                                            <RowDefinition Height="25"/>
+                                            <RowDefinition Height="50"/>
+                                            <RowDefinition Height="25"/>
+                                            <RowDefinition Height="50"/>
+                                            <RowDefinition Height="25"/>
+                                            <RowDefinition Height="50"/>
+                                            <RowDefinition Height="25"/>
+                                            <RowDefinition Height="50"/>
+                                            <RowDefinition Height="25"/>
+                                            <RowDefinition Height="50"/>
+                                            <RowDefinition Height="70"/>
+                                        </Grid.RowDefinitions>
+                                        <TextBlock Text="Nombre empleado" FontSize="18"/>
+                                        <ComboBox x:Name="cbxEmpleados" FontSize="14" Grid.Row="1" Margin="0 10 0 0" SelectionChanged="cbxEmpleados_SelectionChanged"/>
+                                        <TextBlock Text="Proyecto" Grid.Row="2" FontSize="18"/>
+                                        <ComboBox x:Name="cbxProyectos" FontSize="14" Grid.Row="3" Margin="0 10 0 0" SelectionChanged="cbxProyectos_SelectionChanged"/>
+                                        <TextBlock Text="Horas trabajadas" Grid.Row="4" FontSize="18"/>
+                                        <TextBox x:Name="txtHoras" Grid.Row="5" Margin="0 10 0 0" FontSize="15"/>
+                                        <TextBlock Text="Día trabajado (dd/mm/yyyy)" FontSize="18" Grid.Row="6"/>
+                                        <TextBox x:Name="txtDia" Grid.Row="7" Margin="0 10 0 0" FontSize="15"/>
+                                        <TextBlock Text="Costes" FontSize="18" Grid.Row="8"/>
+                                        <TextBox x:Name="txtCoste" Grid.Row="9" Margin="0 10 0 0" FontSize="15"/>
+                                        <Button x:Name="btnAddHoras" Content="Añadir" Grid.Row="10" Margin="10 0 0 0" Height="40" Width="200" Click="btnAddHoras_Click"/>
+
+                                    </Grid>
+
+                                    <DataGrid x:Name="dataGridProyectosEmpleados" Grid.Column="1" Margin="27" AutoGenerateColumns="False" IsReadOnly="True" >
+                                        <DataGrid.Columns>
+                                            <DataGridTextColumn Header="Id" Binding="{Binding idEmpleado}" Visibility="Hidden" Width="2"/>
+                                            <DataGridTextColumn Header="ID Proyecto" Binding="{Binding nombre}" Width="110"/>
+                                            <DataGridTextColumn Header="ID Empleado" Binding="{Binding apellidos}" Width="110"/>
+                                            <DataGridTextColumn Header="FECHA" Binding="{Binding csr}"/>
+                                            <DataGridTextColumn Header="COSTES" Binding="{Binding idUsuario}" Visibility="Hidden"/>
+                                            <DataGridTextColumn Header="HORAS" Binding="{Binding idRol}"/>
+                                        </DataGrid.Columns>
+                                    </DataGrid>
                                 </Grid>
-                            </Border>
-                        
+
+                            </Grid>
+
+
+
                         </Grid>
                     </TabItem>
                     <TabItem x:Name="tabReport" Header="Report" Margin="-2,79,2,-79">
@@ -282,7 +322,7 @@
                                 <RowDefinition Height="Auto"/>
                                 <RowDefinition Height="*"/>
                             </Grid.RowDefinitions>
-                            
+
                             <Label Content="Estadisticas" FontSize="20" FontWeight="Bold"/>
                             <Button x:Name="btnReport" Margin="500 0 0 0" Content="Cargar" Width="150" Click="btnReport_Click"/>
                             <Viewer:CrystalReportsViewer Name="visor" Grid.Row="1" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
