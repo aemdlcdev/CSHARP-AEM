@@ -1,0 +1,15 @@
+C:\Users\Alejandro\Documents\GitHub\DI-AEM\PruebaPractica\PruebaPractica\obj\Debug\net8.0\PruebaPractica.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Alejandro\Documents\GitHub\DI-AEM\PruebaPractica\PruebaPractica\obj\Debug\net8.0\PruebaPractica.AssemblyInfoInputs.cache
+C:\Users\Alejandro\Documents\GitHub\DI-AEM\PruebaPractica\PruebaPractica\obj\Debug\net8.0\PruebaPractica.AssemblyInfo.cs
+C:\Users\Alejandro\Documents\GitHub\DI-AEM\PruebaPractica\PruebaPractica\obj\Debug\net8.0\PruebaPractica.csproj.CoreCompileInputs.cache
+C:\Users\Alejandro\Documents\GitHub\DI-AEM\PruebaPractica\PruebaPractica\obj\Debug\net8.0\PruebaPractica.sourcelink.json
+C:\Users\Alejandro\Documents\GitHub\DI-AEM\PruebaPractica\PruebaPractica\bin\Debug\net8.0\PruebaPractica.exe
+C:\Users\Alejandro\Documents\GitHub\DI-AEM\PruebaPractica\PruebaPractica\bin\Debug\net8.0\PruebaPractica.deps.json
+C:\Users\Alejandro\Documents\GitHub\DI-AEM\PruebaPractica\PruebaPractica\bin\Debug\net8.0\PruebaPractica.runtimeconfig.json
+C:\Users\Alejandro\Documents\GitHub\DI-AEM\PruebaPractica\PruebaPractica\bin\Debug\net8.0\PruebaPractica.dll
+C:\Users\Alejandro\Documents\GitHub\DI-AEM\PruebaPractica\PruebaPractica\bin\Debug\net8.0\PruebaPractica.pdb
+C:\Users\Alejandro\Documents\GitHub\DI-AEM\PruebaPractica\PruebaPractica\obj\Debug\net8.0\PruebaPractica.dll
+C:\Users\Alejandro\Documents\GitHub\DI-AEM\PruebaPractica\PruebaPractica\obj\Debug\net8.0\refint\PruebaPractica.dll
+C:\Users\Alejandro\Documents\GitHub\DI-AEM\PruebaPractica\PruebaPractica\obj\Debug\net8.0\PruebaPractica.pdb
+C:\Users\Alejandro\Documents\GitHub\DI-AEM\PruebaPractica\PruebaPractica\obj\Debug\net8.0\PruebaPractica.genruntimeconfig.cache
+C:\Users\Alejandro\Documents\GitHub\DI-AEM\PruebaPractica\PruebaPractica\obj\Debug\net8.0\ref\PruebaPractica.dll
