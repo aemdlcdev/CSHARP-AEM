@@ -102,15 +102,36 @@ int ContarPalabras(string str)
 
 bool EsPrimo(int num)
 {
-    bool esPrimo = true;
+    // Los numeros primos son aquellos que unicamente se pueden dividir entre el mismo y 1
+    // El 0 y el 1 no son numeros primos
 
-    return esPrimo;
+    if (num < 2) 
+    {
+        return false;
+    }
+
+    for (int i = 2; i < num; i++) 
+    {
+        if (num % i == 0) 
+        {
+            return false;
+        }
+    }
+
+    return true; 
 }
+
+/*
+ *******************************
+ ***  PRUEBA DE LOS METODOS  ***
+ *******************************
+ */
 
 //Console.WriteLine(EsParOImpar(3));
 //Console.WriteLine("El resultado de la suma de todos los elementos de la lista es: " + SumarLista(lista));
 //Console.WriteLine("El factorial de " + numero + " es " + Factorial(numero));
 //Console.WriteLine("La frase " + frase + " tiene un total de " + ContarLetras(frase, letra) + " " + letra); 
 //Console.WriteLine(InvertirCadena(frase));
-Console.WriteLine(ContarPalabras(frase));
+//Console.WriteLine(ContarPalabras(frase));
+//Console.WriteLine(EsPrimo(97));
 Console.ReadKey();
